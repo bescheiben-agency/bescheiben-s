@@ -3,31 +3,70 @@ import Button from './Button.astro';
 import HeroVisual from './HeroVisual.astro';
 import CapabilityVisual from './CapabilityVisual.astro';
 import type { ArtworkKey } from '../data/artwork';
+
 interface Action { label:string; href:string; variant?:'primary'|'secondary'|'inverse'|'text'; }
 interface Props { eyebrow?:string; title:string|string[]; supportingCopy?:string[]; actions?:Action[]; tone?:'light'|'inverse'; artwork?:ArtworkKey; layout?:'copy-left'|'copy-right'|'center'; priority?:boolean; id?:string; }
-const { title, supportingCopy=[], actions=[], id }=Astro.props;
+
+const { eyebrow, title, supportingCopy=[], actions=[], id }=Astro.props;
 const home=id==='promessa';
 const lines=Array.isArray(title)?title:[title];
-const path=Astro.url.pathname;
-const visual=path.includes('branding')?'layers':path.includes('marketing')?'flow':path.includes('digital')?'interface':path.includes('tecnologia')?'ring':'orbit';
+const homeWords=home?lines.join(' ').trim().split(/\s+/):[];
+const homeFirstCount=Math.ceil(Math.max(0,homeWords.length-2)/2);
+const homeTitleParts=[
+  homeWords.slice(0,homeFirstCount).join(' '),
+  homeWords.slice(homeFirstCount,-2).join(' '),
+  homeWords.slice(-2).join(' '),
+].filter(Boolean);
+const route=Astro.url.pathname.replace(/\/$/, '') || '/';
+const service=['/estrategia','/branding','/marketing','/digital','/tecnologia'].includes(route);
+const editorial=['/sobre','/insights'].includes(route);
+const reverse=['/marketing','/tecnologia','/sobre'].includes(route);
+const visual=route==='/branding'||route==='/sobre'?'layers':route==='/marketing'?'flow':route==='/digital'?'interface':route==='/tecnologia'?'ring':route==='/insights'?'signal':'orbit';
+const lead=home||supportingCopy.length<=3?supportingCopy:supportingCopy.slice(0,1);
+const continuation=home||supportingCopy.length<=3?[]:supportingCopy.slice(1);
 ---
-<section id={id} class:list={['page-hero',home&&'page-hero--home']}>
+<section id={id} class:list={['page-hero',home&&'page-hero--home',service&&'page-hero--service',editorial&&'page-hero--editorial',reverse&&'page-hero--reverse']}>
   <div class="hero-plane" aria-hidden="true"></div>
   <div class="container hero-composition">
     <div class="page-hero__content">
-      <h1>{home?<><span>Mais que</span>{' '}<span>marketing,</span>{' '}<em>um sistema.</em></>:lines.map((line,index)=><>{index>0&&' '}<span>{line}</span></>)}</h1>
-      <div class="hero-support">{supportingCopy.map(paragraph=><p>{paragraph}</p>)}</div>
+      {eyebrow&&<p class="hero-eyebrow"><span aria-hidden="true"></span>{eyebrow}</p>}
+      <h1>{home?homeTitleParts.map((part,index)=>index===homeTitleParts.length-1?<em>{part}</em>:<span>{part}</span>):lines.map((line,index)=><>{index>0&&' '}<span>{line}</span></>)}</h1>
+      <div class="hero-support">{lead.map(paragraph=><p>{paragraph}</p>)}</div>
       {actions.length>0&&<div class="hero-actions">{actions.map((action,i)=><Button href={action.href} variant={i===0?'inverse':'text'}>{action.label}</Button>)}</div>}
       {home&&<a class="hero-scroll" href="#antes-da-solucao"><span aria-hidden="true">↓</span>Entender. Decidir. Construir.</a>}
       <slot />
     </div>
-    <div class="hero-art" data-ambient>{home?<HeroVisual/>:<CapabilityVisual kind={visual} id={`page-${visual}`} />}</div>
+    <div class="hero-art" data-ambient aria-hidden="true">
+      <div class="hero-art__field">{home?<HeroVisual/>:<CapabilityVisual kind={visual} id={'page-'+visual} />}</div>
+      {!home&&<><span class="hero-art__axis"></span><span class="hero-art__point"></span></>}
+    </div>
   </div>
+  {continuation.length>0&&<div class="container hero-continuation" aria-label="Contexto da página">
+    {continuation.map(paragraph=><p class:list={[paragraph.length<72?'hero-continuation__fragment':'hero-continuation__sentence']}>{paragraph}</p>)}
+  </div>}
 </section>
 <style>
-.page-hero{position:relative;isolation:isolate;overflow:hidden;background:var(--bg-dark);color:var(--text-inverse);padding-block:clamp(3rem,5vw,5rem)}.hero-composition{display:grid;grid-template-columns:minmax(0,.92fr) minmax(0,1.1fr);align-items:center;gap:2rem}.hero-plane{position:absolute;inset:0;z-index:-1;background:radial-gradient(ellipse at 78% 30%,#3e1f6722,transparent 60%)}.hero-plane::before,.hero-plane::after{content:'';position:absolute;width:42vw;height:42vw;border:1px solid #9d6dde22;border-radius:50%;right:-15vw;bottom:-37vw;box-shadow:0 0 0 5vw #7745a909}.hero-plane::after{right:auto;bottom:auto;left:-29vw;top:-39vw;width:70vw;height:55vw;background:linear-gradient(135deg,#49218370,transparent)}h1{font-size:var(--display-lg);font-weight:400;letter-spacing:-.055em;margin-bottom:1.7rem;max-width:17ch}h1 span{display:block}.page-hero--home h1{font-size:var(--display-xl);line-height:.99;max-width:12ch}.page-hero--home h1 em{display:block;color:#b582fa;font-style:normal}.hero-support{max-width:57ch}.hero-support p{font-size:.95rem;line-height:1.75;color:var(--ink-on-dark)}.hero-support p:first-child{font-size:1.05rem;color:#ddd4e9}.hero-actions{display:flex;flex-wrap:wrap;align-items:center;gap:.75rem 1.5rem;margin-top:1.8rem}.hero-actions :global(.button--text){color:#e2d6f7}.hero-art{position:relative;margin-inline:-4% -9%;align-self:stretch;display:flex;align-items:center}.hero-art :global(svg){width:100%;max-height:620px}.hero-scroll{display:inline-flex;gap:.8rem;align-items:center;min-height:44px;margin-top:1.5rem;font-size:.75rem;color:#a699b9;text-decoration:none}.hero-scroll span{display:grid;place-items:center;border:1px solid #83719d;border-radius:50%;width:28px;height:38px}.page-hero__content{animation:soft-arrival 650ms var(--ease-premium) both}
-@media(min-width:1600px){.hero-art{margin-inline:-2% -6%}.hero-support{max-width:52ch}}
-@media(max-width:64rem){.hero-composition{grid-template-columns:1fr 1fr;gap:1rem}.page-hero--home h1{font-size:clamp(3rem,7.5vw,5rem)}.hero-support p{font-size:.88rem}.hero-art{margin-inline:-10%}.hero-actions{align-items:flex-start;flex-direction:column;gap:.4rem}}
-@media(max-width:44rem){.hero-composition{display:flex;flex-direction:column;gap:0}.page-hero{padding-block:2.75rem 1.5rem}.page-hero--home h1{font-size:clamp(3.25rem,13vw,5rem)}h1{max-width:19ch;font-size:clamp(2.5rem,10vw,3.6rem)}.hero-art{width:100%;margin:-1rem auto 0;max-width:34rem;max-height:360px;overflow:hidden;order:2}.hero-art :global(svg){max-height:360px}.hero-actions{flex-direction:row;align-items:center}.hero-scroll{margin-top:.5rem}.hero-support p{font-size:.9rem}.hero-support p:first-child{font-size:1rem}}
+.page-hero{position:relative;isolation:isolate;overflow:clip;background:var(--bg-dark);color:var(--text-inverse);padding-block:clamp(3rem,5vw,5rem)}
+.hero-plane{position:absolute;inset:0;z-index:-1;pointer-events:none;background:radial-gradient(ellipse at 80% 33%,#4f267a36,transparent 47%)}
+.hero-plane::before{content:'';position:absolute;inset:0;background:linear-gradient(145deg,transparent 58%,#b38be014 58.1%,transparent 58.2%),linear-gradient(25deg,transparent 75%,#b38be00d 75.1%,transparent 75.2%)}
+.hero-composition{display:grid;grid-template-columns:minmax(0,1.07fr) minmax(0,.93fr);align-items:center;gap:clamp(1.5rem,4vw,5rem);min-height:clamp(34rem,54vw,45rem)}
+.page-hero__content{position:relative;z-index:2;min-width:0;animation:soft-arrival 650ms var(--ease-premium) both}
+.hero-eyebrow{display:flex;align-items:center;gap:.9rem;margin:0 0 clamp(1.4rem,3vw,2.25rem);color:#cba7f3;font-size:.7rem;font-weight:700;letter-spacing:.17em;line-height:1.4;text-transform:uppercase}.hero-eyebrow span{display:inline-block;width:2.1rem;height:1px;background:#ad83da;flex:none}
+h1{font-size:clamp(2.8rem,4.4vw,5.15rem);line-height:1.05;font-weight:400;letter-spacing:-.055em;margin:0 0 clamp(1.4rem,3vw,2.5rem);max-width:17ch;text-wrap:balance}
+h1 span{display:block}.page-hero--home h1{font-size:var(--display-xl);line-height:.99;max-width:12ch}.page-hero--home h1 em{display:block;color:#b582fa;font-style:normal}
+.hero-support{max-width:51ch}.hero-support p{font-size:clamp(.98rem,1.14vw,1.1rem);line-height:1.75;color:#d2c8df;margin:0 0 .75rem}.hero-support p:first-child{color:#f1ebf8}
+.hero-actions{display:flex;flex-wrap:wrap;align-items:center;gap:.75rem 1.5rem;margin-top:clamp(1.5rem,2.5vw,2.5rem)}.hero-actions :global(.button--text){color:#e2d6f7}
+.hero-art{position:relative;min-width:0;height:clamp(24rem,42vw,39rem);display:grid;place-items:center;isolation:isolate}.hero-art__field{position:relative;width:100%;height:100%;display:grid;place-items:center;background:radial-gradient(circle at 62% 50%,#6e41ac2b,transparent 48%)}
+.hero-art__field::before,.hero-art__field::after{content:'';position:absolute;inset:9% 2%;border:1px solid #a57ac936;border-radius:50%;transform:rotate(-29deg);pointer-events:none}.hero-art__field::after{inset:20% -4%;transform:rotate(33deg);border-style:dashed;opacity:.65}
+.hero-art__field :global(.cap-visual){position:absolute;inset:0;width:100%;height:100%;filter:drop-shadow(0 15px 35px #6229ac30)}.hero-art__field :global(.hero-visual){position:relative;z-index:1;width:100%}.hero-art__field :global(.hero-visual svg){width:100%;height:auto;max-height:100%}
+.hero-art__axis{position:absolute;left:10%;right:4%;top:50%;border-top:1px solid #baa0d850;transform:rotate(-29deg);pointer-events:none}.hero-art__point{position:absolute;right:12%;top:18%;width:7px;height:7px;border-radius:50%;background:#ead6ff;box-shadow:0 0 0 6px #af7eec24,0 0 30px #ad7ce7}
+.page-hero--reverse .hero-art{grid-column:1;grid-row:1}.page-hero--reverse .page-hero__content{grid-column:2;grid-row:1}
+.page-hero--editorial h1{max-width:15ch}.page-hero--editorial .hero-art__field{background:radial-gradient(circle at 60% 47%,#7a4bb229,transparent 46%)}
+.hero-scroll{display:inline-flex;gap:.8rem;align-items:center;min-height:44px;margin-top:1.5rem;font-size:.75rem;color:#a699b9;text-decoration:none}.hero-scroll span{display:grid;place-items:center;border:1px solid #83719d;border-radius:50%;width:28px;height:38px}
+.hero-continuation{position:relative;display:flex;align-items:stretch;flex-wrap:wrap;gap:.75rem clamp(1rem,2vw,2rem);padding-block:clamp(1.25rem,2.5vw,2.25rem);margin-top:clamp(1.5rem,2.5vw,3rem);border-top:1px solid #9e79bd45}.hero-continuation p{flex:1 1 12rem;max-width:38ch;margin:0;color:#d9cfe7;font-size:clamp(.84rem,1vw,.98rem);line-height:1.6}.hero-continuation__fragment{padding-left:1rem;border-left:1px solid #9d76c49c}.hero-continuation .hero-continuation__sentence{flex-basis:22rem;color:#f2ebfa}
+@media(min-width:100rem){.hero-composition{min-height:43rem}.page-hero--home .hero-art{margin-right:-4%}}
+@media(max-width:72rem){.hero-composition{grid-template-columns:minmax(0,1.1fr) minmax(0,.9fr);gap:1.25rem}.page-hero h1{font-size:clamp(2.65rem,4.6vw,4.2rem)}.page-hero--home h1{font-size:clamp(3.4rem,7vw,5.4rem)}.hero-art{height:clamp(22rem,41vw,31rem)}}
+@media(max-width:58rem){.hero-composition{grid-template-columns:1fr;min-height:0;gap:1rem}.page-hero--reverse .hero-art,.page-hero--reverse .page-hero__content{grid-column:auto;grid-row:auto}.page-hero h1{max-width:19ch;font-size:clamp(2.8rem,6.2vw,4.4rem)}.page-hero--home h1{max-width:12ch}.hero-art{height:clamp(20rem,55vw,31rem);width:min(100%,43rem);margin-inline:auto}.hero-continuation{margin-top:1rem}}
+@media(max-width:40rem){.page-hero{padding-block:2.75rem 2rem}.page-hero h1{font-size:clamp(2.65rem,10.2vw,3.9rem);max-width:16ch}.page-hero--home h1{font-size:clamp(3.25rem,13vw,5rem)}.hero-support p{font-size:.96rem}.hero-art{height:clamp(17rem,74vw,26rem);margin-block:.4rem 0}.hero-art__field::before{inset:12% 4%}.hero-art__field::after{inset:23% 2%}.hero-art__field :global(.cap-visual){height:100%;max-height:none}.hero-actions{gap:.5rem 1.25rem}.hero-scroll{margin-top:.5rem}.hero-continuation{gap:.7rem 1rem}.hero-continuation p{flex-basis:45%;font-size:.85rem}.hero-continuation .hero-continuation__sentence{flex-basis:100%}}
+@media(prefers-reduced-motion:reduce){.page-hero__content{animation:none}}
 </style>
-

@@ -1,34 +1,145 @@
 ---
-import type {ContentSection,CallToAction} from '../content/site-content';
-import {parseMasterMarkdown} from '../utils/master-markdown';
+import type { ContentSection, CallToAction } from '../content/site-content';
+import { parseMasterMarkdown } from '../utils/master-markdown';
 import CopyBlocks from './CopyBlocks.astro';
 import CapabilityVisual from './CapabilityVisual.astro';
 import OrbitalSystem from './OrbitalSystem.astro';
-interface Props{section:ContentSection;index:number;route:string;ctas?:readonly CallToAction[];}
-const {section,index,route,ctas=[]}=Astro.props;
+
+interface Props { section:ContentSection; index:number; route:string; ctas?:readonly CallToAction[]; }
+const { section,index,route,ctas=[] }=Astro.props;
 const blocks=parseMasterMarkdown(section.body);
-const titleIndex=blocks.findIndex(b=>b.type==='heading');
+const titleIndex=blocks.findIndex(block=>block.type==='heading');
 const internalMarker=/^SEÇÃO\s+\d+/i.test(section.heading);
 const title=internalMarker&&titleIndex>=0&&'text' in blocks[titleIndex]?blocks[titleIndex].text:section.heading;
-const content=blocks.filter((b,i)=>!(internalMarker&&i===titleIndex)&&!(b.type==='eyebrow'&&i===0)&&!('text'in b&&['FECHO','MAPA DO SISTEMA','↓'].includes(b.text.toUpperCase())));
-const system=section.id==='um-unico-sistema';
-const stages=system?content.filter(b=>b.type==='statement'&&'text'in b&&b.text===b.text.toUpperCase()):[];
-const prose=system?content.filter(b=>!stages.includes(b)):content;
-const dark=system||(route==='/'&&['nosso-ponto-de-vista','inteligencia-artificial'].includes(section.id));
+const content=blocks.filter((block,i)=>
+  !(i===titleIndex&&block.type==='heading'&&block.text===title) &&
+  !(block.type==='eyebrow'&&i===0) &&
+  !('text' in block&&['FECHO','MAPA DO SISTEMA','↓'].includes(block.text.toUpperCase()))
+);
+const system=route==='/'&&section.id==='um-unico-sistema';
+const stages=system?content.filter(block=>block.type==='statement'&&'text' in block&&block.text===block.text.toUpperCase()):[];
+const prose=system?content.filter(block=>!stages.includes(block)):content;
+const markerIndex=system?prose.findIndex(block=>block.type==='eyebrow'&&block.text.toLowerCase()==='sistema bescheiben'):-1;
+const systemIntro=markerIndex>=0?prose.slice(0,markerIndex):prose;
+const systemClosing=markerIndex>=0?prose.slice(markerIndex+1):[];
+const illustrated=['branding','marketing','digital','inteligencia-artificial'].includes(section.id)||(route!=='/'&&index===0);
+const spotlight=['competicao','falta-de-conteudo','mais-do-que-interface','estrategia-nao-e-lista','nossa-visao-sobre-ia','nossa-crenca'].includes(section.id);
+const dark=system||spotlight||(route==='/'&&['nosso-ponto-de-vista','inteligencia-artificial'].includes(section.id));
+const compact=!system&&!illustrated&&content.length<=3;
+const sequence=!system&&content.filter(block=>block.type==='paragraph'&&block.text.length<100).length>=4;
+const reverse=!system&&!illustrated&&index%3===2;
 const visual=route.includes('branding')||section.id==='branding'?'layers':route.includes('marketing')||section.id==='marketing'?'flow':route.includes('digital')||section.id==='digital'?'interface':route.includes('tecnologia')||section.id==='inteligencia-artificial'?'ring':'orbit';
-const illustrated=['branding','marketing','digital','inteligencia-artificial'].includes(section.id)||index===0;
+const nodes=[
+  {x:280,y:82},{x:420,y:130},{x:478,y:268},{x:425,y:410},
+  {x:280,y:478},{x:135,y:410},{x:82,y:268},{x:140,y:130},
+];
 ---
-<section id={section.id} data-copy-section={section.id} class:list={['master-section',dark&&'master-section--inverse',system&&'master-section--system',illustrated&&'master-section--illustrated']}>
- <div class="container">
-  <div class="section-composition">
-   <header><h2>{title}</h2>{illustrated&&<div class="section-visual" data-ambient><CapabilityVisual kind={visual} id={`visual-${section.id}`}/></div>}</header>
-   <div class="copy-prose"><CopyBlocks blocks={prose} ctas={ctas}/></div>
+<section id={section.id} data-copy-section={section.id} class:list={['master-section',dark&&'master-section--inverse',system&&'master-section--system',illustrated&&'master-section--illustrated',spotlight&&'master-section--spotlight',compact&&'master-section--compact',sequence&&'master-section--sequence',reverse&&'master-section--reverse']}>
+  <div class="container">
+    {system?<>
+      <div class="system-intro">
+        <h2>{title}</h2>
+        <div class="system-intro__copy"><CopyBlocks blocks={systemIntro} ctas={ctas}/></div>
+      </div>
+      <div class="system-journey" data-system-journey>
+        <div class="system-network" aria-hidden="true">
+          <svg viewBox="0 0 560 560" fill="none">
+            <circle class="system-network__halo" cx="280" cy="280" r="212"/>
+            {nodes.slice(0,stages.length).map((node,i)=><line class="system-network__spoke" data-system-spoke={i} x1="280" y1="280" x2={node.x} y2={node.y}/>)}
+            <path class="system-network__track" d="M280 82L420 130L478 268L425 410L280 478L135 410L82 268L140 130"/>
+            <path class="system-network__progress" data-system-progress pathLength="100" d="M280 82L420 130L478 268L425 410L280 478L135 410L82 268L140 130"/>
+            {nodes.slice(0,stages.length).map((node,i)=><circle class="system-network__node" data-system-node={i} cx={node.x} cy={node.y} r="5"/>)}
+          </svg>
+          <div class="system-network__core"><img src="/brand/symbol-white.svg" width="88" height="88" alt=""/></div>
+        </div>
+        <div class="system-stages" aria-label="Elementos do sistema Bescheiben">
+          {stages.map(block=><div class="system-stage" data-system-step>
+            <span class="system-stage__point" aria-hidden="true"></span>
+            <h3>{'text' in block?block.text:''}</h3>
+          </div>)}
+        </div>
+      </div>
+      {systemClosing.length>0&&<div class="system-closing"><CopyBlocks blocks={systemClosing} ctas={ctas}/></div>}
+      <div class="system-orbital"><OrbitalSystem/></div>
+    </>:<>
+      <div class="section-composition">
+        <header>
+          <h2>{title}</h2>
+          {illustrated&&<div class="section-visual" data-ambient><CapabilityVisual kind={visual} id={'visual-'+section.id}/></div>}
+        </header>
+        <div class="copy-prose"><CopyBlocks blocks={content} ctas={ctas}/></div>
+      </div>
+    </>}
   </div>
-  {system&&<><div class="system-flow">{stages.map(b=>'text'in b&&<span>{b.text}</span>)}</div><OrbitalSystem/></>}
- </div>
 </section>
+<script>
+  document.querySelectorAll<HTMLElement>('[data-system-journey]').forEach(journey=>{
+    const steps=[...journey.querySelectorAll<HTMLElement>('[data-system-step]')];
+    const nodes=[...journey.querySelectorAll<SVGElement>('[data-system-node]')];
+    const spokes=[...journey.querySelectorAll<SVGElement>('[data-system-spoke]')];
+    const progress=journey.querySelector<SVGPathElement>('[data-system-progress]');
+    if(!steps.length||!progress)return;
+    let frame=0;
+    let active=-1;
+    const update=()=>{
+      frame=0;
+      const line=Math.min(window.innerHeight*.55,460);
+      let next=0;
+      steps.forEach((step,i)=>{if(step.getBoundingClientRect().top<=line)next=i;});
+      if(next===active)return;
+      active=next;
+      steps.forEach((step,i)=>step.classList.toggle('is-active',i===active));
+      nodes.forEach((node,i)=>node.classList.toggle('is-active',i<=active));
+      spokes.forEach((spoke,i)=>spoke.classList.toggle('is-active',i<=active));
+      progress.style.strokeDashoffset=String(100-(active/Math.max(1,steps.length-1))*100);
+    };
+    const schedule=()=>{if(!frame)frame=requestAnimationFrame(update);};
+    window.addEventListener('scroll',schedule,{passive:true});
+    window.addEventListener('resize',schedule);
+    schedule();
+  });
+</script>
 <style>
-.master-section{padding-block:var(--section-space);background:var(--bg-paper);position:relative;isolation:isolate}.master-section:nth-child(even){background:var(--bg-light)}.master-section--inverse,.master-section--inverse:nth-child(even){background:var(--bg-dark);color:var(--text-inverse)}.section-composition{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.08fr);gap:clamp(2rem,6vw,7rem)}header h2{max-width:22ch}.copy-prose{max-width:68ch}.copy-prose :global(p){font-size:.98rem;color:var(--text-secondary);line-height:1.8}.copy-prose :global(h3){font-family:var(--font-body);font-size:1.3rem;letter-spacing:-.035em;margin-block:2rem 1rem}.copy-prose :global(.copy-statement){font-size:clamp(1.5rem,2.5vw,2.4rem);color:var(--text-primary);line-height:1.3;letter-spacing:-.04em;margin:1.5rem 0}.copy-prose :global(ul),.copy-prose :global(ol){padding:0;list-style:none;display:flex;flex-wrap:wrap;gap:.5rem .8rem;margin-block:1.5rem}.copy-prose :global(li){padding:.5rem .8rem;border:1px solid var(--border-default);border-radius:.35rem;font-size:.85rem}.copy-prose :global(.copy-action){margin-block:1rem}.master-section--inverse .copy-prose :global(p){color:var(--ink-on-dark)}.master-section--inverse .copy-prose :global(.copy-statement){color:var(--text-inverse)}.master-section--inverse :global(.button--text){color:var(--purple-lavender)}.master-section--inverse .copy-prose :global(li){border-color:#72508066}.section-visual{height:200px;width:min(100%,400px);margin-top:2rem;border-radius:var(--radius-lg);background:var(--bg-dark);overflow:hidden}.section-visual :global(svg){width:100%;height:100%;object-fit:contain}.master-section--system .section-composition{grid-template-columns:1fr 1fr;margin-bottom:2rem}.master-section--system header h2{max-width:21ch}.system-flow{display:flex;align-items:center;flex-wrap:wrap;gap:1rem;padding-block:1.5rem;margin-bottom:2rem;border-block:1px solid #6a438746}.system-flow span{display:inline-flex;align-items:center;gap:1rem;font-size:.8rem;letter-spacing:.02em;color:#c9afdF}.system-flow span:not(:last-child)::after{content:'';width:1.7rem;height:1px;background:#8661aa}
-@media(min-width:75rem){.section-composition>header{position:sticky;top:7rem;align-self:start}}
-@media(max-width:48rem){.section-composition,.master-section--system .section-composition{grid-template-columns:minmax(0,1fr);gap:1.5rem}.section-visual{height:160px}.section-composition>header h2{max-width:100%;margin-bottom:1rem}.system-flow{gap:.7rem}.system-flow span{font-size:.72rem}.copy-prose :global(p){font-size:.95rem}}
+.master-section{position:relative;isolation:isolate;padding-block:clamp(4.5rem,8vw,8.5rem);background:var(--bg-paper)}
+.master-section:nth-child(even){background:var(--bg-light)}
+.master-section--inverse,.master-section--inverse:nth-child(even){background:var(--bg-dark);color:var(--text-inverse)}
+.section-composition{display:grid;grid-template-columns:minmax(0,.95fr) minmax(0,1.05fr);gap:clamp(2rem,6vw,8rem);align-items:start}
+.section-composition>header{min-width:0}.section-composition h2{max-width:22ch;margin:0;font-size:clamp(2.1rem,3.45vw,3.8rem);line-height:1.1;text-wrap:balance}
+.copy-prose{min-width:0;max-width:65ch;padding-top:.35rem}
+.copy-prose :global(p){font-size:clamp(.98rem,1.1vw,1.125rem);color:var(--text-secondary);line-height:1.8;margin-bottom:1.25rem}
+.copy-prose :global(h3){font-family:var(--font-body);font-size:clamp(1.1rem,1.6vw,1.55rem);letter-spacing:-.035em;margin-block:2.5rem 1rem}
+.copy-prose :global(.copy-statement){font-family:var(--font-display);font-size:clamp(1.5rem,2.5vw,2.55rem);color:var(--text-primary);line-height:1.28;letter-spacing:-.04em;margin:2rem 0}
+.copy-prose :global(ul),.copy-prose :global(ol){padding:0;list-style:none;display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,14rem),1fr));gap:0 1.5rem;margin-block:2rem}
+.copy-prose :global(li){padding:.9rem 0;border-top:1px solid var(--border-default);font-size:.9rem;line-height:1.55}
+.copy-prose :global(.copy-action){margin-block:1.75rem}
+.master-section--inverse .copy-prose :global(p){color:var(--ink-on-dark)}.master-section--inverse .copy-prose :global(.copy-statement){color:var(--text-inverse)}.master-section--inverse :global(.button--text){color:var(--purple-lavender)}.master-section--inverse .copy-prose :global(li){border-color:#72508066}
+.section-visual{position:relative;width:min(100%,35rem);height:clamp(16rem,26vw,25rem);margin-top:clamp(1.5rem,3vw,3rem);overflow:hidden;background:radial-gradient(ellipse at 60% 50%,#6c3daf42,transparent 48%),linear-gradient(145deg,#1c1130,#0d081a);border:1px solid #b098d533;clip-path:polygon(0 0,100% 0,100% 87%,87% 100%,0 100%)}
+.section-visual:before{content:'';position:absolute;z-index:1;inset:13% 9%;border:1px solid #bd95e125;border-radius:50%;pointer-events:none}
+.section-visual :global(svg){position:absolute;inset:0;width:100%;height:100%;transform:scale(1.08);transform-origin:center}
+.master-section--reverse .section-composition>header{grid-column:2;grid-row:1}.master-section--reverse .section-composition>.copy-prose{grid-column:1;grid-row:1}
+.master-section--spotlight{background:radial-gradient(ellipse at 85% 12%,#4826694d,transparent 46%),var(--bg-dark)}
+.master-section--spotlight .section-composition{grid-template-columns:minmax(0,1.1fr) minmax(0,.9fr)}.master-section--spotlight h2{font-size:clamp(2.7rem,4.8vw,5.5rem);max-width:17ch}.master-section--spotlight .copy-prose :global(p){font-size:clamp(1.1rem,1.45vw,1.4rem);line-height:1.65}
+.master-section--compact{padding-block:clamp(3.75rem,6vw,6.5rem)}.master-section--compact .copy-prose :global(p:first-child){font-size:clamp(1.15rem,1.65vw,1.55rem);line-height:1.58;color:var(--text-primary)}
+.master-section--compact.master-section--inverse .copy-prose :global(p:first-child){color:var(--text-inverse)}
+.master-section--sequence .copy-prose :global(p){padding-block:.65rem;margin:0;border-bottom:1px solid var(--border-default)}.master-section--sequence.master-section--inverse .copy-prose :global(p){border-color:#b89ad52e}
+.master-section--illustrated .section-composition{grid-template-columns:minmax(0,.95fr) minmax(0,1.05fr)}
+@media(min-width:58rem){.section-composition>header{position:sticky;top:clamp(5.5rem,9vh,8rem);align-self:start}}
+.master-section--system{padding-block:clamp(5rem,9vw,9rem);overflow:clip}
+.system-intro{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,.9fr);gap:clamp(2rem,6vw,7rem);align-items:start;padding-bottom:clamp(2.5rem,5vw,5rem);border-bottom:1px solid #ac80d036}
+.system-intro h2{max-width:19ch;font-size:clamp(2.5rem,4vw,4.65rem);line-height:1.08}.system-intro__copy{max-width:60ch}.system-intro__copy :global(p){font-size:clamp(.98rem,1.18vw,1.13rem);line-height:1.75;color:#c9bcdb}
+.system-journey{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,.68fr);gap:clamp(2rem,5vw,6rem);align-items:start;padding-top:clamp(3rem,6vw,6rem)}
+.system-network{position:sticky;top:clamp(5rem,8vh,7rem);width:min(100%,35rem);aspect-ratio:1;margin-inline:auto;display:grid;place-items:center}
+.system-network svg{width:100%;height:100%;overflow:visible}.system-network__halo{stroke:#9270b33e;stroke-width:1}.system-network__spoke{stroke:#9a78be37;stroke-width:1;transition:stroke 450ms,stroke-width 450ms}.system-network__spoke.is-active{stroke:#b48aeb9a;stroke-width:1.5}
+.system-network__track{stroke:#9a78be4d;stroke-width:1}.system-network__progress{stroke:#d1a6ff;stroke-width:2;stroke-dasharray:100;stroke-dashoffset:100;transition:stroke-dashoffset 600ms var(--ease-premium)}
+.system-network__node{fill:#9f82bb;stroke:#1a0c2d;stroke-width:5;transition:fill 350ms,r 350ms}.system-network__node.is-active{fill:#ead8ff;r:8}
+.system-network__core{position:absolute;width:25%;aspect-ratio:1;border-radius:50%;display:grid;place-items:center;border:1px solid #a57ac971;background:radial-gradient(circle at 30% 20%,#4d2b67,#110a1d 70%);box-shadow:0 0 55px #8147c52b,inset 0 0 24px #a65aff26}.system-network__core img{width:58%;height:auto}
+.system-stages{position:relative;padding-left:clamp(1.4rem,3vw,2.5rem)}.system-stages:before{content:'';position:absolute;top:3rem;bottom:3rem;left:0;width:1px;background:#865cab61}.system-stage{position:relative;display:flex;align-items:center;min-height:clamp(10rem,28vh,15rem);border-bottom:1px solid #ac80d025;opacity:.42;transition:opacity 400ms,transform 400ms}.system-stage.is-active{opacity:1;transform:translateX(.4rem)}.system-stage__point{position:absolute;left:calc(-1 * clamp(1.4rem,3vw,2.5rem) - 4px);top:50%;width:9px;height:9px;border-radius:50%;border:1px solid #c4a0e8;background:var(--bg-dark);transform:translateY(-50%);transition:background 400ms,box-shadow 400ms}.system-stage.is-active .system-stage__point{background:#ead3ff;box-shadow:0 0 0 7px #a46cdd26,0 0 25px #a868e6}
+.system-stage h3{margin:0;font-family:var(--font-display);font-size:clamp(1.6rem,2.3vw,2.6rem);font-weight:400;line-height:1.2;letter-spacing:-.025em;color:#f7efff}
+.system-closing{display:flex;flex-wrap:wrap;gap:.7rem 2rem;padding-block:clamp(2.5rem,5vw,5rem);border-top:1px solid #ac80d036}.system-closing :global(p){font-family:var(--font-display);font-size:clamp(1.5rem,2.4vw,2.7rem);line-height:1.25;margin:0;color:#e7d8f9}.system-closing :global(p:last-child){color:#af80e7}
+.system-orbital{border-top:1px solid #ac80d036;padding-top:clamp(2.5rem,5vw,5rem)}
+@media(max-width:64rem){.section-composition,.master-section--spotlight .section-composition,.master-section--illustrated .section-composition{gap:2rem;grid-template-columns:minmax(0,.9fr) minmax(0,1.1fr)}.system-journey{grid-template-columns:minmax(0,1fr) minmax(0,.85fr);gap:2rem}.system-stage{min-height:11rem}}
+@media(max-width:48rem){.master-section{padding-block:clamp(3.5rem,8vw,5.5rem)}.section-composition,.master-section--spotlight .section-composition,.master-section--illustrated .section-composition{display:flex;flex-direction:column;gap:1.5rem}.section-composition>header{position:static;width:100%}.section-visual{height:clamp(15rem,48vw,22rem);width:100%;max-width:33rem;margin-top:1.5rem}.copy-prose{padding-top:0}.system-intro{grid-template-columns:1fr;gap:1.5rem}.system-intro h2{margin:0}.system-journey{grid-template-columns:minmax(0,.8fr) minmax(0,1fr);gap:1rem}.system-network{top:6rem}.system-stage h3{font-size:clamp(1.3rem,3.1vw,2rem)}}
+@media(max-width:40rem){.section-composition h2{font-size:clamp(2.15rem,8vw,3.1rem)}.master-section--spotlight h2{font-size:clamp(2.6rem,9.5vw,3.8rem)}.system-journey{display:block}.system-network{display:none}.system-stages{padding-left:1.7rem}.system-stages:before{left:0;top:2rem;bottom:2rem}.system-stage{min-height:7.5rem}.system-stage__point{left:-2rem}.system-stage h3{font-size:clamp(1.5rem,6.4vw,2rem)}.system-closing{display:block}.system-closing :global(p+p){margin-top:.65rem}}
+@media(max-width:40rem){.system-journey{display:grid;grid-template-columns:minmax(5.5rem,.45fr) minmax(0,1fr);gap:.75rem}.system-network{display:grid;position:sticky;top:5.5rem;width:100%;max-width:none;margin:0}.system-network__core{width:34%}.system-stages{padding-left:1rem}.system-stage__point{left:calc(-1rem - 4px)}.system-stage{min-height:8rem}.system-stage h3{font-size:clamp(1.15rem,5vw,1.7rem);overflow-wrap:anywhere}}
+@media(prefers-reduced-motion:reduce){.system-network__spoke,.system-network__progress,.system-network__node,.system-stage,.system-stage__point{transition:none}}
 </style>

@@ -40,6 +40,12 @@ npm install
 npm run dev
 ```
 
+## Movimento e origem dos efeitos
+
+O hero usa Three.js para a camada WebGL2 de partículas e órbitas, com SVG como base quando WebGL2 está indisponível ou o usuário prefere movimento reduzido. A faixa roxa usa uma adaptação própria da ideia de velocidade por rolagem do React Bits ScrollVelocity; o canvas de linhas do CTA é uma implementação original inspirada no comportamento público de Reactive Lines do OriginKit. Nenhum código-fonte do OriginKit foi incorporado.
+
+Fontes: [Three.js](https://threejs.org/), [React Bits ScrollVelocity](https://www.reactbits.dev/text-animations/scroll-velocity), [OriginKit Reactive Lines](https://www.originkit.dev/components/reactive-lines).
+
 ## Verificação
 
 ```sh

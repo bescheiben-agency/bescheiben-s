@@ -21,7 +21,7 @@ const final=page.finalCta?extractFinalCta(page.finalCta.body,page.finalCta.ctas.
 const finalActions=page.finalCta?.ctas.filter((c):c is {label:string;href:string}=>Boolean(c.href))??[];
 ---
 <SiteLayout title={page.seo.title} description={page.seo.description} schema={schemasForPage(page)} ogImage="/og-bescheiben.png" ogImageAlt="Composição geométrica roxa da Bescheiben" pageClass={route==='/'?'page-home':`page-${route.slice(1)}`}>
- <PageHero id={route==='/'?'promessa':undefined} title={[...page.hero.heading]} supportingCopy={[...page.hero.supportingCopy]} actions={heroActions}/>
+ <PageHero id={route==='/'?'promessa':undefined} eyebrow={page.hero.eyebrow} title={[...page.hero.heading]} supportingCopy={[...page.hero.supportingCopy]} actions={heroActions}/>
  {route==='/'&&<StrategicMarquee/>}
  <div id={route==='/insights'?'conteudos':undefined} class="master-page__sections">
  {page.sections.map((section,index)=>

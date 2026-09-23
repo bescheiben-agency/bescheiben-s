@@ -12,3 +12,27 @@
   .faq-orbit-card:last-child:nth-child(even):not(.faq-orbit-card--active){flex-grow:0}
   .faq-orbit-lines{opacity:.48}
 }
+
+/* A larger central answer and two soft orbital bodies echo the approved FAQ composition. */
+@media(min-width:75.01rem){
+  .faq-orbit{grid-template-columns:.85fr 1.55fr .85fr;column-gap:1rem}
+}
+.faq-orbit:before,.faq-orbit:after{content:'';position:absolute;z-index:-1;display:block;width:4.5rem;aspect-ratio:1;border-radius:50%;pointer-events:none;background:radial-gradient(circle at 35% 30%,#e5d6ff 3%,#a679e9 28%,#7650bf 65%,#efebff 100%);box-shadow:0 0 25px #8c59da60,inset -12px -10px 20px #43228262;animation:faq-float 7s ease-in-out infinite alternate}
+.faq-orbit:before{left:11%;top:71%}.faq-orbit:after{right:7%;top:35%;width:3.3rem;animation-delay:-3s}
+.faq-orbit-lines{stroke:#9d71d27d}
+.faq-orbit-card--active{min-height:15.5rem;box-shadow:0 0 0 1px #b57df866,0 0 36px #a66bf33d,0 18px 55px #7146a520}
+.faq-orbit-card--active button{font-size:clamp(1.25rem,1.7vw,1.7rem);padding:1.7rem 1.6rem .9rem}
+.faq-orbit-answer{padding:0 1.6rem 1.7rem}
+.faq-orbit-answer p{font-size:clamp(.94rem,1.1vw,1.08rem);line-height:1.65}
+@keyframes faq-float{to{transform:translate3d(8px,-13px,0)}}
+@media(max-width:42rem){.faq-orbit:before,.faq-orbit:after{width:2.6rem;opacity:.65}.faq-orbit:before{left:0;top:55%}.faq-orbit:after{right:1%;top:24%;width:2rem}.faq-orbit-card--active{min-height:0}.faq-orbit-card--active button{font-size:1.3rem;padding:1.4rem 1.25rem .8rem}.faq-orbit-answer{padding:0 1.25rem 1.5rem}}
+@media(prefers-reduced-motion:reduce){.faq-orbit:before,.faq-orbit:after{animation:none}}
+
+/* Four-question pages keep the active answer centered with one card on each side. */
+@media(min-width:42.01rem){
+  .faq-orbit:has(> .faq-orbit-card:nth-child(5):last-child){grid-template-rows:minmax(120px,auto) minmax(245px,auto)}
+  .faq-orbit:has(> .faq-orbit-card:nth-child(5):last-child) .faq-orbit-card--active{grid-column:2;grid-row:2;align-self:center}
+  .faq-orbit:has(> .faq-orbit-card:nth-child(5):last-child) .faq-orbit-card[data-position='0']{grid-column:1;grid-row:2;align-self:center}
+  .faq-orbit:has(> .faq-orbit-card:nth-child(5):last-child) .faq-orbit-card[data-position='1']{grid-column:2;grid-row:1;align-self:end}
+  .faq-orbit:has(> .faq-orbit-card:nth-child(5):last-child) .faq-orbit-card[data-position='2']{grid-column:3;grid-row:2;align-self:center}
+}

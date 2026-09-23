@@ -134,13 +134,14 @@ const visualKinds = ['orbit','layers','flow','interface','signal','ring'] as con
   .capability-card:hover, .capability-card:focus-within { border-color:#B594F77A; }
   .capability-card:hover::before, .capability-card:focus-within::before { opacity:1; }
   .capability-card__body { position:relative; z-index:1; min-width:0; padding:clamp(1.15rem,1.65vw,1.65rem); }
-  .capability-card h3 { max-width:24ch; margin:0; color:var(--cap-paper); font-size:clamp(1rem,1.16vw,1.2rem); font-weight:500; letter-spacing:-.038em; line-height:1.28; text-wrap:balance; }
-  .capability-card__description { margin:.65rem 0 0; color:#C0B5D4; font-size:clamp(.825rem,.96vw,.975rem); line-height:1.55; max-width:34ch; }
+  .capability-card h3 { max-width:24ch; margin:0; color:var(--cap-paper); font-size:clamp(1.08rem,1.28vw,1.32rem); font-weight:500; letter-spacing:-.038em; line-height:1.28; text-wrap:balance; }
+  .capability-card__description { margin:.7rem 0 0; color:#D2C7E1; font-size:clamp(.88rem,1.02vw,1.02rem); line-height:1.58; max-width:34ch; }
   .capability-card__visual { position:absolute; inset:0; z-index:0; overflow:hidden; pointer-events:none; }
   .capability-card__visual::after { position:absolute; inset:0; content:''; background:linear-gradient(90deg,#0E0A1C 3%,#0E0A1CBA 36%,transparent 78%); }
-  .capability-card--orbit, .capability-card--layers { grid-column:span 7; min-height:14.5rem; }
-  .capability-card--orbit .capability-card__body, .capability-card--layers .capability-card__body { padding-top:4.8rem; padding-right:36%; }
-  .capability-card--orbit .capability-card__visual, .capability-card--layers .capability-card__visual { left:20%; top:-5%; }
+  .capability-card--orbit, .capability-card--layers { grid-column:span 7; min-height:15.5rem; }
+  .capability-card--orbit .capability-card__body, .capability-card--layers .capability-card__body { padding-top:4.8rem; padding-right:38%; }
+  .capability-card--orbit .capability-card__visual, .capability-card--layers .capability-card__visual { left:43%; top:-5%; }
+  .capability-card--orbit .capability-card__visual::after, .capability-card--layers .capability-card__visual::after { background:linear-gradient(90deg,#0e0a1c 0%,#0e0a1cc4 10%,transparent 70%); }
   .capability-card--flow { grid-column:1 / span 4; grid-row:2 / span 2; }
   .capability-card--interface { grid-column:5 / span 5; grid-row:2 / span 2; }
   .capability-card--flow .capability-card__body, .capability-card--interface .capability-card__body { padding-top:10.5rem; }
@@ -151,8 +152,8 @@ const visualKinds = ['orbit','layers','flow','interface','signal','ring'] as con
   .capability-card--ring { grid-row:3; }
   .capability-card--signal .capability-card__body, .capability-card--ring .capability-card__body { padding-right:28%; padding-block:1.1rem; }
   .capability-card--signal h3, .capability-card--ring h3 { font-size:clamp(.95rem,1.1vw,1.1rem); }
-  .capability-card--signal .capability-card__description, .capability-card--ring .capability-card__description { font-size:.8rem; line-height:1.5; }
-  .capability-card--signal .capability-card__visual, .capability-card--ring .capability-card__visual { left:37%; top:2rem; right:-4rem; }
+  .capability-card--signal .capability-card__description, .capability-card--ring .capability-card__description { font-size:.875rem; line-height:1.55; }
+  .capability-card--signal .capability-card__visual, .capability-card--ring .capability-card__visual { left:50%; top:2rem; right:-4rem; }
   .capability-card--signal .capability-card__visual::after, .capability-card--ring .capability-card__visual::after { background:linear-gradient(90deg,#0E0A1CB3,transparent 75%); }
   .capability-card__details { margin-top:.7rem; }
   .capability-card__details summary { display:flex; align-items:center; justify-content:space-between; gap:.7rem; min-height:44px; width:100%; cursor:pointer; list-style:none; color:var(--cap-lavender); font-size:.72rem; }

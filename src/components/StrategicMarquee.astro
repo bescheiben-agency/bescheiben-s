@@ -5,6 +5,47 @@ const words = ['Estratégia', 'Posicionamento', 'Branding', 'Aquisição', 'Digi
   <p class="sr-only">{words.join(', ')}</p>
   <div class="marquee-track ambient" aria-hidden="true">{[0,1].map(()=> <div class="marquee-set">{words.map(word=><span>{word}<i>·</i></span>)}</div>)}</div>
 </div>
+<script>
+  // Adapted from React Bits ScrollVelocity: scrolling briefly accelerates the ticker.
+  // https://www.reactbits.dev/text-animations/scroll-velocity
+  document.querySelectorAll<HTMLElement>('.strategic-marquee').forEach(marquee => {
+    const track = marquee.querySelector<HTMLElement>('.marquee-track');
+    const reduced = matchMedia('(prefers-reduced-motion: reduce)');
+    if (!track) return;
+    let lastY = window.scrollY;
+    let lastTime = performance.now();
+    let boost = 0;
+    let frame = 0;
+    const currentAnimation = () => track.getAnimations()[0];
+    const settle = () => {
+      frame = 0;
+      boost *= .88;
+      const animation = currentAnimation();
+      if (animation) animation.playbackRate = reduced.matches ? 1 : 1 + boost;
+      if (boost > .015 && !reduced.matches && !document.hidden) frame = requestAnimationFrame(settle);
+    };
+    const onScroll = () => {
+      const now = performance.now();
+      const distance = Math.abs(window.scrollY - lastY);
+      const elapsed = Math.max(16, now - lastTime);
+      lastY = window.scrollY;
+      lastTime = now;
+      if (reduced.matches || document.hidden) return;
+      boost = Math.min(2.4, distance / elapsed * .38);
+      if (!frame) frame = requestAnimationFrame(settle);
+    };
+    const reset = () => {
+      cancelAnimationFrame(frame);
+      frame = 0;
+      boost = 0;
+      const animation = currentAnimation();
+      if (animation) animation.playbackRate = 1;
+    };
+    window.addEventListener('scroll', onScroll, { passive: true });
+    reduced.addEventListener('change', reset);
+    document.addEventListener('visibilitychange', () => { if (document.hidden) reset(); });
+  });
+</script>
 <style>
-.strategic-marquee{overflow:hidden;background:linear-gradient(100deg,#482096,#6631c6,#482096);color:#fff;border-block:1px solid #a775ea66;padding-block:1.4rem}.marquee-track{width:max-content;display:flex;animation:marquee-travel 38s linear infinite}.marquee-set{display:flex;flex:none;align-items:center}.marquee-set span{font-size:.8rem;letter-spacing:.14em;text-transform:uppercase;white-space:nowrap}.marquee-set i{display:inline-block;font-size:1.6rem;margin-inline:2.7rem;line-height:0;font-style:normal}.strategic-marquee:hover .ambient{animation-play-state:paused!important}@keyframes marquee-travel{to{transform:translateX(-50%)}}@media(prefers-reduced-motion:reduce){.marquee-track{width:100%;justify-content:center}.marquee-set{flex-wrap:wrap;justify-content:center;gap:.5rem}.marquee-set:nth-child(2){display:none}.marquee-set i{margin-inline:1rem}}
+.strategic-marquee{position:relative;overflow:hidden;background:linear-gradient(105deg,#3f1c88,#6230bf 52%,#3f1c88);color:#fff;border-block:1px solid #b18ae977;padding-block:1.35rem;isolation:isolate}.strategic-marquee::before,.strategic-marquee::after{content:'';position:absolute;z-index:1;top:0;bottom:0;width:clamp(1.5rem,6vw,7rem);pointer-events:none}.strategic-marquee::before{left:0;background:linear-gradient(90deg,#3f1c88,transparent)}.strategic-marquee::after{right:0;background:linear-gradient(270deg,#3f1c88,transparent)}.marquee-track{width:max-content;display:flex;animation:marquee-travel 24s linear infinite}.marquee-set{display:flex;flex:none;align-items:center}.marquee-set span{font-size:clamp(.8rem,1vw,1rem);font-weight:550;letter-spacing:.13em;text-transform:uppercase;white-space:nowrap}.marquee-set i{display:inline-block;font-size:1.3rem;margin-inline:clamp(1.5rem,3vw,3rem);line-height:0;font-style:normal;color:#d8b8ff}.strategic-marquee:hover .ambient{animation-play-state:paused!important}@keyframes marquee-travel{to{transform:translateX(-50%)}}@media(prefers-reduced-motion:reduce){.strategic-marquee::before,.strategic-marquee::after{display:none}.marquee-track{width:100%;justify-content:center}.marquee-set{flex-wrap:wrap;justify-content:center;gap:.5rem}.marquee-set:nth-child(2){display:none}.marquee-set i{margin-inline:1rem}}
 </style>

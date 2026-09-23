@@ -1,0 +1,95 @@
+<canvas class="reactive-lines" data-reactive-lines aria-hidden="true"></canvas>
+<script>
+  // Original canvas implementation inspired by OriginKit's public Reactive Lines behavior.
+  // https://www.originkit.dev/components/reactive-lines
+  document.querySelectorAll<HTMLCanvasElement>('[data-reactive-lines]').forEach(canvas => {
+    const host = canvas.parentElement;
+    const context = canvas.getContext('2d');
+    const reduced = matchMedia('(prefers-reduced-motion: reduce)');
+    if (!host || !context) return;
+    let width = 0;
+    let height = 0;
+    let frame = 0;
+    let visible = false;
+    let targetX = .72;
+    let targetY = .5;
+    let easedX = targetX;
+    let easedY = targetY;
+    const resize = () => {
+      const bounds = host.getBoundingClientRect();
+      width = bounds.width;
+      height = bounds.height;
+      const ratio = Math.min(window.devicePixelRatio || 1, 1.5);
+      canvas.width = Math.max(1, Math.round(width * ratio));
+      canvas.height = Math.max(1, Math.round(height * ratio));
+      context.setTransform(ratio, 0, 0, ratio, 0, 0);
+      draw(0);
+    };
+    const draw = (time: number) => {
+      if (!width || !height) return;
+      context.clearRect(0, 0, width, height);
+      easedX += (targetX - easedX) * .055;
+      easedY += (targetY - easedY) * .055;
+      const center = width * easedX;
+      const lines = width < 640 ? 8 : 13;
+      const flow = reduced.matches ? 0 : time * .00045;
+      for (let index = 0; index < lines; index++) {
+        const lane = (index + .5) / lines;
+        const y = height * (.12 + lane * .76);
+        const bend = (easedY - lane) * height * .4;
+        const wave = Math.sin(flow + index * .34) * (reduced.matches ? 0 : height * .035);
+        const gradient = context.createLinearGradient(width * .25, y, width, y);
+        gradient.addColorStop(0, 'rgba(173, 112, 240, 0)');
+        gradient.addColorStop(.38, 'rgba(178, 122, 246, .20)');
+        gradient.addColorStop(.8, 'rgba(222, 188, 255, .38)');
+        gradient.addColorStop(1, 'rgba(146, 92, 223, .04)');
+        context.beginPath();
+        context.moveTo(width * .24, y + wave);
+        context.bezierCurveTo(
+          width * .53, y + wave - height * .16,
+          center + width * .12, y + bend + wave,
+          width * 1.05, y - height * .1 + wave,
+        );
+        context.strokeStyle = gradient;
+        context.lineWidth = index % 4 === 0 ? 1.2 : .65;
+        context.stroke();
+      }
+    };
+    const tick = (time: number) => {
+      draw(time);
+      frame = visible && !document.hidden && !reduced.matches ? requestAnimationFrame(tick) : 0;
+    };
+    const sync = () => {
+      cancelAnimationFrame(frame);
+      frame = 0;
+      if (visible && !document.hidden && !reduced.matches) frame = requestAnimationFrame(tick);
+      else draw(0);
+    };
+    const move = (event: PointerEvent) => {
+      if (event.pointerType !== 'mouse') return;
+      const bounds = host.getBoundingClientRect();
+      targetX = Math.max(.2, Math.min(1, (event.clientX - bounds.left) / bounds.width));
+      targetY = Math.max(0, Math.min(1, (event.clientY - bounds.top) / bounds.height));
+      if (reduced.matches) draw(0);
+    };
+    const observer = new IntersectionObserver(([entry]) => {
+      visible = Boolean(entry?.isIntersecting);
+      sync();
+    }, { rootMargin: '80px' });
+    const sizeObserver = new ResizeObserver(resize);
+    observer.observe(host);
+    sizeObserver.observe(host);
+    host.addEventListener('pointermove', move);
+    reduced.addEventListener('change', sync);
+    document.addEventListener('visibilitychange', sync);
+    window.addEventListener('pagehide', () => {
+      cancelAnimationFrame(frame);
+      observer.disconnect();
+      sizeObserver.disconnect();
+    }, { once: true });
+    resize();
+  });
+</script>
+<style>
+  .reactive-lines{position:absolute;inset:0;width:100%;height:100%;pointer-events:none}
+</style>

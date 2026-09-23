@@ -1,29 +1,49 @@
 ---
+import ThreeOrbitField from './ThreeOrbitField.astro';
 interface Props { id?: string; }
 const { id = 'hero-orbit' } = Astro.props;
 ---
 <div class="hero-visual" data-hero-visual data-ambient aria-hidden="true">
+  <ThreeOrbitField/>
   <svg viewBox="0 0 720 620" fill="none">
     <defs>
-      <linearGradient id={`${id}-ribbon`} x1="160" y1="60" x2="580" y2="540" gradientUnits="userSpaceOnUse"><stop stop-color="#ebe0ff"/><stop offset=".18" stop-color="#9557f0" stop-opacity=".7"/><stop offset=".48" stop-color="#4b27a8" stop-opacity=".04"/><stop offset=".76" stop-color="#7640da" stop-opacity=".6"/><stop offset="1" stop-color="#dfc9ff"/></linearGradient>
-      <linearGradient id={`${id}-edge`}><stop stop-color="#7d3cff" stop-opacity=".05"/><stop offset=".55" stop-color="#9e74ed"/><stop offset="1" stop-color="#f5efff"/></linearGradient>
-      <radialGradient id={`${id}-aura`}><stop stop-color="#6338a8" stop-opacity=".22"/><stop offset="1" stop-color="#0a0718" stop-opacity="0"/></radialGradient>
+      <linearGradient id={`${id}-ribbon`} x1="160" y1="60" x2="580" y2="540" gradientUnits="userSpaceOnUse"><stop stop-color="#e9d9ff" stop-opacity=".82"/><stop offset=".2" stop-color="#a469ee" stop-opacity=".48"/><stop offset=".5" stop-color="#4b27a8" stop-opacity=".03"/><stop offset=".82" stop-color="#9151e6" stop-opacity=".55"/><stop offset="1" stop-color="#d9bbff" stop-opacity=".83"/></linearGradient>
+      <linearGradient id={`${id}-edge`}><stop stop-color="#7d3cff" stop-opacity=".08"/><stop offset=".55" stop-color="#b289f6"/><stop offset="1" stop-color="#f5efff"/></linearGradient>
+      <radialGradient id={`${id}-aura`}><stop stop-color="#7543c0" stop-opacity=".34"/><stop offset=".62" stop-color="#462075" stop-opacity=".13"/><stop offset="1" stop-color="#0a0718" stop-opacity="0"/></radialGradient>
+      <radialGradient id={`${id}-core`} cx=".36" cy=".24" r=".84"><stop stop-color="#51307f"/><stop offset=".58" stop-color="#1a102b"/><stop offset="1" stop-color="#0d091a"/></radialGradient>
     </defs>
-    <circle cx="360" cy="310" r="290" fill={`url(#${id}-aura)`}/>
-    <g class="ambient orbital-traces">
-      <ellipse cx="360" cy="310" rx="320" ry="156" transform="rotate(-32 360 310)" stroke="#75529b" stroke-width=".8"/>
-      <ellipse cx="360" cy="310" rx="246" ry="273" transform="rotate(38 360 310)" stroke="#62417e" stroke-dasharray="1 8"/>
-      <circle cx="112" cy="320" r="3" fill="#e7d3ff"/><circle cx="605" cy="255" r="4" fill="#e7d3ff"/><circle cx="416" cy="50" r="2" fill="#ab7df3"/>
+    <circle cx="360" cy="310" r="292" fill={`url(#${id}-aura)`}/>
+    <g class="hero-field">
+      <circle cx="360" cy="310" r="266" stroke="#b88bea" stroke-opacity=".13" stroke-width=".8" stroke-dasharray="1 8"/>
+      <path d="M50 482 636 76M64 92l582 427" stroke="#b693e4" stroke-opacity=".1" stroke-width=".7"/>
+      <circle cx="81" cy="180" r="1.5" fill="#e7d3ff"/><circle cx="605" cy="484" r="2" fill="#e7d3ff"/><circle cx="528" cy="79" r="1.5" fill="#b692ee"/>
     </g>
     <g class="ambient ribbon-one">
-      <path d="M140 405C54 248 359 40 520 101C725 179 563 516 320 546C539 497 649 220 507 145C365 70 86 306 140 405Z" fill={`url(#${id}-ribbon)`} stroke={`url(#${id}-edge)`} stroke-width="1.1"/>
-      {Array.from({length:8},(_,i)=><ellipse cx="360" cy="310" rx={250-i*3} ry={118+i*2} transform={`rotate(${-38+i*.8} 360 310)`} stroke="#c4a1fc" stroke-opacity={.09+i*.02} stroke-width=".6"/>)}
+      <path d="M139 416C65 255 345 51 518 100C697 151 587 492 336 544C533 483 625 219 507 151C360 67 91 293 139 416Z" fill={`url(#${id}-ribbon)`} stroke={`url(#${id}-edge)`} stroke-width="1.3"/>
+      {Array.from({length:6},(_,i)=><ellipse cx="360" cy="310" rx={245-i*3} ry={116+i*2} transform={`rotate(${-38+i*.8} 360 310)`} stroke="#cfb0ff" stroke-opacity={.12+i*.025} stroke-width=".6"/>)}
     </g>
     <g class="ambient ribbon-two">
-      <path d="M203 122C370 48 650 327 530 472C420 609 104 407 161 222C137 399 421 542 505 444C605 327 353 60 203 122Z" fill={`url(#${id}-ribbon)`} stroke={`url(#${id}-edge)`} stroke-width="1"/>
+      <path d="M203 119C373 56 657 320 526 477C403 613 98 405 160 217C134 393 422 552 506 447C604 322 356 56 203 119Z" fill={`url(#${id}-ribbon)`} stroke={`url(#${id}-edge)`} stroke-width="1.1"/>
     </g>
-    <image href="/brand/symbol-white.svg" x="304" y="253" width="112" height="112"/>
-    <path d="M49 569L680 31M571 608L676 470" stroke="#5e388d" stroke-opacity=".35" stroke-width=".6"/>
+    <g class="ambient hero-orbit hero-orbit--outer">
+      <ellipse cx="360" cy="310" rx="298" ry="139" transform="rotate(-28 360 310)" stroke="#9e7cc5" stroke-opacity=".42" stroke-width=".8"/>
+      <ellipse cx="360" cy="310" rx="298" ry="139" transform="rotate(-28 360 310)" stroke="#ecd9ff" stroke-width="2.2" stroke-linecap="round" stroke-dasharray="120 1300"/>
+      <circle cx="100" cy="448" r="4" fill="#f2e6ff"/><circle cx="100" cy="448" r="9" fill="#a67ae8" fill-opacity=".17"/>
+    </g>
+    <g class="ambient hero-orbit hero-orbit--inner">
+      <ellipse cx="360" cy="310" rx="224" ry="211" transform="rotate(33 360 310)" stroke="#8255ac" stroke-opacity=".54" stroke-width=".8" stroke-dasharray="2 8"/>
+      <ellipse cx="360" cy="310" rx="224" ry="211" transform="rotate(33 360 310)" stroke="#d7bdff" stroke-width="1.5" stroke-linecap="round" stroke-dasharray="65 1300"/>
+      <circle cx="563" cy="219" r="3.6" fill="#ead6ff"/>
+    </g>
+    <g class="ambient hero-orbit hero-orbit--signal">
+      <ellipse cx="360" cy="310" rx="190" ry="294" transform="rotate(69 360 310)" stroke="#8052b2" stroke-opacity=".4" stroke-width=".65"/>
+      <ellipse cx="360" cy="310" rx="190" ry="294" transform="rotate(69 360 310)" stroke="#b282ff" stroke-width="1.3" stroke-dasharray="8 16" stroke-opacity=".7"/>
+      <circle cx="445" cy="48" r="3" fill="#d9baff"/>
+    </g>
+    <circle cx="360" cy="310" r="86" fill={`url(#${id}-core)`} stroke="#bb94ed" stroke-opacity=".45" stroke-width="1"/>
+    <circle cx="360" cy="310" r="103" stroke="#a975e8" stroke-opacity=".24" stroke-width=".8" stroke-dasharray="2 7"/>
+    <image href="/brand/symbol-white.svg" x="305" y="255" width="110" height="110"/>
+    <circle cx="360" cy="310" r="112" stroke="#d0a8ff" stroke-opacity=".3" stroke-width=".6"/>
   </svg>
 </div>
 <script>
@@ -52,5 +72,7 @@ const { id = 'hero-orbit' } = Astro.props;
   });
 </script>
 <style>
-.hero-visual{width:100%;perspective:900px}.hero-visual svg{width:100%;transform:rotateX(var(--hero-rx,0deg)) rotateY(var(--hero-ry,0deg));transition:transform 500ms var(--ease-out)}.ambient{transform-origin:360px 310px}.ribbon-one{animation:orbit-turn 26s linear infinite}.ribbon-two{animation:orbit-turn 34s linear infinite reverse}.orbital-traces{animation:orbit-turn 45s linear infinite}
+.hero-visual{position:relative;width:100%;perspective:900px}.hero-visual svg{position:relative;z-index:1;width:100%;transform:rotateX(var(--hero-rx,0deg)) rotateY(var(--hero-ry,0deg));transition:transform 500ms var(--ease-out)}.ambient{transform-origin:360px 310px}.ribbon-one{animation:hero-ribbon-a 15s ease-in-out infinite alternate}.ribbon-two{animation:hero-ribbon-b 18s ease-in-out infinite alternate}.hero-orbit--outer{animation:orbit-turn 15s linear infinite}.hero-orbit--inner{animation:orbit-turn 22s linear infinite reverse}.hero-orbit--signal{animation:orbit-turn 34s linear infinite}.hero-field{pointer-events:none}
+@keyframes hero-ribbon-a{to{transform:rotate(9deg) scale(1.025)}}@keyframes hero-ribbon-b{to{transform:rotate(-11deg) scale(.98)}}
+@media(max-width:44rem){.hero-orbit--signal{display:none}}
 </style>
