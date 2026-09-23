@@ -1,0 +1,76 @@
+---
+import '../styles/global.css';
+import '../styles/support-pages.css';
+import MotionController from '../components/MotionController.astro';
+import { SITE } from '../config/site';
+import { serializeJsonLd } from '../utils/json-ld';
+
+interface Props {
+  title: string;
+  description: string;
+  canonical?: URL;
+  robots?: string;
+  schema?: Record<string, unknown>[];
+  ogImage?: string;
+  ogImageAlt?: string;
+  ogType?: 'website' | 'article';
+  pageClass?: string;
+}
+
+const {
+  title,
+  description,
+  canonical: requestedCanonical,
+  robots = 'index,follow',
+  schema = [],
+  ogImage = SITE.defaultOgImage,
+  ogImageAlt = 'Bescheiben',
+  ogType = 'website',
+  pageClass,
+} = Astro.props;
+
+const canonicalPath = Astro.url.pathname === '/' ? '/' : Astro.url.pathname.replace(/\/+$/, '');
+const canonical = requestedCanonical ?? new URL(canonicalPath, Astro.site ?? SITE.url);
+const socialImage = new URL(ogImage, Astro.site ?? SITE.url);
+const inferredPageClass = canonicalPath === '/'
+  ? 'page-home'
+  : `page-${canonicalPath.split('/').filter(Boolean).join('-')}`;
+---
+
+<!doctype html>
+<html lang={SITE.language}>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="generator" content={Astro.generator} />
+    <meta name="description" content={description} />
+    <meta name="robots" content={robots} />
+    <meta name="theme-color" content={SITE.themeColor} />
+    <link rel="canonical" href={canonical} />
+    <link rel="icon" type="image/svg+xml" href="/brand/favicon.svg" />
+    <link rel="icon" href="/favicon.ico" sizes="32x32" />
+
+    <meta property="og:type" content={ogType} />
+    <meta property="og:locale" content={SITE.locale} />
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:url" content={canonical} />
+    <meta property="og:site_name" content={SITE.name} />
+    <meta property="og:image" content={socialImage} />
+    <meta property="og:image:alt" content={ogImageAlt} />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content={title} />
+    <meta name="twitter:description" content={description} />
+    <meta name="twitter:image" content={socialImage} />
+    <meta name="twitter:image:alt" content={ogImageAlt} />
+    <title>{title}</title>
+    {schema.map((entry) => <script is:inline type="application/ld+json" set:html={serializeJsonLd(entry)} />)}
+  </head>
+  <body class:list={[pageClass ?? inferredPageClass]}>
+    <a class="skip-link" href="#conteudo">Ir para o conteúdo</a>
+    <slot />
+    <MotionController />
+  </body>
+</html>
+
+

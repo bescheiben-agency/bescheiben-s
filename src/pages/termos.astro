@@ -1,0 +1,225 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Footer from '../components/Footer.astro';
+import Header from '../components/Header.astro';
+
+const title = 'Termos de uso | Bescheiben';
+const description = 'Estrutura preliminar dos termos de uso da Bescheiben, sujeita a validação jurídica antes da publicação definitiva.';
+---
+
+<BaseLayout title={title} description={description}>
+  <Header />
+  <main id="conteudo">
+    <section class="terms-hero section-shell surface-inverse">
+      <div class="container terms-hero__inner">
+        <p class="eyebrow">Termos de uso</p>
+        <h1>Clareza também faz parte do acordo.</h1>
+        <p class="lead">
+          Esta rota apresenta somente a estrutura editorial prevista para os futuros termos de uso.
+          O documento definitivo dependerá de validação jurídica e das condições reais de operação.
+        </p>
+      </div>
+    </section>
+
+    <section class="terms-content section-shell">
+      <div class="container terms-layout">
+        <aside class="document-index" aria-label="Navegação desta minuta">
+          <p class="eyebrow">Nesta estrutura</p>
+          <a href="#natureza">Natureza do documento</a>
+          <a href="#conteudo-site">Conteúdo do site</a>
+          <a href="#solicitacoes">Solicitações e serviços</a>
+          <a href="#responsabilidades">Responsabilidades</a>
+          <a href="#publicacao">Antes da publicação</a>
+        </aside>
+
+        <article class="terms-copy">
+          <div class="draft-notice" role="note">
+            <strong>Versão preliminar.</strong>
+            <span>Este conteúdo não substitui termos válidos e não deve ser tratado como documento contratual definitivo.</span>
+          </div>
+
+          <section id="natureza">
+            <span class="section-number" aria-hidden="true">01</span>
+            <div>
+              <h2>Natureza do documento</h2>
+              <p>
+                A versão final deverá identificar quem disponibiliza o site, a data de vigência, o
+                alcance dos termos e as condições de aceitação. Esses elementos permanecerão em aberto
+                até a validação institucional e jurídica.
+              </p>
+            </div>
+          </section>
+
+          <section id="conteudo-site">
+            <span class="section-number" aria-hidden="true">02</span>
+            <div>
+              <h2>Conteúdo do site</h2>
+              <p>
+                A redação definitiva deverá esclarecer o caráter informativo dos conteúdos, as regras
+                de propriedade intelectual, os usos permitidos e a responsabilidade por materiais de
+                terceiros, se houver.
+              </p>
+            </div>
+          </section>
+
+          <section id="solicitacoes">
+            <span class="section-number" aria-hidden="true">03</span>
+            <div>
+              <h2>Solicitações e serviços</h2>
+              <p>
+                O envio de uma solicitação de diagnóstico não deverá, por si só, criar uma relação
+                contratual. Critérios de atendimento, proposta, aceite e início de qualquer trabalho
+                precisarão ser documentados conforme o processo comercial aprovado.
+              </p>
+            </div>
+          </section>
+
+          <section id="responsabilidades">
+            <span class="section-number" aria-hidden="true">04</span>
+            <div>
+              <h2>Responsabilidades e limites</h2>
+              <p>
+                Disponibilidade, links externos, segurança, limitações de responsabilidade e legislação
+                aplicável deverão refletir a operação real e receber revisão jurídica específica. Nenhuma
+                dessas condições é definida por esta minuta visual.
+              </p>
+            </div>
+          </section>
+
+          <section id="publicacao">
+            <span class="section-number" aria-hidden="true">05</span>
+            <div>
+              <h2>Antes da publicação definitiva</h2>
+              <ul>
+                <li>Confirmar dados institucionais e canais oficiais.</li>
+                <li>Alinhar os termos ao processo comercial e ao escopo dos serviços.</li>
+                <li>Revisar propriedade intelectual, responsabilidades e legislação aplicável.</li>
+                <li>Registrar versão, vigência e procedimento de atualização.</li>
+              </ul>
+            </div>
+          </section>
+        </article>
+      </div>
+    </section>
+  </main>
+  <Footer />
+</BaseLayout>
+
+<style>
+  .terms-hero__inner {
+    display: grid;
+    grid-template-columns: minmax(0, 1.2fr) minmax(18rem, 0.8fr);
+    align-items: end;
+    gap: clamp(2rem, 8vw, 8rem);
+  }
+
+  .terms-hero .eyebrow {
+    grid-column: 1 / -1;
+    margin-bottom: -0.5rem;
+  }
+
+  h1 {
+    max-width: 12ch;
+    margin-bottom: 0;
+  }
+
+  .terms-hero .lead {
+    margin-bottom: 0.3rem;
+    color: color-mix(in srgb, var(--neutral-white) 76%, transparent);
+  }
+
+  .terms-layout {
+    display: grid;
+    grid-template-columns: minmax(14rem, 0.65fr) minmax(0, 1.65fr);
+    align-items: start;
+    gap: clamp(3rem, 8vw, 8rem);
+  }
+
+  .document-index {
+    position: sticky;
+    top: 7rem;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    padding-top: 0.5rem;
+  }
+
+  .document-index a {
+    display: inline-flex;
+    min-height: 2.75rem;
+    align-items: center;
+    color: var(--text-secondary);
+    font-weight: 600;
+  }
+
+  .document-index a:hover {
+    color: var(--purple-deep);
+  }
+
+  .terms-copy {
+    max-width: 49rem;
+  }
+
+  .draft-notice {
+    display: grid;
+    gap: 0.35rem;
+    padding: 1.5rem;
+    margin-bottom: 3.5rem;
+    border: 1px solid var(--purple-lavender);
+    border-radius: var(--radius-control);
+    background: color-mix(in srgb, var(--purple-lavender) 15%, var(--neutral-white));
+  }
+
+  .draft-notice span,
+  .terms-copy p,
+  .terms-copy li {
+    color: var(--text-secondary);
+  }
+
+  .terms-copy section {
+    display: grid;
+    grid-template-columns: 3rem minmax(0, 1fr);
+    gap: 1.5rem;
+    padding-block: 2.5rem;
+    border-top: 1px solid var(--border-default);
+    scroll-margin-top: 7rem;
+  }
+
+  .section-number {
+    padding-top: 0.35rem;
+    color: var(--purple-deep);
+    font-size: 0.8125rem;
+    font-weight: 700;
+  }
+
+  .terms-copy h2 {
+    font-size: clamp(1.45rem, 2.4vw, 2rem);
+    letter-spacing: -0.035em;
+  }
+
+  .terms-copy li + li {
+    margin-top: 0.65rem;
+  }
+
+  @media (max-width: 48rem) {
+    .terms-hero__inner,
+    .terms-layout {
+      grid-template-columns: 1fr;
+    }
+
+    .terms-hero .eyebrow {
+      grid-column: auto;
+    }
+
+    .document-index {
+      position: static;
+      padding-bottom: 2rem;
+      border-bottom: 1px solid var(--border-default);
+    }
+
+    .terms-copy section {
+      grid-template-columns: 2rem minmax(0, 1fr);
+      gap: 1rem;
+    }
+  }
+</style>

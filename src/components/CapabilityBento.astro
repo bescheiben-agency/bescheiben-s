@@ -1,0 +1,208 @@
+---
+import type { CallToAction, ContentSection } from '../content/site-content';
+import { parseMasterMarkdown } from '../utils/master-markdown';
+import CapabilityVisual from './CapabilityVisual.astro';
+
+interface Props { section: ContentSection; ctas: readonly CallToAction[]; }
+interface Capability { title: string; description: string; services: string[]; action?: CallToAction; }
+const { section, ctas } = Astro.props;
+const blocks = parseMasterMarkdown(section.body);
+const actions = new Map(ctas.map((action) => [action.label, action]));
+const introduction: string[] = [];
+const capabilities: Capability[] = [];
+let current: Capability | undefined;
+for (const block of blocks) {
+  if (block.type === 'eyebrow') continue;
+  if (block.type === 'subheading' && 'text' in block) {
+    current = { title:block.text, description:'', services:[] };
+    capabilities.push(current);
+    continue;
+  }
+  if (!current) {
+    if ('text' in block) introduction.push(block.text);
+    continue;
+  }
+  if ('text' in block) {
+    const action = actions.get(block.text);
+    if (action) current.action = action;
+    else if (!current.description) current.description = block.text;
+    else current.services.push(block.text);
+  } else if ('items' in block) current.services.push(...block.items);
+}
+const visualKinds = ['orbit','layers','flow','interface','signal','ring'] as const;
+---
+
+<section id={section.id} class="capabilities" data-copy-section={section.id} data-cap-visible="false" aria-labelledby={`${section.id}-heading`}>
+  <div class="capabilities__layout">
+    <header class="capabilities__intro">
+      <h2 id={`${section.id}-heading`}>Estratégia em<br />cada frente.<br /><span>Resultado no todo.</span></h2>
+      <div class="capabilities__introduction">{introduction.map((text) => <p>{text}</p>)}</div>
+      <svg class="capabilities__connection" viewBox="0 0 180 66" fill="none" aria-hidden="true"><path d="M1 33H70C109 33 115 1 160 1H180M70 33C112 33 119 65 160 65H180" stroke="currentColor" stroke-width=".8" /><circle cx="70" cy="33" r="3" fill="currentColor" /><circle cx="176" cy="1" r="2" fill="currentColor" /><circle cx="176" cy="65" r="2" fill="currentColor" /></svg>
+    </header>
+    <div class="capabilities__bento">
+      {capabilities.map((capability, index) => <article class:list={['capability-card', `capability-card--${visualKinds[index]}`]} data-cap-card>
+        <div class="capability-card__visual"><CapabilityVisual kind={visualKinds[index]} id={`${section.id}-${visualKinds[index]}`} /></div>
+        <div class="capability-card__body">
+          <h3>{capability.title}</h3>
+          <p class="capability-card__description">{capability.description}</p>
+          <details class="capability-card__details">
+            <summary aria-controls={`${section.id}-${visualKinds[index]}-services`}>
+              <span class="capability-card__summary-label">Ver especialidades</span>
+              <span class="capability-card__arrow" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none"><path d="M5 12H19M13 6L19 12L13 18" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" /></svg></span>
+            </summary>
+            <div id={`${section.id}-${visualKinds[index]}-services`} class="capability-card__services">
+              <ul>{capability.services.map((service) => <li>{service}</li>)}</ul>
+              {capability.action?.href && <a class="capability-card__link" href={capability.action.href}>{capability.action.label}<svg aria-hidden="true" viewBox="0 0 24 24" fill="none"><path d="M5 12H19M13 6L19 12L13 18" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" /></svg></a>}
+            </div>
+          </details>
+        </div>
+      </article>)}
+    </div>
+  </div>
+</section>
+
+<script>
+  function initializeCapabilityBento() {
+    document.querySelectorAll<HTMLElement>('.capabilities:not([data-cap-initialized])').forEach((section) => {
+      section.dataset.capInitialized = 'true';
+      const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)');
+      const precisePointer = window.matchMedia('(hover: hover) and (pointer: fine)');
+      let inViewport = false;
+      const updateVisibility = () => { section.dataset.capVisible = String(inViewport && !document.hidden && !reducedMotion.matches); };
+      const observer = new IntersectionObserver(([entry]) => { inViewport = entry.isIntersecting; updateVisibility(); }, { rootMargin:'60px 0px' });
+      observer.observe(section);
+      document.addEventListener('visibilitychange', updateVisibility);
+      reducedMotion.addEventListener('change', updateVisibility);
+      section.querySelectorAll<HTMLElement>('[data-cap-card]').forEach((card) => {
+        let frame = 0;
+        const reset = () => {
+          cancelAnimationFrame(frame);
+          card.style.removeProperty('--cap-rotate-x');
+          card.style.removeProperty('--cap-rotate-y');
+          card.style.removeProperty('--cap-spot-x');
+          card.style.removeProperty('--cap-spot-y');
+        };
+        card.addEventListener('pointermove', (event) => {
+          if (reducedMotion.matches || !precisePointer.matches) return;
+          cancelAnimationFrame(frame);
+          frame = requestAnimationFrame(() => {
+            const bounds = card.getBoundingClientRect();
+            const x = Math.min(1, Math.max(0, (event.clientX - bounds.left) / bounds.width));
+            const y = Math.min(1, Math.max(0, (event.clientY - bounds.top) / bounds.height));
+            card.style.setProperty('--cap-rotate-x', `${(0.5-y)*2}deg`);
+            card.style.setProperty('--cap-rotate-y', `${(x-0.5)*2}deg`);
+            card.style.setProperty('--cap-spot-x', `${x*100}%`);
+            card.style.setProperty('--cap-spot-y', `${y*100}%`);
+          });
+        });
+        card.addEventListener('pointerleave', reset);
+        card.addEventListener('pointercancel', reset);
+        reducedMotion.addEventListener('change', reset);
+        card.querySelectorAll<HTMLDetailsElement>('details').forEach((details) => {
+          const summary = details.querySelector('summary');
+          const updateExpanded = () => summary?.setAttribute('aria-expanded', String(details.open));
+          updateExpanded();
+          details.addEventListener('toggle', updateExpanded);
+        });
+      });
+    });
+  }
+  initializeCapabilityBento();
+  document.addEventListener('astro:page-load', initializeCapabilityBento);
+</script>
+
+<style>
+  .capabilities {
+    --cap-paper:var(--bg-paper, #FCFBFE);
+    --cap-lavender:var(--lavender, #C4B5FD);
+    --cap-dark:var(--bg-dark, #0A0718);
+    --cap-violet:var(--purple-main, #7D3CFF);
+    --cap-gap:clamp(.65rem, 1.2vw, 1rem);
+    position:relative; isolation:isolate; overflow:hidden; padding-block:clamp(3rem,6vw,6rem); color:var(--cap-paper); background:var(--cap-dark);
+  }
+  .capabilities::before { content:''; position:absolute; z-index:-1; inset:0; background:radial-gradient(ellipse at 8% -12%,#4B27A838,transparent 39%); pointer-events:none; }
+  .capabilities__layout { width:min(calc(100% - 2 * var(--gutter,clamp(1.25rem,5vw,6rem))),var(--container,1440px)); margin-inline:auto; display:grid; grid-template-columns:minmax(0,.29fr) minmax(0,.71fr); gap:clamp(1.75rem,3vw,3.5rem); align-items:start; }
+  .capabilities__intro { padding-top:clamp(.3rem,1vw,1rem); }
+  .capabilities__intro h2 { color:var(--cap-paper); max-width:11ch; font-size:clamp(2.1rem,3.25vw,3.4rem); font-weight:450; letter-spacing:-.055em; line-height:1.06; margin:0; text-wrap:balance; }
+  .capabilities__intro h2 span { color:var(--cap-lavender); }
+  .capabilities__introduction { margin-top:clamp(1.3rem,2.6vw,2.5rem); max-width:25ch; color:#C8BEDD; font-size:clamp(.95rem,1.1vw,1.125rem); line-height:1.65; }
+  .capabilities__introduction p { margin:0; }
+  .capabilities__connection { width:clamp(7rem,13vw,11.25rem); margin-top:2.7rem; color:#9981C8; opacity:.7; }
+  .capabilities__bento { display:grid; grid-template-columns:repeat(14,minmax(0,1fr)); gap:var(--cap-gap); min-width:0; align-items:stretch; perspective:1200px; }
+  .capability-card { --cap-spot-x:65%; --cap-spot-y:25%; position:relative; isolation:isolate; overflow:hidden; min-width:0; border:1px solid #C4B5FD2E; border-radius:var(--radius-sm,8px); background:linear-gradient(135deg,#17102770,#0D091C); box-shadow:0 2px 6px #00000008; transform:rotateX(var(--cap-rotate-x,0deg)) rotateY(var(--cap-rotate-y,0deg)); transition:border-color .35s,transform .35s cubic-bezier(.2,.7,.2,1),background .35s; }
+  .capability-card::before { position:absolute; z-index:-1; inset:0; content:''; background:radial-gradient(ellipse at var(--cap-spot-x) var(--cap-spot-y),#9D71F31E,transparent 70%); opacity:0; transition:opacity .4s; pointer-events:none; }
+  .capability-card:hover, .capability-card:focus-within { border-color:#B594F77A; }
+  .capability-card:hover::before, .capability-card:focus-within::before { opacity:1; }
+  .capability-card__body { position:relative; z-index:1; min-width:0; padding:clamp(1.15rem,1.65vw,1.65rem); }
+  .capability-card h3 { max-width:24ch; margin:0; color:var(--cap-paper); font-size:clamp(1rem,1.16vw,1.2rem); font-weight:500; letter-spacing:-.038em; line-height:1.28; text-wrap:balance; }
+  .capability-card__description { margin:.65rem 0 0; color:#C0B5D4; font-size:clamp(.825rem,.96vw,.975rem); line-height:1.55; max-width:34ch; }
+  .capability-card__visual { position:absolute; inset:0; z-index:0; overflow:hidden; pointer-events:none; }
+  .capability-card__visual::after { position:absolute; inset:0; content:''; background:linear-gradient(90deg,#0E0A1C 3%,#0E0A1CBA 36%,transparent 78%); }
+  .capability-card--orbit, .capability-card--layers { grid-column:span 7; min-height:14.5rem; }
+  .capability-card--orbit .capability-card__body, .capability-card--layers .capability-card__body { padding-top:4.8rem; padding-right:36%; }
+  .capability-card--orbit .capability-card__visual, .capability-card--layers .capability-card__visual { left:20%; top:-5%; }
+  .capability-card--flow { grid-column:1 / span 4; grid-row:2 / span 2; }
+  .capability-card--interface { grid-column:5 / span 5; grid-row:2 / span 2; }
+  .capability-card--flow .capability-card__body, .capability-card--interface .capability-card__body { padding-top:10.5rem; }
+  .capability-card--flow .capability-card__visual, .capability-card--interface .capability-card__visual { bottom:auto; height:15rem; left:-17%; }
+  .capability-card--flow .capability-card__visual::after, .capability-card--interface .capability-card__visual::after { background:linear-gradient(0deg,#0E0A1C,transparent 58%); }
+  .capability-card--signal, .capability-card--ring { grid-column:10 / span 5; }
+  .capability-card--signal { grid-row:2; }
+  .capability-card--ring { grid-row:3; }
+  .capability-card--signal .capability-card__body, .capability-card--ring .capability-card__body { padding-right:28%; padding-block:1.1rem; }
+  .capability-card--signal h3, .capability-card--ring h3 { font-size:clamp(.95rem,1.1vw,1.1rem); }
+  .capability-card--signal .capability-card__description, .capability-card--ring .capability-card__description { font-size:.8rem; line-height:1.5; }
+  .capability-card--signal .capability-card__visual, .capability-card--ring .capability-card__visual { left:37%; top:2rem; right:-4rem; }
+  .capability-card--signal .capability-card__visual::after, .capability-card--ring .capability-card__visual::after { background:linear-gradient(90deg,#0E0A1CB3,transparent 75%); }
+  .capability-card__details { margin-top:.7rem; }
+  .capability-card__details summary { display:flex; align-items:center; justify-content:space-between; gap:.7rem; min-height:44px; width:100%; cursor:pointer; list-style:none; color:var(--cap-lavender); font-size:.72rem; }
+  .capability-card__details summary::-webkit-details-marker { display:none; }
+  .capability-card__summary-label { opacity:.78; transition:opacity .2s; }
+  .capability-card__arrow { display:grid; place-items:center; flex:0 0 36px; height:36px; border:1px solid #BCA1ED6B; border-radius:50%; color:var(--cap-paper); transition:transform .3s,border-color .3s,background .3s; }
+  .capability-card__arrow svg { width:17px; height:17px; }
+  .capability-card__details summary:hover .capability-card__arrow { transform:translateX(3px); border-color:var(--cap-lavender); background:#AB80FF14; }
+  .capability-card__details summary:hover .capability-card__summary-label { opacity:1; }
+  .capability-card__details[open] .capability-card__arrow { transform:rotate(-90deg); }
+  .capability-card__details summary:focus-visible, .capability-card__link:focus-visible { outline:2px solid var(--cap-lavender); outline-offset:5px; border-radius:4px; }
+  .capability-card__services { margin-top:.65rem; padding-top:1rem; border-top:1px solid #C4B5FD30; }
+  .capability-card__services ul { padding:0; margin:0; list-style:none; color:#D2C7E6; font-size:.8rem; line-height:1.65; }
+  .capability-card__services li { margin:.35rem 0; }
+  .capability-card__link { display:inline-flex; gap:.75rem; align-items:center; min-height:44px; margin-top:.8rem; color:var(--cap-paper); font-size:.8rem; text-decoration:none; }
+  .capability-card__link:hover { color:var(--cap-lavender); }
+  .capability-card__link svg { width:16px; height:16px; flex-shrink:0; }
+  @media(min-width:100rem) { .capability-card--signal .capability-card__description, .capability-card--ring .capability-card__description { font-size:.925rem; } }
+  @media(max-width:75rem) {
+    .capabilities__layout { grid-template-columns:1fr; }
+    .capabilities__intro { display:grid; grid-template-columns:1fr 1fr; gap:2rem; align-items:end; }
+    .capabilities__intro h2 { max-width:18ch; font-size:clamp(2.2rem,4.5vw,3.5rem); }
+    .capabilities__introduction { margin:0; padding-bottom:.3rem; justify-self:end; }
+    .capabilities__connection { display:none; }
+    .capability-card--orbit, .capability-card--layers { min-height:13.5rem; }
+  }
+  @media(max-width:57rem) {
+    .capabilities__bento { grid-template-columns:repeat(2,minmax(0,1fr)); }
+    .capability-card--orbit, .capability-card--layers, .capability-card--flow, .capability-card--interface, .capability-card--signal, .capability-card--ring { grid-column:auto; grid-row:auto; }
+    .capability-card--flow .capability-card__body, .capability-card--interface .capability-card__body { padding-top:9rem; }
+    .capability-card--flow .capability-card__visual, .capability-card--interface .capability-card__visual { left:5%; height:14rem; }
+    .capability-card--signal .capability-card__body, .capability-card--ring .capability-card__body { padding:1.4rem 30% 1.4rem 1.4rem; }
+    .capability-card--signal .capability-card__description, .capability-card--ring .capability-card__description { font-size:.825rem; }
+  }
+  @media(max-width:38rem) {
+    .capabilities__intro { display:block; }
+    .capabilities__intro h2 { max-width:13ch; font-size:clamp(2.15rem,8vw,3.1rem); }
+    .capabilities__introduction { max-width:30ch; margin-top:1.1rem; font-size:.95rem; }
+    .capabilities__bento { grid-template-columns:1fr; gap:.8rem; }
+    .capability-card--orbit .capability-card__body, .capability-card--layers .capability-card__body { padding:3rem 33% 1.1rem 1.25rem; }
+    .capability-card h3 { font-size:1.1rem; }
+    .capability-card__description { font-size:.875rem; }
+    .capability-card--flow .capability-card__body, .capability-card--interface .capability-card__body { padding:7rem 1.25rem 1.1rem; }
+    .capability-card--flow .capability-card__visual { left:25%; top:-3rem; height:15rem; }
+    .capability-card--interface .capability-card__visual { left:28%; top:-2rem; height:14rem; }
+    .capability-card--flow .capability-card__visual::after, .capability-card--interface .capability-card__visual::after { background:linear-gradient(0deg,#0E0A1C,transparent 70%); }
+    .capability-card--signal .capability-card__body, .capability-card--ring .capability-card__body { padding:1.4rem 30% 1.1rem 1.25rem; }
+    .capability-card--signal h3, .capability-card--ring h3 { font-size:1.075rem; }
+    .capability-card--signal .capability-card__description, .capability-card--ring .capability-card__description { font-size:.875rem; }
+    .capability-card__summary-label { font-size:.76rem; }
+  }
+  @media(prefers-reduced-motion:reduce) { .capability-card { transform:none!important; } .capability-card, .capability-card *, .capability-card::before { transition:none!important; } }
+</style>

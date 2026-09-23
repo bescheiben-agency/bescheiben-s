@@ -1,0 +1,34 @@
+[
+  {
+    "Path": "C:\\Users\\allys\\Documents\\Bescheiben\\.worktrees\\bescheiben-figma-production\\site\\src\\lib\\contact\\email.ts",
+    "Hash": "E4CBA10401EF6427D02ABDF8AD695E83728940202F230C906BFBAC3CAC5FE3A7"
+  },
+  {
+    "Path": "C:\\Users\\allys\\Documents\\Bescheiben\\.worktrees\\bescheiben-figma-production\\site\\src\\lib\\contact\\handler.ts",
+    "Hash": "B2AF1B9F52AA9FA2A1D36B83E41885B054CB99DE0BF364A65033D7771435308B"
+  },
+  {
+    "Path": "C:\\Users\\allys\\Documents\\Bescheiben\\.worktrees\\bescheiben-figma-production\\site\\src\\lib\\contact\\rate-limit.ts",
+    "Hash": "1BF64B4F75CC12E03DD26214FC63ACC788A1DDD5B20434A04BF9B7BC3587EA54"
+  },
+  {
+    "Path": "C:\\Users\\allys\\Documents\\Bescheiben\\.worktrees\\bescheiben-figma-production\\site\\src\\lib\\contact\\turnstile.ts",
+    "Hash": "E9D1AEEC53E815A8F40129BAE1415430CAD3209DC132850BE5ECC56B79924FCB"
+  },
+  {
+    "Path": "C:\\Users\\allys\\Documents\\Bescheiben\\.worktrees\\bescheiben-figma-production\\site\\src\\lib\\contact\\types.ts",
+    "Hash": "42E40C6D67DDD86540B61A419927F164BCEF6C23457E4F9636A709A06CCBD4F1"
+  },
+  {
+    "Path": "C:\\Users\\allys\\Documents\\Bescheiben\\.worktrees\\bescheiben-figma-production\\site\\src\\lib\\contact\\validation.ts",
+    "Hash": "684A8974C174424D2663D313E524EF28ED61D5ED74DE285600C6D34458E8AD9B"
+  },
+  {
+    "Path": "C:\\Users\\allys\\Documents\\Bescheiben\\.worktrees\\bescheiben-figma-production\\site\\src\\lib\\seo\\schema.ts",
+    "Hash": "23A74E0EBBD165CB8415A0B3C0B1394C9EDC93818F2D387EDDC955D2BBA7A2A7"
+  },
+  {
+    "Path": "C:\\Users\\allys\\Documents\\Bescheiben\\.worktrees\\bescheiben-figma-production\\docs\\content\\Bescheiben_Copy_Master_Final_SEO_AEO_GEO.md",
+    "Hash": "7218B311FE771668007238897666426E06CA9016A919006EABB4667DC5D15B30"
+  }
+]

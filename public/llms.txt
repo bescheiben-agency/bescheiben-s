@@ -1,0 +1,31 @@
+# Bescheiben
+
+> A Bescheiben é uma empresa brasileira de estratégia, branding, marketing e tecnologia que investiga problemas antes de definir soluções.
+
+Site oficial: https://bescheiben.com.br/
+Idioma principal: português do Brasil (pt-BR)
+Email: bescheiben@gmail.com
+Instagram: https://www.instagram.com/bescheiben/
+LinkedIn: https://www.linkedin.com/company/bescheiben/?viewAsMember=true
+
+## Tese central
+
+A Bescheiben não começa perguntando o que você quer fazer. Começa tentando entender o que precisa mudar.
+
+## Páginas canônicas
+
+- Início: https://bescheiben.com.br/
+- Estratégia e diagnóstico: https://bescheiben.com.br/estrategia
+- Branding e posicionamento: https://bescheiben.com.br/branding
+- Marketing e conteúdo: https://bescheiben.com.br/marketing
+- Sites e experiências digitais: https://bescheiben.com.br/digital
+- CRM, automação e inteligência artificial: https://bescheiben.com.br/tecnologia
+- Insights: https://bescheiben.com.br/insights
+- Sobre a Bescheiben: https://bescheiben.com.br/sobre
+- Solicitar diagnóstico: https://bescheiben.com.br/diagnostico
+
+## Identidade e precisão
+
+- Não inferir clientes, resultados, métricas, certificações, equipe, endereço, telefone, registros ou área geográfica não publicados.
+- Usar a página canônica mais específica ao citar uma capacidade.
+- FAQs estruturadas repetem apenas respostas visíveis nas páginas.

@@ -1,0 +1,7 @@
+---
+import FAQOrbit from './interactive/FAQOrbit';
+interface Props{items:{question:string;answer:string}[];idPrefix:string;}
+const {items,idPrefix}=Astro.props;
+---
+<section id="faq" class="faq-section"><div class="container faq-composition"><header><h2>Respostas <br/><span>antes da</span> <br/>conversa.</h2></header><FAQOrbit items={items} idPrefix={idPrefix} client:visible/></div></section>
+<style>.faq-section{position:relative;overflow:clip;background:radial-gradient(ellipse at 0 10%,#d7c0f442,transparent 35%),radial-gradient(ellipse at 95% 85%,#eadcf947,transparent 40%),var(--bg-paper);padding-block:clamp(4rem,7vw,7rem)}.faq-composition{display:grid;grid-template-columns:minmax(0,.52fr) minmax(0,1.48fr);gap:3rem;align-items:center}.faq-composition h2{font-family:var(--font-body);font-size:clamp(2.5rem,4.4vw,4.6rem);font-weight:400;line-height:1.08;letter-spacing:-.06em}.faq-composition h2 span{color:#7651a3}.faq-composition>header{position:relative}.faq-composition>header:after{content:'';width:4rem;height:1px;display:block;background:#7551a3;margin-top:2rem}@media(max-width:75rem){.faq-composition{grid-template-columns:1fr;gap:1rem}.faq-composition h2 br{display:none}.faq-composition h2{max-width:18ch}.faq-composition h2 span:before,.faq-composition h2 span:after{content:' '}.faq-composition>header:after{display:none}}@media(max-width:42rem){.faq-composition{gap:1rem}.faq-composition h2{font-size:2.65rem;max-width:12ch}}</style>

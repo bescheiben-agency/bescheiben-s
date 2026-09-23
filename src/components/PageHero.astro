@@ -1,0 +1,33 @@
+---
+import Button from './Button.astro';
+import HeroVisual from './HeroVisual.astro';
+import CapabilityVisual from './CapabilityVisual.astro';
+import type { ArtworkKey } from '../data/artwork';
+interface Action { label:string; href:string; variant?:'primary'|'secondary'|'inverse'|'text'; }
+interface Props { eyebrow?:string; title:string|string[]; supportingCopy?:string[]; actions?:Action[]; tone?:'light'|'inverse'; artwork?:ArtworkKey; layout?:'copy-left'|'copy-right'|'center'; priority?:boolean; id?:string; }
+const { title, supportingCopy=[], actions=[], id }=Astro.props;
+const home=id==='promessa';
+const lines=Array.isArray(title)?title:[title];
+const path=Astro.url.pathname;
+const visual=path.includes('branding')?'layers':path.includes('marketing')?'flow':path.includes('digital')?'interface':path.includes('tecnologia')?'ring':'orbit';
+---
+<section id={id} class:list={['page-hero',home&&'page-hero--home']}>
+  <div class="hero-plane" aria-hidden="true"></div>
+  <div class="container hero-composition">
+    <div class="page-hero__content">
+      <h1>{home?<><span>Mais que</span>{' '}<span>marketing,</span>{' '}<em>um sistema.</em></>:lines.map((line,index)=><>{index>0&&' '}<span>{line}</span></>)}</h1>
+      <div class="hero-support">{supportingCopy.map(paragraph=><p>{paragraph}</p>)}</div>
+      {actions.length>0&&<div class="hero-actions">{actions.map((action,i)=><Button href={action.href} variant={i===0?'inverse':'text'}>{action.label}</Button>)}</div>}
+      {home&&<a class="hero-scroll" href="#antes-da-solucao"><span aria-hidden="true">↓</span>Entender. Decidir. Construir.</a>}
+      <slot />
+    </div>
+    <div class="hero-art" data-ambient>{home?<HeroVisual/>:<CapabilityVisual kind={visual} id={`page-${visual}`} />}</div>
+  </div>
+</section>
+<style>
+.page-hero{position:relative;isolation:isolate;overflow:hidden;background:var(--bg-dark);color:var(--text-inverse);padding-block:clamp(3rem,5vw,5rem)}.hero-composition{display:grid;grid-template-columns:minmax(0,.92fr) minmax(0,1.1fr);align-items:center;gap:2rem}.hero-plane{position:absolute;inset:0;z-index:-1;background:radial-gradient(ellipse at 78% 30%,#3e1f6722,transparent 60%)}.hero-plane::before,.hero-plane::after{content:'';position:absolute;width:42vw;height:42vw;border:1px solid #9d6dde22;border-radius:50%;right:-15vw;bottom:-37vw;box-shadow:0 0 0 5vw #7745a909}.hero-plane::after{right:auto;bottom:auto;left:-29vw;top:-39vw;width:70vw;height:55vw;background:linear-gradient(135deg,#49218370,transparent)}h1{font-size:var(--display-lg);font-weight:400;letter-spacing:-.055em;margin-bottom:1.7rem;max-width:17ch}h1 span{display:block}.page-hero--home h1{font-size:var(--display-xl);line-height:.99;max-width:12ch}.page-hero--home h1 em{display:block;color:#b582fa;font-style:normal}.hero-support{max-width:57ch}.hero-support p{font-size:.95rem;line-height:1.75;color:var(--ink-on-dark)}.hero-support p:first-child{font-size:1.05rem;color:#ddd4e9}.hero-actions{display:flex;flex-wrap:wrap;align-items:center;gap:.75rem 1.5rem;margin-top:1.8rem}.hero-actions :global(.button--text){color:#e2d6f7}.hero-art{position:relative;margin-inline:-4% -9%;align-self:stretch;display:flex;align-items:center}.hero-art :global(svg){width:100%;max-height:620px}.hero-scroll{display:inline-flex;gap:.8rem;align-items:center;min-height:44px;margin-top:1.5rem;font-size:.75rem;color:#a699b9;text-decoration:none}.hero-scroll span{display:grid;place-items:center;border:1px solid #83719d;border-radius:50%;width:28px;height:38px}.page-hero__content{animation:soft-arrival 650ms var(--ease-premium) both}
+@media(min-width:1600px){.hero-art{margin-inline:-2% -6%}.hero-support{max-width:52ch}}
+@media(max-width:64rem){.hero-composition{grid-template-columns:1fr 1fr;gap:1rem}.page-hero--home h1{font-size:clamp(3rem,7.5vw,5rem)}.hero-support p{font-size:.88rem}.hero-art{margin-inline:-10%}.hero-actions{align-items:flex-start;flex-direction:column;gap:.4rem}}
+@media(max-width:44rem){.hero-composition{display:flex;flex-direction:column;gap:0}.page-hero{padding-block:2.75rem 1.5rem}.page-hero--home h1{font-size:clamp(3.25rem,13vw,5rem)}h1{max-width:19ch;font-size:clamp(2.5rem,10vw,3.6rem)}.hero-art{width:100%;margin:-1rem auto 0;max-width:34rem;max-height:360px;overflow:hidden;order:2}.hero-art :global(svg){max-height:360px}.hero-actions{flex-direction:row;align-items:center}.hero-scroll{margin-top:.5rem}.hero-support p{font-size:.9rem}.hero-support p:first-child{font-size:1rem}}
+</style>
+

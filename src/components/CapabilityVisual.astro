@@ -1,0 +1,96 @@
+---
+interface Props {
+  kind: 'orbit' | 'layers' | 'flow' | 'interface' | 'signal' | 'ring';
+  id: string;
+}
+const { kind, id } = Astro.props;
+const gradient = `url(#${id}-violet)`;
+const edge = `url(#${id}-edge)`;
+const faint = `url(#${id}-faint)`;
+---
+
+<svg class:list={['cap-visual', `cap-visual--${kind}`]} viewBox="0 0 360 240" fill="none" aria-hidden="true" focusable="false">
+  <defs>
+    <linearGradient id={`${id}-violet`} x1="50" y1="20" x2="280" y2="215" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#E3D9FF" stop-opacity=".8" />
+      <stop offset=".36" stop-color="#9B70F6" stop-opacity=".42" />
+      <stop offset="1" stop-color="#4B27A8" stop-opacity=".02" />
+    </linearGradient>
+    <linearGradient id={`${id}-edge`} x1="170" y1="25" x2="225" y2="222" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#F8F2FF" />
+      <stop offset=".42" stop-color="#AD82FF" stop-opacity=".8" />
+      <stop offset="1" stop-color="#6B40CB" stop-opacity=".08" />
+    </linearGradient>
+    <radialGradient id={`${id}-faint`} cx=".55" cy=".35" r=".7">
+      <stop stop-color="#A171FF" stop-opacity=".18" />
+      <stop offset="1" stop-color="#4B27A8" stop-opacity="0" />
+    </radialGradient>
+  </defs>
+  {kind === 'orbit' && <>
+    <circle cx="215" cy="119" r="88" fill={faint} stroke={edge} stroke-width="1.4" />
+    <ellipse cx="215" cy="119" rx="87" ry="35" transform="rotate(-36 215 119)" stroke={edge} stroke-opacity=".55" />
+    <ellipse cx="215" cy="119" rx="87" ry="35" transform="rotate(40 215 119)" stroke={edge} stroke-opacity=".35" />
+    <path d="M77 131C117 83 195 101 260 162C279 180 292 201 299 220" stroke={edge} stroke-width="1.1" />
+    <path d="M121 175C128 114 174 54 253 39" stroke={edge} stroke-opacity=".5" />
+    <g class="cap-visual__orbit" style="transform-origin:215px 119px">
+      <circle cx="283" cy="63" r="10" fill="#AB7DFB" opacity=".08" />
+      <circle cx="283" cy="63" r="5" fill="#AB7DFB" opacity=".2" />
+      <circle cx="283" cy="63" r="2.8" fill="#F5EDFF" />
+      <circle cx="162" cy="189" r="2" fill="#BA9CFA" />
+    </g>
+  </>}
+  {kind === 'layers' && <g class="cap-visual__planes">
+    {[0,1,2,3,4].map((plane) => <g style={`--plane:${plane}`} class="cap-visual__plane">
+      <path d={`M${154 + plane * 13} ${62 + plane * 12}L${269 + plane * 9} ${13 + plane * 19}V${163 + plane * 17}L${154 + plane * 13} ${222 + plane * 8}Z`} fill={gradient} stroke={edge} stroke-opacity={1 - plane * .14} />
+      <path d={`M${154 + plane * 13} ${62 + plane * 12}L${269 + plane * 9} ${13 + plane * 19}`} stroke={edge} stroke-width={plane === 0 ? '1.8' : '.7'} />
+    </g>)}
+    <path d="M112 224L331 124M138 240L348 139" stroke={edge} stroke-opacity=".2" />
+  </g>}
+  {kind === 'flow' && <g class="cap-visual__flow">
+    {Array.from({length: 12}, (_, line) => <path
+      d={`M${40 + line * 2} ${198 - line * 7}C${113 + line * 2} ${59 + line * 3} ${151 + line * 1.6} ${32 + line * 5} 204 ${121 + line * 2}S${291 + line * 2} ${180 + line * 1.5} 366 ${-20 + line * 7}`}
+      stroke={edge} stroke-width={line === 6 ? '1.5' : '.65'} stroke-opacity={.24 + line * .055} />)}
+    <path d="M-8 167C88 99 146 50 200 131S310 161 351 32" stroke="#CDB4FF" stroke-dasharray="1 7" stroke-opacity=".45" />
+  </g>}
+  {kind === 'interface' && <g class="cap-visual__architecture">
+    <path d="M129 97L234 48L330 97L225 149Z" fill={gradient} stroke={edge} />
+    <path d="M129 97V178L225 232V149M225 232L330 178V97" fill={gradient} stroke={edge} stroke-opacity=".6" />
+    <path d="M160 80L265 31L361 80V163L265 214L160 160Z" fill={gradient} stroke={edge} stroke-opacity=".7" />
+    <path d="M94 125L199 76L295 125V208L199 259L94 205Z" fill={gradient} stroke={edge} stroke-opacity=".35" />
+    <path d="M151 123L230 85M151 136L185 119M249 168L308 138M249 182L283 165" stroke="#D5BBFF" stroke-opacity=".45" />
+    <circle cx="232" cy="151" r="2.4" fill="#EEE4FF" />
+  </g>}
+  {kind === 'signal' && <g class="cap-visual__signal">
+    {[45, 74, 104, 139, 185, 223].map((height, bar) => <g class="cap-visual__bar" style={`--bar:${bar}`}>
+      <path d={`M${126 + bar * 30} 231V${231 - height}H${143 + bar * 30}V231`} fill={gradient} stroke={edge} stroke-opacity={.35 + bar * .1} />
+      <path d={`M${126 + bar * 30} ${231 - height}H${143 + bar * 30}`} stroke={edge} stroke-width="1.5" />
+    </g>)}
+    <path d="M118 231H319" stroke={edge} stroke-opacity=".4" />
+  </g>}
+  {kind === 'ring' && <g transform="rotate(-38 238 130)">
+    <ellipse cx="238" cy="130" rx="84" ry="54" fill={faint} stroke={edge} stroke-width="1.3" />
+    <ellipse cx="238" cy="130" rx="68" ry="38" stroke={edge} stroke-width="13" stroke-opacity=".22" />
+    <ellipse cx="238" cy="130" rx="52" ry="28" stroke={edge} stroke-opacity=".7" />
+    <path d="M158 112C176 81 218 67 264 79C306 90 330 111 321 139C312 169 267 184 224 182" stroke={edge} stroke-width="4" />
+    <ellipse class="cap-visual__ring" cx="238" cy="130" rx="76" ry="45" stroke="#DBC6FF" stroke-width="1.4" stroke-dasharray="21 398" />
+    <circle cx="170" cy="103" r="3" fill="#F4EBFF" />
+  </g>}
+</svg>
+
+<style>
+  .cap-visual { position:absolute; inset:0 0 auto auto; width:100%; height:100%; pointer-events:none; overflow:visible; }
+  .cap-visual__orbit { animation:cap-orbit 38s linear infinite; }
+  .cap-visual__plane { animation:cap-plane 12s ease-in-out infinite; animation-delay:calc(var(--plane) * -.9s); }
+  .cap-visual__flow { animation:cap-flow 13s ease-in-out infinite alternate; }
+  .cap-visual__architecture { animation:cap-architecture 18s ease-in-out infinite alternate; }
+  .cap-visual__bar { animation:cap-signal 8s ease-in-out infinite; animation-delay:calc(var(--bar) * -.65s); }
+  .cap-visual__ring { animation:cap-ring 18s linear infinite; }
+  :global([data-cap-visible='false']) .cap-visual *, :global([data-cap-visible='false']) .cap-visual { animation-play-state:paused; }
+  @keyframes cap-orbit { to { transform:rotate(360deg); } }
+  @keyframes cap-plane { 50% { transform:translateY(-3px); } }
+  @keyframes cap-flow { to { transform:translate(-7px, 3px); } }
+  @keyframes cap-architecture { to { transform:translateY(-5px); } }
+  @keyframes cap-signal { 50% { opacity:.6; } }
+  @keyframes cap-ring { to { stroke-dashoffset:-419; } }
+  @media (prefers-reduced-motion:reduce) { .cap-visual * { animation:none; } }
+</style>

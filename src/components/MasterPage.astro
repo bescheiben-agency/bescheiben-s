@@ -1,0 +1,39 @@
+---
+import SiteLayout from '../layouts/SiteLayout.astro';
+import PageHero from './PageHero.astro';
+import MasterSection from './MasterSection.astro';
+import StrategicMarquee from './StrategicMarquee.astro';
+import SymptomStory from './SymptomStory.astro';
+import MethodStory from './MethodStory.astro';
+import CapabilityBento from './CapabilityBento.astro';
+import FAQOrbit from './FAQOrbit.astro';
+import FinalCTA from './FinalCTA.astro';
+import ContactSection from './ContactSection.astro';
+import { siteContent, type PublicRoute } from '../content/site-content';
+import { extractFinalCta, plainText } from '../utils/master-markdown';
+import { schemasForPage } from '../lib/seo/schema';
+interface Props { route:PublicRoute; }
+const {route}=Astro.props;
+const page=siteContent[route];
+const heroActions=page.hero.ctas.filter((c):c is {label:string;href:string}=>Boolean(c.href));
+const faqItems=page.faqs.map(item=>({question:item.question,answer:plainText(item.answer)}));
+const final=page.finalCta?extractFinalCta(page.finalCta.body,page.finalCta.ctas.map(action=>action.label)):undefined;
+const finalActions=page.finalCta?.ctas.filter((c):c is {label:string;href:string}=>Boolean(c.href))??[];
+---
+<SiteLayout title={page.seo.title} description={page.seo.description} schema={schemasForPage(page)} ogImage="/og-bescheiben.png" ogImageAlt="Composição geométrica roxa da Bescheiben" pageClass={route==='/'?'page-home':`page-${route.slice(1)}`}>
+ <PageHero id={route==='/'?'promessa':undefined} title={[...page.hero.heading]} supportingCopy={[...page.hero.supportingCopy]} actions={heroActions}/>
+ {route==='/'&&<StrategicMarquee/>}
+ <div id={route==='/insights'?'conteudos':undefined} class="master-page__sections">
+ {page.sections.map((section,index)=>
+ route==='/'&&section.id==='antes-da-solucao'?<SymptomStory section={section} ctas={page.ctas}/>:
+ route==='/'&&section.id==='nosso-metodo'?<MethodStory section={section} ctas={page.ctas}/>:
+ route==='/'&&section.id==='capacidades'?<CapabilityBento section={section} ctas={page.ctas}/>:
+ <MasterSection section={section} index={index} route={route} ctas={page.ctas}/>
+ )}
+ </div>
+ {route==='/'&&<section class="brand-thesis"><div class="container"><p>A Bescheiben não começa perguntando o que você quer fazer.</p><p>Começa tentando entender o que precisa mudar.</p></div></section>}
+ {faqItems.length>0&&<FAQOrbit items={faqItems} idPrefix={`${route.replace(/\W+/g,'-')||'home'}-faq`}/>}
+ {final&&finalActions.length>0&&<FinalCTA title={final.title} body={final.body} actions={finalActions}/>}
+ {route==='/'&&<ContactSection/>}
+</SiteLayout>
+<style>.brand-thesis{padding-block:clamp(3rem,5vw,5rem);background:#e9e1f5;color:#31184b}.brand-thesis p{font-family:var(--font-display);font-size:clamp(1.8rem,3.2vw,3.5rem);line-height:1.2;letter-spacing:-.04em;max-width:32ch;margin:0 auto}.brand-thesis p+p{color:#725198;margin-top:.7rem}</style>

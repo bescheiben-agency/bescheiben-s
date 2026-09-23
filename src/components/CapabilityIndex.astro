@@ -1,0 +1,44 @@
+---
+interface Item { title: string; description: string; href?: string; label?: string; }
+interface Props { items: readonly Item[]; tone?: 'light' | 'inverse'; }
+const { items, tone = 'light' } = Astro.props;
+---
+
+<ul class:list={['capability-index', `capability-index--${tone}`]}>
+  {items.map((item) => (
+    <li>
+      {item.href ? (
+        <a href={item.href}>
+          <span class="capability-index__title">{item.title}</span>
+          <span>{item.description}</span>
+          <span class="capability-index__arrow" aria-hidden="true">→</span>
+        </a>
+      ) : (
+        <div>
+          <span class="capability-index__title">{item.title}</span>
+          <span>{item.description}</span>
+        </div>
+      )}
+    </li>
+  ))}
+</ul>
+
+<style>
+  .capability-index { margin: 0; padding: 0; border-top: 1px solid var(--border-default); list-style: none; }
+  li { border-bottom: 1px solid var(--border-default); }
+  a, li > div { display: grid; min-height: 5.5rem; grid-template-columns: minmax(10rem, 0.8fr) minmax(14rem, 1.4fr) auto; align-items: center; gap: 2rem; padding-block: 1.25rem; color: inherit; text-decoration: none; }
+  a { transition: color var(--duration-fast) var(--ease-standard), padding var(--duration-fast) var(--ease-standard); }
+  a:hover { padding-inline: 0.5rem; color: var(--purple-deep); }
+  .capability-index__title { font-size: clamp(1.1rem, 2vw, 1.4rem); font-weight: 700; letter-spacing: -0.025em; }
+  li span:not(.capability-index__title):not(.capability-index__arrow) { color: var(--text-secondary); }
+  .capability-index__arrow { font-size: 1.3rem; }
+  .capability-index--inverse { border-color: color-mix(in srgb, var(--neutral-white) 18%, transparent); }
+  .capability-index--inverse li { border-color: color-mix(in srgb, var(--neutral-white) 18%, transparent); }
+  .capability-index--inverse li span:not(.capability-index__title):not(.capability-index__arrow) { color: color-mix(in srgb, var(--neutral-white) 68%, transparent); }
+  .capability-index--inverse a:hover { color: var(--purple-lavender); }
+  @media (max-width: 42rem) {
+    a, li > div { grid-template-columns: 1fr auto; gap: 0.4rem 1rem; }
+    li span:not(.capability-index__title):not(.capability-index__arrow) { grid-column: 1 / -1; }
+    .capability-index__arrow { grid-column: 2; grid-row: 1; }
+  }
+</style>

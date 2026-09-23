@@ -1,0 +1,221 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Footer from '../components/Footer.astro';
+import Header from '../components/Header.astro';
+
+const title = 'Acessibilidade | Bescheiben';
+const description = 'Compromisso preliminar de acessibilidade digital da Bescheiben, com declaração e canal ainda pendentes de validação.';
+---
+
+<BaseLayout title={title} description={description}>
+  <Header />
+  <main id="conteudo">
+    <section class="access-hero section-shell surface-inverse">
+      <div class="container access-hero__layout">
+        <div>
+          <p class="eyebrow">Acessibilidade digital</p>
+          <h1>Uma direção só é boa quando mais pessoas conseguem percorrê-la.</h1>
+        </div>
+        <div class="access-statement">
+          <p>
+            A Bescheiben assume a acessibilidade como requisito de qualidade deste projeto. A declaração
+            formal, o nível de conformidade e o canal de atendimento serão publicados somente depois de
+            auditoria e validação.
+          </p>
+          <span>Compromisso em construção</span>
+        </div>
+      </div>
+    </section>
+
+    <section class="access-principles section-shell" aria-labelledby="principios">
+      <div class="container">
+        <div class="section-intro">
+          <p class="eyebrow">Princípios do protótipo</p>
+          <h2 id="principios">A experiência deve ser perceptível, operável e compreensível.</h2>
+          <p class="lead">
+            Estes compromissos orientam o design e o desenvolvimento, mas não constituem uma declaração
+            de conformidade. O resultado precisa ser verificado com testes técnicos e uso real.
+          </p>
+        </div>
+
+        <div class="principle-grid">
+          <article>
+            <span aria-hidden="true">01</span>
+            <h3>Perceber</h3>
+            <p>Conteúdo, contraste, hierarquia e alternativas devem permitir diferentes formas de percepção.</p>
+          </article>
+          <article>
+            <span aria-hidden="true">02</span>
+            <h3>Operar</h3>
+            <p>Navegação, controles e formulários devem funcionar com teclado e tecnologias assistivas.</p>
+          </article>
+          <article>
+            <span aria-hidden="true">03</span>
+            <h3>Compreender</h3>
+            <p>Linguagem, orientação e mensagens de erro devem reduzir ambiguidades durante a interação.</p>
+          </article>
+          <article>
+            <span aria-hidden="true">04</span>
+            <h3>Evoluir</h3>
+            <p>Auditorias e retornos de pessoas usuárias devem alimentar melhorias contínuas do produto.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="access-status section-shell surface-subtle" aria-labelledby="status-acessibilidade">
+      <div class="container status-layout">
+        <div>
+          <p class="eyebrow">Status e próximos passos</p>
+          <h2 id="status-acessibilidade">A declaração definitiva depende de evidência.</h2>
+        </div>
+        <div class="status-copy">
+          <p>
+            Antes da publicação final, o site deverá passar por avaliação automatizada e manual, revisão
+            de navegação por teclado, leitura com tecnologias assistivas e verificação dos fluxos de maior
+            relevância.
+          </p>
+          <ul>
+            <li>Registrar escopo, método, limitações conhecidas e data da avaliação.</li>
+            <li>Priorizar correções pelo impacto para as pessoas usuárias.</li>
+            <li>Definir um canal oficial e acessível para feedback e suporte.</li>
+            <li>Validar a declaração antes de afirmar qualquer nível de conformidade.</li>
+          </ul>
+          <div class="channel-note" role="note">
+            <strong>Canal pendente.</strong>
+            <span>O meio oficial de contato será incluído após definição institucional; nenhum endereço provisório é apresentado nesta versão.</span>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+  <Footer />
+</BaseLayout>
+
+<style>
+  .access-hero__layout {
+    display: grid;
+    grid-template-columns: minmax(0, 1.25fr) minmax(18rem, 0.75fr);
+    align-items: end;
+    gap: clamp(3rem, 8vw, 8rem);
+  }
+
+  h1 {
+    max-width: 15ch;
+    margin-bottom: 0;
+  }
+
+  .access-statement {
+    padding-left: 1.5rem;
+    border-left: 2px solid var(--purple-violet);
+  }
+
+  .access-statement p {
+    color: color-mix(in srgb, var(--neutral-white) 76%, transparent);
+  }
+
+  .access-statement span {
+    color: var(--purple-lavender);
+    font-size: 0.8125rem;
+    font-weight: 700;
+  }
+
+  .section-intro {
+    max-width: 48rem;
+    margin-bottom: clamp(3rem, 7vw, 6rem);
+  }
+
+  .principle-grid {
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    border-block: 1px solid var(--border-default);
+  }
+
+  .principle-grid article {
+    min-height: 18rem;
+    padding: 2rem;
+    border-right: 1px solid var(--border-default);
+  }
+
+  .principle-grid article:first-child {
+    border-left: 1px solid var(--border-default);
+  }
+
+  .principle-grid span {
+    display: block;
+    margin-bottom: 4rem;
+    color: var(--purple-deep);
+    font-size: 0.8125rem;
+    font-weight: 700;
+  }
+
+  .principle-grid p,
+  .status-copy p,
+  .status-copy li {
+    color: var(--text-secondary);
+  }
+
+  .status-layout {
+    display: grid;
+    grid-template-columns: minmax(0, 0.9fr) minmax(18rem, 1.1fr);
+    gap: clamp(3rem, 8vw, 8rem);
+  }
+
+  .status-copy {
+    max-width: 42rem;
+  }
+
+  .status-copy li + li {
+    margin-top: 0.65rem;
+  }
+
+  .channel-note {
+    display: grid;
+    gap: 0.35rem;
+    padding: 1.5rem;
+    margin-top: 2.5rem;
+    border: 1px solid var(--border-default);
+    border-radius: var(--radius-control);
+    background: var(--background-surface);
+  }
+
+  .channel-note span {
+    color: var(--text-secondary);
+  }
+
+  @media (max-width: 63.99rem) {
+    .principle-grid {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+    .principle-grid article:nth-child(odd) {
+      border-left: 1px solid var(--border-default);
+    }
+
+    .principle-grid article:nth-child(n + 3) {
+      border-top: 1px solid var(--border-default);
+    }
+  }
+
+  @media (max-width: 48rem) {
+    .access-hero__layout,
+    .status-layout,
+    .principle-grid {
+      grid-template-columns: 1fr;
+    }
+
+    .principle-grid article {
+      min-height: auto;
+      border-top: 1px solid var(--border-default);
+      border-left: 1px solid var(--border-default);
+    }
+
+    .principle-grid article:first-child {
+      border-top: 0;
+    }
+
+    .principle-grid span {
+      margin-bottom: 2.5rem;
+    }
+  }
+</style>

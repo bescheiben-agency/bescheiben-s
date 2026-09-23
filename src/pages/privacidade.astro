@@ -1,0 +1,191 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Footer from '../components/Footer.astro';
+import Header from '../components/Header.astro';
+
+const title = 'Privacidade | Bescheiben';
+const description = 'Como a Bescheiben trata os dados enviados no pedido de diagnóstico e quais fornecedores participam desse fluxo.';
+---
+
+<BaseLayout title={title} description={description}>
+  <Header />
+  <main id="conteudo">
+    <section class="legal-hero section-shell">
+      <div class="container legal-hero__grid">
+        <div>
+          <p class="eyebrow">Privacidade</p>
+          <h1>Transparência em cada dado compartilhado.</h1>
+        </div>
+        <p class="lead">
+          Esta página descreve o fluxo técnico atualmente previsto para o diagnóstico estratégico.
+          A hipótese jurídica aplicável e o prazo de retenção ainda devem ser confirmados em revisão
+          jurídica antes da publicação definitiva.
+        </p>
+      </div>
+    </section>
+
+    <section class="legal-content section-shell surface-subtle" aria-labelledby="status-documento">
+      <div class="container legal-layout">
+        <aside class="status-note" aria-label="Status deste documento">
+          <p class="eyebrow">Status do documento</p>
+          <p><strong>Minuta operacional.</strong> Reflete a implementação atual, mas ainda requer revisão jurídica.</p>
+          <p>Solicitações sobre seus dados podem ser enviadas para <a href="mailto:bescheiben@gmail.com">bescheiben@gmail.com</a>.</p>
+        </aside>
+
+        <article class="legal-copy">
+          <section>
+            <h2 id="status-documento">1. O que este fluxo coleta</h2>
+            <p>
+              Ao solicitar um diagnóstico, você pode informar nome, e-mail, empresa, site, contexto do
+              negócio, mudança desejada, tentativas anteriores, prazo, preferência de contato e telefone
+              quando escolher WhatsApp. O formulário também processa sinais técnicos estritamente
+              necessários à proteção contra abuso.
+            </p>
+          </section>
+
+          <section>
+            <h2>2. Para que os dados são usados</h2>
+            <p>
+              Os dados são usados para analisar o pedido, preparar uma resposta e conduzir o contato
+              comercial iniciado por você. O envio não cria contrato nem autoriza uso para publicidade
+              comportamental. A hipótese jurídica desse tratamento deve ser confirmada na revisão
+              jurídica final.
+            </p>
+          </section>
+
+          <section>
+            <h2>3. Fornecedores envolvidos</h2>
+            <p>
+              A hospedagem e a função do formulário operam na Vercel. O Cloudflare Turnstile ajuda a
+              identificar abuso. O Upstash Redis mantém apenas identificadores protegidos por hash e
+              contadores temporários para limitar envios. O Resend entrega a mensagem, que chega à caixa
+              de entrada da Bescheiben no Gmail. Esses fornecedores podem processar dados fora do Brasil
+              conforme suas próprias infraestruturas e contratos.
+            </p>
+          </section>
+
+          <section>
+            <h2>4. Segurança e retenção</h2>
+            <p>
+              O formulário usa validação de origem, limite de tamanho, proteção anti-automação, limitação
+              de frequência e conteúdo escapado no e-mail. As informações são mantidas somente pelo tempo
+              necessário ao atendimento e às obrigações aplicáveis; o cronograma exato de retenção ainda
+              precisa de validação jurídica e operacional.
+            </p>
+          </section>
+
+          <section>
+            <h2>5. Seus direitos e contato</h2>
+            <p>
+              Você pode solicitar confirmação de tratamento, acesso, correção, informação sobre
+              compartilhamento ou eliminação quando aplicável. Envie o pedido para
+              <a href="mailto:bescheiben@gmail.com">bescheiben@gmail.com</a>. A identidade poderá ser
+              verificada antes do atendimento para proteger os próprios dados.
+            </p>
+          </section>
+
+          <section>
+            <h2>6. Antes da publicação definitiva</h2>
+            <ul>
+              <li>Confirmar a identificação jurídica do controlador e a data de vigência.</li>
+              <li>Validar hipótese jurídica, transferências internacionais e período de retenção.</li>
+              <li>Formalizar o procedimento interno de atendimento aos titulares.</li>
+              <li>Submeter o documento integral à revisão jurídica antes de colocá-lo em vigor.</li>
+            </ul>
+          </section>
+        </article>
+      </div>
+    </section>
+  </main>
+  <Footer />
+</BaseLayout>
+
+<style>
+  .legal-hero {
+    border-bottom: 1px solid var(--border-default);
+  }
+
+  .legal-hero__grid {
+    display: grid;
+    grid-template-columns: minmax(0, 1.25fr) minmax(18rem, 0.75fr);
+    align-items: end;
+    gap: clamp(2rem, 7vw, 7rem);
+  }
+
+  h1 {
+    max-width: 13ch;
+    margin-bottom: 0;
+  }
+
+  .legal-hero .lead {
+    margin-bottom: 0.35rem;
+  }
+
+  .legal-layout {
+    display: grid;
+    grid-template-columns: minmax(15rem, 0.72fr) minmax(0, 1.6fr);
+    align-items: start;
+    gap: clamp(3rem, 8vw, 8rem);
+  }
+
+  .status-note {
+    padding: 1.5rem;
+    border: 1px solid var(--border-default);
+    border-left: 3px solid var(--purple-violet);
+    border-radius: var(--radius-control);
+    background: var(--background-surface);
+  }
+
+  .status-note p:last-child,
+  .legal-copy section:last-child,
+  .legal-copy section:last-child :last-child {
+    margin-bottom: 0;
+  }
+
+  .status-note p {
+    color: var(--text-secondary);
+  }
+
+  .status-note strong {
+    color: var(--text-primary);
+  }
+
+  .legal-copy {
+    max-width: 46rem;
+  }
+
+  .legal-copy section {
+    padding-bottom: 2.5rem;
+    margin-bottom: 2.5rem;
+    border-bottom: 1px solid var(--border-default);
+  }
+
+  .legal-copy h2 {
+    font-size: clamp(1.45rem, 2.4vw, 2rem);
+    letter-spacing: -0.035em;
+  }
+
+  .legal-copy p,
+  .legal-copy li {
+    color: var(--text-secondary);
+  }
+
+  .legal-copy li + li {
+    margin-top: 0.65rem;
+  }
+
+  @media (max-width: 48rem) {
+    .legal-hero__grid,
+    .legal-layout {
+      grid-template-columns: 1fr;
+    }
+
+    .legal-hero__grid {
+      align-items: start;
+    }
+
+    .legal-layout {
+      gap: 3rem;
+    }
+  }
+</style>

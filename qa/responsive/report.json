@@ -1,0 +1,4015 @@
+{
+  "startedAt": "2026-09-23T02:31:50.024Z",
+  "completedAt": "2026-09-23T02:33:36.631Z",
+  "baseURL": "http://127.0.0.1:4322",
+  "routes": [
+    "/",
+    "/404.html",
+    "/acessibilidade/",
+    "/bescheiben/",
+    "/branding/",
+    "/cookies/",
+    "/diagnostico/",
+    "/digital/",
+    "/estrategia/",
+    "/estrategia/aquisicao/",
+    "/estrategia/conversao/",
+    "/estrategia/marca/",
+    "/estrategia/posicionamento/",
+    "/insights/",
+    "/marketing/",
+    "/metodo/",
+    "/privacidade/",
+    "/sobre/",
+    "/tecnologia/",
+    "/termos/"
+  ],
+  "widths": [
+    320,
+    360,
+    375,
+    390,
+    430,
+    480,
+    640,
+    768,
+    820,
+    1024,
+    1280,
+    1366,
+    1440,
+    1600,
+    1920,
+    2560
+  ],
+  "captureSizes": [
+    {
+      "width": 390,
+      "height": 844
+    },
+    {
+      "width": 768,
+      "height": 1024
+    },
+    {
+      "width": 1366,
+      "height": 768
+    },
+    {
+      "width": 1440,
+      "height": 900
+    },
+    {
+      "width": 1920,
+      "height": 1080
+    }
+  ],
+  "motionPreference": "reduce for deterministic geometry and screenshots",
+  "summary": {
+    "checkedLayouts": 320,
+    "expectedLayouts": 320,
+    "overflowFailures": 0,
+    "navigationFailures": 0,
+    "browserErrorGroups": 0,
+    "screenshots": 110,
+    "accessibilityRuns": 10,
+    "accessibilityViolationGroups": 0
+  },
+  "matrix": [
+    {
+      "route": "/",
+      "width": 320,
+      "height": 844,
+      "status": 200,
+      "overflow": 0,
+      "documentHeight": 23755,
+      "h1Count": 1,
+      "offenders": []
+    },
+    {
+      "route": "/404.html",
+      "width": 320,
+      "height": 844,
+      "status": 200,
+      "overflow": 0,
+      "documentHeight": 2091,
+      "h1Count": 1,
+      "offenders": []
+    },
+    {
+      "route": "/acessibilidade/",
+      "width": 320,
+      "height": 844,
+      "status": 200,
+      "overflow": 0,
+      "documentHeight": 4719,
+      "h1Count": 1,
+      "offenders": []
+    },
+    {
+      "route": "/bescheiben/",
+      "width": 320,
+      "height": 844,
+      "status": 200,
+      "overflow": 0,
+      "documentHeight": 6725,
+      "h1Count": 1,
+      "offenders": []
+    },
+    {
+      "route": "/branding/",
+      "width": 320,
+      "height": 844,
+      "status": 200,
+      "overflow": 0,
+      "documentHeight": 9126,
+      "h1Count": 1,
+      "offenders": []
+    },
+    {
+      "route": "/cookies/",
+      "width": 320,
+      "height": 844,
+      "status": 200,
+      "overflow": 0,
+      "documentHeight": 3847,
+      "h1Count": 1,
+      "offenders": []
+    },
+    {
+      "route": "/diagnostico/",
+      "width": 320,
+      "height": 844,
+      "status": 200,
+      "overflow": 0,
+      "documentHeight": 4282,
+      "h1Count": 1,
+      "offenders": []
+    },
+    {
+      "route": "/digital/",
+      "width": 320,
+      "height": 844,
+      "status": 200,
+      "overflow": 0,
+      "documentHeight": 10181,
+      "h1Count": 1,
+      "offenders": []
+    },
+    {
+      "route": "/estrategia/",
+      "width": 320,
+      "height": 844,
+      "status": 200,
+      "overflow": 0,
+      "documentHeight": 7817,
+      "h1Count": 1,
+      "offenders": []
+    },
+    {
+      "route": "/estrategia/aquisicao/",
+      "width": 320,
+      "height": 844,
+      "status": 200,
+      "overflow": 0,
+      "documentHeight": 9379,
+      "h1Count": 1,
+      "offenders": []
+    },
+    {
+      "route": "/estrategia/conversao/",
+      "width": 320,
+      "height": 844,
+      "status": 200,
+      "overflow": 0,
+      "documentHeight": 9528,
+      "h1Count": 1,
+      "offenders": []
+    },
+    {
+      "route": "/estrategia/marca/",
+      "width": 320,
+      "height": 844,
+      "status": 200,
+      "overflow": 0,
+      "documentHeight": 9380,
+      "h1Count": 1,
+      "offenders": []
+    },
+    {
+      "route": "/estrategia/posicionamento/",
+      "width": 320,
+      "height": 844,
+      "status": 200,
+      "overflow": 0,
+      "documentHeight": 9458,
+      "h1Count": 1,
+      "offenders": []
+    },
+    {
+      "route": "/insights/",
+      "width": 320,
+      "height": 844,
+      "status": 200,
+      "overflow": 0,
+      "documentHeight": 4474,
+      "h1Count": 1,
+      "offenders": []
+    },
+    {
+      "route": "/marketing/",
+      "width": 320,
+      "height": 844,
+      "status": 200,
+      "overflow": 0,
+      "documentHeight": 9730,
+      "h1Count": 1,
+      "offenders": []
+    },
+    {
+      "route": "/metodo/",
+      "width": 320,
+      "height": 844,
+      "status": 200,
+      "overflow": 0,
+      "documentHeight": 9048,
+      "h1Count": 1,
+      "offenders": []
+    },
+    {
+      "route": "/privacidade/",
+      "width": 320,
+      "height": 844,
+      "status": 200,
+      "overflow": 0,
+      "documentHeight": 4732,
+      "h1Count": 1,
+      "offenders": []
+    },
+    {
+      "route": "/sobre/",
+      "width": 320,
+      "height": 844,
+      "status": 200,
+      "overflow": 0,
+      "documentHeight": 6548,
+      "h1Count": 1,
+      "offenders": []
+    },
+    {
+      "route": "/tecnologia/",
+      "width": 320,
+      "height": 844,
+      "status": 200,
+      "overflow": 0,
+      "documentHeight": 7877,
+      "h1Count": 1,
+      "offenders": []
+    },
+    {
+      "route": "/termos/",
+      "width": 320,
+      "height": 844,
+      "status": 200,
+      "overflow": 0,
+      "documentHeight": 4459,
+      "h1Count": 1,
+      "offenders": []
+    },
+    {
+      "route": "/",
+      "width": 360,
+      "height": 844,
+      "status": 200,
+      "overflow": 0,
+      "documentHeight": 22741,
+      "h1Count": 1,
+      "offenders": []
+    },
+    {
+      "route": "/404.html",
+      "width": 360,
+      "height": 844,
+      "status": 200,
+      "overflow": 0,
+      "documentHeight": 2067,
+      "h1Count": 1,
+      "offenders": []
+    },
+    {
+      "route": "/acessibilidade/",
+      "width": 360,
+      "height": 844,
+      "status": 200,
+      "overflow": 0,
+      "documentHeight": 4403,
+      "h1Count": 1,
+      "offenders": []
+    },
+    {
+      "route": "/bescheiben/",
+      "width": 360,
+      "height": 844,
+      "status": 200,
+      "overflow": 0,
+      "documentHeight": 6400,
+      "h1Count": 1,
+      "offenders": []
+    },
+    {
+      "route": "/branding/",
+      "width": 360,
+      "height": 844,
+      "status": 200,
+      "overflow": 0,
+      "documentHeight": 8622,
+      "h1Count": 1,
+      "offenders": []
+    },
+    {
+      "route": "/cookies/",
+      "width": 360,
+      "height": 844,
+      "status": 200,
+      "overflow": 0,
+      "documentHeight": 3588,
+      "h1Count": 1,
+      "offenders": []
+    },
+    {
+      "route": "/diagnostico/",
+      "width": 360,
+      "height": 844,
+      "status": 200,
+      "overflow": 0,
+      "documentHeight": 4166,
+      "h1Count": 1,
+      "offenders": []
+    },
+    {
+      "route": "/digital/",
+      "width": 360,
+      "height": 844,
+      "status": 200,
+      "overflow": 0,
+      "documentHeight": 9755,
+      "h1Count": 1,
+      "offenders": []
+    },
+    {
+      "route": "/estrategia/",
+      "width": 360,
+      "height": 844,
+      "status": 200,
+      "overflow": 0,
+      "documentHeight": 7299,
+      "h1Count": 1,
+      "offenders": []
+    },
+    {
+      "route": "/estrategia/aquisicao/",
+      "width": 360,
+      "height": 844,
+      "status": 200,
+      "overflow": 0,
+      "documentHeight": 8873,
+      "h1Count": 1,
+      "offenders": []
+    },
+    {
+      "route": "/estrategia/conversao/",
+      "width": 360,
+      "height": 844,
+      "status": 200,
+      "overflow": 0,
+      "documentHeight": 8900,
+      "h1Count": 1,
+      "offenders": []
+    },
+    {
+      "route": "/estrategia/marca/",
+      "width": 360,
+      "height": 844,
+      "status": 200,
+      "overflow": 0,
+      "documentHeight": 8830,
+      "h1Count": 1,
+      "offenders": []
+    },
+    {
+      "route": "/estrategia/posicionamento/",
+      "width": 360,
+      "height": 844,
+      "status": 200,
+      "overflow": 0,
+      "documentHeight": 8990,
+      "h1Count": 1,
+      "offenders": []
+    },
+    {
+      "route": "/insights/",
+      "width": 360,
+      "height": 844,
+      "status": 200,
+      "overflow": 0,
+      "documentHeight": 4328,
+      "h1Count": 1,
+      "offenders": []
+    },
+    {
+      "route": "/marketing/",
+      "width": 360,
+      "height": 844,
+      "status": 200,
+      "overflow": 0,
+      "documentHeight": 9343,
+      "h1Count": 1,
+      "offenders": []
+    },
+    {
+      "route": "/metodo/",
+      "width": 360,
+      "height": 844,
+      "status": 200,
+      "overflow": 0,
+      "documentHeight": 8531,
+      "h1Count": 1,
+      "offenders": []
+    },
+    {
+      "route": "/privacidade/",
+      "width": 360,
+      "height": 844,
+      "status": 200,
+      "overflow": 0,
+      "documentHeight": 4384,
+      "h1Count": 1,
+      "offenders": []
+    },
+    {
+      "route": "/sobre/",
+      "width": 360,
+      "height": 844,
+      "status": 200,
+      "overflow": 0,
+      "documentHeight": 6269,
+      "h1Count": 1,
+      "offenders": []
+    },
+    {
+      "route": "/tecnologia/",
+      "width": 360,
+      "height": 844,
+      "status": 200,
+      "overflow": 0,
+      "documentHeight": 7534,
+      "h1Count": 1,
+      "offenders": []
+    },
+    {
+      "route": "/termos/",
+      "width": 360,
+      "height": 844,
+      "status": 200,
+      "overflow": 0,
+      "documentHeight": 4164,
+      "h1Count": 1,
+      "offenders": []
+    },
+    {
+      "route": "/",
+      "width": 375,
+      "height": 844,
+      "status": 200,
+      "overflow": 0,
+      "documentHeight": 22383,
+      "h1Count": 1,
+      "offenders": []
+    },
+    {
+      "route": "/404.html",
+      "width": 375,
+      "height": 844,
+      "status": 200,
+      "overflow": 0,
+      "documentHeight": 2067,
+      "h1Count": 1,
+      "offenders": []
+    },
+    {
+      "route": "/acessibilidade/",
+      "width": 375,
+      "height": 844,
+      "status": 200,
+      "overflow": 0,
+      "documentHeight": 4267,
+      "h1Count": 1,
+      "offenders": []
+    },
+    {
+      "route": "/bescheiben/",
+      "width": 375,
+      "height": 844,
+      "status": 200,
+      "overflow": 0,
+      "documentHeight": 6221,
+      "h1Count": 1,
+      "offenders": []
+    },
+    {
+      "route": "/branding/",
+      "width": 375,
+      "height": 844,
+      "status": 200,
+      "overflow": 0,
+      "documentHeight": 8567,
+      "h1Count": 1,
+      "offenders": []
+    },
+    {
+      "route": "/cookies/",
+      "width": 375,
+      "height": 844,
+      "status": 200,
+      "overflow": 0,
+      "documentHeight": 3534,
+      "h1Count": 1,
+      "offenders": []
+    },
+    {
+      "route": "/diagnostico/",
+      "width": 375,
+      "height": 844,
+      "status": 200,
+      "overflow": 0,
+      "documentHeight": 4145,
+      "h1Count": 1,
+      "offenders": []
+    },
+    {
+      "route": "/digital/",
+      "width": 375,
+      "height": 844,
+      "status": 200,
+      "overflow": 0,
+      "documentHeight": 9728,
+      "h1Count": 1,
+      "offenders": []
+    },
+    {
+      "route": "/estrategia/",
+      "width": 375,
+      "height": 844,
+      "status": 200,
+      "overflow": 0,
+      "documentHeight": 7240,
+      "h1Count": 1,
+      "offenders": []
+    },
+    {
+      "route": "/estrategia/aquisicao/",
+      "width": 375,
+      "height": 844,
+      "status": 200,
+      "overflow": 0,
+      "documentHeight": 8717,
+      "h1Count": 1,
+      "offenders": []
+    },
+    {
+      "route": "/estrategia/conversao/",
+      "width": 375,
+      "height": 844,
+      "status": 200,
+      "overflow": 0,
+      "documentHeight": 8675,
+      "h1Count": 1,
+      "offenders": []
+    },
+    {
+      "route": "/estrategia/marca/",
+      "width": 375,
+      "height": 844,
+      "status": 200,
+      "overflow": 0,
+      "documentHeight": 8672,
+      "h1Count": 1,
+      "offenders": []
+    },
+    {
+      "route": "/estrategia/posicionamento/",
+      "width": 375,
+      "height": 844,
+      "status": 200,
+      "overflow": 0,
+      "documentHeight": 8817,
+      "h1Count": 1,
+      "offenders": []
+    },
+    {
+      "route": "/insights/",
+      "width": 375,
+      "height": 844,
+      "status": 200,
+      "overflow": 0,
+      "documentHeight": 4275,
+      "h1Count": 1,
+      "offenders": []
+    },
+    {
+      "route": "/marketing/",
+      "width": 375,
+      "height": 844,
+      "status": 200,
+      "overflow": 0,
+      "documentHeight": 9178,
+      "h1Count": 1,
+      "offenders": []
+    },
+    {
+      "route": "/metodo/",
+      "width": 375,
+      "height": 844,
+      "status": 200,
+      "overflow": 0,
+      "documentHeight": 8449,
+      "h1Count": 1,
+      "offenders": []
+    },
+    {
+      "route": "/privacidade/",
+      "width": 375,
+      "height": 844,
+      "status": 200,
+      "overflow": 0,
+      "documentHeight": 4250,
+      "h1Count": 1,
+      "offenders": []
+    },
+    {
+      "route": "/sobre/",
+      "width": 375,
+      "height": 844,
+      "status": 200,
+      "overflow": 0,
+      "documentHeight": 6187,
+      "h1Count": 1,
+      "offenders": []
+    },
+    {
+      "route": "/tecnologia/",
+      "width": 375,
+      "height": 844,
+      "status": 200,
+      "overflow": 0,
+      "documentHeight": 7444,
+      "h1Count": 1,
+      "offenders": []
+    },
+    {
+      "route": "/termos/",
+      "width": 375,
+      "height": 844,
+      "status": 200,
+      "overflow": 0,
+      "documentHeight": 4030,
+      "h1Count": 1,
+      "offenders": []
+    },
+    {
+      "route": "/",
+      "width": 390,
+      "height": 844,
+      "status": 200,
+      "overflow": 0,
+      "documentHeight": 21900,
+      "h1Count": 1,
+      "offenders": []
+    },
+    {
+      "route": "/404.html",
+      "width": 390,
+      "height": 844,
+      "status": 200,
+      "overflow": 0,
+      "documentHeight": 2040,
+      "h1Count": 1,
+      "offenders": []
+    },
+    {
+      "route": "/acessibilidade/",
+      "width": 390,
+      "height": 844,
+      "status": 200,
+      "overflow": 0,
+      "documentHeight": 4222,
+      "h1Count": 1,
+      "offenders": []
+    },
+    {
+      "route": "/bescheiben/",
+      "width": 390,
+      "height": 844,
+      "status": 200,
+      "overflow": 0,
+      "documentHeight": 6155,
+      "h1Count": 1,
+      "offenders": []
+    },
+    {
+      "route": "/branding/",
+      "width": 390,
+      "height": 844,
+      "status": 200,
+      "overflow": 0,
+      "documentHeight": 8425,
+      "h1Count": 1,
+      "offenders": []
+    },
+    {
+      "route": "/cookies/",
+      "width": 390,
+      "height": 844,
+      "status": 200,
+      "overflow": 0,
+      "documentHeight": 3479,
+      "h1Count": 1,
+      "offenders": []
+    },
+    {
+      "route": "/diagnostico/",
+      "width": 390,
+      "height": 844,
+      "status": 200,
+      "overflow": 0,
+      "documentHeight": 4145,
+      "h1Count": 1,
+      "offenders": []
+    },
+    {
+      "route": "/digital/",
+      "width": 390,
+      "height": 844,
+      "status": 200,
+      "overflow": 0,
+      "documentHeight": 9577,
+      "h1Count": 1,
+      "offenders": []
+    },
+    {
+      "route": "/estrategia/",
+      "width": 390,
+      "height": 844,
+      "status": 200,
+      "overflow": 0,
+      "documentHeight": 7162,
+      "h1Count": 1,
+      "offenders": []
+    },
+    {
+      "route": "/estrategia/aquisicao/",
+      "width": 390,
+      "height": 844,
+      "status": 200,
+      "overflow": 0,
+      "documentHeight": 8662,
+      "h1Count": 1,
+      "offenders": []
+    },
+    {
+      "route": "/estrategia/conversao/",
+      "width": 390,
+      "height": 844,
+      "status": 200,
+      "overflow": 0,
+      "documentHeight": 8603,
+      "h1Count": 1,
+      "offenders": []
+    },
+    {
+      "route": "/estrategia/marca/",
+      "width": 390,
+      "height": 844,
+      "status": 200,
+      "overflow": 0,
+      "documentHeight": 8565,
+      "h1Count": 1,
+      "offenders": []
+    },
+    {
+      "route": "/estrategia/posicionamento/",
+      "width": 390,
+      "height": 844,
+      "status": 200,
+      "overflow": 0,
+      "documentHeight": 8735,
+      "h1Count": 1,
+      "offenders": []
+    },
+    {
+      "route": "/insights/",
+      "width": 390,
+      "height": 844,
+      "status": 200,
+      "overflow": 0,
+      "documentHeight": 4250,
+      "h1Count": 1,
+      "offenders": []
+    },
+    {
+      "route": "/marketing/",
+      "width": 390,
+      "height": 844,
+      "status": 200,
+      "overflow": 0,
+      "documentHeight": 9041,
+      "h1Count": 1,
+      "offenders": []
+    },
+    {
+      "route": "/metodo/",
+      "width": 390,
+      "height": 844,
+      "status": 200,
+      "overflow": 0,
+      "documentHeight": 8398,
+      "h1Count": 1,
+      "offenders": []
+    },
+    {
+      "route": "/privacidade/",
+      "width": 390,
+      "height": 844,
+      "status": 200,
+      "overflow": 0,
+      "documentHeight": 4223,
+      "h1Count": 1,
+      "offenders": []
+    },
+    {
+      "route": "/sobre/",
+      "width": 390,
+      "height": 844,
+      "status": 200,
+      "overflow": 0,
+      "documentHeight": 6042,
+      "h1Count": 1,
+      "offenders": []
+    },
+    {
+      "route": "/tecnologia/",
+      "width": 390,
+      "height": 844,
+      "status": 200,
+      "overflow": 0,
+      "documentHeight": 7311,
+      "h1Count": 1,
+      "offenders": []
+    },
+    {
+      "route": "/termos/",
+      "width": 390,
+      "height": 844,
+      "status": 200,
+      "overflow": 0,
+      "documentHeight": 3975,
+      "h1Count": 1,
+      "offenders": []
+    },
+    {
+      "route": "/",
+      "width": 430,
+      "height": 844,
+      "status": 200,
+      "overflow": 0,
+      "documentHeight": 21443,
+      "h1Count": 1,
+      "offenders": []
+    },
+    {
+      "route": "/404.html",
+      "width": 430,
+      "height": 844,
+      "status": 200,
+      "overflow": 0,
+      "documentHeight": 1956,
+      "h1Count": 1,
+      "offenders": []
+    },
+    {
+      "route": "/acessibilidade/",
+      "width": 430,
+      "height": 844,
+      "status": 200,
+      "overflow": 0,
+      "documentHeight": 4116,
+      "h1Count": 1,
+      "offenders": []
+    },
+    {
+      "route": "/bescheiben/",
+      "width": 430,
+      "height": 844,
+      "status": 200,
+      "overflow": 0,
+      "documentHeight": 5994,
+      "h1Count": 1,
+      "offenders": []
+    },
+    {
+      "route": "/branding/",
+      "width": 430,
+      "height": 844,
+      "status": 200,
+      "overflow": 0,
+      "documentHeight": 8061,
+      "h1Count": 1,
+      "offenders": []
+    },
+    {
+      "route": "/cookies/",
+      "width": 430,
+      "height": 844,
+      "status": 200,
+      "overflow": 0,
+      "documentHeight": 3284,
+      "h1Count": 1,
+      "offenders": []
+    },
+    {
+      "route": "/diagnostico/",
+      "width": 430,
+      "height": 844,
+      "status": 200,
+      "overflow": 0,
+      "documentHeight": 4058,
+      "h1Count": 1,
+      "offenders": []
+    },
+    {
+      "route": "/digital/",
+      "width": 430,
+      "height": 844,
+      "status": 200,
+      "overflow": 0,
+      "documentHeight": 9429,
+      "h1Count": 1,
+      "offenders": []
+    },
+    {
+      "route": "/estrategia/",
+      "width": 430,
+      "height": 844,
+      "status": 200,
+      "overflow": 0,
+      "documentHeight": 6920,
+      "h1Count": 1,
+      "offenders": []
+    },
+    {
+      "route": "/estrategia/aquisicao/",
+      "width": 430,
+      "height": 844,
+      "status": 200,
+      "overflow": 0,
+      "documentHeight": 8220,
+      "h1Count": 1,
+      "offenders": []
+    },
+    {
+      "route": "/estrategia/conversao/",
+      "width": 430,
+      "height": 844,
+      "status": 200,
+      "overflow": 0,
+      "documentHeight": 8231,
+      "h1Count": 1,
+      "offenders": []
+    },
+    {
+      "route": "/estrategia/marca/",
+      "width": 430,
+      "height": 844,
+      "status": 200,
+      "overflow": 0,
+      "documentHeight": 8269,
+      "h1Count": 1,
+      "offenders": []
+    },
+    {
+      "route": "/estrategia/posicionamento/",
+      "width": 430,
+      "height": 844,
+      "status": 200,
+      "overflow": 0,
+      "documentHeight": 8296,
+      "h1Count": 1,
+      "offenders": []
+    },
+    {
+      "route": "/insights/",
+      "width": 430,
+      "height": 844,
+      "status": 200,
+      "overflow": 0,
+      "documentHeight": 4208,
+      "h1Count": 1,
+      "offenders": []
+    },
+    {
+      "route": "/marketing/",
+      "width": 430,
+      "height": 844,
+      "status": 200,
+      "overflow": 0,
+      "documentHeight": 8806,
+      "h1Count": 1,
+      "offenders": []
+    },
+    {
+      "route": "/metodo/",
+      "width": 430,
+      "height": 844,
+      "status": 200,
+      "overflow": 0,
+      "documentHeight": 8221,
+      "h1Count": 1,
+      "offenders": []
+    },
+    {
+      "route": "/privacidade/",
+      "width": 430,
+      "height": 844,
+      "status": 200,
+      "overflow": 0,
+      "documentHeight": 4009,
+      "h1Count": 1,
+      "offenders": []
+    },
+    {
+      "route": "/sobre/",
+      "width": 430,
+      "height": 844,
+      "status": 200,
+      "overflow": 0,
+      "documentHeight": 5908,
+      "h1Count": 1,
+      "offenders": []
+    },
+    {
+      "route": "/tecnologia/",
+      "width": 430,
+      "height": 844,
+      "status": 200,
+      "overflow": 0,
+      "documentHeight": 7151,
+      "h1Count": 1,
+      "offenders": []
+    },
+    {
+      "route": "/termos/",
+      "width": 430,
+      "height": 844,
+      "status": 200,
+      "overflow": 0,
+      "documentHeight": 3847,
+      "h1Count": 1,
+      "offenders": []
+    },
+    {
+      "route": "/",
+      "width": 480,
+      "height": 844,
+      "status": 200,
+      "overflow": 0,
+      "documentHeight": 21090,
+      "h1Count": 1,
+      "offenders": []
+    },
+    {
+      "route": "/404.html",
+      "width": 480,
+      "height": 844,
+      "status": 200,
+      "overflow": 0,
+      "documentHeight": 1981,
+      "h1Count": 1,
+      "offenders": []
+    },
+    {
+      "route": "/acessibilidade/",
+      "width": 480,
+      "height": 844,
+      "status": 200,
+      "overflow": 0,
+      "documentHeight": 4062,
+      "h1Count": 1,
+      "offenders": []
+    },
+    {
+      "route": "/bescheiben/",
+      "width": 480,
+      "height": 844,
+      "status": 200,
+      "overflow": 0,
+      "documentHeight": 5873,
+      "h1Count": 1,
+      "offenders": []
+    },
+    {
+      "route": "/branding/",
+      "width": 480,
+      "height": 844,
+      "status": 200,
+      "overflow": 0,
+      "documentHeight": 7814,
+      "h1Count": 1,
+      "offenders": []
+    },
+    {
+      "route": "/cookies/",
+      "width": 480,
+      "height": 844,
+      "status": 200,
+      "overflow": 0,
+      "documentHeight": 3256,
+      "h1Count": 1,
+      "offenders": []
+    },
+    {
+      "route": "/diagnostico/",
+      "width": 480,
+      "height": 844,
+      "status": 200,
+      "overflow": 0,
+      "documentHeight": 4083,
+      "h1Count": 1,
+      "offenders": []
+    },
+    {
+      "route": "/digital/",
+      "width": 480,
+      "height": 844,
+      "status": 200,
+      "overflow": 0,
+      "documentHeight": 9368,
+      "h1Count": 1,
+      "offenders": []
+    },
+    {
+      "route": "/estrategia/",
+      "width": 480,
+      "height": 844,
+      "status": 200,
+      "overflow": 0,
+      "documentHeight": 6786,
+      "h1Count": 1,
+      "offenders": []
+    },
+    {
+      "route": "/estrategia/aquisicao/",
+      "width": 480,
+      "height": 844,
+      "status": 200,
+      "overflow": 0,
+      "documentHeight": 8034,
+      "h1Count": 1,
+      "offenders": []
+    },
+    {
+      "route": "/estrategia/conversao/",
+      "width": 480,
+      "height": 844,
+      "status": 200,
+      "overflow": 0,
+      "documentHeight": 8087,
+      "h1Count": 1,
+      "offenders": []
+    },
+    {
+      "route": "/estrategia/marca/",
+      "width": 480,
+      "height": 844,
+      "status": 200,
+      "overflow": 0,
+      "documentHeight": 8082,
+      "h1Count": 1,
+      "offenders": []
+    },
+    {
+      "route": "/estrategia/posicionamento/",
+      "width": 480,
+      "height": 844,
+      "status": 200,
+      "overflow": 0,
+      "documentHeight": 8070,
+      "h1Count": 1,
+      "offenders": []
+    },
+    {
+      "route": "/insights/",
+      "width": 480,
+      "height": 844,
+      "status": 200,
+      "overflow": 0,
+      "documentHeight": 4158,
+      "h1Count": 1,
+      "offenders": []
+    },
+    {
+      "route": "/marketing/",
+      "width": 480,
+      "height": 844,
+      "status": 200,
+      "overflow": 0,
+      "documentHeight": 8774,
+      "h1Count": 1,
+      "offenders": []
+    },
+    {
+      "route": "/metodo/",
+      "width": 480,
+      "height": 844,
+      "status": 200,
+      "overflow": 0,
+      "documentHeight": 7920,
+      "h1Count": 1,
+      "offenders": []
+    },
+    {
+      "route": "/privacidade/",
+      "width": 480,
+      "height": 844,
+      "status": 200,
+      "overflow": 0,
+      "documentHeight": 3874,
+      "h1Count": 1,
+      "offenders": []
+    },
+    {
+      "route": "/sobre/",
+      "width": 480,
+      "height": 844,
+      "status": 200,
+      "overflow": 0,
+      "documentHeight": 5803,
+      "h1Count": 1,
+      "offenders": []
+    },
+    {
+      "route": "/tecnologia/",
+      "width": 480,
+      "height": 844,
+      "status": 200,
+      "overflow": 0,
+      "documentHeight": 7074,
+      "h1Count": 1,
+      "offenders": []
+    },
+    {
+      "route": "/termos/",
+      "width": 480,
+      "height": 844,
+      "status": 200,
+      "overflow": 0,
+      "documentHeight": 3774,
+      "h1Count": 1,
+      "offenders": []
+    },
+    {
+      "route": "/",
+      "width": 640,
+      "height": 844,
+      "status": 200,
+      "overflow": 0,
+      "documentHeight": 18524,
+      "h1Count": 1,
+      "offenders": []
+    },
+    {
+      "route": "/404.html",
+      "width": 640,
+      "height": 844,
+      "status": 200,
+      "overflow": 0,
+      "documentHeight": 1783,
+      "h1Count": 1,
+      "offenders": []
+    },
+    {
+      "route": "/acessibilidade/",
+      "width": 640,
+      "height": 844,
+      "status": 200,
+      "overflow": 0,
+      "documentHeight": 3431,
+      "h1Count": 1,
+      "offenders": []
+    },
+    {
+      "route": "/bescheiben/",
+      "width": 640,
+      "height": 844,
+      "status": 200,
+      "overflow": 0,
+      "documentHeight": 4834,
+      "h1Count": 1,
+      "offenders": []
+    },
+    {
+      "route": "/branding/",
+      "width": 640,
+      "height": 844,
+      "status": 200,
+      "overflow": 0,
+      "documentHeight": 7244,
+      "h1Count": 1,
+      "offenders": []
+    },
+    {
+      "route": "/cookies/",
+      "width": 640,
+      "height": 844,
+      "status": 200,
+      "overflow": 0,
+      "documentHeight": 2799,
+      "h1Count": 1,
+      "offenders": []
+    },
+    {
+      "route": "/diagnostico/",
+      "width": 640,
+      "height": 844,
+      "status": 200,
+      "overflow": 0,
+      "documentHeight": 3276,
+      "h1Count": 1,
+      "offenders": []
+    },
+    {
+      "route": "/digital/",
+      "width": 640,
+      "height": 844,
+      "status": 200,
+      "overflow": 0,
+      "documentHeight": 8821,
+      "h1Count": 1,
+      "offenders": []
+    },
+    {
+      "route": "/estrategia/",
+      "width": 640,
+      "height": 844,
+      "status": 200,
+      "overflow": 0,
+      "documentHeight": 6329,
+      "h1Count": 1,
+      "offenders": []
+    },
+    {
+      "route": "/estrategia/aquisicao/",
+      "width": 640,
+      "height": 844,
+      "status": 200,
+      "overflow": 0,
+      "documentHeight": 7328,
+      "h1Count": 1,
+      "offenders": []
+    },
+    {
+      "route": "/estrategia/conversao/",
+      "width": 640,
+      "height": 844,
+      "status": 200,
+      "overflow": 0,
+      "documentHeight": 7338,
+      "h1Count": 1,
+      "offenders": []
+    },
+    {
+      "route": "/estrategia/marca/",
+      "width": 640,
+      "height": 844,
+      "status": 200,
+      "overflow": 0,
+      "documentHeight": 7284,
+      "h1Count": 1,
+      "offenders": []
+    },
+    {
+      "route": "/estrategia/posicionamento/",
+      "width": 640,
+      "height": 844,
+      "status": 200,
+      "overflow": 0,
+      "documentHeight": 7338,
+      "h1Count": 1,
+      "offenders": []
+    },
+    {
+      "route": "/insights/",
+      "width": 640,
+      "height": 844,
+      "status": 200,
+      "overflow": 0,
+      "documentHeight": 3828,
+      "h1Count": 1,
+      "offenders": []
+    },
+    {
+      "route": "/marketing/",
+      "width": 640,
+      "height": 844,
+      "status": 200,
+      "overflow": 0,
+      "documentHeight": 8269,
+      "h1Count": 1,
+      "offenders": []
+    },
+    {
+      "route": "/metodo/",
+      "width": 640,
+      "height": 844,
+      "status": 200,
+      "overflow": 0,
+      "documentHeight": 6951,
+      "h1Count": 1,
+      "offenders": []
+    },
+    {
+      "route": "/privacidade/",
+      "width": 640,
+      "height": 844,
+      "status": 200,
+      "overflow": 0,
+      "documentHeight": 3286,
+      "h1Count": 1,
+      "offenders": []
+    },
+    {
+      "route": "/sobre/",
+      "width": 640,
+      "height": 844,
+      "status": 200,
+      "overflow": 0,
+      "documentHeight": 5423,
+      "h1Count": 1,
+      "offenders": []
+    },
+    {
+      "route": "/tecnologia/",
+      "width": 640,
+      "height": 844,
+      "status": 200,
+      "overflow": 0,
+      "documentHeight": 6620,
+      "h1Count": 1,
+      "offenders": []
+    },
+    {
+      "route": "/termos/",
+      "width": 640,
+      "height": 844,
+      "status": 200,
+      "overflow": 0,
+      "documentHeight": 3258,
+      "h1Count": 1,
+      "offenders": []
+    },
+    {
+      "route": "/",
+      "width": 768,
+      "height": 1024,
+      "status": 200,
+      "overflow": 0,
+      "documentHeight": 18027,
+      "h1Count": 1,
+      "offenders": []
+    },
+    {
+      "route": "/404.html",
+      "width": 768,
+      "height": 1024,
+      "status": 200,
+      "overflow": 0,
+      "documentHeight": 1853,
+      "h1Count": 1,
+      "offenders": []
+    },
+    {
+      "route": "/acessibilidade/",
+      "width": 768,
+      "height": 1024,
+      "status": 200,
+      "overflow": 0,
+      "documentHeight": 3389,
+      "h1Count": 1,
+      "offenders": []
+    },
+    {
+      "route": "/bescheiben/",
+      "width": 768,
+      "height": 1024,
+      "status": 200,
+      "overflow": 0,
+      "documentHeight": 4522,
+      "h1Count": 1,
+      "offenders": []
+    },
+    {
+      "route": "/branding/",
+      "width": 768,
+      "height": 1024,
+      "status": 200,
+      "overflow": 0,
+      "documentHeight": 7201,
+      "h1Count": 1,
+      "offenders": []
+    },
+    {
+      "route": "/cookies/",
+      "width": 768,
+      "height": 1024,
+      "status": 200,
+      "overflow": 0,
+      "documentHeight": 2625,
+      "h1Count": 1,
+      "offenders": []
+    },
+    {
+      "route": "/diagnostico/",
+      "width": 768,
+      "height": 1024,
+      "status": 200,
+      "overflow": 0,
+      "documentHeight": 3323,
+      "h1Count": 1,
+      "offenders": []
+    },
+    {
+      "route": "/digital/",
+      "width": 768,
+      "height": 1024,
+      "status": 200,
+      "overflow": 0,
+      "documentHeight": 8780,
+      "h1Count": 1,
+      "offenders": []
+    },
+    {
+      "route": "/estrategia/",
+      "width": 768,
+      "height": 1024,
+      "status": 200,
+      "overflow": 0,
+      "documentHeight": 6359,
+      "h1Count": 1,
+      "offenders": []
+    },
+    {
+      "route": "/estrategia/aquisicao/",
+      "width": 768,
+      "height": 1024,
+      "status": 200,
+      "overflow": 0,
+      "documentHeight": 7016,
+      "h1Count": 1,
+      "offenders": []
+    },
+    {
+      "route": "/estrategia/conversao/",
+      "width": 768,
+      "height": 1024,
+      "status": 200,
+      "overflow": 0,
+      "documentHeight": 7018,
+      "h1Count": 1,
+      "offenders": []
+    },
+    {
+      "route": "/estrategia/marca/",
+      "width": 768,
+      "height": 1024,
+      "status": 200,
+      "overflow": 0,
+      "documentHeight": 7061,
+      "h1Count": 1,
+      "offenders": []
+    },
+    {
+      "route": "/estrategia/posicionamento/",
+      "width": 768,
+      "height": 1024,
+      "status": 200,
+      "overflow": 0,
+      "documentHeight": 7126,
+      "h1Count": 1,
+      "offenders": []
+    },
+    {
+      "route": "/insights/",
+      "width": 768,
+      "height": 1024,
+      "status": 200,
+      "overflow": 0,
+      "documentHeight": 3886,
+      "h1Count": 1,
+      "offenders": []
+    },
+    {
+      "route": "/marketing/",
+      "width": 768,
+      "height": 1024,
+      "status": 200,
+      "overflow": 0,
+      "documentHeight": 8240,
+      "h1Count": 1,
+      "offenders": []
+    },
+    {
+      "route": "/metodo/",
+      "width": 768,
+      "height": 1024,
+      "status": 200,
+      "overflow": 0,
+      "documentHeight": 6846,
+      "h1Count": 1,
+      "offenders": []
+    },
+    {
+      "route": "/privacidade/",
+      "width": 768,
+      "height": 1024,
+      "status": 200,
+      "overflow": 0,
+      "documentHeight": 3101,
+      "h1Count": 1,
+      "offenders": []
+    },
+    {
+      "route": "/sobre/",
+      "width": 768,
+      "height": 1024,
+      "status": 200,
+      "overflow": 0,
+      "documentHeight": 5332,
+      "h1Count": 1,
+      "offenders": []
+    },
+    {
+      "route": "/tecnologia/",
+      "width": 768,
+      "height": 1024,
+      "status": 200,
+      "overflow": 0,
+      "documentHeight": 6632,
+      "h1Count": 1,
+      "offenders": []
+    },
+    {
+      "route": "/termos/",
+      "width": 768,
+      "height": 1024,
+      "status": 200,
+      "overflow": 0,
+      "documentHeight": 3094,
+      "h1Count": 1,
+      "offenders": []
+    },
+    {
+      "route": "/",
+      "width": 820,
+      "height": 900,
+      "status": 200,
+      "overflow": 0,
+      "documentHeight": 17983,
+      "h1Count": 1,
+      "offenders": []
+    },
+    {
+      "route": "/404.html",
+      "width": 820,
+      "height": 900,
+      "status": 200,
+      "overflow": 0,
+      "documentHeight": 1602,
+      "h1Count": 1,
+      "offenders": []
+    },
+    {
+      "route": "/acessibilidade/",
+      "width": 820,
+      "height": 900,
+      "status": 200,
+      "overflow": 0,
+      "documentHeight": 2875,
+      "h1Count": 1,
+      "offenders": []
+    },
+    {
+      "route": "/bescheiben/",
+      "width": 820,
+      "height": 900,
+      "status": 200,
+      "overflow": 0,
+      "documentHeight": 4419,
+      "h1Count": 1,
+      "offenders": []
+    },
+    {
+      "route": "/branding/",
+      "width": 820,
+      "height": 900,
+      "status": 200,
+      "overflow": 0,
+      "documentHeight": 7039,
+      "h1Count": 1,
+      "offenders": []
+    },
+    {
+      "route": "/cookies/",
+      "width": 820,
+      "height": 900,
+      "status": 200,
+      "overflow": 0,
+      "documentHeight": 2490,
+      "h1Count": 1,
+      "offenders": []
+    },
+    {
+      "route": "/diagnostico/",
+      "width": 820,
+      "height": 900,
+      "status": 200,
+      "overflow": 0,
+      "documentHeight": 3298,
+      "h1Count": 1,
+      "offenders": []
+    },
+    {
+      "route": "/digital/",
+      "width": 820,
+      "height": 900,
+      "status": 200,
+      "overflow": 0,
+      "documentHeight": 8410,
+      "h1Count": 1,
+      "offenders": []
+    },
+    {
+      "route": "/estrategia/",
+      "width": 820,
+      "height": 900,
+      "status": 200,
+      "overflow": 0,
+      "documentHeight": 6175,
+      "h1Count": 1,
+      "offenders": []
+    },
+    {
+      "route": "/estrategia/aquisicao/",
+      "width": 820,
+      "height": 900,
+      "status": 200,
+      "overflow": 0,
+      "documentHeight": 6984,
+      "h1Count": 1,
+      "offenders": []
+    },
+    {
+      "route": "/estrategia/conversao/",
+      "width": 820,
+      "height": 900,
+      "status": 200,
+      "overflow": 0,
+      "documentHeight": 6864,
+      "h1Count": 1,
+      "offenders": []
+    },
+    {
+      "route": "/estrategia/marca/",
+      "width": 820,
+      "height": 900,
+      "status": 200,
+      "overflow": 0,
+      "documentHeight": 6949,
+      "h1Count": 1,
+      "offenders": []
+    },
+    {
+      "route": "/estrategia/posicionamento/",
+      "width": 820,
+      "height": 900,
+      "status": 200,
+      "overflow": 0,
+      "documentHeight": 7076,
+      "h1Count": 1,
+      "offenders": []
+    },
+    {
+      "route": "/insights/",
+      "width": 820,
+      "height": 900,
+      "status": 200,
+      "overflow": 0,
+      "documentHeight": 3635,
+      "h1Count": 1,
+      "offenders": []
+    },
+    {
+      "route": "/marketing/",
+      "width": 820,
+      "height": 900,
+      "status": 200,
+      "overflow": 0,
+      "documentHeight": 7826,
+      "h1Count": 1,
+      "offenders": []
+    },
+    {
+      "route": "/metodo/",
+      "width": 820,
+      "height": 900,
+      "status": 200,
+      "overflow": 0,
+      "documentHeight": 6341,
+      "h1Count": 1,
+      "offenders": []
+    },
+    {
+      "route": "/privacidade/",
+      "width": 820,
+      "height": 900,
+      "status": 200,
+      "overflow": 0,
+      "documentHeight": 3143,
+      "h1Count": 1,
+      "offenders": []
+    },
+    {
+      "route": "/sobre/",
+      "width": 820,
+      "height": 900,
+      "status": 200,
+      "overflow": 0,
+      "documentHeight": 5116,
+      "h1Count": 1,
+      "offenders": []
+    },
+    {
+      "route": "/tecnologia/",
+      "width": 820,
+      "height": 900,
+      "status": 200,
+      "overflow": 0,
+      "documentHeight": 6031,
+      "h1Count": 1,
+      "offenders": []
+    },
+    {
+      "route": "/termos/",
+      "width": 820,
+      "height": 900,
+      "status": 200,
+      "overflow": 0,
+      "documentHeight": 3053,
+      "h1Count": 1,
+      "offenders": []
+    },
+    {
+      "route": "/",
+      "width": 1024,
+      "height": 900,
+      "status": 200,
+      "overflow": 0,
+      "documentHeight": 16767,
+      "h1Count": 1,
+      "offenders": []
+    },
+    {
+      "route": "/404.html",
+      "width": 1024,
+      "height": 900,
+      "status": 200,
+      "overflow": 0,
+      "documentHeight": 1357,
+      "h1Count": 1,
+      "offenders": []
+    },
+    {
+      "route": "/acessibilidade/",
+      "width": 1024,
+      "height": 900,
+      "status": 200,
+      "overflow": 0,
+      "documentHeight": 2408,
+      "h1Count": 1,
+      "offenders": []
+    },
+    {
+      "route": "/bescheiben/",
+      "width": 1024,
+      "height": 900,
+      "status": 200,
+      "overflow": 0,
+      "documentHeight": 4079,
+      "h1Count": 1,
+      "offenders": []
+    },
+    {
+      "route": "/branding/",
+      "width": 1024,
+      "height": 900,
+      "status": 200,
+      "overflow": 0,
+      "documentHeight": 6545,
+      "h1Count": 1,
+      "offenders": []
+    },
+    {
+      "route": "/cookies/",
+      "width": 1024,
+      "height": 900,
+      "status": 200,
+      "overflow": 0,
+      "documentHeight": 2166,
+      "h1Count": 1,
+      "offenders": []
+    },
+    {
+      "route": "/diagnostico/",
+      "width": 1024,
+      "height": 900,
+      "status": 200,
+      "overflow": 0,
+      "documentHeight": 2739,
+      "h1Count": 1,
+      "offenders": []
+    },
+    {
+      "route": "/digital/",
+      "width": 1024,
+      "height": 900,
+      "status": 200,
+      "overflow": 0,
+      "documentHeight": 8126,
+      "h1Count": 1,
+      "offenders": []
+    },
+    {
+      "route": "/estrategia/",
+      "width": 1024,
+      "height": 900,
+      "status": 200,
+      "overflow": 0,
+      "documentHeight": 5848,
+      "h1Count": 1,
+      "offenders": []
+    },
+    {
+      "route": "/estrategia/aquisicao/",
+      "width": 1024,
+      "height": 900,
+      "status": 200,
+      "overflow": 0,
+      "documentHeight": 5565,
+      "h1Count": 1,
+      "offenders": []
+    },
+    {
+      "route": "/estrategia/conversao/",
+      "width": 1024,
+      "height": 900,
+      "status": 200,
+      "overflow": 0,
+      "documentHeight": 5671,
+      "h1Count": 1,
+      "offenders": []
+    },
+    {
+      "route": "/estrategia/marca/",
+      "width": 1024,
+      "height": 900,
+      "status": 200,
+      "overflow": 0,
+      "documentHeight": 5643,
+      "h1Count": 1,
+      "offenders": []
+    },
+    {
+      "route": "/estrategia/posicionamento/",
+      "width": 1024,
+      "height": 900,
+      "status": 200,
+      "overflow": 0,
+      "documentHeight": 5592,
+      "h1Count": 1,
+      "offenders": []
+    },
+    {
+      "route": "/insights/",
+      "width": 1024,
+      "height": 900,
+      "status": 200,
+      "overflow": 0,
+      "documentHeight": 3379,
+      "h1Count": 1,
+      "offenders": []
+    },
+    {
+      "route": "/marketing/",
+      "width": 1024,
+      "height": 900,
+      "status": 200,
+      "overflow": 0,
+      "documentHeight": 7528,
+      "h1Count": 1,
+      "offenders": []
+    },
+    {
+      "route": "/metodo/",
+      "width": 1024,
+      "height": 900,
+      "status": 200,
+      "overflow": 0,
+      "documentHeight": 5063,
+      "h1Count": 1,
+      "offenders": []
+    },
+    {
+      "route": "/privacidade/",
+      "width": 1024,
+      "height": 900,
+      "status": 200,
+      "overflow": 0,
+      "documentHeight": 2664,
+      "h1Count": 1,
+      "offenders": []
+    },
+    {
+      "route": "/sobre/",
+      "width": 1024,
+      "height": 900,
+      "status": 200,
+      "overflow": 0,
+      "documentHeight": 4768,
+      "h1Count": 1,
+      "offenders": []
+    },
+    {
+      "route": "/tecnologia/",
+      "width": 1024,
+      "height": 900,
+      "status": 200,
+      "overflow": 0,
+      "documentHeight": 5719,
+      "h1Count": 1,
+      "offenders": []
+    },
+    {
+      "route": "/termos/",
+      "width": 1024,
+      "height": 900,
+      "status": 200,
+      "overflow": 0,
+      "documentHeight": 2573,
+      "h1Count": 1,
+      "offenders": []
+    },
+    {
+      "route": "/",
+      "width": 1280,
+      "height": 900,
+      "status": 200,
+      "overflow": 0,
+      "documentHeight": 16498,
+      "h1Count": 1,
+      "offenders": []
+    },
+    {
+      "route": "/404.html",
+      "width": 1280,
+      "height": 900,
+      "status": 200,
+      "overflow": 0,
+      "documentHeight": 1350,
+      "h1Count": 1,
+      "offenders": []
+    },
+    {
+      "route": "/acessibilidade/",
+      "width": 1280,
+      "height": 900,
+      "status": 200,
+      "overflow": 0,
+      "documentHeight": 2354,
+      "h1Count": 1,
+      "offenders": []
+    },
+    {
+      "route": "/bescheiben/",
+      "width": 1280,
+      "height": 900,
+      "status": 200,
+      "overflow": 0,
+      "documentHeight": 4290,
+      "h1Count": 1,
+      "offenders": []
+    },
+    {
+      "route": "/branding/",
+      "width": 1280,
+      "height": 900,
+      "status": 200,
+      "overflow": 0,
+      "documentHeight": 6651,
+      "h1Count": 1,
+      "offenders": []
+    },
+    {
+      "route": "/cookies/",
+      "width": 1280,
+      "height": 900,
+      "status": 200,
+      "overflow": 0,
+      "documentHeight": 2106,
+      "h1Count": 1,
+      "offenders": []
+    },
+    {
+      "route": "/diagnostico/",
+      "width": 1280,
+      "height": 900,
+      "status": 200,
+      "overflow": 0,
+      "documentHeight": 2811,
+      "h1Count": 1,
+      "offenders": []
+    },
+    {
+      "route": "/digital/",
+      "width": 1280,
+      "height": 900,
+      "status": 200,
+      "overflow": 0,
+      "documentHeight": 8442,
+      "h1Count": 1,
+      "offenders": []
+    },
+    {
+      "route": "/estrategia/",
+      "width": 1280,
+      "height": 900,
+      "status": 200,
+      "overflow": 0,
+      "documentHeight": 6073,
+      "h1Count": 1,
+      "offenders": []
+    },
+    {
+      "route": "/estrategia/aquisicao/",
+      "width": 1280,
+      "height": 900,
+      "status": 200,
+      "overflow": 0,
+      "documentHeight": 5685,
+      "h1Count": 1,
+      "offenders": []
+    },
+    {
+      "route": "/estrategia/conversao/",
+      "width": 1280,
+      "height": 900,
+      "status": 200,
+      "overflow": 0,
+      "documentHeight": 5658,
+      "h1Count": 1,
+      "offenders": []
+    },
+    {
+      "route": "/estrategia/marca/",
+      "width": 1280,
+      "height": 900,
+      "status": 200,
+      "overflow": 0,
+      "documentHeight": 5648,
+      "h1Count": 1,
+      "offenders": []
+    },
+    {
+      "route": "/estrategia/posicionamento/",
+      "width": 1280,
+      "height": 900,
+      "status": 200,
+      "overflow": 0,
+      "documentHeight": 5685,
+      "h1Count": 1,
+      "offenders": []
+    },
+    {
+      "route": "/insights/",
+      "width": 1280,
+      "height": 900,
+      "status": 200,
+      "overflow": 0,
+      "documentHeight": 3485,
+      "h1Count": 1,
+      "offenders": []
+    },
+    {
+      "route": "/marketing/",
+      "width": 1280,
+      "height": 900,
+      "status": 200,
+      "overflow": 0,
+      "documentHeight": 7925,
+      "h1Count": 1,
+      "offenders": []
+    },
+    {
+      "route": "/metodo/",
+      "width": 1280,
+      "height": 900,
+      "status": 200,
+      "overflow": 0,
+      "documentHeight": 5080,
+      "h1Count": 1,
+      "offenders": []
+    },
+    {
+      "route": "/privacidade/",
+      "width": 1280,
+      "height": 900,
+      "status": 200,
+      "overflow": 0,
+      "documentHeight": 2693,
+      "h1Count": 1,
+      "offenders": []
+    },
+    {
+      "route": "/sobre/",
+      "width": 1280,
+      "height": 900,
+      "status": 200,
+      "overflow": 0,
+      "documentHeight": 5002,
+      "h1Count": 1,
+      "offenders": []
+    },
+    {
+      "route": "/tecnologia/",
+      "width": 1280,
+      "height": 900,
+      "status": 200,
+      "overflow": 0,
+      "documentHeight": 5935,
+      "h1Count": 1,
+      "offenders": []
+    },
+    {
+      "route": "/termos/",
+      "width": 1280,
+      "height": 900,
+      "status": 200,
+      "overflow": 0,
+      "documentHeight": 2610,
+      "h1Count": 1,
+      "offenders": []
+    },
+    {
+      "route": "/",
+      "width": 1366,
+      "height": 768,
+      "status": 200,
+      "overflow": 0,
+      "documentHeight": 16712,
+      "h1Count": 1,
+      "offenders": []
+    },
+    {
+      "route": "/404.html",
+      "width": 1366,
+      "height": 768,
+      "status": 200,
+      "overflow": 0,
+      "documentHeight": 1221,
+      "h1Count": 1,
+      "offenders": []
+    },
+    {
+      "route": "/acessibilidade/",
+      "width": 1366,
+      "height": 768,
+      "status": 200,
+      "overflow": 0,
+      "documentHeight": 2425,
+      "h1Count": 1,
+      "offenders": []
+    },
+    {
+      "route": "/bescheiben/",
+      "width": 1366,
+      "height": 768,
+      "status": 200,
+      "overflow": 0,
+      "documentHeight": 4348,
+      "h1Count": 1,
+      "offenders": []
+    },
+    {
+      "route": "/branding/",
+      "width": 1366,
+      "height": 768,
+      "status": 200,
+      "overflow": 0,
+      "documentHeight": 6761,
+      "h1Count": 1,
+      "offenders": []
+    },
+    {
+      "route": "/cookies/",
+      "width": 1366,
+      "height": 768,
+      "status": 200,
+      "overflow": 0,
+      "documentHeight": 2150,
+      "h1Count": 1,
+      "offenders": []
+    },
+    {
+      "route": "/diagnostico/",
+      "width": 1366,
+      "height": 768,
+      "status": 200,
+      "overflow": 0,
+      "documentHeight": 2855,
+      "h1Count": 1,
+      "offenders": []
+    },
+    {
+      "route": "/digital/",
+      "width": 1366,
+      "height": 768,
+      "status": 200,
+      "overflow": 0,
+      "documentHeight": 8587,
+      "h1Count": 1,
+      "offenders": []
+    },
+    {
+      "route": "/estrategia/",
+      "width": 1366,
+      "height": 768,
+      "status": 200,
+      "overflow": 0,
+      "documentHeight": 6141,
+      "h1Count": 1,
+      "offenders": []
+    },
+    {
+      "route": "/estrategia/aquisicao/",
+      "width": 1366,
+      "height": 768,
+      "status": 200,
+      "overflow": 0,
+      "documentHeight": 5763,
+      "h1Count": 1,
+      "offenders": []
+    },
+    {
+      "route": "/estrategia/conversao/",
+      "width": 1366,
+      "height": 768,
+      "status": 200,
+      "overflow": 0,
+      "documentHeight": 5735,
+      "h1Count": 1,
+      "offenders": []
+    },
+    {
+      "route": "/estrategia/marca/",
+      "width": 1366,
+      "height": 768,
+      "status": 200,
+      "overflow": 0,
+      "documentHeight": 5830,
+      "h1Count": 1,
+      "offenders": []
+    },
+    {
+      "route": "/estrategia/posicionamento/",
+      "width": 1366,
+      "height": 768,
+      "status": 200,
+      "overflow": 0,
+      "documentHeight": 5762,
+      "h1Count": 1,
+      "offenders": []
+    },
+    {
+      "route": "/insights/",
+      "width": 1366,
+      "height": 768,
+      "status": 200,
+      "overflow": 0,
+      "documentHeight": 3530,
+      "h1Count": 1,
+      "offenders": []
+    },
+    {
+      "route": "/marketing/",
+      "width": 1366,
+      "height": 768,
+      "status": 200,
+      "overflow": 0,
+      "documentHeight": 8057,
+      "h1Count": 1,
+      "offenders": []
+    },
+    {
+      "route": "/metodo/",
+      "width": 1366,
+      "height": 768,
+      "status": 200,
+      "overflow": 0,
+      "documentHeight": 5197,
+      "h1Count": 1,
+      "offenders": []
+    },
+    {
+      "route": "/privacidade/",
+      "width": 1366,
+      "height": 768,
+      "status": 200,
+      "overflow": 0,
+      "documentHeight": 2718,
+      "h1Count": 1,
+      "offenders": []
+    },
+    {
+      "route": "/sobre/",
+      "width": 1366,
+      "height": 768,
+      "status": 200,
+      "overflow": 0,
+      "documentHeight": 5082,
+      "h1Count": 1,
+      "offenders": []
+    },
+    {
+      "route": "/tecnologia/",
+      "width": 1366,
+      "height": 768,
+      "status": 200,
+      "overflow": 0,
+      "documentHeight": 6021,
+      "h1Count": 1,
+      "offenders": []
+    },
+    {
+      "route": "/termos/",
+      "width": 1366,
+      "height": 768,
+      "status": 200,
+      "overflow": 0,
+      "documentHeight": 2666,
+      "h1Count": 1,
+      "offenders": []
+    },
+    {
+      "route": "/",
+      "width": 1440,
+      "height": 900,
+      "status": 200,
+      "overflow": 0,
+      "documentHeight": 16924,
+      "h1Count": 1,
+      "offenders": []
+    },
+    {
+      "route": "/404.html",
+      "width": 1440,
+      "height": 900,
+      "status": 200,
+      "overflow": 0,
+      "documentHeight": 1356,
+      "h1Count": 1,
+      "offenders": []
+    },
+    {
+      "route": "/acessibilidade/",
+      "width": 1440,
+      "height": 900,
+      "status": 200,
+      "overflow": 0,
+      "documentHeight": 2512,
+      "h1Count": 1,
+      "offenders": []
+    },
+    {
+      "route": "/bescheiben/",
+      "width": 1440,
+      "height": 900,
+      "status": 200,
+      "overflow": 0,
+      "documentHeight": 4441,
+      "h1Count": 1,
+      "offenders": []
+    },
+    {
+      "route": "/branding/",
+      "width": 1440,
+      "height": 900,
+      "status": 200,
+      "overflow": 0,
+      "documentHeight": 6851,
+      "h1Count": 1,
+      "offenders": []
+    },
+    {
+      "route": "/cookies/",
+      "width": 1440,
+      "height": 900,
+      "status": 200,
+      "overflow": 0,
+      "documentHeight": 2161,
+      "h1Count": 1,
+      "offenders": []
+    },
+    {
+      "route": "/diagnostico/",
+      "width": 1440,
+      "height": 900,
+      "status": 200,
+      "overflow": 0,
+      "documentHeight": 2892,
+      "h1Count": 1,
+      "offenders": []
+    },
+    {
+      "route": "/digital/",
+      "width": 1440,
+      "height": 900,
+      "status": 200,
+      "overflow": 0,
+      "documentHeight": 8679,
+      "h1Count": 1,
+      "offenders": []
+    },
+    {
+      "route": "/estrategia/",
+      "width": 1440,
+      "height": 900,
+      "status": 200,
+      "overflow": 0,
+      "documentHeight": 6250,
+      "h1Count": 1,
+      "offenders": []
+    },
+    {
+      "route": "/estrategia/aquisicao/",
+      "width": 1440,
+      "height": 900,
+      "status": 200,
+      "overflow": 0,
+      "documentHeight": 5849,
+      "h1Count": 1,
+      "offenders": []
+    },
+    {
+      "route": "/estrategia/conversao/",
+      "width": 1440,
+      "height": 900,
+      "status": 200,
+      "overflow": 0,
+      "documentHeight": 5874,
+      "h1Count": 1,
+      "offenders": []
+    },
+    {
+      "route": "/estrategia/marca/",
+      "width": 1440,
+      "height": 900,
+      "status": 200,
+      "overflow": 0,
+      "documentHeight": 5918,
+      "h1Count": 1,
+      "offenders": []
+    },
+    {
+      "route": "/estrategia/posicionamento/",
+      "width": 1440,
+      "height": 900,
+      "status": 200,
+      "overflow": 0,
+      "documentHeight": 5847,
+      "h1Count": 1,
+      "offenders": []
+    },
+    {
+      "route": "/insights/",
+      "width": 1440,
+      "height": 900,
+      "status": 200,
+      "overflow": 0,
+      "documentHeight": 3570,
+      "h1Count": 1,
+      "offenders": []
+    },
+    {
+      "route": "/marketing/",
+      "width": 1440,
+      "height": 900,
+      "status": 200,
+      "overflow": 0,
+      "documentHeight": 8196,
+      "h1Count": 1,
+      "offenders": []
+    },
+    {
+      "route": "/metodo/",
+      "width": 1440,
+      "height": 900,
+      "status": 200,
+      "overflow": 0,
+      "documentHeight": 5296,
+      "h1Count": 1,
+      "offenders": []
+    },
+    {
+      "route": "/privacidade/",
+      "width": 1440,
+      "height": 900,
+      "status": 200,
+      "overflow": 0,
+      "documentHeight": 2750,
+      "h1Count": 1,
+      "offenders": []
+    },
+    {
+      "route": "/sobre/",
+      "width": 1440,
+      "height": 900,
+      "status": 200,
+      "overflow": 0,
+      "documentHeight": 5118,
+      "h1Count": 1,
+      "offenders": []
+    },
+    {
+      "route": "/tecnologia/",
+      "width": 1440,
+      "height": 900,
+      "status": 200,
+      "overflow": 0,
+      "documentHeight": 6120,
+      "h1Count": 1,
+      "offenders": []
+    },
+    {
+      "route": "/termos/",
+      "width": 1440,
+      "height": 900,
+      "status": 200,
+      "overflow": 0,
+      "documentHeight": 2704,
+      "h1Count": 1,
+      "offenders": []
+    },
+    {
+      "route": "/",
+      "width": 1600,
+      "height": 900,
+      "status": 200,
+      "overflow": 0,
+      "documentHeight": 17468,
+      "h1Count": 1,
+      "offenders": []
+    },
+    {
+      "route": "/404.html",
+      "width": 1600,
+      "height": 900,
+      "status": 200,
+      "overflow": 0,
+      "documentHeight": 1363,
+      "h1Count": 1,
+      "offenders": []
+    },
+    {
+      "route": "/acessibilidade/",
+      "width": 1600,
+      "height": 900,
+      "status": 200,
+      "overflow": 0,
+      "documentHeight": 2606,
+      "h1Count": 1,
+      "offenders": []
+    },
+    {
+      "route": "/bescheiben/",
+      "width": 1600,
+      "height": 900,
+      "status": 200,
+      "overflow": 0,
+      "documentHeight": 4688,
+      "h1Count": 1,
+      "offenders": []
+    },
+    {
+      "route": "/branding/",
+      "width": 1600,
+      "height": 900,
+      "status": 200,
+      "overflow": 0,
+      "documentHeight": 7141,
+      "h1Count": 1,
+      "offenders": []
+    },
+    {
+      "route": "/cookies/",
+      "width": 1600,
+      "height": 900,
+      "status": 200,
+      "overflow": 0,
+      "documentHeight": 2243,
+      "h1Count": 1,
+      "offenders": []
+    },
+    {
+      "route": "/diagnostico/",
+      "width": 1600,
+      "height": 900,
+      "status": 200,
+      "overflow": 0,
+      "documentHeight": 2974,
+      "h1Count": 1,
+      "offenders": []
+    },
+    {
+      "route": "/digital/",
+      "width": 1600,
+      "height": 900,
+      "status": 200,
+      "overflow": 0,
+      "documentHeight": 8974,
+      "h1Count": 1,
+      "offenders": []
+    },
+    {
+      "route": "/estrategia/",
+      "width": 1600,
+      "height": 900,
+      "status": 200,
+      "overflow": 0,
+      "documentHeight": 6480,
+      "h1Count": 1,
+      "offenders": []
+    },
+    {
+      "route": "/estrategia/aquisicao/",
+      "width": 1600,
+      "height": 900,
+      "status": 200,
+      "overflow": 0,
+      "documentHeight": 6133,
+      "h1Count": 1,
+      "offenders": []
+    },
+    {
+      "route": "/estrategia/conversao/",
+      "width": 1600,
+      "height": 900,
+      "status": 200,
+      "overflow": 0,
+      "documentHeight": 6161,
+      "h1Count": 1,
+      "offenders": []
+    },
+    {
+      "route": "/estrategia/marca/",
+      "width": 1600,
+      "height": 900,
+      "status": 200,
+      "overflow": 0,
+      "documentHeight": 6240,
+      "h1Count": 1,
+      "offenders": []
+    },
+    {
+      "route": "/estrategia/posicionamento/",
+      "width": 1600,
+      "height": 900,
+      "status": 200,
+      "overflow": 0,
+      "documentHeight": 6161,
+      "h1Count": 1,
+      "offenders": []
+    },
+    {
+      "route": "/insights/",
+      "width": 1600,
+      "height": 900,
+      "status": 200,
+      "overflow": 0,
+      "documentHeight": 3626,
+      "h1Count": 1,
+      "offenders": []
+    },
+    {
+      "route": "/marketing/",
+      "width": 1600,
+      "height": 900,
+      "status": 200,
+      "overflow": 0,
+      "documentHeight": 8485,
+      "h1Count": 1,
+      "offenders": []
+    },
+    {
+      "route": "/metodo/",
+      "width": 1600,
+      "height": 900,
+      "status": 200,
+      "overflow": 0,
+      "documentHeight": 5567,
+      "h1Count": 1,
+      "offenders": []
+    },
+    {
+      "route": "/privacidade/",
+      "width": 1600,
+      "height": 900,
+      "status": 200,
+      "overflow": 0,
+      "documentHeight": 2818,
+      "h1Count": 1,
+      "offenders": []
+    },
+    {
+      "route": "/sobre/",
+      "width": 1600,
+      "height": 900,
+      "status": 200,
+      "overflow": 0,
+      "documentHeight": 5287,
+      "h1Count": 1,
+      "offenders": []
+    },
+    {
+      "route": "/tecnologia/",
+      "width": 1600,
+      "height": 900,
+      "status": 200,
+      "overflow": 0,
+      "documentHeight": 6333,
+      "h1Count": 1,
+      "offenders": []
+    },
+    {
+      "route": "/termos/",
+      "width": 1600,
+      "height": 900,
+      "status": 200,
+      "overflow": 0,
+      "documentHeight": 2786,
+      "h1Count": 1,
+      "offenders": []
+    },
+    {
+      "route": "/",
+      "width": 1920,
+      "height": 1080,
+      "status": 200,
+      "overflow": 0,
+      "documentHeight": 17535,
+      "h1Count": 1,
+      "offenders": []
+    },
+    {
+      "route": "/404.html",
+      "width": 1920,
+      "height": 1080,
+      "status": 200,
+      "overflow": 0,
+      "documentHeight": 1543,
+      "h1Count": 1,
+      "offenders": []
+    },
+    {
+      "route": "/acessibilidade/",
+      "width": 1920,
+      "height": 1080,
+      "status": 200,
+      "overflow": 0,
+      "documentHeight": 2722,
+      "h1Count": 1,
+      "offenders": []
+    },
+    {
+      "route": "/bescheiben/",
+      "width": 1920,
+      "height": 1080,
+      "status": 200,
+      "overflow": 0,
+      "documentHeight": 4745,
+      "h1Count": 1,
+      "offenders": []
+    },
+    {
+      "route": "/branding/",
+      "width": 1920,
+      "height": 1080,
+      "status": 200,
+      "overflow": 0,
+      "documentHeight": 7298,
+      "h1Count": 1,
+      "offenders": []
+    },
+    {
+      "route": "/cookies/",
+      "width": 1920,
+      "height": 1080,
+      "status": 200,
+      "overflow": 0,
+      "documentHeight": 2270,
+      "h1Count": 1,
+      "offenders": []
+    },
+    {
+      "route": "/diagnostico/",
+      "width": 1920,
+      "height": 1080,
+      "status": 200,
+      "overflow": 0,
+      "documentHeight": 3011,
+      "h1Count": 1,
+      "offenders": []
+    },
+    {
+      "route": "/digital/",
+      "width": 1920,
+      "height": 1080,
+      "status": 200,
+      "overflow": 0,
+      "documentHeight": 9031,
+      "h1Count": 1,
+      "offenders": []
+    },
+    {
+      "route": "/estrategia/",
+      "width": 1920,
+      "height": 1080,
+      "status": 200,
+      "overflow": 0,
+      "documentHeight": 6617,
+      "h1Count": 1,
+      "offenders": []
+    },
+    {
+      "route": "/estrategia/aquisicao/",
+      "width": 1920,
+      "height": 1080,
+      "status": 200,
+      "overflow": 0,
+      "documentHeight": 6334,
+      "h1Count": 1,
+      "offenders": []
+    },
+    {
+      "route": "/estrategia/conversao/",
+      "width": 1920,
+      "height": 1080,
+      "status": 200,
+      "overflow": 0,
+      "documentHeight": 6274,
+      "h1Count": 1,
+      "offenders": []
+    },
+    {
+      "route": "/estrategia/marca/",
+      "width": 1920,
+      "height": 1080,
+      "status": 200,
+      "overflow": 0,
+      "documentHeight": 6449,
+      "h1Count": 1,
+      "offenders": []
+    },
+    {
+      "route": "/estrategia/posicionamento/",
+      "width": 1920,
+      "height": 1080,
+      "status": 200,
+      "overflow": 0,
+      "documentHeight": 6426,
+      "h1Count": 1,
+      "offenders": []
+    },
+    {
+      "route": "/insights/",
+      "width": 1920,
+      "height": 1080,
+      "status": 200,
+      "overflow": 0,
+      "documentHeight": 3649,
+      "h1Count": 1,
+      "offenders": []
+    },
+    {
+      "route": "/marketing/",
+      "width": 1920,
+      "height": 1080,
+      "status": 200,
+      "overflow": 0,
+      "documentHeight": 8549,
+      "h1Count": 1,
+      "offenders": []
+    },
+    {
+      "route": "/metodo/",
+      "width": 1920,
+      "height": 1080,
+      "status": 200,
+      "overflow": 0,
+      "documentHeight": 5830,
+      "h1Count": 1,
+      "offenders": []
+    },
+    {
+      "route": "/privacidade/",
+      "width": 1920,
+      "height": 1080,
+      "status": 200,
+      "overflow": 0,
+      "documentHeight": 2841,
+      "h1Count": 1,
+      "offenders": []
+    },
+    {
+      "route": "/sobre/",
+      "width": 1920,
+      "height": 1080,
+      "status": 200,
+      "overflow": 0,
+      "documentHeight": 5387,
+      "h1Count": 1,
+      "offenders": []
+    },
+    {
+      "route": "/tecnologia/",
+      "width": 1920,
+      "height": 1080,
+      "status": 200,
+      "overflow": 0,
+      "documentHeight": 6383,
+      "h1Count": 1,
+      "offenders": []
+    },
+    {
+      "route": "/termos/",
+      "width": 1920,
+      "height": 1080,
+      "status": 200,
+      "overflow": 0,
+      "documentHeight": 2808,
+      "h1Count": 1,
+      "offenders": []
+    },
+    {
+      "route": "/",
+      "width": 2560,
+      "height": 900,
+      "status": 200,
+      "overflow": 0,
+      "documentHeight": 17535,
+      "h1Count": 1,
+      "offenders": []
+    },
+    {
+      "route": "/404.html",
+      "width": 2560,
+      "height": 900,
+      "status": 200,
+      "overflow": 0,
+      "documentHeight": 1363,
+      "h1Count": 1,
+      "offenders": []
+    },
+    {
+      "route": "/acessibilidade/",
+      "width": 2560,
+      "height": 900,
+      "status": 200,
+      "overflow": 0,
+      "documentHeight": 2722,
+      "h1Count": 1,
+      "offenders": []
+    },
+    {
+      "route": "/bescheiben/",
+      "width": 2560,
+      "height": 900,
+      "status": 200,
+      "overflow": 0,
+      "documentHeight": 4745,
+      "h1Count": 1,
+      "offenders": []
+    },
+    {
+      "route": "/branding/",
+      "width": 2560,
+      "height": 900,
+      "status": 200,
+      "overflow": 0,
+      "documentHeight": 7298,
+      "h1Count": 1,
+      "offenders": []
+    },
+    {
+      "route": "/cookies/",
+      "width": 2560,
+      "height": 900,
+      "status": 200,
+      "overflow": 0,
+      "documentHeight": 2270,
+      "h1Count": 1,
+      "offenders": []
+    },
+    {
+      "route": "/diagnostico/",
+      "width": 2560,
+      "height": 900,
+      "status": 200,
+      "overflow": 0,
+      "documentHeight": 3011,
+      "h1Count": 1,
+      "offenders": []
+    },
+    {
+      "route": "/digital/",
+      "width": 2560,
+      "height": 900,
+      "status": 200,
+      "overflow": 0,
+      "documentHeight": 9031,
+      "h1Count": 1,
+      "offenders": []
+    },
+    {
+      "route": "/estrategia/",
+      "width": 2560,
+      "height": 900,
+      "status": 200,
+      "overflow": 0,
+      "documentHeight": 6617,
+      "h1Count": 1,
+      "offenders": []
+    },
+    {
+      "route": "/estrategia/aquisicao/",
+      "width": 2560,
+      "height": 900,
+      "status": 200,
+      "overflow": 0,
+      "documentHeight": 6334,
+      "h1Count": 1,
+      "offenders": []
+    },
+    {
+      "route": "/estrategia/conversao/",
+      "width": 2560,
+      "height": 900,
+      "status": 200,
+      "overflow": 0,
+      "documentHeight": 6274,
+      "h1Count": 1,
+      "offenders": []
+    },
+    {
+      "route": "/estrategia/marca/",
+      "width": 2560,
+      "height": 900,
+      "status": 200,
+      "overflow": 0,
+      "documentHeight": 6449,
+      "h1Count": 1,
+      "offenders": []
+    },
+    {
+      "route": "/estrategia/posicionamento/",
+      "width": 2560,
+      "height": 900,
+      "status": 200,
+      "overflow": 0,
+      "documentHeight": 6426,
+      "h1Count": 1,
+      "offenders": []
+    },
+    {
+      "route": "/insights/",
+      "width": 2560,
+      "height": 900,
+      "status": 200,
+      "overflow": 0,
+      "documentHeight": 3649,
+      "h1Count": 1,
+      "offenders": []
+    },
+    {
+      "route": "/marketing/",
+      "width": 2560,
+      "height": 900,
+      "status": 200,
+      "overflow": 0,
+      "documentHeight": 8549,
+      "h1Count": 1,
+      "offenders": []
+    },
+    {
+      "route": "/metodo/",
+      "width": 2560,
+      "height": 900,
+      "status": 200,
+      "overflow": 0,
+      "documentHeight": 5830,
+      "h1Count": 1,
+      "offenders": []
+    },
+    {
+      "route": "/privacidade/",
+      "width": 2560,
+      "height": 900,
+      "status": 200,
+      "overflow": 0,
+      "documentHeight": 2841,
+      "h1Count": 1,
+      "offenders": []
+    },
+    {
+      "route": "/sobre/",
+      "width": 2560,
+      "height": 900,
+      "status": 200,
+      "overflow": 0,
+      "documentHeight": 5387,
+      "h1Count": 1,
+      "offenders": []
+    },
+    {
+      "route": "/tecnologia/",
+      "width": 2560,
+      "height": 900,
+      "status": 200,
+      "overflow": 0,
+      "documentHeight": 6383,
+      "h1Count": 1,
+      "offenders": []
+    },
+    {
+      "route": "/termos/",
+      "width": 2560,
+      "height": 900,
+      "status": 200,
+      "overflow": 0,
+      "documentHeight": 2808,
+      "h1Count": 1,
+      "offenders": []
+    }
+  ],
+  "errors": [],
+  "screenshots": [
+    {
+      "route": "/404.html",
+      "width": 390,
+      "height": 844,
+      "path": "qa/responsive/404.html-390x844.png"
+    },
+    {
+      "route": "/",
+      "width": 390,
+      "height": 844,
+      "path": "qa/responsive/home-390x844.png"
+    },
+    {
+      "route": "/",
+      "section": "antes-da-solucao",
+      "width": 390,
+      "path": "qa/responsive/home-antes-da-solucao-390.png"
+    },
+    {
+      "route": "/acessibilidade/",
+      "width": 390,
+      "height": 844,
+      "path": "qa/responsive/acessibilidade-390x844.png"
+    },
+    {
+      "route": "/",
+      "section": "nosso-metodo",
+      "width": 390,
+      "path": "qa/responsive/home-nosso-metodo-390.png"
+    },
+    {
+      "route": "/",
+      "section": "capacidades",
+      "width": 390,
+      "path": "qa/responsive/home-capacidades-390.png"
+    },
+    {
+      "route": "/bescheiben/",
+      "width": 390,
+      "height": 844,
+      "path": "qa/responsive/bescheiben-390x844.png"
+    },
+    {
+      "route": "/",
+      "section": "um-unico-sistema",
+      "width": 390,
+      "path": "qa/responsive/home-um-unico-sistema-390.png"
+    },
+    {
+      "route": "/",
+      "section": "faq",
+      "width": 390,
+      "path": "qa/responsive/home-faq-390.png"
+    },
+    {
+      "route": "/branding/",
+      "width": 390,
+      "height": 844,
+      "path": "qa/responsive/branding-390x844.png"
+    },
+    {
+      "route": "/cookies/",
+      "width": 390,
+      "height": 844,
+      "path": "qa/responsive/cookies-390x844.png"
+    },
+    {
+      "route": "/diagnostico/",
+      "width": 390,
+      "height": 844,
+      "path": "qa/responsive/diagnostico-390x844.png"
+    },
+    {
+      "route": "/digital/",
+      "width": 390,
+      "height": 844,
+      "path": "qa/responsive/digital-390x844.png"
+    },
+    {
+      "route": "/estrategia/",
+      "width": 390,
+      "height": 844,
+      "path": "qa/responsive/estrategia-390x844.png"
+    },
+    {
+      "route": "/estrategia/aquisicao/",
+      "width": 390,
+      "height": 844,
+      "path": "qa/responsive/estrategia-aquisicao-390x844.png"
+    },
+    {
+      "route": "/estrategia/conversao/",
+      "width": 390,
+      "height": 844,
+      "path": "qa/responsive/estrategia-conversao-390x844.png"
+    },
+    {
+      "route": "/estrategia/marca/",
+      "width": 390,
+      "height": 844,
+      "path": "qa/responsive/estrategia-marca-390x844.png"
+    },
+    {
+      "route": "/estrategia/posicionamento/",
+      "width": 390,
+      "height": 844,
+      "path": "qa/responsive/estrategia-posicionamento-390x844.png"
+    },
+    {
+      "route": "/insights/",
+      "width": 390,
+      "height": 844,
+      "path": "qa/responsive/insights-390x844.png"
+    },
+    {
+      "route": "/marketing/",
+      "width": 390,
+      "height": 844,
+      "path": "qa/responsive/marketing-390x844.png"
+    },
+    {
+      "route": "/metodo/",
+      "width": 390,
+      "height": 844,
+      "path": "qa/responsive/metodo-390x844.png"
+    },
+    {
+      "route": "/privacidade/",
+      "width": 390,
+      "height": 844,
+      "path": "qa/responsive/privacidade-390x844.png"
+    },
+    {
+      "route": "/sobre/",
+      "width": 390,
+      "height": 844,
+      "path": "qa/responsive/sobre-390x844.png"
+    },
+    {
+      "route": "/tecnologia/",
+      "width": 390,
+      "height": 844,
+      "path": "qa/responsive/tecnologia-390x844.png"
+    },
+    {
+      "route": "/termos/",
+      "width": 390,
+      "height": 844,
+      "path": "qa/responsive/termos-390x844.png"
+    },
+    {
+      "route": "/",
+      "width": 768,
+      "height": 1024,
+      "path": "qa/responsive/home-768x1024.png"
+    },
+    {
+      "route": "/404.html",
+      "width": 768,
+      "height": 1024,
+      "path": "qa/responsive/404.html-768x1024.png"
+    },
+    {
+      "route": "/acessibilidade/",
+      "width": 768,
+      "height": 1024,
+      "path": "qa/responsive/acessibilidade-768x1024.png"
+    },
+    {
+      "route": "/bescheiben/",
+      "width": 768,
+      "height": 1024,
+      "path": "qa/responsive/bescheiben-768x1024.png"
+    },
+    {
+      "route": "/branding/",
+      "width": 768,
+      "height": 1024,
+      "path": "qa/responsive/branding-768x1024.png"
+    },
+    {
+      "route": "/cookies/",
+      "width": 768,
+      "height": 1024,
+      "path": "qa/responsive/cookies-768x1024.png"
+    },
+    {
+      "route": "/diagnostico/",
+      "width": 768,
+      "height": 1024,
+      "path": "qa/responsive/diagnostico-768x1024.png"
+    },
+    {
+      "route": "/digital/",
+      "width": 768,
+      "height": 1024,
+      "path": "qa/responsive/digital-768x1024.png"
+    },
+    {
+      "route": "/estrategia/",
+      "width": 768,
+      "height": 1024,
+      "path": "qa/responsive/estrategia-768x1024.png"
+    },
+    {
+      "route": "/estrategia/aquisicao/",
+      "width": 768,
+      "height": 1024,
+      "path": "qa/responsive/estrategia-aquisicao-768x1024.png"
+    },
+    {
+      "route": "/estrategia/marca/",
+      "width": 768,
+      "height": 1024,
+      "path": "qa/responsive/estrategia-marca-768x1024.png"
+    },
+    {
+      "route": "/estrategia/conversao/",
+      "width": 768,
+      "height": 1024,
+      "path": "qa/responsive/estrategia-conversao-768x1024.png"
+    },
+    {
+      "route": "/estrategia/posicionamento/",
+      "width": 768,
+      "height": 1024,
+      "path": "qa/responsive/estrategia-posicionamento-768x1024.png"
+    },
+    {
+      "route": "/insights/",
+      "width": 768,
+      "height": 1024,
+      "path": "qa/responsive/insights-768x1024.png"
+    },
+    {
+      "route": "/metodo/",
+      "width": 768,
+      "height": 1024,
+      "path": "qa/responsive/metodo-768x1024.png"
+    },
+    {
+      "route": "/marketing/",
+      "width": 768,
+      "height": 1024,
+      "path": "qa/responsive/marketing-768x1024.png"
+    },
+    {
+      "route": "/privacidade/",
+      "width": 768,
+      "height": 1024,
+      "path": "qa/responsive/privacidade-768x1024.png"
+    },
+    {
+      "route": "/sobre/",
+      "width": 768,
+      "height": 1024,
+      "path": "qa/responsive/sobre-768x1024.png"
+    },
+    {
+      "route": "/tecnologia/",
+      "width": 768,
+      "height": 1024,
+      "path": "qa/responsive/tecnologia-768x1024.png"
+    },
+    {
+      "route": "/termos/",
+      "width": 768,
+      "height": 1024,
+      "path": "qa/responsive/termos-768x1024.png"
+    },
+    {
+      "route": "/404.html",
+      "width": 1366,
+      "height": 768,
+      "path": "qa/responsive/404.html-1366x768.png"
+    },
+    {
+      "route": "/",
+      "width": 1366,
+      "height": 768,
+      "path": "qa/responsive/home-1366x768.png"
+    },
+    {
+      "route": "/bescheiben/",
+      "width": 1366,
+      "height": 768,
+      "path": "qa/responsive/bescheiben-1366x768.png"
+    },
+    {
+      "route": "/acessibilidade/",
+      "width": 1366,
+      "height": 768,
+      "path": "qa/responsive/acessibilidade-1366x768.png"
+    },
+    {
+      "route": "/cookies/",
+      "width": 1366,
+      "height": 768,
+      "path": "qa/responsive/cookies-1366x768.png"
+    },
+    {
+      "route": "/branding/",
+      "width": 1366,
+      "height": 768,
+      "path": "qa/responsive/branding-1366x768.png"
+    },
+    {
+      "route": "/diagnostico/",
+      "width": 1366,
+      "height": 768,
+      "path": "qa/responsive/diagnostico-1366x768.png"
+    },
+    {
+      "route": "/digital/",
+      "width": 1366,
+      "height": 768,
+      "path": "qa/responsive/digital-1366x768.png"
+    },
+    {
+      "route": "/estrategia/",
+      "width": 1366,
+      "height": 768,
+      "path": "qa/responsive/estrategia-1366x768.png"
+    },
+    {
+      "route": "/estrategia/aquisicao/",
+      "width": 1366,
+      "height": 768,
+      "path": "qa/responsive/estrategia-aquisicao-1366x768.png"
+    },
+    {
+      "route": "/estrategia/conversao/",
+      "width": 1366,
+      "height": 768,
+      "path": "qa/responsive/estrategia-conversao-1366x768.png"
+    },
+    {
+      "route": "/estrategia/marca/",
+      "width": 1366,
+      "height": 768,
+      "path": "qa/responsive/estrategia-marca-1366x768.png"
+    },
+    {
+      "route": "/estrategia/posicionamento/",
+      "width": 1366,
+      "height": 768,
+      "path": "qa/responsive/estrategia-posicionamento-1366x768.png"
+    },
+    {
+      "route": "/insights/",
+      "width": 1366,
+      "height": 768,
+      "path": "qa/responsive/insights-1366x768.png"
+    },
+    {
+      "route": "/marketing/",
+      "width": 1366,
+      "height": 768,
+      "path": "qa/responsive/marketing-1366x768.png"
+    },
+    {
+      "route": "/metodo/",
+      "width": 1366,
+      "height": 768,
+      "path": "qa/responsive/metodo-1366x768.png"
+    },
+    {
+      "route": "/privacidade/",
+      "width": 1366,
+      "height": 768,
+      "path": "qa/responsive/privacidade-1366x768.png"
+    },
+    {
+      "route": "/sobre/",
+      "width": 1366,
+      "height": 768,
+      "path": "qa/responsive/sobre-1366x768.png"
+    },
+    {
+      "route": "/tecnologia/",
+      "width": 1366,
+      "height": 768,
+      "path": "qa/responsive/tecnologia-1366x768.png"
+    },
+    {
+      "route": "/termos/",
+      "width": 1366,
+      "height": 768,
+      "path": "qa/responsive/termos-1366x768.png"
+    },
+    {
+      "route": "/404.html",
+      "width": 1440,
+      "height": 900,
+      "path": "qa/responsive/404.html-1440x900.png"
+    },
+    {
+      "route": "/",
+      "width": 1440,
+      "height": 900,
+      "path": "qa/responsive/home-1440x900.png"
+    },
+    {
+      "route": "/",
+      "section": "antes-da-solucao",
+      "width": 1440,
+      "path": "qa/responsive/home-antes-da-solucao-1440.png"
+    },
+    {
+      "route": "/acessibilidade/",
+      "width": 1440,
+      "height": 900,
+      "path": "qa/responsive/acessibilidade-1440x900.png"
+    },
+    {
+      "route": "/",
+      "section": "nosso-metodo",
+      "width": 1440,
+      "path": "qa/responsive/home-nosso-metodo-1440.png"
+    },
+    {
+      "route": "/bescheiben/",
+      "width": 1440,
+      "height": 900,
+      "path": "qa/responsive/bescheiben-1440x900.png"
+    },
+    {
+      "route": "/",
+      "section": "capacidades",
+      "width": 1440,
+      "path": "qa/responsive/home-capacidades-1440.png"
+    },
+    {
+      "route": "/",
+      "section": "um-unico-sistema",
+      "width": 1440,
+      "path": "qa/responsive/home-um-unico-sistema-1440.png"
+    },
+    {
+      "route": "/branding/",
+      "width": 1440,
+      "height": 900,
+      "path": "qa/responsive/branding-1440x900.png"
+    },
+    {
+      "route": "/",
+      "section": "faq",
+      "width": 1440,
+      "path": "qa/responsive/home-faq-1440.png"
+    },
+    {
+      "route": "/cookies/",
+      "width": 1440,
+      "height": 900,
+      "path": "qa/responsive/cookies-1440x900.png"
+    },
+    {
+      "route": "/diagnostico/",
+      "width": 1440,
+      "height": 900,
+      "path": "qa/responsive/diagnostico-1440x900.png"
+    },
+    {
+      "route": "/digital/",
+      "width": 1440,
+      "height": 900,
+      "path": "qa/responsive/digital-1440x900.png"
+    },
+    {
+      "route": "/estrategia/",
+      "width": 1440,
+      "height": 900,
+      "path": "qa/responsive/estrategia-1440x900.png"
+    },
+    {
+      "route": "/estrategia/aquisicao/",
+      "width": 1440,
+      "height": 900,
+      "path": "qa/responsive/estrategia-aquisicao-1440x900.png"
+    },
+    {
+      "route": "/estrategia/conversao/",
+      "width": 1440,
+      "height": 900,
+      "path": "qa/responsive/estrategia-conversao-1440x900.png"
+    },
+    {
+      "route": "/estrategia/marca/",
+      "width": 1440,
+      "height": 900,
+      "path": "qa/responsive/estrategia-marca-1440x900.png"
+    },
+    {
+      "route": "/estrategia/posicionamento/",
+      "width": 1440,
+      "height": 900,
+      "path": "qa/responsive/estrategia-posicionamento-1440x900.png"
+    },
+    {
+      "route": "/insights/",
+      "width": 1440,
+      "height": 900,
+      "path": "qa/responsive/insights-1440x900.png"
+    },
+    {
+      "route": "/marketing/",
+      "width": 1440,
+      "height": 900,
+      "path": "qa/responsive/marketing-1440x900.png"
+    },
+    {
+      "route": "/metodo/",
+      "width": 1440,
+      "height": 900,
+      "path": "qa/responsive/metodo-1440x900.png"
+    },
+    {
+      "route": "/privacidade/",
+      "width": 1440,
+      "height": 900,
+      "path": "qa/responsive/privacidade-1440x900.png"
+    },
+    {
+      "route": "/sobre/",
+      "width": 1440,
+      "height": 900,
+      "path": "qa/responsive/sobre-1440x900.png"
+    },
+    {
+      "route": "/tecnologia/",
+      "width": 1440,
+      "height": 900,
+      "path": "qa/responsive/tecnologia-1440x900.png"
+    },
+    {
+      "route": "/termos/",
+      "width": 1440,
+      "height": 900,
+      "path": "qa/responsive/termos-1440x900.png"
+    },
+    {
+      "route": "/",
+      "width": 1920,
+      "height": 1080,
+      "path": "qa/responsive/home-1920x1080.png"
+    },
+    {
+      "route": "/404.html",
+      "width": 1920,
+      "height": 1080,
+      "path": "qa/responsive/404.html-1920x1080.png"
+    },
+    {
+      "route": "/acessibilidade/",
+      "width": 1920,
+      "height": 1080,
+      "path": "qa/responsive/acessibilidade-1920x1080.png"
+    },
+    {
+      "route": "/bescheiben/",
+      "width": 1920,
+      "height": 1080,
+      "path": "qa/responsive/bescheiben-1920x1080.png"
+    },
+    {
+      "route": "/branding/",
+      "width": 1920,
+      "height": 1080,
+      "path": "qa/responsive/branding-1920x1080.png"
+    },
+    {
+      "route": "/cookies/",
+      "width": 1920,
+      "height": 1080,
+      "path": "qa/responsive/cookies-1920x1080.png"
+    },
+    {
+      "route": "/diagnostico/",
+      "width": 1920,
+      "height": 1080,
+      "path": "qa/responsive/diagnostico-1920x1080.png"
+    },
+    {
+      "route": "/digital/",
+      "width": 1920,
+      "height": 1080,
+      "path": "qa/responsive/digital-1920x1080.png"
+    },
+    {
+      "route": "/estrategia/",
+      "width": 1920,
+      "height": 1080,
+      "path": "qa/responsive/estrategia-1920x1080.png"
+    },
+    {
+      "route": "/estrategia/aquisicao/",
+      "width": 1920,
+      "height": 1080,
+      "path": "qa/responsive/estrategia-aquisicao-1920x1080.png"
+    },
+    {
+      "route": "/estrategia/conversao/",
+      "width": 1920,
+      "height": 1080,
+      "path": "qa/responsive/estrategia-conversao-1920x1080.png"
+    },
+    {
+      "route": "/estrategia/marca/",
+      "width": 1920,
+      "height": 1080,
+      "path": "qa/responsive/estrategia-marca-1920x1080.png"
+    },
+    {
+      "route": "/estrategia/posicionamento/",
+      "width": 1920,
+      "height": 1080,
+      "path": "qa/responsive/estrategia-posicionamento-1920x1080.png"
+    },
+    {
+      "route": "/insights/",
+      "width": 1920,
+      "height": 1080,
+      "path": "qa/responsive/insights-1920x1080.png"
+    },
+    {
+      "route": "/marketing/",
+      "width": 1920,
+      "height": 1080,
+      "path": "qa/responsive/marketing-1920x1080.png"
+    },
+    {
+      "route": "/metodo/",
+      "width": 1920,
+      "height": 1080,
+      "path": "qa/responsive/metodo-1920x1080.png"
+    },
+    {
+      "route": "/privacidade/",
+      "width": 1920,
+      "height": 1080,
+      "path": "qa/responsive/privacidade-1920x1080.png"
+    },
+    {
+      "route": "/sobre/",
+      "width": 1920,
+      "height": 1080,
+      "path": "qa/responsive/sobre-1920x1080.png"
+    },
+    {
+      "route": "/tecnologia/",
+      "width": 1920,
+      "height": 1080,
+      "path": "qa/responsive/tecnologia-1920x1080.png"
+    },
+    {
+      "route": "/termos/",
+      "width": 1920,
+      "height": 1080,
+      "path": "qa/responsive/termos-1920x1080.png"
+    }
+  ],
+  "accessibility": [
+    {
+      "route": "/",
+      "width": 390,
+      "violations": [],
+      "incompleteCount": 1,
+      "passedRules": 30
+    },
+    {
+      "route": "/diagnostico/",
+      "width": 390,
+      "violations": [],
+      "incompleteCount": 1,
+      "passedRules": 23
+    },
+    {
+      "route": "/estrategia/",
+      "width": 390,
+      "violations": [],
+      "incompleteCount": 1,
+      "passedRules": 22
+    },
+    {
+      "route": "/metodo/",
+      "width": 390,
+      "violations": [],
+      "incompleteCount": 1,
+      "passedRules": 27
+    },
+    {
+      "route": "/privacidade/",
+      "width": 390,
+      "violations": [],
+      "incompleteCount": 0,
+      "passedRules": 22
+    },
+    {
+      "route": "/",
+      "width": 1440,
+      "violations": [],
+      "incompleteCount": 1,
+      "passedRules": 30
+    },
+    {
+      "route": "/diagnostico/",
+      "width": 1440,
+      "violations": [],
+      "incompleteCount": 1,
+      "passedRules": 23
+    },
+    {
+      "route": "/estrategia/",
+      "width": 1440,
+      "violations": [],
+      "incompleteCount": 1,
+      "passedRules": 22
+    },
+    {
+      "route": "/metodo/",
+      "width": 1440,
+      "violations": [],
+      "incompleteCount": 1,
+      "passedRules": 26
+    },
+    {
+      "route": "/privacidade/",
+      "width": 1440,
+      "violations": [],
+      "incompleteCount": 0,
+      "passedRules": 21
+    }
+  ]
+}

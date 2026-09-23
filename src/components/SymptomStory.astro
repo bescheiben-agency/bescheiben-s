@@ -1,0 +1,67 @@
+---
+import { parseMasterMarkdown } from '../utils/master-markdown';
+import type { ContentSection, CallToAction } from '../content/site-content';
+import CopyBlocks from './CopyBlocks.astro';
+interface Props { section: ContentSection; ctas: readonly CallToAction[]; }
+const { section, ctas } = Astro.props;
+const blocks = parseMasterMarkdown(section.body);
+const heading = blocks.find(block => block.type === 'heading');
+const title = heading && 'text' in heading ? heading.text : section.heading;
+const symptoms = blocks.filter(block => block.type === 'paragraph' && 'text' in block && block.text.startsWith('“'));
+const rest = blocks.filter(block => block !== heading && block.type !== 'eyebrow' && !symptoms.includes(block));
+const diagnosisIndex = rest.findIndex(block => block.type === 'subheading');
+const diagnosisHeading = diagnosisIndex >= 0 ? rest[diagnosisIndex] : undefined;
+const bridge = diagnosisIndex >= 0 ? rest.slice(0, diagnosisIndex) : rest;
+const explanation = diagnosisIndex >= 0 ? rest.slice(diagnosisIndex + 1) : [];
+const conclusionIndex = explanation.findIndex(block => block.type === 'statement');
+const evidence = conclusionIndex >= 0 ? explanation.slice(0, conclusionIndex) : explanation;
+const conclusion = conclusionIndex >= 0 ? explanation.slice(conclusionIndex) : [];
+---
+<section id={section.id} class="symptom-story" data-copy-section={section.id}>
+  <div class="container">
+    <div class="symptom-layout">
+      <h2>{title}</h2>
+      <div class="symptom-flow">
+        <div class="symptom-layers">
+          <svg class="symptom-thread" viewBox="0 0 500 540" preserveAspectRatio="none" fill="none" aria-hidden="true"><path d="M458 0c0 70-412 80-412 160s412 70 412 150S46 405 46 470s212 50 212 70" stroke="currentColor"/><circle cx="458" cy="0" r="5" fill="currentColor"/><circle cx="46" cy="470" r="5" fill="currentColor"/></svg>
+          {symptoms.map((block, index) => (
+            <div class="symptom-layer" style={`--shift:${[0,8,2,9,4,0][index] ?? 0}%;--tilt:${[-1.2,.8,-.5,1,-.7,.4][index] ?? 0}deg`}>
+              <p>{'text' in block ? block.text : ''}</p>
+              <span class="symptom-dot" aria-hidden="true"></span>
+            </div>
+          ))}
+        </div>
+        <div class="symptom-bridge"><CopyBlocks blocks={bridge} ctas={ctas}/></div>
+      </div>
+    </div>
+    <div class="symptom-resolution">
+      {diagnosisHeading && 'text' in diagnosisHeading && <h3>{diagnosisHeading.text}</h3>}
+      <div class="symptom-evidence">
+        {evidence.map(block => <div class="symptom-proof"><span aria-hidden="true"></span><CopyBlocks blocks={[block]} ctas={ctas}/></div>)}
+      </div>
+      <div class="symptom-conclusion"><CopyBlocks blocks={conclusion} ctas={ctas}/></div>
+    </div>
+  </div>
+</section>
+<script>
+  import { gsap } from 'gsap';
+  import { ScrollTrigger } from 'gsap/ScrollTrigger';
+  gsap.registerPlugin(ScrollTrigger);
+  const motion = gsap.matchMedia();
+  motion.add('(prefers-reduced-motion: no-preference)', () => {
+    document.querySelectorAll<HTMLElement>('.symptom-story').forEach(section => {
+      section.querySelectorAll<HTMLElement>('.symptom-layer').forEach((layer, index) => {
+        gsap.from(layer, { x: index % 2 ? 12 : -12, y: 10, opacity: .6, duration: .7, ease: 'power2.out', scrollTrigger: { trigger: layer, start: 'top 92%', toggleActions: 'play none none none' } });
+      });
+      const conclusion = section.querySelector('.symptom-conclusion');
+      if (conclusion) gsap.from(conclusion, { y: 14, opacity: .6, duration: .7, ease: 'power2.out', scrollTrigger: { trigger: conclusion, start: 'top 92%', toggleActions: 'play none none none' } });
+    });
+  });
+  window.addEventListener('pagehide', () => motion.revert(), { once: true });
+</script>
+<style>
+.symptom-story{padding-block:var(--section-space);background:radial-gradient(ellipse at 95% 12%,#e9defa70,transparent 45%),var(--bg-paper);overflow:clip}.symptom-layout{display:grid;grid-template-columns:1fr 1.1fr;gap:clamp(2rem,5vw,5rem);align-items:start}.symptom-layout>h2{max-width:18ch;position:sticky;top:7rem;margin:0}.symptom-flow{min-width:0;padding-top:1rem}.symptom-layers{position:relative;padding:0 9% 0 0;display:grid;gap:1rem}.symptom-thread{position:absolute;inset:0;width:100%;height:100%;color:#c8afe2;opacity:.7;pointer-events:none}.symptom-layer{position:relative;display:flex;align-items:center;justify-content:space-between;gap:1rem;min-height:76px;margin-left:var(--shift);padding:1.1rem 1.35rem;border:1px solid #c7b1e177;border-left-color:#b397d9;border-radius:.3rem;rotate:var(--tilt);color:#352148;background:linear-gradient(112deg,#fff,#faf7ff);box-shadow:0 8px 22px #59397b09;transform-origin:50% 50%}.symptom-layer p{font-size:clamp(.92rem,1.2vw,1.12rem);line-height:1.55;margin:0}.symptom-dot{width:6px;height:6px;border-radius:50%;background:#ae8bd6;box-shadow:0 0 0 4px #a97adc13;flex:none}.symptom-bridge{padding:1.7rem 0 0;max-width:49ch}.symptom-bridge :global(p){font-size:.9rem;line-height:1.7;color:#726180;margin:0 0 .5rem}.symptom-resolution{display:grid;grid-template-columns:1fr 1.1fr;gap:2rem clamp(2rem,5vw,5rem);margin-top:3rem;padding-top:3rem;border-top:1px solid #c4afd642}.symptom-resolution>h3{font-family:var(--font-display);font-size:clamp(2rem,3.2vw,3.6rem);font-weight:400;letter-spacing:-.05em;line-height:1.12;color:#482768;max-width:15ch;margin:0}.symptom-evidence{display:grid;gap:0}.symptom-proof{position:relative;display:flex;align-items:baseline;gap:1rem;padding:.85rem 0;border-bottom:1px solid #c9b7da42}.symptom-proof:first-child{padding-top:0}.symptom-proof:last-child{border-bottom:0}.symptom-proof>span{position:relative;width:5px;height:5px;rotate:45deg;flex:none;background:#a68abe}.symptom-proof :global(p){color:#685574;font-size:.93rem;line-height:1.7;margin:0}.symptom-conclusion{grid-column:1/-1;display:flex;align-items:center;justify-content:space-between;gap:3rem;margin-top:1rem;padding-top:2rem;border-top:1px solid #c4afd642}.symptom-conclusion :global(.copy-statement){font-family:var(--font-display);font-size:clamp(1.6rem,2.7vw,2.7rem);font-weight:400;letter-spacing:-.045em;line-height:1.2;color:#4b2774;max-width:33ch;margin:0}.symptom-conclusion :global(.copy-action){flex:none}
+@media(max-width:64rem){.symptom-layout{grid-template-columns:1fr 1fr;gap:2rem}.symptom-layer{padding:1rem;min-height:70px}.symptom-resolution{grid-template-columns:.8fr 1.2fr;gap:2rem}.symptom-conclusion{gap:2rem}.symptom-conclusion :global(.copy-statement){max-width:25ch}}
+@media(max-width:48rem){.symptom-layout{grid-template-columns:1fr;gap:1.8rem}.symptom-layout>h2{position:static;max-width:23ch}.symptom-flow{padding-top:0}.symptom-layers{padding-right:6%;gap:.8rem}.symptom-layer{min-height:65px}.symptom-bridge{padding-top:1.5rem}.symptom-resolution{grid-template-columns:1fr;margin-top:2rem;padding-top:2rem;gap:1.5rem}.symptom-resolution>h3{max-width:20ch}.symptom-conclusion{display:block;margin-top:0;padding-top:1.5rem}.symptom-conclusion :global(.copy-statement){max-width:30ch}.symptom-conclusion :global(.copy-action){margin-top:1.25rem}}
+@media(prefers-reduced-motion:reduce){.symptom-layer{rotate:none}}
+</style>

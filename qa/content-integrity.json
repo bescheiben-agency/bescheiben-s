@@ -1,0 +1,240 @@
+{
+  "auditedAt": "2026-09-23T02:34:49.704Z",
+  "builtAt": "2026-09-23T02:31:38.389Z",
+  "methodology": "Exact copy comparisons after NFC and whitespace normalization against production SSR HTML. Hero, FAQ and CTA checks are scoped to their rendered containers, not scripts/JSON-LD. Includes initially hidden method/FAQ panels and capability disclosures. Decorative labels and step numerals are excluded. Diagnostic helpers and intro use rendered HTML; conditional success copy uses its original inline script. Backend/schema/master hashes use portable local paths from the preserved baseline.",
+  "hashes": [
+    {
+      "file": "src/lib/contact/email.ts",
+      "expected": "E4CBA10401EF6427D02ABDF8AD695E83728940202F230C906BFBAC3CAC5FE3A7",
+      "actual": "E4CBA10401EF6427D02ABDF8AD695E83728940202F230C906BFBAC3CAC5FE3A7",
+      "match": true
+    },
+    {
+      "file": "src/lib/contact/handler.ts",
+      "expected": "B2AF1B9F52AA9FA2A1D36B83E41885B054CB99DE0BF364A65033D7771435308B",
+      "actual": "B2AF1B9F52AA9FA2A1D36B83E41885B054CB99DE0BF364A65033D7771435308B",
+      "match": true
+    },
+    {
+      "file": "src/lib/contact/rate-limit.ts",
+      "expected": "1BF64B4F75CC12E03DD26214FC63ACC788A1DDD5B20434A04BF9B7BC3587EA54",
+      "actual": "1BF64B4F75CC12E03DD26214FC63ACC788A1DDD5B20434A04BF9B7BC3587EA54",
+      "match": true
+    },
+    {
+      "file": "src/lib/contact/turnstile.ts",
+      "expected": "E9D1AEEC53E815A8F40129BAE1415430CAD3209DC132850BE5ECC56B79924FCB",
+      "actual": "E9D1AEEC53E815A8F40129BAE1415430CAD3209DC132850BE5ECC56B79924FCB",
+      "match": true
+    },
+    {
+      "file": "src/lib/contact/types.ts",
+      "expected": "42E40C6D67DDD86540B61A419927F164BCEF6C23457E4F9636A709A06CCBD4F1",
+      "actual": "42E40C6D67DDD86540B61A419927F164BCEF6C23457E4F9636A709A06CCBD4F1",
+      "match": true
+    },
+    {
+      "file": "src/lib/contact/validation.ts",
+      "expected": "684A8974C174424D2663D313E524EF28ED61D5ED74DE285600C6D34458E8AD9B",
+      "actual": "684A8974C174424D2663D313E524EF28ED61D5ED74DE285600C6D34458E8AD9B",
+      "match": true
+    },
+    {
+      "file": "src/lib/seo/schema.ts",
+      "expected": "23A74E0EBBD165CB8415A0B3C0B1394C9EDC93818F2D387EDDC955D2BBA7A2A7",
+      "actual": "23A74E0EBBD165CB8415A0B3C0B1394C9EDC93818F2D387EDDC955D2BBA7A2A7",
+      "match": true
+    },
+    {
+      "file": "src/content/master/Bescheiben_Copy_Master_Final_SEO_AEO_GEO.md",
+      "expected": "7218B311FE771668007238897666426E06CA9016A919006EABB4667DC5D15B30",
+      "actual": "7218B311FE771668007238897666426E06CA9016A919006EABB4667DC5D15B30",
+      "match": true
+    }
+  ],
+  "formContract": {
+    "scriptMatchesBaselineExceptApprovedSuccessCopy": true,
+    "approvedSuccess": "Contexto recebido. Vamos analisar as informações antes de continuar a conversa. Caso seja necessário compreender algum ponto adicional, entraremos em contato.",
+    "fieldsMatchBaseline": true,
+    "helpAssociationsValid": true
+  },
+  "routeArtifacts": [
+    {
+      "route": "/",
+      "exists": true
+    },
+    {
+      "route": "/estrategia",
+      "exists": true
+    },
+    {
+      "route": "/branding",
+      "exists": true
+    },
+    {
+      "route": "/marketing",
+      "exists": true
+    },
+    {
+      "route": "/digital",
+      "exists": true
+    },
+    {
+      "route": "/tecnologia",
+      "exists": true
+    },
+    {
+      "route": "/insights",
+      "exists": true
+    },
+    {
+      "route": "/sobre",
+      "exists": true
+    },
+    {
+      "route": "/diagnostico",
+      "exists": true
+    },
+    {
+      "route": "/privacidade",
+      "exists": true
+    },
+    {
+      "route": "/cookies",
+      "exists": true
+    },
+    {
+      "route": "/termos",
+      "exists": true
+    },
+    {
+      "route": "/acessibilidade",
+      "exists": true
+    },
+    {
+      "route": "/metodo",
+      "exists": true
+    },
+    {
+      "route": "/bescheiben",
+      "exists": true
+    },
+    {
+      "route": "/estrategia/posicionamento",
+      "exists": true
+    },
+    {
+      "route": "/estrategia/marca",
+      "exists": true
+    },
+    {
+      "route": "/estrategia/aquisicao",
+      "exists": true
+    },
+    {
+      "route": "/estrategia/conversao",
+      "exists": true
+    }
+  ],
+  "routes": [
+    {
+      "route": "/",
+      "expectedSections": 12,
+      "renderedSections": 12,
+      "sectionRenderer": "data-copy-section",
+      "expectedFaqs": 8,
+      "renderedFaqs": 8,
+      "checkedCopyUnits": 332,
+      "missing": [],
+      "seo": true
+    },
+    {
+      "route": "/estrategia",
+      "expectedSections": 6,
+      "renderedSections": 6,
+      "sectionRenderer": "data-copy-section",
+      "expectedFaqs": 4,
+      "renderedFaqs": 4,
+      "checkedCopyUnits": 74,
+      "missing": [],
+      "seo": true
+    },
+    {
+      "route": "/branding",
+      "expectedSections": 8,
+      "renderedSections": 8,
+      "sectionRenderer": "data-copy-section",
+      "expectedFaqs": 4,
+      "renderedFaqs": 4,
+      "checkedCopyUnits": 79,
+      "missing": [],
+      "seo": true
+    },
+    {
+      "route": "/marketing",
+      "expectedSections": 9,
+      "renderedSections": 9,
+      "sectionRenderer": "data-copy-section",
+      "expectedFaqs": 4,
+      "renderedFaqs": 4,
+      "checkedCopyUnits": 106,
+      "missing": [],
+      "seo": true
+    },
+    {
+      "route": "/digital",
+      "expectedSections": 11,
+      "renderedSections": 11,
+      "sectionRenderer": "data-copy-section",
+      "expectedFaqs": 4,
+      "renderedFaqs": 4,
+      "checkedCopyUnits": 109,
+      "missing": [],
+      "seo": true
+    },
+    {
+      "route": "/tecnologia",
+      "expectedSections": 6,
+      "renderedSections": 6,
+      "sectionRenderer": "data-copy-section",
+      "expectedFaqs": 4,
+      "renderedFaqs": 4,
+      "checkedCopyUnits": 79,
+      "missing": [],
+      "seo": true
+    },
+    {
+      "route": "/insights",
+      "expectedSections": 2,
+      "renderedSections": 2,
+      "sectionRenderer": "data-copy-section",
+      "expectedFaqs": 0,
+      "renderedFaqs": 0,
+      "checkedCopyUnits": 45,
+      "missing": [],
+      "seo": true
+    },
+    {
+      "route": "/sobre",
+      "expectedSections": 7,
+      "renderedSections": 7,
+      "sectionRenderer": "data-copy-section",
+      "expectedFaqs": 0,
+      "renderedFaqs": 0,
+      "checkedCopyUnits": 61,
+      "missing": [],
+      "seo": true
+    },
+    {
+      "route": "/diagnostico",
+      "expectedSections": 3,
+      "renderedSections": 3,
+      "sectionRenderer": "ContactSection: intro, fields, conditional confirmation",
+      "expectedFaqs": 0,
+      "renderedFaqs": 0,
+      "checkedCopyUnits": 32,
+      "missing": [],
+      "seo": true
+    }
+  ]
+}

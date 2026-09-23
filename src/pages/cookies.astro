@@ -1,0 +1,183 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Footer from '../components/Footer.astro';
+import Header from '../components/Header.astro';
+
+const title = 'Cookies | Bescheiben';
+const description = 'Tecnologias essenciais usadas pela Bescheiben para funcionamento e proteção do formulário de diagnóstico.';
+---
+
+<BaseLayout title={title} description={description}>
+  <Header />
+  <main id="conteudo">
+    <section class="cookie-hero section-shell">
+      <div class="container cookie-hero__layout">
+        <div>
+          <p class="eyebrow">Cookies e tecnologias relacionadas</p>
+          <h1>Escolhas claras começam com um inventário real.</h1>
+        </div>
+        <div class="cookie-hero__note" role="note">
+          <span aria-hidden="true">01</span>
+          <p>
+            Esta minuta reflete a implementação atual. A classificação jurídica e os prazos finais ainda
+            dependem de validação antes da publicação definitiva.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <section class="cookie-content section-shell surface-subtle" aria-labelledby="principio-central">
+      <div class="container cookie-layout">
+        <div class="cookie-intro">
+          <p class="eyebrow">Princípio central</p>
+          <h2 id="principio-central">O site usa apenas recursos necessários à operação atual.</h2>
+          <p class="lead">
+            Não há, na implementação atual, plataforma de publicidade comportamental ou analytics de
+            marketing. O formulário utiliza serviços técnicos de proteção e entrega descritos abaixo.
+          </p>
+        </div>
+
+        <div class="cookie-sections">
+          <section>
+            <p class="section-index" aria-hidden="true">01 / Essenciais</p>
+            <h3>Funcionamento do site</h3>
+            <p>
+              A Vercel entrega as páginas e processa a função de envio. Recursos técnicos de rede e
+              segurança podem manter registros operacionais necessários à disponibilidade e prevenção de
+              incidentes.
+            </p>
+          </section>
+
+          <section>
+            <p class="section-index" aria-hidden="true">02 / Proteção</p>
+            <h3>Cloudflare Turnstile</h3>
+            <p>
+              O Turnstile é carregado no formulário para avaliar sinais de navegador e reduzir envios
+              automatizados. Seu funcionamento pode envolver armazenamento local ou tecnologias
+              equivalentes estritamente necessárias à verificação.
+            </p>
+          </section>
+
+          <section>
+            <p class="section-index" aria-hidden="true">03 / Limites</p>
+            <h3>Upstash e Resend</h3>
+            <p>
+              O Upstash mantém identificadores protegidos por hash e contadores temporários para limitar
+              frequência de envio. O Resend processa o conteúdo enviado para entregá-lo ao e-mail da
+              Bescheiben. Esses serviços não são usados aqui para publicidade.
+            </p>
+          </section>
+
+          <section>
+            <p class="section-index" aria-hidden="true">04 / Publicação</p>
+            <h3>Pendências desta minuta</h3>
+            <ul>
+              <li>Confirmar em produção o inventário técnico de cookies e armazenamento local.</li>
+              <li>Documentar duração e hipótese jurídica aplicável para cada item.</li>
+              <li>Reavaliar a necessidade de preferências se novas tecnologias forem adicionadas.</li>
+              <li>Validar a redação e a governança de atualização com apoio jurídico.</li>
+            </ul>
+          </section>
+        </div>
+      </div>
+    </section>
+  </main>
+  <Footer />
+</BaseLayout>
+
+<style>
+  .cookie-hero {
+    border-bottom: 1px solid var(--border-default);
+  }
+
+  .cookie-hero__layout {
+    display: grid;
+    grid-template-columns: minmax(0, 1.2fr) minmax(18rem, 0.8fr);
+    align-items: end;
+    gap: clamp(3rem, 8vw, 8rem);
+  }
+
+  h1 {
+    max-width: 14ch;
+    margin-bottom: 0;
+  }
+
+  .cookie-hero__note {
+    display: grid;
+    grid-template-columns: auto 1fr;
+    gap: 1.25rem;
+    padding-top: 1.5rem;
+    border-top: 1px solid var(--purple-deep);
+  }
+
+  .cookie-hero__note span {
+    color: var(--purple-deep);
+    font-size: 0.8125rem;
+    font-weight: 700;
+  }
+
+  .cookie-hero__note p {
+    margin-bottom: 0;
+    color: var(--text-secondary);
+  }
+
+  .cookie-layout {
+    display: grid;
+    grid-template-columns: minmax(17rem, 0.85fr) minmax(0, 1.45fr);
+    align-items: start;
+    gap: clamp(3rem, 8vw, 8rem);
+  }
+
+  .cookie-intro {
+    position: sticky;
+    top: 7rem;
+  }
+
+  .cookie-intro h2 {
+    font-size: clamp(2rem, 3.4vw, 2.75rem);
+  }
+
+  .cookie-sections {
+    border-top: 1px solid var(--border-default);
+  }
+
+  .cookie-sections section {
+    padding-block: 2.5rem;
+    border-bottom: 1px solid var(--border-default);
+  }
+
+  .section-index {
+    margin-bottom: 1rem;
+    color: var(--purple-deep);
+    font-size: 0.8125rem;
+    font-weight: 700;
+  }
+
+  .cookie-sections h3 {
+    margin-bottom: 0.85rem;
+  }
+
+  .cookie-sections p:not(.section-index),
+  .cookie-sections li {
+    color: var(--text-secondary);
+  }
+
+  .cookie-sections section > :last-child {
+    margin-bottom: 0;
+  }
+
+  .cookie-sections li + li {
+    margin-top: 0.65rem;
+  }
+
+  @media (max-width: 48rem) {
+    .cookie-hero__layout,
+    .cookie-layout {
+      grid-template-columns: 1fr;
+    }
+
+    .cookie-intro {
+      position: static;
+    }
+  }
+</style>

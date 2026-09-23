@@ -1,0 +1,135 @@
+---
+interface Item {
+  question: string;
+  answer: string;
+}
+
+interface Props {
+  items: Item[];
+  idPrefix?: string;
+}
+
+const { items, idPrefix = 'faq' } = Astro.props;
+const safeIdPrefix = idPrefix.replace(/[^a-zA-Z0-9_-]/g, '-') || 'faq';
+---
+
+<div class="faq-list" data-faq>
+  {items.map((item, index) => (
+    <article class="faq-item" data-faq-item>
+      <h3>
+        <button
+          type="button"
+          aria-expanded="false"
+          aria-controls={`${safeIdPrefix}-panel-${index}`}
+          id={`${safeIdPrefix}-trigger-${index}`}
+          data-faq-trigger
+        >
+          <span>{item.question}</span>
+          <span class="faq-icon" aria-hidden="true"></span>
+        </button>
+      </h3>
+      <div
+        class="faq-panel"
+        id={`${safeIdPrefix}-panel-${index}`}
+        role="region"
+        aria-labelledby={`${safeIdPrefix}-trigger-${index}`}
+        data-faq-panel
+      >
+        <p>{item.answer}</p>
+      </div>
+    </article>
+  ))}
+</div>
+
+<script>
+  document.querySelectorAll<HTMLElement>('[data-faq]').forEach((faq) => {
+    faq.querySelectorAll<HTMLButtonElement>('[data-faq-trigger]').forEach((trigger) => {
+      const panelId = trigger.getAttribute('aria-controls');
+      const panel = panelId ? document.getElementById(panelId) : null;
+      if (!panel) return;
+      panel.hidden = true;
+      trigger.addEventListener('click', () => {
+        const isOpen = trigger.getAttribute('aria-expanded') === 'true';
+        trigger.setAttribute('aria-expanded', String(!isOpen));
+        panel.hidden = isOpen;
+      });
+    });
+  });
+</script>
+
+<style>
+  .faq-list {
+    border-top: 1px solid var(--border-default);
+  }
+
+  .faq-item {
+    border-bottom: 1px solid var(--border-default);
+  }
+
+  h3 {
+    margin: 0;
+  }
+
+  button {
+    display: grid;
+    width: 100%;
+    min-height: 5.5rem;
+    grid-template-columns: 1fr auto;
+    align-items: center;
+    gap: 2rem;
+    padding: 1.25rem 0;
+    border: 0;
+    color: var(--text-primary);
+    background: transparent;
+    font-weight: 600;
+    text-align: left;
+    cursor: pointer;
+  }
+
+  button > span:first-child {
+    color: var(--text-primary);
+  }
+
+  .faq-icon {
+    position: relative;
+    width: 2.75rem;
+    height: 2.75rem;
+    border: 1px solid var(--border-default);
+    border-radius: 50%;
+  }
+
+  .faq-icon::before,
+  .faq-icon::after {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 0.875rem;
+    height: 1px;
+    background: currentColor;
+    content: '';
+    transform: translate(-50%, -50%);
+    transition: transform var(--transition);
+  }
+
+  .faq-icon::after {
+    transform: translate(-50%, -50%) rotate(90deg);
+  }
+
+  button[aria-expanded='true'] .faq-icon::after {
+    transform: translate(-50%, -50%) rotate(0deg);
+  }
+
+  .faq-panel {
+    max-width: 48rem;
+    padding: 0 4.75rem 1.75rem 0;
+  }
+
+  .faq-panel p {
+    margin-bottom: 0;
+    color: var(--text-secondary);
+  }
+
+  .faq-panel[hidden] {
+    display: none;
+  }
+</style>

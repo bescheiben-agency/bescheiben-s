@@ -1,0 +1,51 @@
+---
+import SocialLinks from './SocialLinks.astro';
+import { FOOTER_NAVIGATION, SITE } from '../config/site';
+---
+
+<footer class="site-footer">
+  <div class="footer-top container">
+    <div class="footer-brand">
+      <a class="footer-logo" href="/" aria-label="Bescheiben — página inicial">
+        <img src="/brand/logo-header-white.svg" width="174" height="38" alt="Bescheiben" />
+      </a>
+      <p>Estratégia, branding, marketing e tecnologia conectados por diagnóstico, posicionamento e execução.</p>
+      <p>A Bescheiben é uma empresa brasileira de estratégia, branding, marketing e tecnologia que investiga problemas antes de definir soluções.</p>
+      <a class="footer-email" href={`mailto:${SITE.email}`}>{SITE.email}</a>
+      <SocialLinks />
+    </div>
+    <div class="footer-navigation">
+      {FOOTER_NAVIGATION.map((group) => (
+        <nav aria-label={group.label}>
+          <h2>{group.label}</h2>
+          {group.links.map((link) => <a href={link.href}>{link.label}</a>)}
+        </nav>
+      ))}
+    </div>
+  </div>
+  <div class="footer-bottom container">
+    <p>© {new Date().getFullYear()} Bescheiben. Todos os direitos reservados.</p>
+    <p>Entender. Decidir. Construir.</p>
+    <p>Estratégia antes da execução.</p>
+  </div>
+</footer>
+
+<style>
+  .site-footer { padding-block: clamp(2.75rem, 4vw, 4rem) 1.25rem; border-top: 1px solid #ffffff1c; color: var(--text-inverse); background: var(--bg-dark); }
+  .footer-top { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1.4fr); gap: clamp(3rem, 7vw, 7rem); }
+  .footer-logo { display: inline-flex; min-height: 2.75rem; align-items: center; margin-bottom: 1.1rem; }
+  .footer-brand img { width: 9.7rem; height: auto; }
+  .footer-brand > p { max-width: 43ch; margin-bottom: 0.8rem; color: var(--ink-on-dark); font-size: 0.85rem; line-height: 1.75; }
+  .footer-email { display: inline-flex; min-height: 2.75rem; align-items: center; color: var(--text-inverse); font-size: 0.9rem; text-decoration-color: #ffffff50; }
+  .footer-brand :global(.social-links) { margin-top: 0.35rem; color: var(--ink-on-dark); }
+  .footer-navigation { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 1.5rem; padding-top: 0.7rem; }
+  nav { display: flex; flex-direction: column; align-items: flex-start; }
+  nav h2 { margin-bottom: 0.85rem; font-family: var(--font-body); font-size: 0.88rem; font-weight: 550; letter-spacing: 0; }
+  nav a { display: inline-flex; min-height: 2.75rem; align-items: center; color: var(--ink-on-dark); font-size: 0.8rem; text-decoration: none; transition: color var(--duration-fast) var(--ease-standard); }
+  nav a:hover, .footer-email:hover { color: var(--purple-lavender); }
+  .footer-bottom { display: flex; justify-content: space-between; flex-wrap: wrap; gap: 0.75rem 2rem; margin-top: 2.5rem; padding-top: 1.2rem; border-top: 1px solid #ffffff1c; color: var(--ink-on-dark); font-size: 0.71rem; }
+  .footer-bottom p { margin: 0; }
+  @media (max-width: 62rem) { .footer-top { grid-template-columns: 1fr; gap: 2rem; } .footer-brand > p { max-width: 58ch; } }
+  @media (max-width: 36rem) { .footer-navigation { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 1.5rem 1rem; } .footer-bottom { flex-direction: column; gap: 0.4rem; } }
+  @media (prefers-reduced-motion: reduce) { nav a { transition: none; } }
+</style>

@@ -1,0 +1,50 @@
+---
+interface Props {
+  label?: string;
+  title: string;
+  body?: string;
+  inverse?: boolean;
+  align?: 'start' | 'center';
+}
+
+const { title, body, inverse = false, align = 'start' } = Astro.props;
+---
+
+<header class:list={['section-heading', { inverse, centered: align === 'center' }]}>
+
+  <h2>{title}</h2>
+  {body && <p>{body}</p>}
+</header>
+
+<style>
+  .section-heading {
+    max-width: 48rem;
+    margin-bottom: clamp(2.5rem, 6vw, 4.5rem);
+  }
+
+  .section-heading h2 {
+    margin-bottom: 1.25rem;
+    text-wrap: balance;
+  }
+
+  .section-heading > p:last-child {
+    max-width: 62ch;
+    margin-bottom: 0;
+    color: var(--text-secondary);
+    font-size: 1.0625rem;
+  }
+
+  .section-heading.inverse > p:last-child {
+    color: color-mix(in srgb, var(--neutral-white) 72%, transparent);
+  }
+
+  .centered {
+    margin-inline: auto;
+    text-align: center;
+  }
+
+  .centered > p:last-child {
+    margin-inline: auto;
+  }
+</style>
+

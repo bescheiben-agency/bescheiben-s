@@ -1,0 +1,152 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Button from '../components/Button.astro';
+import Footer from '../components/Footer.astro';
+import Header from '../components/Header.astro';
+
+const title = 'Página não encontrada | Bescheiben';
+const description = 'A página solicitada não foi encontrada. Volte ao início ou explore a estratégia Bescheiben.';
+---
+
+<BaseLayout title={title} description={description} robots="noindex,follow">
+  <Header />
+  <main id="conteudo">
+    <section class="not-found section-shell">
+      <div class="container not-found__grid">
+        <div class="not-found__copy">
+          <p class="eyebrow">Erro 404</p>
+          <h1>A rota mudou.<br />A direção continua clara.</h1>
+          <p class="lead">
+            Esta página não existe ou foi movida. Retorne ao início para reconstruir o caminho ou
+            avance direto para uma conversa estratégica.
+          </p>
+          <div class="not-found__actions">
+            <Button href="/">Voltar ao início</Button>
+            <a class="text-link" href="/estrategia">Explorar a estratégia</a>
+          </div>
+        </div>
+
+        <div class="route-map" role="img" aria-label="Linha estratégica interrompida e redirecionada para um novo caminho">
+          <span class="route-map__code">404</span>
+          <svg viewBox="0 0 520 360" aria-hidden="true">
+            <path class="route-map__grid" d="M20 70H500M20 180H500M20 290H500M110 20V340M260 20V340M410 20V340" />
+            <path class="route-map__line" d="M30 290C110 290 115 180 200 180H255" />
+            <path class="route-map__ghost" d="M255 180H330" />
+            <path class="route-map__line" d="M330 180C408 180 410 70 490 70" />
+            <circle cx="255" cy="180" r="8" />
+            <circle cx="330" cy="180" r="8" />
+          </svg>
+          <p>Origem <span aria-hidden="true">→</span> nova direção</p>
+        </div>
+      </div>
+    </section>
+  </main>
+  <Footer />
+</BaseLayout>
+
+<style>
+  .not-found {
+    min-height: calc(100svh - 5.25rem);
+    display: grid;
+    align-items: center;
+    overflow: hidden;
+  }
+
+  .not-found__grid {
+    display: grid;
+    grid-template-columns: minmax(0, 1.05fr) minmax(20rem, 0.95fr);
+    align-items: center;
+    gap: clamp(3rem, 8vw, 8rem);
+  }
+
+  h1 {
+    max-width: 13ch;
+    margin-bottom: 1.75rem;
+  }
+
+  .not-found__actions {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 1rem 1.5rem;
+    margin-top: 2rem;
+  }
+
+  .route-map {
+    position: relative;
+    isolation: isolate;
+    min-height: 28rem;
+    padding: 2rem;
+    border: 1px solid var(--border-default);
+    border-radius: var(--radius-card);
+    background: var(--background-surface);
+  }
+
+  .route-map::before {
+    position: absolute;
+    z-index: -1;
+    inset: 18% -30% -30% 26%;
+    border-radius: 50%;
+    background: color-mix(in srgb, var(--purple-lavender) 28%, transparent);
+    content: '';
+  }
+
+  .route-map__code {
+    display: block;
+    color: var(--purple-deep);
+    font-size: clamp(4rem, 10vw, 7rem);
+    font-weight: 700;
+    line-height: 0.9;
+    letter-spacing: -0.08em;
+  }
+
+  .route-map svg {
+    width: 100%;
+    margin-top: -1rem;
+    overflow: visible;
+    fill: var(--purple-violet);
+  }
+
+  .route-map__grid {
+    fill: none;
+    stroke: var(--neutral-border);
+    stroke-width: 1;
+  }
+
+  .route-map__line,
+  .route-map__ghost {
+    fill: none;
+    stroke-width: 4;
+    stroke-linecap: round;
+  }
+
+  .route-map__line {
+    stroke: var(--purple-violet);
+  }
+
+  .route-map__ghost {
+    stroke: var(--neutral-border);
+    stroke-dasharray: 8 12;
+  }
+
+  .route-map p {
+    margin: -1.5rem 0 0;
+    color: var(--text-secondary);
+    font-size: 0.875rem;
+    font-weight: 600;
+  }
+
+  @media (max-width: 48rem) {
+    .not-found {
+      min-height: auto;
+    }
+
+    .not-found__grid {
+      grid-template-columns: 1fr;
+    }
+
+    .route-map {
+      min-height: 21rem;
+    }
+  }
+</style>

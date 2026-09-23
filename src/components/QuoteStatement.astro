@@ -1,0 +1,16 @@
+---
+interface Props { statement: string | string[]; tone?: 'light' | 'inverse'; }
+const { statement, tone = 'light' } = Astro.props;
+const lines = Array.isArray(statement) ? statement : [statement];
+---
+
+<aside class:list={['quote-statement', `quote-statement--${tone}`]} aria-label="Ponto de vista Bescheiben">
+  <p>{lines.map((line) => <span>{line}</span>)}</p>
+</aside>
+
+<style>
+  .quote-statement { padding-block: clamp(3.5rem, 8vw, 7rem); border-top: 1px solid var(--border-default); border-bottom: 1px solid var(--border-default); }
+  p { max-width: 22ch; margin: 0; font-size: clamp(2rem, 5.5vw, 4.75rem); font-weight: 700; line-height: 1.02; letter-spacing: -0.05em; }
+  span { display: block; }
+  .quote-statement--inverse { border-color: color-mix(in srgb, var(--neutral-white) 18%, transparent); color: var(--text-inverse); }
+</style>

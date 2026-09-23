@@ -1,0 +1,10 @@
+---
+const words = ['Estratégia', 'Posicionamento', 'Branding', 'Aquisição', 'Digital', 'Conversão', 'Tecnologia'];
+---
+<div class="strategic-marquee" data-ambient>
+  <p class="sr-only">{words.join(', ')}</p>
+  <div class="marquee-track ambient" aria-hidden="true">{[0,1].map(()=> <div class="marquee-set">{words.map(word=><span>{word}<i>·</i></span>)}</div>)}</div>
+</div>
+<style>
+.strategic-marquee{overflow:hidden;background:linear-gradient(100deg,#482096,#6631c6,#482096);color:#fff;border-block:1px solid #a775ea66;padding-block:1.4rem}.marquee-track{width:max-content;display:flex;animation:marquee-travel 38s linear infinite}.marquee-set{display:flex;flex:none;align-items:center}.marquee-set span{font-size:.8rem;letter-spacing:.14em;text-transform:uppercase;white-space:nowrap}.marquee-set i{display:inline-block;font-size:1.6rem;margin-inline:2.7rem;line-height:0;font-style:normal}.strategic-marquee:hover .ambient{animation-play-state:paused!important}@keyframes marquee-travel{to{transform:translateX(-50%)}}@media(prefers-reduced-motion:reduce){.marquee-track{width:100%;justify-content:center}.marquee-set{flex-wrap:wrap;justify-content:center;gap:.5rem}.marquee-set:nth-child(2){display:none}.marquee-set i{margin-inline:1rem}}
+</style>

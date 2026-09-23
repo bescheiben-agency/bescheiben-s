@@ -1,0 +1,376 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import Button from '../../components/Button.astro';
+import Footer from '../../components/Footer.astro';
+import Header from '../../components/Header.astro';
+import SectionHeading from '../../components/SectionHeading.astro';
+
+interface Front {
+  slug: string;
+  number: string;
+  name: string;
+  title: string;
+  lead: string;
+  question: string;
+  visualLabel: string;
+  visualCore: string;
+  visualNodes: string[];
+  symptoms: Array<{ title: string; body: string }>;
+  decisions: Array<{ title: string; body: string }>;
+  includes: string[];
+  limits: string[];
+  connections: Array<{ name: string; relation: string }>;
+  method: Array<{ phase: string; action: string; output: string }>;
+  insights: Array<{ type: string; title: string; summary: string }>;
+}
+
+export function getStaticPaths() {
+  const fronts: Front[] = [
+  {
+    slug: 'posicionamento',
+    number: '01',
+    name: 'Posicionamento',
+    title: 'Escolher um lugar que organize decisões.',
+    lead: 'Posicionamento estabelece qual diferença a empresa pretende sustentar, para quem ela importa e quais escolhas tornam esse lugar defensável.',
+    question: 'Qual espaço vale ocupar — e o que precisa ser verdadeiro para sustentá-lo?',
+    visualLabel: 'Mapa de escolha estratégica',
+    visualCore: 'Escolha',
+    visualNodes: ['Mercado', 'Capacidade', 'Relevância', 'Renúncia'],
+    symptoms: [
+      { title: 'A empresa tenta servir prioridades incompatíveis', body: 'Oferta, discurso e experiência acumulam exceções até perder nitidez.' },
+      { title: 'A diferença depende de adjetivos genéricos', body: 'Qualidade, inovação ou proximidade aparecem sem um critério que oriente decisões.' },
+      { title: 'Cada área descreve uma proposta diferente', body: 'A promessa muda conforme o interlocutor porque não existe uma escolha central compartilhada.' },
+    ],
+    decisions: [
+      { title: 'Prioridade de público e contexto', body: 'Delimitar para quem a proposta precisa ser mais relevante — e em qual situação.' },
+      { title: 'Diferença que merece ser reconhecida', body: 'Identificar uma escolha significativa, demonstrável e compatível com a capacidade do negócio.' },
+      { title: 'Critérios e renúncias', body: 'Traduzir o posicionamento em filtros para oferta, marca, canais e experiência.' },
+    ],
+    includes: ['Leitura de contexto e alternativas', 'Hipóteses de valor e diferença', 'Arquitetura de escolhas e critérios'],
+    limits: ['Não é apenas uma frase institucional', 'Não substitui uma decisão de negócio', 'Não promete exclusividade sem evidência'],
+    connections: [
+      { name: 'Marca', relation: 'transforma a escolha em sinais reconhecíveis' },
+      { name: 'Aquisição', relation: 'prioriza públicos, narrativas e caminhos' },
+      { name: 'Conversão', relation: 'preserva a promessa durante a decisão' },
+    ],
+    method: [
+      { phase: 'Diagnosticar', action: 'Mapear contexto, percepção e alternativas', output: 'Tensões de posicionamento' },
+      { phase: 'Direcionar', action: 'Comparar escolhas e consequências', output: 'Tese e critérios' },
+      { phase: 'Ativar', action: 'Traduzir a tese para marca e jornada', output: 'Sistema de aplicação' },
+      { phase: 'Evoluir', action: 'Observar resposta e consistência', output: 'Aprendizado estratégico' },
+    ],
+    insights: [
+      { type: 'Resposta', title: 'Quando reposicionamento se torna prioridade?', summary: 'Sinais para separar um problema de comunicação de uma decisão mais profunda de direção.' },
+      { type: 'Análise', title: 'Diferenciação não é uma lista de atributos', summary: 'Como escolhas, renúncias e capacidade real formam uma diferença reconhecível.' },
+    ],
+  },
+  {
+    slug: 'marca',
+    number: '02',
+    name: 'Marca',
+    title: 'Transformar direção em presença reconhecível.',
+    lead: 'Marca cria continuidade entre o que a empresa escolhe representar e o que as pessoas encontram na linguagem, na identidade e na experiência.',
+    question: 'Quais sinais precisam permanecer coerentes para a estratégia ser reconhecida?',
+    visualLabel: 'Sistema de expressão da marca',
+    visualCore: 'Reconhecimento',
+    visualNodes: ['Estratégia', 'Verbal', 'Visual', 'Experiência'],
+    symptoms: [
+      { title: 'A identidade existe, mas não orienta escolhas', body: 'Elementos visuais são aplicados sem relação clara com estratégia, tom ou experiência.' },
+      { title: 'A marca muda de voz a cada canal', body: 'Campanhas, comercial e produto parecem pertencer a empresas diferentes.' },
+      { title: 'O crescimento aumentou a inconsistência', body: 'Novos públicos, ofertas e equipes ampliaram o repertório sem um sistema compartilhado.' },
+    ],
+    decisions: [
+      { title: 'Ideia central e promessa', body: 'Definir o significado que deve organizar expressão e comportamento.' },
+      { title: 'Sistema verbal e visual', body: 'Construir princípios que geram reconhecimento sem engessar aplicações.' },
+      { title: 'Governança da experiência', body: 'Estabelecer critérios, papéis e pontos críticos onde a coerência precisa ser preservada.' },
+    ],
+    includes: ['Plataforma e narrativa de marca', 'Sistema verbal e direção visual', 'Princípios de aplicação e governança'],
+    limits: ['Não é somente um novo logotipo', 'Não mascara um posicionamento indefinido', 'Não exige uniformidade sem contexto'],
+    connections: [
+      { name: 'Posicionamento', relation: 'define a escolha que a marca torna reconhecível' },
+      { name: 'Aquisição', relation: 'leva sinais consistentes aos públicos prioritários' },
+      { name: 'Conversão', relation: 'transforma promessa em confiança ao longo da jornada' },
+    ],
+    method: [
+      { phase: 'Diagnosticar', action: 'Ler estratégia, expressão e percepção', output: 'Mapa de coerência' },
+      { phase: 'Direcionar', action: 'Definir ideia central e princípios', output: 'Plataforma de marca' },
+      { phase: 'Ativar', action: 'Construir e aplicar sistemas de expressão', output: 'Linguagem em uso' },
+      { phase: 'Evoluir', action: 'Observar consistência e adaptação', output: 'Governança viva' },
+    ],
+    insights: [
+      { type: 'Guia', title: 'Marca como sistema de decisão', summary: 'Uma leitura da marca para além de identidade, campanha ou consistência superficial.' },
+      { type: 'Resposta', title: 'Quando uma identidade deixa de servir à estratégia?', summary: 'Critérios para avaliar desalinhamento antes de iniciar um redesenho.' },
+    ],
+  },
+  {
+    slug: 'aquisicao',
+    number: '03',
+    name: 'Aquisição',
+    title: 'Criar movimento sem perder o critério.',
+    lead: 'Aquisição conecta públicos, ofertas e canais a uma hipótese de crescimento, transformando atividade em aprendizado que orienta o próximo investimento.',
+    question: 'Que movimento precisa acontecer — e qual evidência mostrará se ele faz sentido?',
+    visualLabel: 'Percurso de aquisição orientada',
+    visualCore: 'Aprendizado',
+    visualNodes: ['Prioridade', 'Hipótese', 'Canal', 'Sinal'],
+    symptoms: [
+      { title: 'Canais se acumulam sem papel definido', body: 'Novas iniciativas entram no plano antes de existir uma hipótese ou prioridade compartilhada.' },
+      { title: 'Volume substitui qualidade da oportunidade', body: 'O indicador cresce, mas a relação com público, oferta e capacidade comercial fica obscura.' },
+      { title: 'Campanhas terminam sem gerar aprendizado', body: 'Resultados são lidos de forma isolada e não alteram as próximas decisões.' },
+    ],
+    decisions: [
+      { title: 'Público e momento prioritários', body: 'Definir onde existe aderência suficiente para iniciar movimento e leitura.' },
+      { title: 'Hipótese de oferta e canal', body: 'Relacionar promessa, contexto e caminho antes de ampliar investimento.' },
+      { title: 'Sinais de aprendizado', body: 'Escolher evidências que ajudam a decidir, e não apenas números que descrevem atividade.' },
+    ],
+    includes: ['Arquitetura de públicos e jornadas', 'Hipóteses de canal e oferta', 'Critérios de teste e aprendizado'],
+    limits: ['Não é presença em todos os canais', 'Não trata volume como objetivo isolado', 'Não separa mídia de mensagem e experiência'],
+    connections: [
+      { name: 'Posicionamento', relation: 'define quem priorizar e qual valor colocar em circulação' },
+      { name: 'Marca', relation: 'torna a mensagem reconhecível entre contextos' },
+      { name: 'Conversão', relation: 'revela a qualidade do movimento e seus atritos' },
+    ],
+    method: [
+      { phase: 'Diagnosticar', action: 'Ler demanda, canais e jornada atual', output: 'Mapa de oportunidades' },
+      { phase: 'Direcionar', action: 'Priorizar públicos e hipóteses', output: 'Arquitetura de aquisição' },
+      { phase: 'Ativar', action: 'Colocar testes coerentes em movimento', output: 'Plano de experimentação' },
+      { phase: 'Evoluir', action: 'Transformar resposta em critérios', output: 'Ciclo de aprendizado' },
+    ],
+    insights: [
+      { type: 'Análise', title: 'Aquisição sem coerência custa aprendizado', summary: 'Por que ampliar canais antes de alinhar promessa e jornada pode aumentar o ruído.' },
+      { type: 'Resposta', title: 'Como escolher um canal antes de investir?', summary: 'Uma sequência de perguntas para relacionar público, contexto e capacidade de aprendizado.' },
+    ],
+  },
+  {
+    slug: 'conversao',
+    number: '04',
+    name: 'Conversão',
+    title: 'Reduzir atrito sem reduzir a promessa.',
+    lead: 'Conversão organiza a jornada para que valor, evidência e ação permaneçam coerentes no momento em que uma pessoa decide avançar.',
+    question: 'O que a pessoa precisa compreender, acreditar e fazer para seguir com segurança?',
+    visualLabel: 'Jornada de decisão coerente',
+    visualCore: 'Decisão',
+    visualNodes: ['Promessa', 'Evidência', 'Experiência', 'Ação'],
+    symptoms: [
+      { title: 'A mensagem atrai, mas a jornada não sustenta', body: 'A promessa muda entre anúncio, página, conversa comercial e entrega.' },
+      { title: 'Otimizações locais criam novos ruídos', body: 'Elementos são testados sem considerar intenção, confiança ou consequência para o sistema.' },
+      { title: 'A equipe vê abandono, mas não entende a decisão', body: 'Indicadores mostram onde a pessoa saiu, não qual dúvida permaneceu sem resposta.' },
+    ],
+    decisions: [
+      { title: 'Arquitetura de informação e valor', body: 'Organizar a sequência necessária para compreender relevância, diferença e adequação.' },
+      { title: 'Evidências e redução de risco', body: 'Tornar critérios, limites e próximos passos claros sem recorrer a pressão artificial.' },
+      { title: 'Ações e continuidade da jornada', body: 'Alinhar chamadas, formulários e passagem para atendimento com a intenção construída.' },
+    ],
+    includes: ['Leitura de intenção e jornada', 'Arquitetura de mensagem e evidência', 'Hipóteses de experiência e validação'],
+    limits: ['Não é apenas trocar textos de botão', 'Não usa urgência artificial como atalho', 'Não otimiza uma etapa contra a promessa'],
+    connections: [
+      { name: 'Posicionamento', relation: 'define o valor que precisa permanecer claro' },
+      { name: 'Marca', relation: 'sustenta reconhecimento e confiança durante a jornada' },
+      { name: 'Aquisição', relation: 'traz intenção e contexto que a experiência precisa acolher' },
+    ],
+    method: [
+      { phase: 'Diagnosticar', action: 'Ler intenção, mensagem e comportamento', output: 'Mapa de atritos' },
+      { phase: 'Direcionar', action: 'Priorizar dúvidas e decisões críticas', output: 'Arquitetura de conversão' },
+      { phase: 'Ativar', action: 'Prototipar mensagens e experiências', output: 'Hipóteses em uso' },
+      { phase: 'Evoluir', action: 'Interpretar resposta e consequência', output: 'Aprendizado da jornada' },
+    ],
+    insights: [
+      { type: 'Guia', title: 'Conversão como coerência de decisão', summary: 'Como mensagem, evidência e experiência reduzem ruído sem recorrer a fórmulas prontas.' },
+      { type: 'Resposta', title: 'O que um teste de conversão realmente deve responder?', summary: 'Critérios para distinguir aprendizado estratégico de otimização isolada.' },
+    ],
+  },
+  ];
+
+  return fronts.map((front) => ({ params: { frente: front.slug }, props: { front } }));
+}
+
+const { front } = Astro.props as { front: Front };
+
+const schema = [
+  {
+    '@context': 'https://schema.org',
+    '@type': 'Service',
+    name: `Estratégia de ${front.name}`,
+    serviceType: front.name,
+    provider: { '@type': 'Organization', name: 'Bescheiben' },
+    description: front.lead,
+    url: `https://bescheiben.com.br/estrategia/${front.slug}`,
+  },
+  {
+    '@context': 'https://schema.org',
+    '@type': 'BreadcrumbList',
+    itemListElement: [
+      { '@type': 'ListItem', position: 1, name: 'Início', item: 'https://bescheiben.com.br/' },
+      { '@type': 'ListItem', position: 2, name: 'Estratégia', item: 'https://bescheiben.com.br/estrategia' },
+      { '@type': 'ListItem', position: 3, name: front.name, item: `https://bescheiben.com.br/estrategia/${front.slug}` },
+    ],
+  },
+];
+---
+
+<BaseLayout
+  title={`${front.name} — estratégia Bescheiben`}
+  description={front.lead}
+  schema={schema}
+>
+  <Header />
+
+  <main id="conteudo">
+    <section class="front-hero section-shell">
+      <div class="container front-hero__grid">
+        <div>
+          <nav class="breadcrumb" aria-label="Navegação estrutural">
+            <a href="/estrategia">Estratégia</a><span aria-hidden="true">/</span><span aria-current="page">{front.name}</span>
+          </nav>
+          
+          <h1>{front.title}</h1>
+          <p class="lead">{front.lead}</p>
+          <div class="hero-actions">
+            <Button href="/diagnostico">Avaliar aderência no diagnóstico</Button>
+            <a class="text-link" href="#decisoes">Ver decisões abrangidas</a>
+          </div>
+        </div>
+
+        <div class:list={['front-visual', `front-visual--${front.slug}`]} role="img" aria-label={`${front.visualLabel}: ${front.visualNodes.join(', ')} convergem para ${front.visualCore}`}>
+          <span class="front-visual__label">{front.visualLabel}</span>
+          <div class="front-visual__rail" aria-hidden="true"></div>
+          <strong>{front.visualCore}</strong>
+          {front.visualNodes.map((node, index) => <span class={`front-visual__node front-visual__node--${index + 1}`}>{node}</span>)}
+        </div>
+      </div>
+    </section>
+
+    <section class="question-band section-shell surface-inverse">
+      <div class="container question-band__inner">
+        <p>Questão central</p>
+        <h2>{front.question}</h2>
+      </div>
+    </section>
+
+    <section class="section-shell">
+      <div class="container split-layout">
+        <SectionHeading
+          label="Quando esta frente se torna relevante"
+          title="Sinais que pedem uma decisão mais profunda."
+          body="Os sintomas ajudam a reconhecer o problema, mas não substituem a leitura das relações que o produzem."
+        />
+        <ol class="editorial-list">
+          {front.symptoms.map((symptom, index) => (
+            <li>
+              <span>{String(index + 1).padStart(2, '0')}</span>
+              <div><h3>{symptom.title}</h3><p>{symptom.body}</p></div>
+            </li>
+          ))}
+        </ol>
+      </div>
+    </section>
+
+    <section id="decisoes" class="section-shell surface-subtle">
+      <div class="container">
+        <SectionHeading
+          label="Decisões abrangidas"
+          title={`O que a estratégia de ${front.name.toLowerCase()} precisa organizar.`}
+          body="O recorte final depende do contexto. Estas áreas tornam a natureza das decisões visível sem transformar o trabalho em pacote fechado."
+        />
+        <div class="decision-grid">
+          {front.decisions.map((decision, index) => (
+            <article>
+              <span>{String(index + 1).padStart(2, '0')}</span>
+              <h3>{decision.title}</h3>
+              <p>{decision.body}</p>
+            </article>
+          ))}
+        </div>
+      </div>
+    </section>
+
+    <section class="section-shell">
+      <div class="container scope-grid">
+        <div>
+          
+          <h2>Clareza também exige dizer o que não é.</h2>
+        </div>
+        <div class="scope-column">
+          <h3>Pode incluir</h3>
+          <ul>{front.includes.map((item) => <li>{item}</li>)}</ul>
+        </div>
+        <div class="scope-column scope-column--muted">
+          <h3>Não se resume a</h3>
+          <ul>{front.limits.map((item) => <li>{item}</li>)}</ul>
+        </div>
+      </div>
+    </section>
+
+    <section class="section-shell surface-inverse">
+      <div class="container connection-layout">
+        <SectionHeading
+          inverse
+          label="Conexão com o sistema"
+          title={`${front.name} não funciona como ilha.`}
+          body="A frente concentra uma decisão, mas sua qualidade depende do que recebe e do que torna possível nas demais."
+        />
+        <div class="connection-list">
+          {front.connections.map((connection) => (
+            <article><span>{connection.name}</span><p>{connection.relation}</p></article>
+          ))}
+        </div>
+      </div>
+    </section>
+
+    <section class="section-shell">
+      <div class="container">
+        <SectionHeading
+          label="Método aplicado"
+          title="Da leitura à evolução da escolha."
+          body="As quatro fases preservam continuidade entre raciocínio, ativação e aprendizado."
+        />
+        <ol class="method-table">
+          {front.method.map((step, index) => (
+            <li>
+              <span>{String(index + 1).padStart(2, '0')}</span>
+              <strong>{step.phase}</strong>
+              <p>{step.action}</p>
+              <p>{step.output}</p>
+            </li>
+          ))}
+        </ol>
+        <a class="text-link method-link" href="/metodo">Conhecer o método completo</a>
+      </div>
+    </section>
+
+    <section class="section-shell surface-subtle">
+      <div class="container related-layout">
+        <SectionHeading
+          label="Insights relacionados"
+          title={`Perguntas para aprofundar ${front.name.toLowerCase()}.`}
+          body="Conteúdos demonstrativos que mostram o tipo de raciocínio editorial previsto para a biblioteca."
+        />
+        <div class="related-list">
+          {front.insights.map((insight) => (
+            <article>
+              <span>{insight.type}</span>
+              <h3>{insight.title}</h3>
+              <p>{insight.summary}</p>
+              <a class="text-link" href="/insights">Explorar Insights</a>
+            </article>
+          ))}
+        </div>
+      </div>
+    </section>
+
+    <section class="front-cta section-shell">
+      <div class="container front-cta__inner">
+        <div>
+          
+          <h2>Entenda se esta é a prioridade do momento.</h2>
+          <p>O diagnóstico considera a frente dentro do sistema, sem presumir a solução antes da leitura.</p>
+        </div>
+        <Button href="/diagnostico" variant="inverse">Solicitar diagnóstico estratégico</Button>
+      </div>
+    </section>
+  </main>
+
+  <Footer />
+</BaseLayout>
+
+
+

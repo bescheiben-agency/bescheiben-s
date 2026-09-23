@@ -1,0 +1,56 @@
+---
+interface Props { id?: string; }
+const { id = 'hero-orbit' } = Astro.props;
+---
+<div class="hero-visual" data-hero-visual data-ambient aria-hidden="true">
+  <svg viewBox="0 0 720 620" fill="none">
+    <defs>
+      <linearGradient id={`${id}-ribbon`} x1="160" y1="60" x2="580" y2="540" gradientUnits="userSpaceOnUse"><stop stop-color="#ebe0ff"/><stop offset=".18" stop-color="#9557f0" stop-opacity=".7"/><stop offset=".48" stop-color="#4b27a8" stop-opacity=".04"/><stop offset=".76" stop-color="#7640da" stop-opacity=".6"/><stop offset="1" stop-color="#dfc9ff"/></linearGradient>
+      <linearGradient id={`${id}-edge`}><stop stop-color="#7d3cff" stop-opacity=".05"/><stop offset=".55" stop-color="#9e74ed"/><stop offset="1" stop-color="#f5efff"/></linearGradient>
+      <radialGradient id={`${id}-aura`}><stop stop-color="#6338a8" stop-opacity=".22"/><stop offset="1" stop-color="#0a0718" stop-opacity="0"/></radialGradient>
+    </defs>
+    <circle cx="360" cy="310" r="290" fill={`url(#${id}-aura)`}/>
+    <g class="ambient orbital-traces">
+      <ellipse cx="360" cy="310" rx="320" ry="156" transform="rotate(-32 360 310)" stroke="#75529b" stroke-width=".8"/>
+      <ellipse cx="360" cy="310" rx="246" ry="273" transform="rotate(38 360 310)" stroke="#62417e" stroke-dasharray="1 8"/>
+      <circle cx="112" cy="320" r="3" fill="#e7d3ff"/><circle cx="605" cy="255" r="4" fill="#e7d3ff"/><circle cx="416" cy="50" r="2" fill="#ab7df3"/>
+    </g>
+    <g class="ambient ribbon-one">
+      <path d="M140 405C54 248 359 40 520 101C725 179 563 516 320 546C539 497 649 220 507 145C365 70 86 306 140 405Z" fill={`url(#${id}-ribbon)`} stroke={`url(#${id}-edge)`} stroke-width="1.1"/>
+      {Array.from({length:8},(_,i)=><ellipse cx="360" cy="310" rx={250-i*3} ry={118+i*2} transform={`rotate(${-38+i*.8} 360 310)`} stroke="#c4a1fc" stroke-opacity={.09+i*.02} stroke-width=".6"/>)}
+    </g>
+    <g class="ambient ribbon-two">
+      <path d="M203 122C370 48 650 327 530 472C420 609 104 407 161 222C137 399 421 542 505 444C605 327 353 60 203 122Z" fill={`url(#${id}-ribbon)`} stroke={`url(#${id}-edge)`} stroke-width="1"/>
+    </g>
+    <image href="/brand/symbol-white.svg" x="304" y="253" width="112" height="112"/>
+    <path d="M49 569L680 31M571 608L676 470" stroke="#5e388d" stroke-opacity=".35" stroke-width=".6"/>
+  </svg>
+</div>
+<script>
+  document.querySelectorAll<HTMLElement>('[data-hero-visual]').forEach(el => {
+    const reduced = matchMedia('(prefers-reduced-motion: reduce)');
+    let frame = 0;
+    const resetTilt = () => {
+      cancelAnimationFrame(frame);
+      el.style.removeProperty('--hero-rx');
+      el.style.removeProperty('--hero-ry');
+    };
+    el.addEventListener('pointermove', event => {
+      if (reduced.matches || document.hidden || event.pointerType !== 'mouse') return;
+      cancelAnimationFrame(frame);
+      frame = requestAnimationFrame(() => {
+        if (reduced.matches || document.hidden) return;
+        const r = el.getBoundingClientRect();
+        el.style.setProperty('--hero-rx', `${-(event.clientY-r.top-r.height/2)/r.height*5}deg`);
+        el.style.setProperty('--hero-ry', `${(event.clientX-r.left-r.width/2)/r.width*5}deg`);
+      });
+    });
+    el.addEventListener('pointerleave', resetTilt);
+    el.addEventListener('pointercancel', resetTilt);
+    reduced.addEventListener('change', resetTilt);
+    document.addEventListener('visibilitychange', () => { if (document.hidden) resetTilt(); });
+  });
+</script>
+<style>
+.hero-visual{width:100%;perspective:900px}.hero-visual svg{width:100%;transform:rotateX(var(--hero-rx,0deg)) rotateY(var(--hero-ry,0deg));transition:transform 500ms var(--ease-out)}.ambient{transform-origin:360px 310px}.ribbon-one{animation:orbit-turn 26s linear infinite}.ribbon-two{animation:orbit-turn 34s linear infinite reverse}.orbital-traces{animation:orbit-turn 45s linear infinite}
+</style>

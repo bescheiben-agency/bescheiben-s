@@ -1,0 +1,18 @@
+---
+import Button from './Button.astro';
+import type { ContentBlock } from '../utils/master-markdown';
+import type { CallToAction } from '../content/site-content';
+interface Props { blocks:ContentBlock[]; ctas?:readonly CallToAction[]; }
+const {blocks,ctas=[]}=Astro.props;
+const actions=new Map(ctas.filter(c=>c.href).map(c=>[c.label,c]));
+---
+{blocks.map(block=>{
+if('text' in block){
+const action=actions.get(block.text);if(action?.href)return <div class="copy-action"><Button href={action.href} variant="text">{action.label}</Button></div>;
+if(block.type==='eyebrow')return <h3 class="copy-subtitle">{block.text}</h3>;
+if(block.type==='heading'||block.type==='subheading')return <h3>{block.text}</h3>;
+if(block.type==='statement')return <p class="copy-statement">{block.text}</p>;
+return <p>{block.text}</p>;
+}
+return block.type==='ol'?<ol>{block.items.map(item=><li>{item}</li>)}</ol>:<ul>{block.items.map(item=><li>{item}</li>)}</ul>;
+})}

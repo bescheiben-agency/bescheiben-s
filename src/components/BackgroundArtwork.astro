@@ -1,0 +1,129 @@
+---
+import { getImage } from 'astro:assets';
+
+import { artwork, type ArtworkKey } from '../data/artwork';
+
+export type ArtworkPriority = 'eager' | 'lazy';
+export type ArtworkOverlay = 'light' | 'dark' | 'none';
+
+export interface Props {
+  artwork: ArtworkKey;
+  priority?: ArtworkPriority;
+  objectPosition?: string;
+  overlay?: ArtworkOverlay;
+  class?: string;
+}
+
+const {
+  artwork: artworkKey,
+  priority = 'lazy',
+  objectPosition = 'center center',
+  overlay = 'none',
+  class: className,
+} = Astro.props;
+
+const pair = artwork[artworkKey];
+const [mobileAvif, mobileWebp, mobileFallback, desktopAvif, desktopWebp, desktopFallback] =
+  await Promise.all([
+    getImage({ src: pair.mobile, format: 'avif' }),
+    getImage({ src: pair.mobile, format: 'webp' }),
+    getImage({ src: pair.mobile, format: 'png' }),
+    getImage({ src: pair.desktop, format: 'avif' }),
+    getImage({ src: pair.desktop, format: 'webp' }),
+    getImage({ src: pair.desktop, format: 'png' }),
+  ]);
+
+const isEager = priority === 'eager';
+---
+
+<div
+  class:list={['background-artwork', `background-artwork--${overlay}`, className]}
+  data-overlay={overlay}
+>
+  <picture aria-hidden="true">
+    <source
+      media="(max-width: 767px)"
+      type="image/avif"
+      srcset={mobileAvif.src}
+      width={mobileAvif.attributes.width}
+      height={mobileAvif.attributes.height}
+    />
+    <source
+      media="(max-width: 767px)"
+      type="image/webp"
+      srcset={mobileWebp.src}
+      width={mobileWebp.attributes.width}
+      height={mobileWebp.attributes.height}
+    />
+    <source
+      media="(max-width: 767px)"
+      type="image/png"
+      srcset={mobileFallback.src}
+      width={mobileFallback.attributes.width}
+      height={mobileFallback.attributes.height}
+    />
+    <source
+      media="(min-width: 768px)"
+      type="image/avif"
+      srcset={desktopAvif.src}
+      width={desktopAvif.attributes.width}
+      height={desktopAvif.attributes.height}
+    />
+    <source
+      media="(min-width: 768px)"
+      type="image/webp"
+      srcset={desktopWebp.src}
+      width={desktopWebp.attributes.width}
+      height={desktopWebp.attributes.height}
+    />
+    <img
+      src={desktopFallback.src}
+      alt=""
+      aria-hidden="true"
+      width={desktopFallback.attributes.width}
+      height={desktopFallback.attributes.height}
+      loading={priority}
+      decoding="async"
+      fetchpriority={isEager ? 'high' : 'auto'}
+      style={`object-position: ${objectPosition};`}
+    />
+  </picture>
+  {
+    overlay !== 'none' && (
+      <span class="background-artwork__overlay" aria-hidden="true" />
+    )
+  }
+</div>
+
+<style>
+  .background-artwork {
+    position: absolute;
+    inset: 0;
+    overflow: hidden;
+    pointer-events: none;
+  }
+
+  .background-artwork picture,
+  .background-artwork img {
+    display: block;
+    width: 100%;
+    height: 100%;
+  }
+
+  .background-artwork img {
+    object-fit: cover;
+  }
+
+  .background-artwork__overlay {
+    position: absolute;
+    inset: 0;
+  }
+
+  .background-artwork--light .background-artwork__overlay {
+    background: rgb(255 255 255 / 26%);
+  }
+
+  .background-artwork--dark .background-artwork__overlay {
+    background: rgb(10 7 24 / 46%);
+  }
+</style>

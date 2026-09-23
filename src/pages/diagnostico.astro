@@ -1,0 +1,22 @@
+---
+import SiteLayout from '../layouts/SiteLayout.astro';
+import PageHero from '../components/PageHero.astro';
+import ContactSection from '../components/ContactSection.astro';
+import { siteContent } from '../content/site-content';
+import { schemasForPage } from '../lib/seo/schema';
+
+const page = siteContent['/diagnostico'];
+const schema = schemasForPage(page);
+---
+
+<SiteLayout title={page.seo.title} description={page.seo.description} schema={schema} ogImage="/og-bescheiben.png" ogImageAlt="Composição geométrica roxa da Bescheiben" pageClass="page-diagnostico">
+  <PageHero
+    eyebrow={page.hero.eyebrow}
+    title={[...page.hero.heading]}
+    supportingCopy={[...page.hero.supportingCopy]}
+    tone="inverse"
+    artwork="diagnostic"
+  />
+
+  <ContactSection />
+</SiteLayout>

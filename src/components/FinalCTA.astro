@@ -1,0 +1,9 @@
+---
+import Button from './Button.astro';
+interface Action{label:string;href:string;variant?:'primary'|'secondary'|'inverse'|'text';}
+interface Props{eyebrow?:string;title:string;body?:string|string[];actions:Action[];artwork?:'diagnostic'|'institutional';}
+const {title,body,actions}=Astro.props;
+const paragraphs=Array.isArray(body)?body:body?[body]:[];
+---
+<section class="final-cta"><div class:list={['container','final-cta__inner',!title&&!paragraphs.length&&'final-cta__inner--actions-only']}>{(title||paragraphs.length>0)&&<div>{title&&<h2>{title}</h2>}{paragraphs.length>0&&<div class="final-cta__copy">{paragraphs.map(paragraph=><p>{paragraph}</p>)}</div>}</div>}<div class="final-cta__actions">{actions.map((a,i)=><Button href={a.href} variant={i===0?'inverse':'text'}>{a.label}</Button>)}</div></div></section>
+<style>.final-cta{position:relative;overflow:hidden;padding-block:3.5rem;color:var(--text-inverse);background:#241037}.final-cta::after{content:'';pointer-events:none;position:absolute;right:-3rem;top:-10rem;width:30rem;height:30rem;border:1px solid #b377e935;border-radius:50%}.final-cta__inner{display:grid;grid-template-columns:1fr auto;gap:3rem;align-items:center}.final-cta__inner--actions-only{grid-template-columns:1fr}.final-cta h2{font-size:clamp(2rem,3vw,3rem);max-width:24ch;margin-bottom:1rem}.final-cta__copy{max-width:65ch;display:flex;flex-wrap:wrap;column-gap:.3em;row-gap:.2rem}.final-cta p{color:#d2bedf;margin:0}.final-cta__actions{display:flex;align-items:center;gap:1rem;flex-wrap:wrap}.final-cta__actions :global(.button--text){color:#e4cbf7}@media(max-width:50rem){.final-cta__inner{grid-template-columns:1fr;gap:1.5rem}}</style>

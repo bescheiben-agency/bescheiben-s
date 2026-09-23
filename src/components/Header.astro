@@ -1,0 +1,115 @@
+---
+import Button from './Button.astro';
+import SocialLinks from './SocialLinks.astro';
+import { DIAGNOSTIC_CTA, PRIMARY_NAVIGATION } from '../config/site';
+
+const currentPath = Astro.url.pathname.replace(/\/+$/, '') || '/';
+const isCurrent = (href: string) => currentPath === href || currentPath.startsWith(`${href}/`);
+---
+
+<header class="site-header" data-site-header>
+  <div class="header-inner container">
+    <a class="brand" href="/" aria-label="Bescheiben — página inicial">
+      <img src="/brand/logo-header-white.svg" width="174" height="38" alt="Bescheiben" />
+    </a>
+
+    <nav class="desktop-nav" aria-label="Navegação principal">
+      {PRIMARY_NAVIGATION.map((link) => (
+        <a href={link.href} aria-current={isCurrent(link.href) ? 'page' : undefined}>{link.label}</a>
+      ))}
+    </nav>
+
+    <div class="desktop-action"><Button href={DIAGNOSTIC_CTA.href}>{DIAGNOSTIC_CTA.label}</Button></div>
+
+    <button class="menu-trigger" type="button" aria-label="Abrir menu" aria-expanded="false" aria-controls="mobile-menu" data-menu-trigger>
+      <span></span><span></span>
+    </button>
+  </div>
+
+  <div class="mobile-panel" id="mobile-menu" hidden data-mobile-panel>
+    <nav class="mobile-nav container" aria-label="Navegação mobile">
+      {PRIMARY_NAVIGATION.map((link) => (
+        <a href={link.href} aria-current={isCurrent(link.href) ? 'page' : undefined}>{link.label}</a>
+      ))}
+      <Button href={DIAGNOSTIC_CTA.href}>{DIAGNOSTIC_CTA.label}</Button>
+      <SocialLinks class="mobile-social" />
+    </nav>
+  </div>
+</header>
+
+<script>
+  const header = document.querySelector<HTMLElement>('[data-site-header]');
+  const trigger = document.querySelector<HTMLButtonElement>('[data-menu-trigger]');
+  const panel = document.querySelector<HTMLElement>('[data-mobile-panel]');
+  const background = document.querySelectorAll<HTMLElement>('main, footer');
+
+  const setInert = (value: boolean) => background.forEach((element) => { element.inert = value; });
+  const close = (restoreFocus = false) => {
+    if (!trigger || !panel) return;
+    trigger.setAttribute('aria-expanded', 'false');
+    trigger.setAttribute('aria-label', 'Abrir menu');
+    panel.hidden = true;
+    document.body.classList.remove('menu-open');
+    setInert(false);
+    if (restoreFocus) trigger.focus();
+  };
+  const open = () => {
+    if (!trigger || !panel) return;
+    trigger.setAttribute('aria-expanded', 'true');
+    trigger.setAttribute('aria-label', 'Fechar menu');
+    panel.hidden = false;
+    document.body.classList.add('menu-open');
+    setInert(true);
+    panel.querySelector<HTMLAnchorElement>('a')?.focus();
+  };
+
+  trigger?.addEventListener('click', () => trigger.getAttribute('aria-expanded') === 'true' ? close() : open());
+  panel?.querySelectorAll('a').forEach((link) => link.addEventListener('click', () => close()));
+  document.addEventListener('keydown', (event) => {
+    if (trigger?.getAttribute('aria-expanded') !== 'true' || !panel) return;
+    if (event.key === 'Escape') { event.preventDefault(); close(true); return; }
+    if (event.key !== 'Tab') return;
+    const focusable = [trigger, ...panel.querySelectorAll<HTMLElement>('a, button:not([disabled])')];
+    const first = focusable[0];
+    const last = focusable.at(-1);
+    if (event.shiftKey && document.activeElement === first) { event.preventDefault(); last?.focus(); }
+    else if (!event.shiftKey && document.activeElement === last) { event.preventDefault(); first?.focus(); }
+  });
+  window.matchMedia('(min-width: 75rem)').addEventListener('change', (event) => { if (event.matches) close(); });
+  const updateHeader = () => header?.classList.toggle('is-scrolled', window.scrollY > 16);
+  updateHeader();
+  window.addEventListener('scroll', updateHeader, { passive: true });
+</script>
+
+<style>
+  .site-header { position: sticky; z-index: 50; top: 0; color: var(--text-inverse); border-bottom: 1px solid #ffffff12; background: var(--bg-dark); transition: background-color var(--duration-fast) var(--ease-standard), border-color var(--duration-fast) var(--ease-standard); }
+  .site-header.is-scrolled { border-color: #ffffff20; background: color-mix(in srgb, var(--bg-dark) 94%, transparent); backdrop-filter: blur(18px); }
+  .header-inner { display: grid; min-height: 5.1rem; grid-template-columns: auto 1fr auto; align-items: center; gap: clamp(1.25rem, 2.5vw, 2.75rem); }
+  .brand { display: flex; min-height: 2.75rem; align-items: center; }
+  .brand img { width: 9.7rem; height: auto; }
+  .desktop-nav { display: flex; justify-content: center; gap: clamp(0.8rem, 1.3vw, 1.4rem); }
+  .desktop-nav a { position: relative; display: inline-flex; min-height: 2.75rem; align-items: center; color: var(--ink-on-dark); font-size: 0.8rem; font-weight: 450; text-decoration: none; transition: color var(--duration-fast) var(--ease-standard); }
+  .desktop-nav a::after { position: absolute; right: 0; bottom: 0.15rem; left: 0; height: 1px; background: var(--purple-lavender); content: ''; transform: scaleX(0); transform-origin: left; transition: transform var(--duration-fast) var(--ease-standard); }
+  .desktop-nav a:hover, .desktop-nav a[aria-current='page'] { color: var(--neutral-white); }
+  .desktop-nav a:hover::after, .desktop-nav a[aria-current='page']::after { transform: scaleX(1); }
+  .desktop-action :global(.button) { min-height: 2.8rem; gap: 1rem; padding-inline: 1.15rem; font-size: 0.8rem; }
+  .menu-trigger, .mobile-panel { display: none; }
+  @media (max-width: 74.99rem) {
+    .header-inner { min-height: 4.5rem; grid-template-columns: 1fr auto; }
+    .brand img { width: 9.25rem; }
+    .desktop-nav, .desktop-action { display: none; }
+    .menu-trigger { display: grid; width: 2.75rem; height: 2.75rem; padding: 0; border: 1px solid #ffffff30; border-radius: 50%; place-content: center; gap: 0.35rem; color: var(--text-inverse); background: transparent; cursor: pointer; }
+    .menu-trigger span { display: block; width: 1rem; height: 1.5px; background: currentColor; transition: transform var(--duration-fast) var(--ease-standard); }
+    .menu-trigger[aria-expanded='true'] span:first-child { transform: translateY(0.2rem) rotate(45deg); }
+    .menu-trigger[aria-expanded='true'] span:last-child { transform: translateY(-0.2rem) rotate(-45deg); }
+    .mobile-panel { position: fixed; inset: 4.5rem 0 0; display: block; height: calc(100dvh - 4.5rem); overflow-y: auto; overscroll-behavior: contain; border-top: 1px solid #ffffff16; background: var(--bg-dark); animation: menu-enter 220ms var(--ease-standard) both; }
+    .mobile-panel[hidden] { display: none; }
+    .mobile-nav { display: flex; min-height: 100%; flex-direction: column; gap: 0; padding-block: 1rem max(1.5rem, env(safe-area-inset-bottom)); }
+    .mobile-nav > a:not(.button) { display: flex; min-height: 3.5rem; align-items: center; padding-block: 0.4rem; border-bottom: 1px solid #ffffff16; color: var(--ink-on-dark); font-size: clamp(1.2rem, 4vw, 1.75rem); font-weight: 450; letter-spacing: -0.03em; text-decoration: none; }
+    .mobile-nav > a:hover, .mobile-nav > a[aria-current='page']:not(.button) { color: var(--neutral-white); }
+    .mobile-nav :global(.button) { width: 100%; flex-shrink: 0; margin-top: 1.75rem; }
+    .mobile-nav :global(.mobile-social) { margin-top: 1.5rem; color: var(--ink-on-dark); }
+  }
+  @keyframes menu-enter { from { opacity: 0; transform: translateY(-6px); } to { opacity: 1; transform: translateY(0); } }
+  @media (prefers-reduced-motion: reduce) { .site-header, .desktop-nav a, .desktop-nav a::after, .menu-trigger span { transition: none; } .mobile-panel { animation: none; } }
+</style>

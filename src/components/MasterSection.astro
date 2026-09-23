@@ -1,0 +1,34 @@
+---
+import type {ContentSection,CallToAction} from '../content/site-content';
+import {parseMasterMarkdown} from '../utils/master-markdown';
+import CopyBlocks from './CopyBlocks.astro';
+import CapabilityVisual from './CapabilityVisual.astro';
+import OrbitalSystem from './OrbitalSystem.astro';
+interface Props{section:ContentSection;index:number;route:string;ctas?:readonly CallToAction[];}
+const {section,index,route,ctas=[]}=Astro.props;
+const blocks=parseMasterMarkdown(section.body);
+const titleIndex=blocks.findIndex(b=>b.type==='heading');
+const internalMarker=/^SEÇÃO\s+\d+/i.test(section.heading);
+const title=internalMarker&&titleIndex>=0&&'text' in blocks[titleIndex]?blocks[titleIndex].text:section.heading;
+const content=blocks.filter((b,i)=>!(internalMarker&&i===titleIndex)&&!(b.type==='eyebrow'&&i===0)&&!('text'in b&&['FECHO','MAPA DO SISTEMA','↓'].includes(b.text.toUpperCase())));
+const system=section.id==='um-unico-sistema';
+const stages=system?content.filter(b=>b.type==='statement'&&'text'in b&&b.text===b.text.toUpperCase()):[];
+const prose=system?content.filter(b=>!stages.includes(b)):content;
+const dark=system||(route==='/'&&['nosso-ponto-de-vista','inteligencia-artificial'].includes(section.id));
+const visual=route.includes('branding')||section.id==='branding'?'layers':route.includes('marketing')||section.id==='marketing'?'flow':route.includes('digital')||section.id==='digital'?'interface':route.includes('tecnologia')||section.id==='inteligencia-artificial'?'ring':'orbit';
+const illustrated=['branding','marketing','digital','inteligencia-artificial'].includes(section.id)||index===0;
+---
+<section id={section.id} data-copy-section={section.id} class:list={['master-section',dark&&'master-section--inverse',system&&'master-section--system',illustrated&&'master-section--illustrated']}>
+ <div class="container">
+  <div class="section-composition">
+   <header><h2>{title}</h2>{illustrated&&<div class="section-visual" data-ambient><CapabilityVisual kind={visual} id={`visual-${section.id}`}/></div>}</header>
+   <div class="copy-prose"><CopyBlocks blocks={prose} ctas={ctas}/></div>
+  </div>
+  {system&&<><div class="system-flow">{stages.map(b=>'text'in b&&<span>{b.text}</span>)}</div><OrbitalSystem/></>}
+ </div>
+</section>
+<style>
+.master-section{padding-block:var(--section-space);background:var(--bg-paper);position:relative;isolation:isolate}.master-section:nth-child(even){background:var(--bg-light)}.master-section--inverse,.master-section--inverse:nth-child(even){background:var(--bg-dark);color:var(--text-inverse)}.section-composition{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.08fr);gap:clamp(2rem,6vw,7rem)}header h2{max-width:22ch}.copy-prose{max-width:68ch}.copy-prose :global(p){font-size:.98rem;color:var(--text-secondary);line-height:1.8}.copy-prose :global(h3){font-family:var(--font-body);font-size:1.3rem;letter-spacing:-.035em;margin-block:2rem 1rem}.copy-prose :global(.copy-statement){font-size:clamp(1.5rem,2.5vw,2.4rem);color:var(--text-primary);line-height:1.3;letter-spacing:-.04em;margin:1.5rem 0}.copy-prose :global(ul),.copy-prose :global(ol){padding:0;list-style:none;display:flex;flex-wrap:wrap;gap:.5rem .8rem;margin-block:1.5rem}.copy-prose :global(li){padding:.5rem .8rem;border:1px solid var(--border-default);border-radius:.35rem;font-size:.85rem}.copy-prose :global(.copy-action){margin-block:1rem}.master-section--inverse .copy-prose :global(p){color:var(--ink-on-dark)}.master-section--inverse .copy-prose :global(.copy-statement){color:var(--text-inverse)}.master-section--inverse :global(.button--text){color:var(--purple-lavender)}.master-section--inverse .copy-prose :global(li){border-color:#72508066}.section-visual{height:200px;width:min(100%,400px);margin-top:2rem;border-radius:var(--radius-lg);background:var(--bg-dark);overflow:hidden}.section-visual :global(svg){width:100%;height:100%;object-fit:contain}.master-section--system .section-composition{grid-template-columns:1fr 1fr;margin-bottom:2rem}.master-section--system header h2{max-width:21ch}.system-flow{display:flex;align-items:center;flex-wrap:wrap;gap:1rem;padding-block:1.5rem;margin-bottom:2rem;border-block:1px solid #6a438746}.system-flow span{display:inline-flex;align-items:center;gap:1rem;font-size:.8rem;letter-spacing:.02em;color:#c9afdF}.system-flow span:not(:last-child)::after{content:'';width:1.7rem;height:1px;background:#8661aa}
+@media(min-width:75rem){.section-composition>header{position:sticky;top:7rem;align-self:start}}
+@media(max-width:48rem){.section-composition,.master-section--system .section-composition{grid-template-columns:minmax(0,1fr);gap:1.5rem}.section-visual{height:160px}.section-composition>header h2{max-width:100%;margin-bottom:1rem}.system-flow{gap:.7rem}.system-flow span{font-size:.72rem}.copy-prose :global(p){font-size:.95rem}}
+</style>

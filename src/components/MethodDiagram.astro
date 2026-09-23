@@ -1,0 +1,107 @@
+---
+const steps = [
+  { title: 'Diagnosticar', body: 'Ler contexto, tensões e sinais antes de definir a direção.' },
+  { title: 'Direcionar', body: 'Transformar leitura em escolhas, prioridades e critérios claros.' },
+  { title: 'Ativar', body: 'Organizar frentes e movimentos em uma execução coerente.' },
+  { title: 'Evoluir', body: 'Aprender com o sistema e ajustar o que precisa avançar.' },
+];
+---
+
+<ol class="method-diagram" aria-label="Método Bescheiben em quatro fases">
+  {steps.map((step, index) => (
+    <li>
+      <span class="node" aria-hidden="true"></span>
+      <p class="step-number">Fase {index + 1}</p>
+      <h3>{step.title}</h3>
+      <p>{step.body}</p>
+    </li>
+  ))}
+</ol>
+
+<style>
+  .method-diagram {
+    position: relative;
+    display: grid;
+    margin: 0;
+    padding: 0;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    list-style: none;
+  }
+
+  .method-diagram::before {
+    position: absolute;
+    top: 0.45rem;
+    right: 0;
+    left: 0;
+    height: 1px;
+    background: var(--purple-lavender);
+    content: '';
+  }
+
+  li {
+    position: relative;
+    padding: 2.5rem clamp(1rem, 2vw, 2rem) 0 0;
+  }
+
+  .node {
+    position: absolute;
+    z-index: 1;
+    top: 0;
+    left: 0;
+    width: 0.95rem;
+    height: 0.95rem;
+    border: 3px solid var(--neutral-paper);
+    border-radius: 50%;
+    background: var(--purple-violet);
+    box-shadow: 0 0 0 1px var(--purple-violet);
+  }
+
+  .step-number {
+    margin-bottom: 2rem;
+    color: var(--purple-deep);
+    font-size: 0.8125rem;
+    font-weight: 600;
+  }
+
+  h3 {
+    margin-bottom: 0.75rem;
+  }
+
+  li > p:last-child {
+    max-width: 27ch;
+    margin-bottom: 0;
+    color: var(--text-secondary);
+  }
+
+  @media (max-width: 48rem) {
+    .method-diagram {
+      display: block;
+      padding-left: 2rem;
+    }
+
+    .method-diagram::before {
+      top: 0;
+      bottom: 0;
+      left: 0.45rem;
+      width: 1px;
+      height: auto;
+    }
+
+    li {
+      padding: 0 0 3rem 1rem;
+    }
+
+    li:last-child {
+      padding-bottom: 0;
+    }
+
+    .node {
+      top: 0.2rem;
+      left: -2rem;
+    }
+
+    .step-number {
+      margin-bottom: 0.75rem;
+    }
+  }
+</style>

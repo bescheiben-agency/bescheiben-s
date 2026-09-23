@@ -1,0 +1,39 @@
+---
+import { siteContent } from '../content/site-content';
+const areas = [
+ {name:'Posicionamento', route:'/estrategia', actionLabel:'Explorar Estratégia', x:27,y:14},
+ {name:'Marca',route:'/branding',actionLabel:'Explorar Branding',x:72,y:15},
+ {name:'Conversão',route:'/digital',actionLabel:'Explorar Digital',x:89,y:51},
+ {name:'Tecnologia',route:'/tecnologia',actionLabel:'Explorar Tecnologia',x:73,y:83},
+ {name:'Digital',route:'/digital',actionLabel:'Explorar Digital',x:26,y:83},
+ {name:'Aquisição',route:'/marketing',actionLabel:'Explorar Marketing',x:11,y:50},
+] as const;
+---
+<div class="orbital-system" data-orbital data-ambient>
+ <div class="orbital-map">
+  <svg viewBox="0 0 700 510" fill="none" aria-hidden="true">
+   <g class="ambient orbit-a"><ellipse cx="350" cy="255" rx="294" ry="171" stroke="#9266c4" stroke-width=".8"/><circle cx="644" cy="255" r="4" fill="#e5caff"/></g>
+   <g class="ambient orbit-b"><ellipse cx="350" cy="255" rx="270" ry="120" stroke="#634689" stroke-width="1"/><circle cx="80" cy="255" r="3" fill="#b18ae8"/></g>
+   <ellipse cx="350" cy="255" rx="204" ry="217" stroke="#6c4692" stroke-dasharray="1 7"/>
+   {areas.map((a,i)=><path data-orbit-line={i} d={`M350 255L${a.x*7} ${a.y*5.1}`} stroke="#6a4889" stroke-opacity=".35"/>)}
+  </svg>
+  <div class="orbital-core"><img src="/brand/symbol-white.svg" width="78" height="78" alt="Bescheiben"/></div>
+  <div role="group" aria-label="Disciplinas do sistema" class="orbital-nodes">{areas.map((a,i)=><button style={`--x:${a.x}%;--y:${a.y}%`} aria-expanded={i===0?'true':'false'} aria-controls={`orbital-detail-${i}`} data-orbit-node={i}><span aria-hidden="true"></span>{a.name}</button>)}</div>
+ </div>
+ <div class="orbital-detail">{areas.map((a,i)=><div hidden={i!==0} id={`orbital-detail-${i}`}><h3>{a.name}</h3><p>{siteContent[a.route].hero.supportingCopy[0]}</p><a href={a.route}>{a.actionLabel}<span aria-hidden="true"> ↗</span></a></div>)}</div>
+</div>
+<script>
+ document.querySelectorAll<HTMLElement>('[data-orbital]').forEach(system=>{
+  const nodes=[...system.querySelectorAll<HTMLButtonElement>('[data-orbit-node]')];
+  const set=(n:number)=>{nodes.forEach((b,i)=>{b.setAttribute('aria-expanded',String(i===n));const detail=document.getElementById(b.getAttribute('aria-controls')!);if(detail)detail.hidden=i!==n;});system.querySelectorAll('[data-orbit-line]').forEach((l,i)=>l.classList.toggle('active',i===n));};
+  nodes.forEach((node,i)=>{node.addEventListener('click',()=>set(i));node.addEventListener('focus',()=>set(i));node.addEventListener('pointerenter',e=>{if(e.pointerType==='mouse')set(i);});node.addEventListener('keydown',e=>{if(e.key==='ArrowRight'||e.key==='ArrowDown'){e.preventDefault();nodes[(i+1)%nodes.length].focus();}if(e.key==='ArrowLeft'||e.key==='ArrowUp'){e.preventDefault();nodes[(i+nodes.length-1)%nodes.length].focus();}});});
+  system.addEventListener('pointerleave',()=>{if(!system.matches(':focus-within'))set(0);});
+  system.addEventListener('focusout',event=>{if(!system.contains(event.relatedTarget as Node|null)&&!system.matches(':hover'))set(0);});
+  set(0);
+ });
+</script>
+<style>
+.orbital-system{color:#fcfbfe;display:grid;grid-template-columns:minmax(0,1.5fr) minmax(0,.7fr);gap:3rem;align-items:center}.orbital-map{position:relative;aspect-ratio:700/510}.orbital-map svg{width:100%;height:100%;position:absolute;inset:0;overflow:visible}.orbit-a,.orbit-b{transform-origin:350px 255px;animation:orbit-turn 32s linear infinite}.orbit-b{animation-duration:43s;animation-direction:reverse}.orbital-core{position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);width:23%;aspect-ratio:1;display:grid;place-items:center;border-radius:50%;background:radial-gradient(circle at 30% 20%,#39204d,#120a20 65%);border:1px solid #7b4cac;box-shadow:0 0 45px #7943a921,inset 0 0 22px #723bad16}.orbital-core img{width:48%;height:auto}.orbital-nodes button{position:absolute;left:var(--x);top:var(--y);transform:translate(-50%,-50%);min-height:44px;padding:.7rem 1rem;display:flex;align-items:center;gap:.7rem;background:#110b1e;border:1px solid #71518e45;border-radius:99px;color:#c6b7d5;font-size:.83rem;white-space:nowrap;transition:color var(--transition),border-color var(--transition),box-shadow var(--transition)}.orbital-nodes button span{width:7px;height:7px;border-radius:50%;border:1px solid #d1a2ff;flex:none}.orbital-nodes button[aria-expanded=true]{color:#fff;border-color:#c798ee;box-shadow:0 0 18px #a358e127}.orbital-nodes button[aria-expanded=true] span{background:#e1b5ff;box-shadow:0 0 8px #c183ef}.orbital-system:has(button:hover) .ambient,.orbital-system:focus-within .ambient{animation-play-state:paused!important}[data-orbit-line]{transition:stroke-opacity 300ms}[data-orbit-line].active{stroke:#cda0f6;stroke-opacity:1}.orbital-detail{border-left:1px solid #76539066;padding-left:2rem;min-height:190px}.orbital-detail h3{color:#e3baff;font-size:1.4rem}.orbital-detail p{font-size:.95rem;color:#bfb0d1}.orbital-detail a{min-height:44px;display:inline-flex;align-items:center;gap:1rem;color:#e3ccfc;font-size:.8rem}
+@media(max-width:64rem){.orbital-system{grid-template-columns:1fr;gap:1.5rem}.orbital-map{max-width:42rem;width:100%;margin:auto}.orbital-detail{min-height:150px;border-left:0;border-top:1px solid #76539066;padding:1.5rem 0 0}}
+@media(max-width:40rem){.orbital-map{aspect-ratio:auto;padding-top:6rem}.orbital-map>svg{display:none}.orbital-core{width:4.5rem;height:4.5rem;top:0;left:50%;transform:translateX(-50%)}.orbital-nodes{display:grid;grid-template-columns:1fr 1fr;gap:.7rem;position:relative}.orbital-nodes::before{position:absolute;content:'';left:50%;top:-1.5rem;bottom:0;width:1px;background:#78509355}.orbital-nodes button{position:relative;inset:auto;transform:none;white-space:normal;font-size:.8rem;padding:.7rem;border-radius:var(--radius-sm)}.orbital-detail{min-height:180px}}
+</style>

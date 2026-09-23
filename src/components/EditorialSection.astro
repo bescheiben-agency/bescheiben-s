@@ -1,0 +1,49 @@
+---
+interface Props {
+  id?: string;
+  label?: string;
+  title: string;
+  body?: string[];
+  tone?: 'paper' | 'white' | 'subtle' | 'midnight';
+  layout?: 'stack' | 'split' | 'rail' | 'sequence' | 'index';
+  spacing?: 'compact' | 'standard';
+}
+const { id, label, title, body = [], tone = 'paper', layout = 'split', spacing = 'standard' } = Astro.props;
+---
+
+<section id={id} class:list={['editorial-section', `editorial-section--${spacing}`]} data-tone={tone} data-layout={layout}>
+  <div class="container editorial-section__grid">
+    <header class="editorial-section__header">
+      {label && <p class="eyebrow">{label}</p>}
+      <h2>{title}</h2>
+    </header>
+    <div class="editorial-section__body">
+      {body.map((paragraph, index) => <p class:list={[index === 0 && 'lead']}>{paragraph}</p>)}
+      <slot />
+    </div>
+  </div>
+</section>
+
+<style>
+  .editorial-section { padding-block: clamp(4.5rem, 8vw, 8rem); background: var(--background-base); }
+  .editorial-section--compact { padding-block: clamp(3rem, 6vw, 5rem); }
+  .editorial-section[data-tone='white'] { background: var(--background-surface); }
+  .editorial-section[data-tone='subtle'] { background: var(--background-subtle); }
+  .editorial-section[data-tone='midnight'] { color: var(--text-inverse); background: var(--background-inverse); }
+  .editorial-section[data-tone='midnight'] :global(.eyebrow) { color: var(--purple-lavender); }
+  .editorial-section[data-tone='midnight'] p { color: color-mix(in srgb, var(--neutral-white) 74%, transparent); }
+  .editorial-section__grid { display: grid; grid-template-columns: repeat(12, minmax(0, 1fr)); gap: 2rem; }
+  .editorial-section__header { grid-column: 1 / span 5; }
+  .editorial-section__body { grid-column: 7 / -1; }
+  .editorial-section[data-layout='stack'] .editorial-section__header, .editorial-section[data-layout='stack'] .editorial-section__body { grid-column: 1 / span 8; }
+  .editorial-section[data-layout='stack'] .editorial-section__body { margin-top: 1rem; }
+  .editorial-section[data-layout='rail'] .editorial-section__header { grid-column: 1 / span 4; }
+  .editorial-section[data-layout='rail'] .editorial-section__body { grid-column: 5 / -1; border-left: 1px solid var(--border-default); padding-left: clamp(1.5rem, 4vw, 4rem); }
+  .editorial-section[data-layout='sequence'] .editorial-section__body, .editorial-section[data-layout='index'] .editorial-section__body { grid-column: 6 / -1; }
+  @media (max-width: 48rem) {
+    .editorial-section__grid { grid-template-columns: 1fr; }
+    .editorial-section__header, .editorial-section__body, .editorial-section[data-layout] .editorial-section__header, .editorial-section[data-layout] .editorial-section__body { grid-column: 1; }
+    .editorial-section__body { margin-top: 1.5rem; }
+    .editorial-section[data-layout='rail'] .editorial-section__body { border-top: 1px solid var(--border-default); border-left: 0; padding-top: 1.5rem; padding-left: 0; }
+  }
+</style>

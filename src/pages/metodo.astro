@@ -1,0 +1,207 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Button from '../components/Button.astro';
+import Footer from '../components/Footer.astro';
+import Header from '../components/Header.astro';
+import MethodDiagram from '../components/MethodDiagram.astro';
+import SectionHeading from '../components/SectionHeading.astro';
+
+const phases = [
+  {
+    number: '01',
+    name: 'Diagnosticar',
+    input: 'Contexto, objetivos, tensões e evidências disponíveis.',
+    decision: 'Qual problema merece ser compreendido antes de agir?',
+    output: 'Leitura compartilhada do campo e das questões centrais.',
+  },
+  {
+    number: '02',
+    name: 'Direcionar',
+    input: 'Hipóteses, alternativas, relações e limites identificados.',
+    decision: 'Qual escolha organiza as demais e quais critérios a sustentam?',
+    output: 'Direção, prioridades, renúncias e critérios de decisão.',
+  },
+  {
+    number: '03',
+    name: 'Ativar',
+    input: 'Direção definida, capacidades e frentes que precisam avançar.',
+    decision: 'Como transformar a escolha em movimento coerente?',
+    output: 'Arquitetura de ação, responsabilidades e artefatos aplicáveis.',
+  },
+  {
+    number: '04',
+    name: 'Evoluir',
+    input: 'Resposta do sistema, sinais de uso e novos aprendizados.',
+    decision: 'O que deve permanecer, mudar ou ser investigado?',
+    output: 'Critérios revisados e próximo ciclo de decisão.',
+  },
+];
+
+const artifacts = [
+  { type: 'Leitura', name: 'Mapa de tensões', purpose: 'Torna explícitas relações, conflitos e perguntas ainda abertas.' },
+  { type: 'Direção', name: 'Arquitetura de escolhas', purpose: 'Registra prioridade, critérios, renúncias e consequências.' },
+  { type: 'Ativação', name: 'Sistema de aplicação', purpose: 'Conecta decisão, responsabilidade e pontos de contato.' },
+  { type: 'Evolução', name: 'Quadro de aprendizado', purpose: 'Relaciona sinais observados às próximas decisões.' },
+];
+
+const qualityCriteria = [
+  ['Rastreabilidade', 'É possível compreender de qual leitura uma decisão surgiu.'],
+  ['Coerência', 'A escolha melhora a relação entre frentes, não apenas um resultado local.'],
+  ['Aplicabilidade', 'Critérios podem orientar trabalho real sem depender de interpretação constante.'],
+  ['Aprendizado', 'A ativação produz sinais úteis para revisar a direção com consciência.'],
+];
+
+const schema = [
+  {
+    '@context': 'https://schema.org',
+    '@type': 'WebPage',
+    name: 'Método Bescheiben',
+    description: 'Método em quatro fases para transformar leitura estratégica em direção, ativação e aprendizado.',
+    url: 'https://bescheiben.com.br/metodo',
+    inLanguage: 'pt-BR',
+  },
+];
+---
+
+<BaseLayout
+  title="Método — Bescheiben"
+  description="Conheça o método Bescheiben: diagnosticar, direcionar, ativar e evoluir decisões de crescimento com continuidade."
+  schema={schema}
+>
+  <Header />
+
+  <main id="conteudo">
+    <section class="method-hero section-shell">
+      <div class="container method-hero__grid">
+        <div>
+          
+          <h1>Leitura, direção e movimento no mesmo percurso.</h1>
+          <p class="lead">O método organiza decisões complexas sem separar o pensamento estratégico da realidade que precisa colocá-lo em prática.</p>
+          <div class="hero-actions">
+            <Button href="/diagnostico">Solicitar diagnóstico estratégico</Button>
+            <a class="text-link" href="#fases">Explorar as quatro fases</a>
+          </div>
+        </div>
+
+        <div class="method-index" aria-label="Sequência do método em quatro fases">
+          <span>Diagnosticar</span>
+          <span>Direcionar</span>
+          <span>Ativar</span>
+          <span>Evoluir</span>
+        </div>
+      </div>
+    </section>
+
+    <section class="principle section-shell surface-inverse">
+      <div class="container principle__grid">
+        <p>Princípio central</p>
+        <div>
+          <h2>Estratégia não termina quando a apresentação é entregue.</h2>
+          <p>Ela precisa orientar escolhas, atravessar a ativação e aprender com a resposta sem perder sua continuidade.</p>
+        </div>
+      </div>
+    </section>
+
+    <section id="fases" class="section-shell">
+      <div class="container">
+        <SectionHeading
+          label="Visão geral"
+          title="Quatro fases conectadas por uma pergunta contínua."
+          body="O que aprendemos agora altera qual decisão vem depois — por isso as fases formam um ciclo, não uma linha de produção."
+        />
+        <MethodDiagram />
+      </div>
+    </section>
+
+    <section class="section-shell surface-subtle">
+      <div class="container">
+        <SectionHeading
+          label="Entradas, decisões e saídas"
+          title="O método torna o raciocínio discutível."
+          body="Cada fase recebe contexto, concentra uma decisão e produz clareza útil para a próxima."
+        />
+        <ol class="phase-table">
+          <li class="phase-table__header" aria-hidden="true">
+            <span>Fase</span><span>Entrada</span><span>Decisão</span><span>Saída</span>
+          </li>
+          {phases.map((phase) => (
+            <li>
+              <div class="phase-name"><h3>{phase.name}</h3></div>
+              <p><small>Entrada</small>{phase.input}</p>
+              <p><small>Decisão</small>{phase.decision}</p>
+              <p><small>Saída</small>{phase.output}</p>
+            </li>
+          ))}
+        </ol>
+      </div>
+    </section>
+
+    <section class="section-shell">
+      <div class="container collaboration-layout">
+        <SectionHeading
+          label="Cadência e colaboração"
+          title="Decisões construídas com contexto, não em isolamento."
+          body="A cadência é definida conforme complexidade e disponibilidade. O princípio permanece: contexto entra, escolhas ficam explícitas e responsabilidades são reconhecidas."
+        />
+        <div class="collaboration-map" role="img" aria-label="Colaboração entre contexto do negócio, leitura Bescheiben e decisão compartilhada">
+          <article><span>Negócio</span><h3>Contexto e capacidade</h3><p>Conhecimento interno, limites, ambição e decisões já assumidas.</p></article>
+          <div class="collaboration-map__connector" aria-hidden="true"></div>
+          <article><span>Bescheiben</span><h3>Leitura e estrutura</h3><p>Perguntas, relações, critérios e facilitação das escolhas.</p></article>
+          <div class="collaboration-map__connector" aria-hidden="true"></div>
+          <article><span>Campo comum</span><h3>Decisão aplicável</h3><p>Direção compreendida, responsabilidades e próximos movimentos.</p></article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section-shell surface-inverse">
+      <div class="container artifact-layout">
+        <SectionHeading
+          inverse
+          label="Artefatos demonstrativos"
+          title="A forma existe para sustentar a conversa."
+          body="Artefatos tornam relações e trade-offs visíveis. Os formatos abaixo são referências, não um pacote de entregáveis pré-definido."
+        />
+        <div class="artifact-list">
+          {artifacts.map((artifact) => (
+            <article>
+              <span>{artifact.type}</span>
+              <h3>{artifact.name}</h3>
+              <p>{artifact.purpose}</p>
+            </article>
+          ))}
+        </div>
+      </div>
+    </section>
+
+    <section class="section-shell">
+      <div class="container quality-layout">
+        <SectionHeading
+          label="Critérios de qualidade"
+          title="Como avaliar uma decisão estratégica."
+          body="A qualidade não aparece em fórmulas universais. Ela pode, porém, ser discutida a partir de critérios explícitos."
+        />
+        <dl class="quality-list">
+          {qualityCriteria.map(([term, description]) => (
+            <div><dt>{term}</dt><dd>{description}</dd></div>
+          ))}
+        </dl>
+      </div>
+    </section>
+
+    <section class="method-cta section-shell">
+      <div class="container method-cta__inner">
+        <div>
+          
+          <h2>O método começa pela leitura do seu contexto.</h2>
+          <p>Compartilhe o momento para avaliarmos qual questão precisa ser compreendida primeiro.</p>
+        </div>
+        <Button href="/diagnostico" variant="inverse">Solicitar diagnóstico estratégico</Button>
+      </div>
+    </section>
+  </main>
+
+  <Footer />
+</BaseLayout>
+
+
+

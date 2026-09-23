@@ -1,0 +1,125 @@
+---
+import { parseMasterMarkdown, type ContentBlock } from '../utils/master-markdown';
+import type { ContentSection, CallToAction } from '../content/site-content';
+import CopyBlocks from './CopyBlocks.astro';
+interface Props { section: ContentSection; ctas: readonly CallToAction[]; }
+const { section, ctas } = Astro.props;
+const blocks = parseMasterMarkdown(section.body);
+const heading = blocks.find(block => block.type === 'heading');
+const title = heading && 'text' in heading ? heading.text : section.heading;
+const steps: { name: string; blocks: ContentBlock[] }[] = [];
+for (const block of blocks) {
+  if (block.type === 'subheading' && 'text' in block && /^\d+$/.test(block.text)) { steps.push({ name: '', blocks: [] }); continue; }
+  if (!steps.length) continue;
+  const step = steps.at(-1)!;
+  if (block.type === 'eyebrow' && !step.name) step.name = block.text;
+  else step.blocks.push(block);
+}
+---
+<section id={section.id} data-copy-section={section.id} class="method-story" data-method-story>
+  <div class="container">
+    <header class="method-heading">
+      <h2>{title}</h2>
+      <svg class="method-heading__flow" viewBox="0 0 380 112" fill="none" aria-hidden="true">
+        <path d="M5 57h85c28 0 28-36 56-36h73c28 0 28 72 56 72h98M5 57h85c28 0 28 36 56 36h73c28 0 28-72 56-72h98" stroke="currentColor"/>
+        <path d="M5 57h368" stroke="currentColor" stroke-opacity=".35"/>
+        <circle cx="90" cy="57" r="5" fill="currentColor"/><circle cx="219" cy="21" r="3" fill="currentColor"/><circle cx="275" cy="93" r="3" fill="currentColor"/>
+      </svg>
+    </header>
+    <div class="method-route" aria-label="Etapas do método" data-method-route>
+      {steps.map((step, index) => (
+        <a href={`#${section.id}-etapa-${index + 1}`} class:list={['method-stop', { 'is-active': index === 0 }]} data-method-stop id={`${section.id}-seletor-${index + 1}`}>
+          <span class="method-stop__node" aria-hidden="true"><span></span></span>
+          <span class="method-stop__name">{step.name}</span>
+          <svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M5 12h14m-6-6 6 6-6 6" stroke="currentColor" stroke-width="1.5"/></svg>
+        </a>
+      ))}
+    </div>
+    <div class="method-panels">
+      {steps.map((step, index) => (
+        <article class="method-panel" id={`${section.id}-etapa-${index + 1}`} data-method-panel aria-labelledby={`${section.id}-titulo-${index + 1}`}>
+          <div class="method-panel__intro">
+            <span class="method-panel__signal" aria-hidden="true"></span>
+            <h3 id={`${section.id}-titulo-${index + 1}`}>{step.name}</h3>
+            <CopyBlocks blocks={step.blocks.slice(0, 1)} ctas={ctas}/>
+          </div>
+          <div class="method-panel__body">
+            {step.blocks.slice(1).map(block => (
+              <div class:list={['method-note', { 'method-note--short': block.type === 'paragraph' && 'text' in block && block.text.length < 34 }]}>
+                <CopyBlocks blocks={[block]} ctas={ctas}/>
+              </div>
+            ))}
+          </div>
+        </article>
+      ))}
+    </div>
+  </div>
+</section>
+<script>
+  document.querySelectorAll<HTMLElement>('[data-method-story]').forEach(section => {
+    const route = section.querySelector<HTMLElement>('[data-method-route]');
+    const stops = Array.from(section.querySelectorAll<HTMLAnchorElement>('[data-method-stop]'));
+    const panels = Array.from(section.querySelectorAll<HTMLElement>('[data-method-panel]'));
+    if (!route || !stops.length) return;
+    const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)');
+    let active = 0;
+    let arrival: Animation | undefined;
+    const finishArrival = () => {
+      arrival?.cancel();
+      arrival = undefined;
+    };
+    reducedMotion.addEventListener('change', finishArrival);
+    document.addEventListener('visibilitychange', () => { if (document.hidden) finishArrival(); });
+    route.setAttribute('role', 'tablist');
+    stops.forEach((stop, index) => {
+      stop.setAttribute('role', 'tab');
+      stop.setAttribute('aria-controls', panels[index].id);
+      panels[index].setAttribute('role', 'tabpanel');
+      panels[index].setAttribute('aria-labelledby', stop.id);
+      panels[index].tabIndex = 0;
+    });
+    const select = (next: number, focus = false, animate = true) => {
+      active = next;
+      stops.forEach((stop, index) => {
+        const selected = index === next;
+        stop.classList.toggle('is-active', selected);
+        stop.classList.toggle('is-past', index < next);
+        stop.setAttribute('aria-selected', String(selected));
+        stop.tabIndex = selected ? 0 : -1;
+        panels[index].hidden = !selected;
+      });
+      finishArrival();
+      if (animate && !reducedMotion.matches && !document.hidden) {
+        arrival = panels[next].animate([{ opacity: .55, transform: 'translateY(7px)' }, { opacity: 1, transform: 'translateY(0)' }], { duration: 320, easing: 'cubic-bezier(.2,0,0,1)' });
+      }
+      if (focus) stops[next].focus();
+    };
+    stops.forEach((stop, index) => {
+      stop.addEventListener('click', event => { event.preventDefault(); select(index); });
+      stop.addEventListener('keydown', event => {
+        if (event.key === ' ') { event.preventDefault(); select(index, true); return; }
+        let next = active;
+        if (event.key === 'ArrowRight' || event.key === 'ArrowDown') next = (active + 1) % stops.length;
+        else if (event.key === 'ArrowLeft' || event.key === 'ArrowUp') next = (active - 1 + stops.length) % stops.length;
+        else if (event.key === 'Home') next = 0;
+        else if (event.key === 'End') next = stops.length - 1;
+        else return;
+        event.preventDefault();
+        select(next, true);
+      });
+    });
+    select(0, false, false);
+    section.dataset.methodReady = 'true';
+  });
+</script>
+<style>
+.method-story{position:relative;overflow:clip;background:radial-gradient(ellipse at 8% 0%,#3b205536,transparent 60%),var(--bg-dark);color:var(--text-inverse);padding-block:var(--section-space)}
+.method-heading{display:flex;align-items:center;justify-content:space-between;gap:4rem;margin-bottom:3.5rem}.method-heading h2{max-width:21ch;margin:0}.method-heading__flow{width:min(30%,22rem);color:#a780d8;opacity:.6;flex:none}
+.method-route{display:grid;grid-template-columns:repeat(8,minmax(0,1fr));margin-bottom:2rem}.method-stop{position:relative;display:grid;grid-template-columns:1fr auto;align-items:center;gap:.75rem .3rem;min-width:0;padding:0 .7rem 1.15rem 0;color:#b0a1c4;text-decoration:none;transition:color 200ms}.method-stop:before{content:'';position:absolute;top:10px;left:0;right:0;height:1px;background:#5c466f;transition:background 300ms}.method-stop:last-child:before{right:calc(100% - 12px)}.method-stop__node{position:relative;grid-column:1/-1;display:flex;align-items:center;width:22px;height:22px;border:1px solid transparent;border-radius:50%;background:var(--bg-dark);transition:border-color 300ms,box-shadow 300ms}.method-stop__node span{width:6px;height:6px;border-radius:50%;margin:auto;background:#8b70a7;transition:background 300ms}.method-stop__name{font-size:clamp(.75rem,.87vw,.92rem);font-weight:500;letter-spacing:-.025em}.method-stop svg{width:16px;opacity:0;transform:translateX(-4px);transition:opacity 200ms,transform 200ms}.method-stop:hover,.method-stop.is-active{color:#fff}.method-stop:hover svg,.method-stop.is-active svg{opacity:1;transform:none}.method-stop.is-active .method-stop__node{border-color:#bfa1f5;box-shadow:0 0 0 5px #945ae518,0 0 24px #925ada38}.method-stop.is-active .method-stop__node span{background:#fff}.method-stop.is-past:before{background:#a87ce5}.method-stop.is-past .method-stop__node span{background:#bba0dd}.method-stop:focus-visible{outline:2px solid #c6a5ff;outline-offset:5px;border-radius:.25rem}
+.method-panel{position:relative;display:grid;grid-template-columns:.8fr 1.2fr;gap:clamp(2rem,5vw,5rem);min-height:21rem;padding:clamp(1.5rem,3vw,3rem);border:1px solid #7d619342;border-radius:1rem;background:radial-gradient(ellipse at 0 0,#6d41992b,transparent 65%),linear-gradient(120deg,#191022,#100a1b);scroll-margin-top:7rem}.method-panel[hidden]{display:none}.method-panel+.method-panel:not([hidden]){margin-top:1.25rem}[data-method-ready='true'] .method-panel{margin-top:0}.method-panel__intro{position:relative;padding-left:1.3rem}.method-panel__signal{position:absolute;left:0;top:.45rem;width:1px;height:calc(100% - .5rem);max-height:11rem;background:linear-gradient(#c498fc,#76538d22)}.method-panel__signal:before{content:'';position:absolute;width:5px;height:5px;left:-2px;top:0;border-radius:50%;background:#e2c9ff;box-shadow:0 0 14px #c095fa}.method-panel h3{font-family:var(--font-display);font-size:clamp(2rem,3vw,3.1rem);font-weight:400;letter-spacing:-.045em;line-height:1.1;margin:0 0 1.2rem}.method-panel__intro :global(p){font-size:clamp(1rem,1.2vw,1.15rem);line-height:1.65;color:#d1c3df;max-width:28ch;margin:0}.method-panel__body{display:flex;flex-wrap:wrap;align-content:center;align-items:flex-start;gap:.65rem 1.4rem;min-width:0}.method-note{flex-basis:100%;min-width:0}.method-note :global(p){color:#c2b3d2;font-size:.93rem;line-height:1.8;margin:0}.method-note--short{flex-basis:auto;padding-left:.8rem;position:relative}.method-note--short:before{content:'';position:absolute;left:0;top:.75rem;width:3px;height:3px;border-radius:50%;background:#9574b5}.method-note:has(+.method-note--short){margin-bottom:.2rem}.method-note--short+.method-note:not(.method-note--short){margin-top:.8rem}.method-note :global(.copy-statement){font-size:clamp(1.1rem,1.5vw,1.4rem);line-height:1.45;color:#ead8fd}
+@media(min-width:100rem){.method-panel{min-height:23rem}.method-stop__name{font-size:1rem}}
+@media(max-width:70rem){.method-route{grid-template-columns:repeat(4,minmax(0,1fr));gap:1rem 0}.method-stop:nth-child(4n):before{right:calc(100% - 12px)}.method-stop{padding-right:1.5rem}.method-stop__name{font-size:.9rem}.method-heading{margin-bottom:2.7rem;gap:2rem}.method-panel{gap:2rem;grid-template-columns:.8fr 1.2fr}}
+@media(max-width:48rem){.method-heading{margin-bottom:2.4rem}.method-heading h2{max-width:23ch}.method-heading__flow{display:none}.method-route{margin-bottom:1.25rem;gap:.65rem 0}.method-stop{padding-right:.5rem}.method-stop__name{font-size:.74rem}.method-stop svg{display:none}.method-panel{grid-template-columns:1fr;gap:1.75rem;min-height:0}.method-panel__intro :global(p){max-width:100%}.method-panel__signal{max-height:none}.method-panel h3{margin-bottom:.75rem}.method-panel__body{gap:.55rem 1.2rem}.method-note :global(p){font-size:.875rem}}
+@media(max-width:36rem){.method-route{grid-template-columns:repeat(2,minmax(0,1fr))}.method-stop:nth-child(2n):before{right:calc(100% - 12px)}.method-stop__name{font-size:.85rem}.method-stop{padding-right:1.25rem}.method-panel{padding:1.35rem}}
+@media(prefers-reduced-motion:reduce){.method-story *{transition:none!important}}
+</style>

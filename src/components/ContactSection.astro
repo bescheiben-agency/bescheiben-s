@@ -1,0 +1,200 @@
+---
+import Button from './Button.astro';
+const turnstileSiteKey = import.meta.env.PUBLIC_TURNSTILE_SITE_KEY ?? '';
+---
+  <section id="formulario" class="contact-section">
+    <div class="container contact-grid">
+      <header class="contact-intro">
+
+        <h2>Comece pelo contexto.</h2>
+        <p>Não esperamos que você saiba nomear o problema com precisão. O formulário existe para organizar os primeiros sinais e preparar uma conversa mais útil.</p>
+        <p>Não precisamos que você descubra sozinho qual serviço contratar.</p>
+        <p>Explique o cenário. O que está acontecendo. O que incomoda. O que gostaria que fosse diferente.</p>
+        <p>A partir daí conseguimos começar a fazer as perguntas certas.</p>
+        <p>Os dados são enviados diretamente para <a href="mailto:bescheiben@gmail.com">bescheiben@gmail.com</a>.</p>
+      </header>
+
+      <form class="diagnostic-form" aria-label="Solicitação de diagnóstico" data-diagnostic-form data-turnstile-configured={String(Boolean(turnstileSiteKey))} novalidate>
+        <div class="form-status" data-form-status role="status" aria-live="polite" tabindex="-1" hidden></div>
+
+        <div class="form-row form-row--split">
+          <div class="field"><label for="name">Nome</label><input id="name" name="name" autocomplete="name" minlength="2" maxlength="120" aria-describedby="name-help" required /><p class="field-help" id="name-help">Como podemos chamar você?</p><small data-error-for="name"></small></div>
+          <div class="field"><label for="email">Email</label><input id="email" name="email" type="email" autocomplete="email" maxlength="254" required /><small data-error-for="email"></small></div>
+        </div>
+
+        <div class="form-row form-row--split">
+          <div class="field"><label for="company">Empresa</label><input id="company" name="company" autocomplete="organization" minlength="2" maxlength="160" aria-describedby="company-help" required /><p class="field-help" id="company-help">Qual é a empresa?</p><small data-error-for="company"></small></div>
+          <div class="field"><label for="website">Site ou perfil <span>Opcional</span></label><input id="website" name="website" inputmode="url" maxlength="300" placeholder="https://" aria-describedby="website-help" /><p class="field-help" id="website-help">Onde podemos conhecer melhor o negócio?</p><small data-error-for="website"></small></div>
+        </div>
+
+        <div class="field"><label for="situation">Qual situação motivou este contato?</label><textarea id="situation" name="situation" rows="6" minlength="20" maxlength="4000" aria-describedby="situation-help" required></textarea><p class="field-help" id="situation-help">Conte o que está acontecendo hoje.</p><small data-error-for="situation"></small></div>
+        <div class="field"><label for="desiredChange">O que você gostaria que fosse diferente?</label><textarea id="desiredChange" name="desiredChange" rows="6" minlength="20" maxlength="4000" aria-describedby="desiredChange-help" required></textarea><p class="field-help" id="desiredChange-help">Não precisa descrever uma solução. Explique a mudança que gostaria de perceber.</p><small data-error-for="desiredChange"></small></div>
+        <div class="field"><label for="attempted">O que já foi tentado? <span>Opcional</span></label><textarea id="attempted" name="attempted" rows="4" maxlength="3000" aria-describedby="attempted-help"></textarea><p class="field-help" id="attempted-help">Se alguma iniciativa já foi realizada, conte brevemente.</p><small data-error-for="attempted"></small></div>
+        <div class="field"><label for="deadline">Existe algum prazo relevante? <span>Opcional</span></label><input id="deadline" name="deadline" maxlength="500" /><small data-error-for="deadline"></small></div>
+
+        <fieldset class="preference-field">
+          <legend>Como prefere continuar a conversa?</legend>
+          <label><input type="radio" name="contactPreference" value="email" checked /> Email</label>
+          <label><input type="radio" name="contactPreference" value="whatsapp" /> WhatsApp</label>
+          <small data-error-for="contactPreference"></small>
+        </fieldset>
+
+        <div class="field" data-phone-field hidden>
+          <label for="phone">Seu WhatsApp com DDD</label>
+          <input id="phone" name="phone" type="tel" autocomplete="tel" maxlength="32" />
+          <small data-error-for="phone"></small>
+        </div>
+
+        <div class="trap" aria-hidden="true"><label for="websiteTrap">Não preencha</label><input id="websiteTrap" name="websiteTrap" tabindex="-1" autocomplete="off" /></div>
+        <input type="hidden" name="startedAt" data-started-at />
+        <input type="hidden" name="turnstileToken" data-turnstile-token />
+
+        {turnstileSiteKey ? (
+          <div class="cf-turnstile" data-sitekey={turnstileSiteKey} data-action="diagnostico" data-callback="bescheibenTurnstileSuccess" data-expired-callback="bescheibenTurnstileExpired"></div>
+        ) : (
+          <p class="captcha-note">A proteção antispam será ativada pelas variáveis do ambiente de produção.</p>
+        )}
+
+        <div class="form-submit">
+          <Button type="submit">Enviar contexto</Button>
+          <p>Ao enviar, você solicita que a Bescheiben use esses dados exclusivamente para analisar e responder a este contato. Leia a <a href="/privacidade">Política de Privacidade</a>.</p>
+        </div>
+      </form>
+    </div>
+  </section>
+
+{turnstileSiteKey && <script is:inline src="https://challenges.cloudflare.com/turnstile/v0/api.js" async defer></script>}
+
+<script is:inline>
+  window.bescheibenTurnstileSuccess = (token) => {
+    const input = document.querySelector('[data-turnstile-token]');
+    if (input) input.value = token;
+  };
+  window.bescheibenTurnstileExpired = () => {
+    const input = document.querySelector('[data-turnstile-token]');
+    if (input) input.value = '';
+  };
+
+  const form = document.querySelector('[data-diagnostic-form]');
+  if (form) {
+    const status = form.querySelector('[data-form-status]');
+    const submit = form.querySelector('button[type="submit"]');
+    const startedAt = form.querySelector('[data-started-at]');
+    const phoneField = form.querySelector('[data-phone-field]');
+    const phone = form.querySelector('[name="phone"]');
+    startedAt.value = String(Date.now());
+
+    const showStatus = (message, state = 'error') => {
+      status.textContent = message;
+      status.dataset.state = state;
+      status.hidden = false;
+      status.focus();
+    };
+    const clearErrors = () => {
+      form.querySelectorAll('[aria-invalid="true"]').forEach((field) => field.removeAttribute('aria-invalid'));
+      form.querySelectorAll('[data-error-for]').forEach((message) => { message.textContent = ''; });
+    };
+    const syncPhone = () => {
+      const preference = form.querySelector('[name="contactPreference"]:checked')?.value;
+      const visible = preference === 'whatsapp';
+      phoneField.hidden = !visible;
+      phone.required = visible;
+      if (!visible) phone.value = '';
+    };
+    form.querySelectorAll('[name="contactPreference"]').forEach((control) => control.addEventListener('change', syncPhone));
+    syncPhone();
+
+    form.addEventListener('submit', async (event) => {
+      event.preventDefault();
+      clearErrors();
+      if (!form.reportValidity()) return;
+      if (form.dataset.turnstileConfigured !== 'true' && !form.querySelector('[data-turnstile-token]').value) {
+        showStatus('A proteção do formulário ainda não está configurada neste ambiente.', 'fatal');
+        return;
+      }
+
+      submit.disabled = true;
+      submit.setAttribute('aria-busy', 'true');
+      status.hidden = true;
+      const payload = Object.fromEntries(new FormData(form).entries());
+      // The widget adds its own field; the API accepts our callback token only.
+      delete payload['cf-turnstile-response'];
+      let delivered = false;
+      try {
+        const response = await fetch('/api/diagnostico', {
+          method: 'POST',
+          headers: { 'content-type': 'application/json' },
+          body: JSON.stringify(payload),
+        });
+        const result = await response.json().catch(() => ({}));
+        if (!response.ok) {
+          if (result.errors) Object.entries(result.errors).forEach(([field, message]) => {
+            const control = form.querySelector(`[name="${CSS.escape(field)}"]`);
+            const output = form.querySelector(`[data-error-for="${CSS.escape(field)}"]`);
+            control?.setAttribute('aria-invalid', 'true');
+            if (output) output.textContent = String(message);
+          });
+          showStatus(result.message || 'Não foi possível enviar. Revise os campos e tente novamente.');
+          return;
+        }
+        form.reset();
+        delivered = true;
+        syncPhone();
+        startedAt.value = String(Date.now());
+        showStatus('Contexto recebido. Vamos analisar as informações antes de continuar a conversa. Caso seja necessário compreender algum ponto adicional, entraremos em contato.', 'success');
+        form.querySelectorAll('.field, fieldset, .cf-turnstile, .captcha-note, .form-submit').forEach((element) => { element.hidden = true; });
+      } catch {
+        showStatus('A conexão falhou. Seu texto foi preservado; tente novamente em alguns minutos.');
+      } finally {
+        if (!delivered) {
+          // Verification consumes the token even when delivery subsequently fails.
+          form.querySelector('[data-turnstile-token]').value = '';
+          const widget = form.querySelector('.cf-turnstile');
+          if (widget && window.turnstile) window.turnstile.reset(widget);
+        }
+        submit.disabled = false;
+        submit.removeAttribute('aria-busy');
+      }
+    });
+  }
+</script>
+
+<style>
+  .contact-section { padding-block: var(--section-space); color: var(--text-inverse); background: var(--bg-dark); color-scheme: dark; }
+  .contact-grid { display: grid; grid-template-columns: minmax(0, 4fr) minmax(0, 7fr); gap: clamp(3rem, 7vw, 7rem); align-items: start; }
+  .contact-intro { position: sticky; top: 7rem; }
+  .contact-intro h2 { max-width: 12ch; margin-bottom: 1.5rem; }
+  .contact-intro p { max-width: 43ch; color: var(--ink-on-dark); font-size: 0.94rem; line-height: 1.8; }
+  .contact-intro a { color: var(--text-inverse); text-decoration-color: #ffffff50; }
+  .diagnostic-form { display: grid; gap: 1.2rem; padding-top: 0.25rem; }
+  .form-row--split { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 1.2rem; }
+  .field { display: grid; gap: 0.5rem; }
+  .field-help { margin: 0; color: var(--ink-on-dark); font-size: 0.8rem; line-height: 1.6; }
+  label, legend { font-size: 0.84rem; font-weight: 500; }
+  label span { margin-left: 0.3rem; color: var(--ink-on-dark); font-size: 0.73rem; font-weight: 400; }
+  input, textarea { width: 100%; min-height: 3.1rem; padding: 0.85rem 1rem; border: 1px solid #ffffff30; border-radius: 0.6rem; color: var(--text-inverse); background: var(--surface-dark); font-size: 0.94rem; transition: border-color var(--duration-fast) var(--ease-standard), background-color var(--duration-fast) var(--ease-standard); }
+  input::placeholder, textarea::placeholder { color: #a397b6; }
+  textarea { min-height: 7.5rem; resize: vertical; }
+  input:hover, textarea:hover { border-color: #b79cd280; }
+  input:focus-visible, textarea:focus-visible { border-color: var(--purple-lavender); outline: 2px solid var(--purple-lavender); outline-offset: 3px; background: #1b132a; }
+  input[aria-invalid='true'], textarea[aria-invalid='true'] { border-color: #ffaca8; }
+  small { min-height: 1.2em; color: #ffaca8; font-size: 0.75rem; }
+  .preference-field { display: flex; flex-wrap: wrap; gap: 0.5rem 1.5rem; margin: 0; padding: 0.75rem 0 0; border: 0; border-top: 1px solid #ffffff20; }
+  .preference-field legend { width: 100%; margin-bottom: 0.55rem; }
+  .preference-field label { display: inline-flex; min-height: 2.75rem; align-items: center; gap: 0.6rem; cursor: pointer; }
+  .preference-field input { width: 1.1rem; min-height: auto; margin: 0; accent-color: var(--purple-lavender); }
+  .preference-field small { width: 100%; }
+  .trap { position: absolute; width: 1px; height: 1px; overflow: hidden; clip-path: inset(50%); }
+  .captcha-note { margin: 0; padding: 0.8rem 1rem; border-left: 2px solid var(--purple-lavender); color: var(--ink-on-dark); background: var(--surface-dark); font-size: 0.8rem; }
+  .form-submit { display: flex; align-items: center; gap: 1.5rem; padding-top: 0.5rem; }
+  .form-submit :global(.button) { flex-shrink: 0; }
+  .form-submit p { max-width: 45ch; margin: 0; color: var(--ink-on-dark); font-size: 0.72rem; line-height: 1.75; }
+  .form-submit a { color: var(--text-inverse); text-decoration-color: #ffffff50; }
+  .form-status { padding: 1rem 1.25rem; border: 1px solid #ffaca880; border-radius: 0.6rem; color: #ffd2ce; background: #34191f; }
+  .form-status[data-state='success'] { border-color: #84d6af80; color: #bbf4d7; background: #11291f; }
+  .form-status[data-state='fatal'] { border-color: #ffaca8; }
+  [hidden] { display: none !important; }
+  @media (max-width: 54rem) { .contact-grid { grid-template-columns: 1fr; gap: 2rem; } .contact-intro { position: static; } .contact-intro h2 { max-width: 18ch; } .contact-intro p { max-width: 60ch; } }
+  @media (max-width: 36rem) { .form-row--split { grid-template-columns: 1fr; } .form-submit { align-items: stretch; flex-direction: column; gap: 1rem; } .form-submit :global(.button) { width: 100%; } }
+  @media (prefers-reduced-motion: reduce) { input, textarea { transition: none; } }
+</style>
