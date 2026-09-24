@@ -13,7 +13,10 @@
 | --- | --- |
 | Astro/TypeScript, ESLint, testes unitários e build | Aprovados em 23/09/2026 |
 | Preservação estática da copy e links | Aprovada: 907 trechos da copy, 706 links internos, 41 âncoras e 169 seções no build de 23/09/2026 |
-| Comparação visual em navegador, desktop e mobile | Pendente |
+| Inspeção visual desktop da versão publicada | Hero, método, capacidades, sistema, FAQ e diagnóstico conferidos em 24/09/2026, largura 1292 px |
+| Interação do FAQ | Troca da resposta ativa conferida na versão publicada |
+| Inspeção visual mobile | Pendente: o navegador de inspeção não disponibilizou controle de viewport |
+| Movimento contínuo | Pendente: o navegador de inspeção informou `prefers-reduced-motion: reduce` |
 | Envio real do formulário | Pendente de credenciais Turnstile, Resend e Upstash no ambiente de produção |
 
-As capturas em `qa/responsive/` foram produzidas antes desta revisão visual e não demonstram o estado atual. Elas não devem ser usadas como aprovação da interface nova. A inspeção visual automatizada ficou indisponível nesta sessão por limite de uso da ferramenta de navegador; por isso não há aprovação visual final registrada aqui.
+As capturas em `qa/responsive/` foram produzidas antes desta revisão visual e não demonstram o estado atual. Elas não devem ser usadas como aprovação da interface nova em telas pequenas ou com movimento ativo.
