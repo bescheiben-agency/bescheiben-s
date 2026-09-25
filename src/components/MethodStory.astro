@@ -16,11 +16,11 @@ for (const block of blocks) {
   else step.blocks.push(block);
 }
 ---
-<section id={section.id} class="method-story" data-copy-section={section.id} data-method-story aria-labelledby={section.id + '-heading'}>
+<section id={section.id} class="method-story" data-copy-section={section.id} aria-labelledby={section.id + '-heading'}>
   <div class="container">
     <header class="method-heading"><span class="method-heading__line" aria-hidden="true"></span><h2 id={section.id + '-heading'}>{title}</h2></header>
     <div class="method-layout">
-      <div class="method-scene" data-method-scene>
+      <div class="method-scene">
         <div class="method-scene__top"><span>Nosso método</span><span>{String(steps.length).padStart(2, '0')} etapas</span></div>
         <div class="method-scene__art" aria-hidden="true">
           <svg viewBox="0 0 540 440" fill="none" preserveAspectRatio="xMidYMid meet">
@@ -40,13 +40,9 @@ for (const block of blocks) {
             <path d="M241 230h58m-41-14h40m-58 29h38" stroke="#e0c9ff" stroke-width="6" stroke-linecap="round" class="method-orbit__mark"/>
           </svg>
         </div>
-        <div class="method-scene__current" aria-hidden="true"><span data-method-current-number>01</span><strong data-method-current-name>{steps[0]?.name}</strong></div>
-        <nav class="method-scene__nav" aria-label="Ir para uma etapa do método">
-          {steps.map((step, index) => <a href={'#' + section.id + '-etapa-' + (index + 1)} class:list={['method-scene__link', {'is-active': index === 0}]} data-method-link aria-label={'Ir para a etapa ' + (index + 1) + ': ' + step.name}><span>{String(index + 1).padStart(2, '0')}</span><span>{step.name}</span></a>)}
-        </nav>
       </div>
       <div class="method-narrative">
-        {steps.map((step, index) => <article class:list={['method-step', {'is-active': index === 0}]} id={section.id + '-etapa-' + (index + 1)} data-method-step aria-labelledby={section.id + '-titulo-' + (index + 1)}>
+        {steps.map((step, index) => <article class="method-step" id={section.id + '-etapa-' + (index + 1)} aria-labelledby={section.id + '-titulo-' + (index + 1)}>
           <div class="method-step__heading"><span>{String(index + 1).padStart(2, '0')} / {String(steps.length).padStart(2, '0')}</span><i aria-hidden="true"></i></div>
           <h3 id={section.id + '-titulo-' + (index + 1)}>{step.name}</h3>
           <div class="method-step__lead"><CopyBlocks blocks={step.blocks.slice(0, 1)} ctas={ctas}/></div>
@@ -56,85 +52,31 @@ for (const block of blocks) {
     </div>
   </div>
 </section>
-<script>
-  import { gsap } from 'gsap';
-  import { ScrollTrigger } from 'gsap/ScrollTrigger';
-  gsap.registerPlugin(ScrollTrigger);
-  document.querySelectorAll<HTMLElement>('[data-method-story]').forEach(section => {
-    const steps = Array.from(section.querySelectorAll<HTMLElement>('[data-method-step]'));
-    const links = Array.from(section.querySelectorAll<HTMLAnchorElement>('[data-method-link]'));
-    const number = section.querySelector<HTMLElement>('[data-method-current-number]');
-    const name = section.querySelector<HTMLElement>('[data-method-current-name]');
-    const orbit = section.querySelector<SVGElement>('.method-orbit__core');
-    const reduced = matchMedia('(prefers-reduced-motion: reduce)');
-    if (!steps.length || !number || !name) return;
-    let active = -1;
-    const select = (index: number) => {
-      if (index === active) return;
-      active = index;
-      steps.forEach((step, i) => step.classList.toggle('is-active', i === index));
-      links.forEach((link, i) => {
-        link.classList.toggle('is-active', i === index);
-        if (i === index) link.setAttribute('aria-current', 'step');
-        else link.removeAttribute('aria-current');
-      });
-      number.textContent = String(index + 1).padStart(2, '0');
-      name.textContent = steps[index].querySelector('h3')?.textContent || '';
-      section.style.setProperty('--method-progress', String((index + 1) / steps.length));
-      if (orbit && !reduced.matches) gsap.to(orbit, { rotation: index * 38, transformOrigin: '50% 50%', duration: .95, ease: 'power2.out', overwrite: true });
-    };
-    steps.forEach((step, index) => ScrollTrigger.create({ trigger: step, start: 'top 58%', end: 'bottom 58%', onEnter: () => select(index), onEnterBack: () => select(index) }));
-    const syncCurrent = () => {
-      const line = window.innerHeight * .58;
-      let index = 0;
-      steps.forEach((step, i) => { if (step.getBoundingClientRect().top <= line) index = i; });
-      select(index);
-    };
-    syncCurrent();
-    requestAnimationFrame(syncCurrent);
-    window.addEventListener('pageshow', () => requestAnimationFrame(syncCurrent));
-    links.forEach((link, index) => link.addEventListener('click', event => {
-      event.preventDefault();
-      steps[index].scrollIntoView({ behavior: reduced.matches ? 'auto' : 'smooth', block: 'start' });
-      history.replaceState(null, '', link.hash);
-    }));
-  });
-</script>
 <style>
-.method-story{--method-progress:.2;position:relative;padding:clamp(4rem,7vw,7rem) 0 0;color:#f8f3ff;background:radial-gradient(ellipse at 18% 18%,#51307555,transparent 44%),#0c0818;overflow:clip}
+.method-story{position:relative;padding:clamp(4rem,7vw,7rem) 0;color:#f8f3ff;background:radial-gradient(ellipse at 18% 18%,#51307555,transparent 44%),#0c0818;overflow:clip}
 .method-story:before{content:'';position:absolute;inset:0;pointer-events:none;background:linear-gradient(110deg,transparent 49.9%,#bd91fa0b 50%,transparent 50.1%);background-size:70px 70px;opacity:.65}
 .method-heading{position:relative;display:grid;grid-template-columns:4rem minmax(0,1fr);align-items:start;gap:1.2rem;margin-bottom:clamp(1.6rem,3vw,3rem)}
 .method-heading__line{height:1px;margin-top:1.3rem;background:#b58ce0}
 .method-heading h2{max-width:19ch;margin:0;font-size:clamp(2.6rem,5.2vw,5.4rem);line-height:1.04;letter-spacing:-.055em}
-.method-layout{position:relative;display:grid;grid-template-columns:minmax(0,.95fr) minmax(0,1.05fr);gap:clamp(2rem,5vw,6rem);align-items:start}
-.method-scene{position:sticky;top:5.75rem;display:flex;flex-direction:column;height:calc(100svh - 6.5rem);min-height:0;max-height:900px;padding:1.15rem 1.35rem 1.3rem;border:1px solid #9b6fd83b;background:linear-gradient(135deg,#211232ba,#0f0a1c 70%);box-shadow:inset 0 0 65px #7440a319;overflow:hidden}
+.method-layout{position:relative;display:block}
+.method-scene{position:relative;display:flex;flex-direction:column;height:clamp(15rem,30vw,22rem);padding:1.15rem 1.35rem 1.3rem;border:1px solid #9b6fd83b;background:linear-gradient(135deg,#211232ba,#0f0a1c 70%);box-shadow:inset 0 0 65px #7440a319;overflow:hidden}
 .method-scene__top{display:flex;justify-content:space-between;gap:1rem;color:#c2aedb;font-size:.69rem;font-weight:650;letter-spacing:.19em;text-transform:uppercase}
 .method-scene__art{flex:1;display:grid;place-items:center;min-height:0;filter:drop-shadow(0 0 26px #7940ca48)}
 .method-scene__art svg{width:min(100%,540px);max-height:100%}
 .method-orbit__star{animation:method-pulse 2.2s ease-in-out infinite alternate}
 .method-orbit__mark{filter:drop-shadow(0 0 9px #b980ff)}
-.method-scene__current{display:flex;align-items:baseline;gap:1rem;padding:0 0 1rem;border-bottom:1px solid #c49dff35}
-.method-scene__current span{font-family:var(--font-display);font-size:clamp(3.4rem,6vw,6rem);line-height:.9;color:#bc8dff}
-.method-scene__current strong{font-size:clamp(1rem,1.6vw,1.45rem);font-weight:500;letter-spacing:-.035em}
-.method-scene__nav{position:relative;display:grid;grid-template-columns:repeat(8,minmax(0,1fr));gap:.4rem;margin-top:1rem}
-.method-scene__nav:before{content:'';position:absolute;top:0;left:0;height:2px;width:calc(100% * var(--method-progress));background:#d9afff;box-shadow:0 0 12px #ac65fc;transition:width .55s ease}
-.method-scene__link{min-width:0;padding:.8rem .15rem .2rem;border-top:1px solid #7a5b994a;color:#9c88b3;text-decoration:none;font-size:.68rem;line-height:1.35;transition:color .3s}
-.method-scene__link span{display:block;overflow-wrap:normal}.method-scene__link span:first-child{font-size:.7rem;letter-spacing:.13em}.method-scene__link span:last-child{display:none}
-.method-scene__link.is-active,.method-scene__link:hover{color:#fff}.method-scene__link:focus-visible{outline-color:#cda6ff}
-.method-narrative{padding-bottom:12svh}
-.method-step{position:relative;display:flex;flex-direction:column;justify-content:center;min-height:76svh;padding:5rem clamp(1rem,2.5vw,2.5rem) 5rem 0;border-bottom:1px solid #a27fc33d;scroll-margin-top:7rem;opacity:.74;transition:opacity .55s}
-.method-step:first-child{padding-top:1rem}.method-step:last-child{border-bottom:0}.method-step.is-active{opacity:1}
-.method-step__heading{display:flex;align-items:center;gap:1.3rem;margin-bottom:1.6rem;color:#c194fc;font-size:.72rem;font-weight:650;letter-spacing:.15em}
+.method-narrative{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:.75rem;margin-top:.75rem}
+.method-step{position:relative;min-width:0;padding:clamp(1.25rem,2.4vw,2rem);border:1px solid #a27fc33d;background:#b686ed08}
+.method-step__heading{display:flex;align-items:center;gap:1.3rem;margin-bottom:1rem;color:#c194fc;font-size:.72rem;font-weight:650;letter-spacing:.15em}
 .method-step__heading i{height:1px;flex:1;background:linear-gradient(90deg,#b88bea,#7a609a22)}
-.method-step h3{max-width:12ch;margin:0 0 1.5rem;font-family:var(--font-display);font-size:clamp(3rem,5vw,5.1rem);font-weight:400;line-height:1.02;letter-spacing:-.06em}
-.method-step__lead :global(p){max-width:36ch;margin:0 0 1.6rem;color:#e9def4;font-size:clamp(1.1rem,1.65vw,1.42rem);line-height:1.55}
-.method-step__detail{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:.65rem 1.5rem;max-width:45rem}
+.method-step h3{max-width:18ch;margin:0 0 .8rem;font-family:var(--font-display);font-size:clamp(1.7rem,2.5vw,2.8rem);font-weight:400;line-height:1.1;letter-spacing:-.045em}
+.method-step__lead :global(p){max-width:42ch;margin:0;color:#e9def4;font-size:clamp(1rem,1.3vw,1.18rem);line-height:1.55}
+.method-step__detail{display:grid;gap:.45rem;max-width:45rem}
 .method-step__detail :global(p){position:relative;max-width:32ch;margin:0;padding:.85rem 0 .85rem 1.1rem;border-top:1px solid #a98aca40;color:#bfb2d1;font-size:.9rem;line-height:1.55}
 .method-step__detail :global(p:before){content:'';position:absolute;left:0;top:1.55rem;width:4px;height:4px;border-radius:50%;background:#d2a6ff}
 .method-step__detail :global(ul){grid-column:1/-1;padding-left:1.2rem;color:#bfb2d1}
 @keyframes method-pulse{to{opacity:.5;filter:drop-shadow(0 0 16px #fff)}}
-@media(max-width:70rem){.method-step{min-height:68svh}.method-step__detail{grid-template-columns:1fr}}
-@media(max-width:52rem){.method-story{padding-top:4rem}.method-layout{display:block}.method-heading{grid-template-columns:2rem 1fr}.method-scene{z-index:3;top:4.5rem;height:10.5rem;min-height:0;max-height:none;padding:.85rem 1rem;box-shadow:0 12px 30px #0c0818e0}.method-scene__top{font-size:.6rem}.method-scene__art,.method-scene__nav{display:none}.method-scene__current{flex:1;align-items:center;border:0;padding:0}.method-scene__current span{font-size:3.2rem}.method-scene__current strong{font-size:1.2rem}.method-narrative{padding-bottom:3rem}.method-step{min-height:60svh;padding:3rem .25rem 4rem;scroll-margin-top:16rem;opacity:1}.method-step:first-child{padding-top:3rem}.method-step h3{font-size:clamp(2.7rem,8vw,4.5rem)}.method-step__detail{grid-template-columns:repeat(2,minmax(0,1fr))}}
-@media(max-width:36rem){.method-heading h2{font-size:clamp(2.4rem,10vw,3.5rem)}.method-scene{height:8.4rem}.method-scene__current span{font-size:2.6rem}.method-scene__current strong{font-size:1rem}.method-step{min-height:56svh;scroll-margin-top:13rem}.method-step__detail{grid-template-columns:1fr}.method-step__detail :global(p){padding:.65rem 0 .65rem 1rem}.method-step h3{max-width:14ch}}
-@media(prefers-reduced-motion:reduce){.method-orbit__star{animation:none}.method-step{opacity:1}.method-step,.method-scene__nav:before,.method-scene__link{transition:none}}
+@media(max-width:52rem){.method-story{padding-block:4rem}.method-heading{grid-template-columns:2rem 1fr}.method-scene{height:15rem}.method-step h3{font-size:clamp(1.65rem,3.3vw,2.3rem)}}
+@media(max-width:40rem){.method-heading h2{font-size:clamp(2.4rem,10vw,3.5rem)}.method-scene{height:12rem}.method-narrative{grid-template-columns:1fr}.method-step{padding:1rem}.method-step__heading{margin-bottom:.65rem}.method-step h3{max-width:none;margin-bottom:.5rem;font-size:1.5rem}.method-step__lead :global(p){font-size:.98rem;line-height:1.45}.method-step__detail :global(p){padding:.65rem 0 .65rem 1rem}}
+@media(prefers-reduced-motion:reduce){.method-orbit__star{animation:none}}
 </style>

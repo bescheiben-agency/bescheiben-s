@@ -100,7 +100,7 @@ test('ambient hero motion pauses outside the viewport and resumes on return', as
   const ribbon = visual.locator('.ribbon-one');
   await visual.scrollIntoViewIfNeeded();
   await expect(visual).toHaveAttribute('data-in-view', 'true');
-  await expect(ribbon).toHaveCSS('animation-name', 'orbit-turn');
+  await expect(ribbon).toHaveCSS('animation-name', 'hero-ribbon-a');
   await expect(ribbon).toHaveCSS('animation-play-state', 'running');
 
   await page.locator('#faq').scrollIntoViewIfNeeded();
@@ -117,8 +117,9 @@ test('reduced motion leaves the hero static and FAQ selection functional', async
   await page.goto('/');
   const visual = page.locator('#promessa [data-hero-visual]');
   await visual.scrollIntoViewIfNeeded();
-  await expect(visual).toHaveAttribute('data-in-view', 'false');
-  await expect(visual.locator('.ribbon-one')).toHaveCSS('animation-play-state', 'paused');
+  await expect(visual).toHaveAttribute('data-in-view', 'true');
+  await expect(visual.locator('.ribbon-one')).toHaveCSS('animation-name', 'none');
+  await expect(visual.locator('svg')).toBeVisible();
 
   const faq = page.locator('#faq');
   await faq.scrollIntoViewIfNeeded();

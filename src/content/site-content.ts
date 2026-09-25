@@ -258,7 +258,7 @@ const home = makePage({
     heading: ['Mais que marketing, um sistema.'],
     supportingCopy: [
       'A Bescheiben é uma empresa brasileira de estratégia, branding, marketing e tecnologia.',
-      'Investigamos negócio, mercado, cliente, concorrência, comunicação e dados para compreender o que realmente precisa mudar antes de definir posicionamento, marca, conteúdo, experiência digital, performance ou tecnologia.',
+      'Investigamos o problema antes de decidir como atuar.',
     ],
     microcopy: 'Entender. Decidir. Construir.',
   },
@@ -296,15 +296,7 @@ const estrategia = makePage({
     eyebrow: 'ESTRATÉGIA E DIAGNÓSTICO',
     heading: ['Antes de decidir o que fazer, descubra o que realmente precisa mudar.'],
     supportingCopy: [
-      'Empresas frequentemente chegam com uma solução na cabeça.',
-      '“Precisamos de um novo site.”',
-      '“Precisamos reposicionar.”',
-      '“Precisamos investir em marketing.”',
-      '“Precisamos de mais conteúdo.”',
-      '“Precisamos automatizar.”',
-      'Começamos uma pergunta antes.',
-      'Por quê?',
-      'Investigamos o contexto para transformar sintomas em um problema estratégico claro.',
+      'Investigamos negócio, mercado, cliente e comunicação para separar sintomas de causas e definir prioridades.',
     ],
   },
   sectionSpecs: [
@@ -334,8 +326,7 @@ const branding = makePage({
     eyebrow: 'BRANDING E POSICIONAMENTO',
     heading: ['Antes de mudar a aparência da marca, decida o que ela precisa significar.'],
     supportingCopy: [
-      'Branding não começa pela escolha de uma estética.',
-      'Começa pela definição da posição que a empresa pretende ocupar e da percepção que deseja construir.',
+      'Branding começa pela posição que a empresa quer ocupar e pela percepção que precisa construir.',
     ],
   },
   sectionSpecs: [
@@ -367,8 +358,7 @@ const marketing = makePage({
     eyebrow: 'MARKETING E CONTEÚDO',
     heading: ['Pare de produzir para preencher espaços.', 'Comece a comunicar com uma função.'],
     supportingCopy: [
-      'Frequência não substitui direção.',
-      'Antes do calendário existem decisões sobre posicionamento, tese, argumentos, mensagens, jornada e prioridades.',
+      'Frequência não substitui direção. Mensagens e canais precisam servir à estratégia.',
     ],
   },
   sectionSpecs: [
@@ -399,9 +389,9 @@ const digital = makePage({
   },
   hero: {
     eyebrow: 'SITES E EXPERIÊNCIAS DIGITAIS',
-    heading: ['Seu site deveria ajudar alguém a entender por que escolher sua empresa.'],
+    heading: ['Seu site precisa ajudar alguém a escolher sua empresa.'],
     supportingCopy: [
-      'Construímos experiências digitais a partir da estratégia, não de uma coleção de referências visuais.',
+      'Estratégia, copy, UX, interface e tecnologia devem responder às dúvidas de quem chega.',
     ],
   },
   sectionSpecs: [
@@ -436,13 +426,7 @@ const tecnologia = makePage({
     eyebrow: 'TECNOLOGIA',
     heading: ['Automatizar um processo ruim apenas acelera o problema.'],
     supportingCopy: [
-      'Antes da ferramenta, entendemos o fluxo.',
-      'Informação.',
-      'Responsabilidades.',
-      'Decisões.',
-      'Atritos.',
-      'Dependências.',
-      'Só depois definimos qual tecnologia faz sentido.',
+      'Primeiro entendemos o fluxo e seus atritos. Depois escolhemos a tecnologia.',
     ],
   },
   sectionSpecs: [
@@ -504,17 +488,7 @@ const sobre = makePage({
     eyebrow: 'BESCHEIBEN',
     heading: ['Não queríamos construir apenas mais uma agência.'],
     supportingCopy: [
-      'Queríamos construir uma empresa capaz de conectar o que normalmente é tratado separadamente.',
-      'Negócio.',
-      'Estratégia.',
-      'Marca.',
-      'Marketing.',
-      'Design.',
-      'Experiência.',
-      'Tecnologia.',
-      'Execução.',
-      'Porque o público não experimenta departamentos.',
-      'Experimenta uma única empresa.',
+      'Conectamos estratégia, marca, marketing, digital e tecnologia porque o público experimenta uma única empresa.',
     ],
   },
   sectionSpecs: [
@@ -544,9 +518,7 @@ const diagnostico = makePage({
     eyebrow: 'DIAGNÓSTICO',
     heading: ['Conte o que está acontecendo.', 'Você não precisa chegar com a solução pronta.'],
     supportingCopy: [
-      'Talvez já exista uma necessidade clara.',
-      'Talvez exista apenas a percepção de que alguma coisa precisa mudar.',
-      'Nos dois casos, começamos entendendo o contexto.',
+      'Conte brevemente o cenário. Começamos entendendo o contexto antes de propor uma solução.',
     ],
   },
   sectionSpecs: [

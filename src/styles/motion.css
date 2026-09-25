@@ -2,5 +2,5 @@
 @keyframes soft-arrival{from{opacity:.4;transform:translateY(14px)}to{opacity:1;transform:none}}
 [data-ambient] .ambient{animation-play-state:paused!important}
 [data-ambient][data-in-view='true'] .ambient{animation-play-state:running!important}
-@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}*,*::before,*::after{scroll-behavior:auto!important;animation-duration:.01ms!important;animation-delay:0ms!important;animation-iteration-count:1!important;transition-duration:.01ms!important}[data-ambient] .ambient{animation-play-state:paused!important}}
+@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}*,*::before,*::after{scroll-behavior:auto!important;animation-duration:.01ms!important;animation-delay:0ms!important;animation-iteration-count:1!important;transition-duration:.01ms!important}[data-ambient] .ambient{animation:none!important}}
 [data-ambient]:not([data-in-view='true']) .cap-visual *{animation-play-state:paused!important}

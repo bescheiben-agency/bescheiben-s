@@ -1,13 +1,16 @@
 <script>
   const elements = document.querySelectorAll<HTMLElement>('[data-ambient]');
   const visible = new Set<HTMLElement>();
-  const reduced = matchMedia('(prefers-reduced-motion: reduce)');
-  const update = () => elements.forEach(el => { el.dataset.inView = String(visible.has(el) && !document.hidden && !reduced.matches); });
-  const observer = new IntersectionObserver(entries => {
-    entries.forEach(entry => entry.isIntersecting ? visible.add(entry.target as HTMLElement) : visible.delete(entry.target as HTMLElement));
+  const update = () => elements.forEach(el => { el.dataset.inView = String(visible.has(el) && !document.hidden); });
+  if ('IntersectionObserver' in window) {
+    const observer = new IntersectionObserver(entries => {
+      entries.forEach(entry => entry.isIntersecting ? visible.add(entry.target as HTMLElement) : visible.delete(entry.target as HTMLElement));
+      update();
+    }, { rootMargin: '40px' });
+    elements.forEach(el => observer.observe(el));
+  } else {
+    elements.forEach(el => visible.add(el));
     update();
-  }, { rootMargin: '40px' });
-  elements.forEach(el => observer.observe(el));
+  }
   document.addEventListener('visibilitychange', update);
-  reduced.addEventListener('change', update);
 </script>

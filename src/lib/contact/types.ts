@@ -1,16 +1,8 @@
-export type ContactPreference = 'email' | 'whatsapp';
-
 export interface DiagnosticSubmission {
   name: string;
   email: string;
   company: string;
-  website: string;
   situation: string;
-  desiredChange: string;
-  attempted: string;
-  deadline: string;
-  contactPreference: ContactPreference;
-  phone: string;
   turnstileToken: string;
   startedAt: number;
 }

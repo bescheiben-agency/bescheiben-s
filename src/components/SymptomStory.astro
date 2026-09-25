@@ -32,15 +32,13 @@ const conclusion = conclusionIndex >= 0 ? explanation.slice(conclusionIndex) : [
             <path d="M190 132h30m-22-12h22m-31 24h18" stroke="#7440b6" stroke-width="3" stroke-linecap="round"/>
             <circle cx="45" cy="164" r="5" fill="#8d53cd"/><circle cx="365" cy="94" r="3" fill="#8d53cd"/>
           </svg>
-          <div class="symptom-anchor__counter"><strong data-symptom-number>01</strong><span> / {String(symptoms.length).padStart(2, '0')}</span></div>
         </div>
-        <div class="symptom-anchor__progress" aria-hidden="true"><span data-symptom-progress></span></div>
       </div>
       <div class="symptom-flow">
         <div class="symptom-layers">
           <svg class="symptom-thread" viewBox="0 0 500 540" preserveAspectRatio="none" fill="none" aria-hidden="true"><path d="M458 0c0 70-412 80-412 160s412 70 412 150S46 405 46 470s212 50 212 70" stroke="currentColor"/><circle cx="458" cy="0" r="5" fill="currentColor"/><circle cx="46" cy="470" r="5" fill="currentColor"/></svg>
-          {symptoms.map((block, index) => (
-            <div class:list={['symptom-layer', { 'is-active': index === 0 }]} data-symptom-layer>
+          {symptoms.map(block => (
+            <div class="symptom-layer">
               <p>{'text' in block ? block.text : ''}</p>
               <span class="symptom-dot" aria-hidden="true"></span>
             </div>
@@ -58,76 +56,32 @@ const conclusion = conclusionIndex >= 0 ? explanation.slice(conclusionIndex) : [
     </div>
   </div>
 </section>
-<script>
-  import { gsap } from 'gsap';
-  import { ScrollTrigger } from 'gsap/ScrollTrigger';
-  gsap.registerPlugin(ScrollTrigger);
-  document.querySelectorAll<HTMLElement>('.symptom-story').forEach(section => {
-    const layers = Array.from(section.querySelectorAll<HTMLElement>('[data-symptom-layer]'));
-    const number = section.querySelector<HTMLElement>('[data-symptom-number]');
-    const progress = section.querySelector<HTMLElement>('[data-symptom-progress]');
-    if (!layers.length || !number || !progress) return;
-    const select = (index: number) => {
-      layers.forEach((layer, i) => layer.classList.toggle('is-active', i === index));
-      number.textContent = String(index + 1).padStart(2, '0');
-    };
-    layers.forEach((layer, index) => ScrollTrigger.create({
-      trigger: layer,
-      start: 'top 60%',
-      end: 'bottom 60%',
-      onEnter: () => select(index),
-      onEnterBack: () => select(index),
-    }));
-    const flow = section.querySelector<HTMLElement>('.symptom-layers');
-    const flowTrigger = flow && ScrollTrigger.create({
-      trigger: flow,
-      start: 'top 60%',
-      end: 'bottom 60%',
-      onUpdate: self => { progress.style.transform = 'scaleX(' + self.progress + ')'; },
-    });
-    const syncCurrent = () => {
-      const line = window.innerHeight * .6;
-      let index = 0;
-      layers.forEach((layer, i) => { if (layer.getBoundingClientRect().top <= line) index = i; });
-      select(index);
-      if (flowTrigger) progress.style.transform = 'scaleX(' + flowTrigger.progress + ')';
-    };
-    syncCurrent();
-    requestAnimationFrame(syncCurrent);
-    window.addEventListener('pageshow', () => requestAnimationFrame(syncCurrent));
-  });
-</script>
 <style>
-.symptom-story{padding-block:var(--section-space);background:radial-gradient(ellipse at 95% 12%,#e9defa70,transparent 45%),var(--bg-paper);overflow:clip}.symptom-layout{display:grid;grid-template-columns:1fr 1.1fr;gap:clamp(2rem,5vw,5rem);align-items:start}.symptom-layout>h2{max-width:18ch;position:sticky;top:7rem;margin:0}.symptom-flow{min-width:0;padding-top:1rem}.symptom-layers{position:relative;padding:0 9% 0 0;display:grid;gap:1rem}.symptom-thread{position:absolute;inset:0;width:100%;height:100%;color:#c8afe2;opacity:.7;pointer-events:none}.symptom-layer{position:relative;display:flex;align-items:center;justify-content:space-between;gap:1rem;min-height:76px;margin-left:var(--shift);padding:1.1rem 1.35rem;border:1px solid #c7b1e177;border-left-color:#b397d9;border-radius:.3rem;rotate:var(--tilt);color:#352148;background:linear-gradient(112deg,#fff,#faf7ff);box-shadow:0 8px 22px #59397b09;transform-origin:50% 50%}.symptom-layer p{font-size:clamp(.92rem,1.2vw,1.12rem);line-height:1.55;margin:0}.symptom-dot{width:6px;height:6px;border-radius:50%;background:#ae8bd6;box-shadow:0 0 0 4px #a97adc13;flex:none}.symptom-bridge{padding:1.7rem 0 0;max-width:49ch}.symptom-bridge :global(p){font-size:.9rem;line-height:1.7;color:#726180;margin:0 0 .5rem}.symptom-resolution{display:grid;grid-template-columns:1fr 1.1fr;gap:2rem clamp(2rem,5vw,5rem);margin-top:3rem;padding-top:3rem;border-top:1px solid #c4afd642}.symptom-resolution>h3{font-family:var(--font-display);font-size:clamp(2rem,3.2vw,3.6rem);font-weight:400;letter-spacing:-.05em;line-height:1.12;color:#482768;max-width:15ch;margin:0}.symptom-evidence{display:grid;gap:0}.symptom-proof{position:relative;display:flex;align-items:baseline;gap:1rem;padding:.85rem 0;border-bottom:1px solid #c9b7da42}.symptom-proof:first-child{padding-top:0}.symptom-proof:last-child{border-bottom:0}.symptom-proof>span{position:relative;width:5px;height:5px;rotate:45deg;flex:none;background:#a68abe}.symptom-proof :global(p){color:#685574;font-size:.93rem;line-height:1.7;margin:0}.symptom-conclusion{grid-column:1/-1;display:flex;align-items:center;justify-content:space-between;gap:3rem;margin-top:1rem;padding-top:2rem;border-top:1px solid #c4afd642}.symptom-conclusion :global(.copy-statement){font-family:var(--font-display);font-size:clamp(1.6rem,2.7vw,2.7rem);font-weight:400;letter-spacing:-.045em;line-height:1.2;color:#4b2774;max-width:33ch;margin:0}.symptom-conclusion :global(.copy-action){flex:none}
-@media(max-width:64rem){.symptom-layout{grid-template-columns:1fr 1fr;gap:2rem}.symptom-layer{padding:1rem;min-height:70px}.symptom-resolution{grid-template-columns:.8fr 1.2fr;gap:2rem}.symptom-conclusion{gap:2rem}.symptom-conclusion :global(.copy-statement){max-width:25ch}}
-@media(max-width:48rem){.symptom-layout{grid-template-columns:1fr;gap:1.8rem}.symptom-layout>h2{position:static;max-width:23ch}.symptom-flow{padding-top:0}.symptom-layers{padding-right:6%;gap:.8rem}.symptom-layer{min-height:65px}.symptom-bridge{padding-top:1.5rem}.symptom-resolution{grid-template-columns:1fr;margin-top:2rem;padding-top:2rem;gap:1.5rem}.symptom-resolution>h3{max-width:20ch}.symptom-conclusion{display:block;margin-top:0;padding-top:1.5rem}.symptom-conclusion :global(.copy-statement){max-width:30ch}.symptom-conclusion :global(.copy-action){margin-top:1.25rem}}
-@media(prefers-reduced-motion:reduce){.symptom-layer{rotate:none}}
-</style>
-<style>
-  .symptom-story{padding-block:clamp(5rem,8vw,8rem);background:radial-gradient(ellipse at 8% 10%,#eee5fc,transparent 38%),#fcfbfe}
-  .symptom-layout{grid-template-columns:minmax(0,.9fr) minmax(0,1.1fr);gap:clamp(2rem,7vw,7rem)}
-  .symptom-anchor{position:sticky;top:6.5rem;align-self:start;max-height:calc(100svh - 7rem);display:flex;flex-direction:column}
-  .symptom-anchor__eyebrow{color:#7243a9;font-size:.7rem;font-weight:700;letter-spacing:.18em;text-transform:uppercase}
-  .symptom-anchor h2{max-width:15ch;margin:1.5rem 0 0;font-size:clamp(2.8rem,5vw,5.3rem);line-height:1.03;letter-spacing:-.055em;color:#21103d}
-  .symptom-anchor__visual{position:relative;min-height:0;max-width:32rem;width:100%;margin:auto 0;align-self:center;color:#8b55c4}
-  .symptom-anchor__visual svg{width:100%;max-height:min(32vh,250px);filter:drop-shadow(0 0 22px #a96beb28)}
-  .symptom-anchor__counter{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;gap:.1rem;color:#552b83;transform:translateY(1.5rem)}
-  .symptom-anchor__counter strong{font-family:var(--font-display);font-size:clamp(2rem,3vw,3rem);font-weight:400}
-  .symptom-anchor__counter span{font-size:.68rem;letter-spacing:.12em}
-  .symptom-anchor__progress{height:2px;width:100%;background:#d8c9ec}
-  .symptom-anchor__progress span{display:block;width:100%;height:100%;background:#8d4bcf;box-shadow:0 0 12px #b47cf1;transform:scaleX(0);transform-origin:left center}
-  .symptom-flow{padding-top:0}
-  .symptom-layers{gap:0;padding:0}
-  .symptom-thread{display:none}
-  .symptom-layer{min-height:clamp(13rem,31svh,22rem);margin:0;padding:2rem 0;border:0;border-top:1px solid #cdb7df;border-radius:0;background:none;box-shadow:none;rotate:0;opacity:.52;transition:opacity .55s ease,transform .55s ease}
-  .symptom-layer:last-child{border-bottom:1px solid #cdb7df}
-  .symptom-layer.is-active{opacity:1;transform:translateX(.65rem)}
-  .symptom-layer p{max-width:30ch;font-family:var(--font-display);font-size:clamp(1.55rem,2.35vw,2.6rem);line-height:1.23;letter-spacing:-.04em;color:#3c205d}
-  .symptom-dot{width:9px;height:9px;box-shadow:0 0 0 7px #a97adc15}
-  .symptom-layer.is-active .symptom-dot{background:#8243c4;box-shadow:0 0 0 8px #a97adc22,0 0 20px #8243c455}
-  .symptom-bridge{max-width:42ch;padding-top:2rem}
-  .symptom-resolution{margin-top:clamp(4rem,7vw,7rem)}
-  @media(max-width:64rem){.symptom-layout{grid-template-columns:minmax(0,.9fr) minmax(0,1.1fr);gap:2rem}.symptom-anchor h2{font-size:clamp(2.6rem,5vw,4rem)}}
-  @media(max-width:48rem){.symptom-layout{grid-template-columns:1fr;gap:2.5rem}.symptom-anchor{position:relative;top:auto;max-height:none}.symptom-anchor h2{max-width:22ch}.symptom-anchor__visual{max-width:25rem;margin:0 auto}.symptom-anchor__visual svg{max-height:160px}.symptom-anchor__progress{margin-top:1rem}.symptom-layer{min-height:0;padding:2rem 0;opacity:1}.symptom-layer.is-active{transform:none}.symptom-layer p{font-size:clamp(1.6rem,5vw,2.3rem)}}
-  @media(prefers-reduced-motion:reduce){.symptom-layer{transition:none;opacity:1}.symptom-layer.is-active{transform:none}}
+.symptom-story{padding-block:clamp(4rem,7vw,7rem);background:radial-gradient(ellipse at 8% 10%,#eee5fc,transparent 38%),#fcfbfe;overflow:clip}
+.symptom-layout{display:block}
+.symptom-anchor{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,.8fr);align-items:center;gap:clamp(1.5rem,5vw,5rem)}
+.symptom-anchor__eyebrow{grid-column:1/-1;color:#7243a9;font-size:.7rem;font-weight:700;letter-spacing:.18em;text-transform:uppercase}
+.symptom-anchor h2{max-width:15ch;margin:0;font-size:clamp(2.8rem,5vw,5.3rem);line-height:1.03;letter-spacing:-.055em;color:#21103d}
+.symptom-anchor__visual{width:100%;max-width:31rem;margin-inline:auto;color:#8b55c4}
+.symptom-anchor__visual svg{display:block;width:100%;filter:drop-shadow(0 0 22px #a96beb28)}
+.symptom-flow{margin-top:clamp(2rem,4vw,4rem)}
+.symptom-layers{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:.75rem}
+.symptom-thread{display:none}
+.symptom-layer{display:flex;align-items:center;justify-content:space-between;gap:1rem;min-height:7rem;padding:1.3rem 1.5rem;border:1px solid #c7b1e177;border-radius:.3rem;background:linear-gradient(112deg,#fff,#faf7ff);box-shadow:0 8px 22px #59397b09}
+.symptom-layer p{max-width:31ch;margin:0;font-family:var(--font-display);font-size:clamp(1.2rem,1.85vw,1.8rem);line-height:1.25;letter-spacing:-.035em;color:#3c205d}
+.symptom-dot{width:8px;height:8px;border-radius:50%;flex:none;background:#8d53cd;box-shadow:0 0 0 6px #a97adc20}
+.symptom-bridge{max-width:62ch;padding-top:1.5rem}
+.symptom-bridge :global(p){font-size:1rem;line-height:1.65;color:#726180;margin:0 0 .5rem}
+.symptom-resolution{display:grid;grid-template-columns:minmax(0,.85fr) minmax(0,1.15fr);gap:2rem clamp(2rem,5vw,5rem);margin-top:clamp(2.5rem,5vw,5rem);padding-top:clamp(2.5rem,5vw,5rem);border-top:1px solid #c4afd642}
+.symptom-resolution>h3{font-family:var(--font-display);font-size:clamp(2rem,3.2vw,3.6rem);font-weight:400;letter-spacing:-.05em;line-height:1.12;color:#482768;max-width:15ch;margin:0}
+.symptom-evidence{display:grid;gap:0}
+.symptom-proof{display:flex;align-items:baseline;gap:1rem;padding:.85rem 0;border-bottom:1px solid #c9b7da42}
+.symptom-proof:first-child{padding-top:0}.symptom-proof:last-child{border-bottom:0}
+.symptom-proof>span{width:5px;height:5px;rotate:45deg;flex:none;background:#a68abe}
+.symptom-proof :global(p){color:#685574;font-size:.93rem;line-height:1.6;margin:0}
+.symptom-conclusion{grid-column:1/-1;display:flex;align-items:center;justify-content:space-between;gap:2rem;margin-top:.5rem;padding-top:1.5rem;border-top:1px solid #c4afd642}
+.symptom-conclusion :global(.copy-statement){font-family:var(--font-display);font-size:clamp(1.6rem,2.7vw,2.7rem);font-weight:400;letter-spacing:-.045em;line-height:1.2;color:#4b2774;max-width:33ch;margin:0}
+.symptom-conclusion :global(.copy-action){flex:none}
+@media(max-width:48rem){.symptom-anchor{grid-template-columns:1fr;gap:1rem}.symptom-anchor__eyebrow{grid-column:1}.symptom-anchor h2{max-width:22ch}.symptom-anchor__visual{max-width:19rem}.symptom-layers{grid-template-columns:1fr}.symptom-layer{min-height:5rem}.symptom-resolution{grid-template-columns:1fr;gap:1.5rem}.symptom-resolution>h3{max-width:20ch}.symptom-conclusion{display:block}.symptom-conclusion :global(.copy-action){margin-top:1.25rem}}
+@media(max-width:40rem){.symptom-story{padding-block:3.5rem}.symptom-layer{padding:1rem 1.15rem}.symptom-layer p{font-size:clamp(1.3rem,5vw,1.75rem)}}
 </style>

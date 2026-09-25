@@ -13,20 +13,21 @@
     let resizeObserver: ResizeObserver | undefined;
     const disposables: Array<{ dispose: () => void }> = [];
     let render: ((time: number) => void) | undefined;
-    const allowed = () => visible && !document.hidden && !reduced.matches && !compact.matches;
+    const supported = () => visible && !document.hidden && !compact.matches;
     const sync = () => {
-      container.dataset.enabled = String(Boolean(renderer && allowed()));
-      renderer?.setAnimationLoop(allowed() && render ? render : null);
-      if (allowed() && !renderer) void initialize();
+      container.dataset.enabled = String(Boolean(renderer && supported()));
+      renderer?.setAnimationLoop(supported() && !reduced.matches && render ? render : null);
+      if (renderer && supported() && reduced.matches) render?.(0);
+      if (supported() && !renderer) void initialize();
     };
     const initialize = async () => {
-      if (!canvas || loading || renderer || !allowed()) return;
+      if (!canvas || loading || renderer || !supported()) return;
       loading = true;
       try {
         const gl = canvas.getContext('webgl2', { alpha: true, antialias: true, powerPreference: 'low-power' });
         if (!gl) return;
         const THREE = await import('three');
-        if (!allowed()) return;
+        if (!supported()) return;
         renderer = new THREE.WebGLRenderer({ canvas, context: gl, alpha: true, antialias: true, powerPreference: 'low-power' });
         renderer.setClearColor(0x000000, 0);
         renderer.setPixelRatio(Math.min(window.devicePixelRatio || 1, 1.5));
@@ -88,6 +89,7 @@
           renderer.setSize(width, height, false);
           camera.aspect = width / height;
           camera.updateProjectionMatrix();
+          if (reduced.matches) render?.(0);
         };
         resizeObserver = new ResizeObserver(resize);
         resizeObserver.observe(container);
@@ -127,5 +129,5 @@
   .three-orbit-field{position:absolute;z-index:0;inset:-8%;pointer-events:none;opacity:0;transition:opacity 900ms ease}
   .three-orbit-field[data-enabled='true']{opacity:.85}
   .three-orbit-field canvas{width:100%;height:100%;display:block}
-  @media(max-width:40rem),(prefers-reduced-motion:reduce){.three-orbit-field{display:none}}
+  @media(max-width:40rem){.three-orbit-field{display:none}}
 </style>

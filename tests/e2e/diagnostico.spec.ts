@@ -3,39 +3,24 @@ import type { Locator } from '@playwright/test';
 
 const fillRequired = async (form: Locator) => {
   await form.getByLabel('Nome').fill('Pessoa Teste');
-  await form.getByRole('textbox', { name: 'Email', exact: true }).fill('pessoa@example.com');
-  await form.getByLabel('Empresa').fill('Empresa Teste');
-  await form.getByLabel('Qual situação motivou este contato?').fill('A comunicação deixou de representar o momento atual da empresa.');
-  await form.getByLabel('O que você gostaria que fosse diferente?').fill('Queremos uma direção clara para a marca, o site e o marketing.');
+  await form.getByRole('textbox', { name: 'E-mail', exact: true }).fill('pessoa@example.com');
+  await form.getByLabel('O que está acontecendo?').fill('A comunicação deixou de representar o momento atual da empresa.');
 };
 
 for (const route of ['/', '/diagnostico/']) {
 test.describe(`diagnostic form at ${route}`, () => {
-test('exposes every approved field and fails closed without production captcha config', async ({ page }) => {
+test('exposes four compact fields and fails closed without production captcha config', async ({ page }) => {
   await page.goto(route);
   const form = page.getByRole('form', { name: 'Solicitação de diagnóstico' });
-  for (const label of [
-    'Nome', 'Empresa', 'Site ou perfil Opcional', 'Qual situação motivou este contato?',
-    'O que você gostaria que fosse diferente?', 'O que já foi tentado? Opcional',
-    'Existe algum prazo relevante? Opcional',
-  ]) await expect(form.getByLabel(label, { exact: true })).toBeVisible();
-  await expect(form.getByRole('textbox', { name: 'Email', exact: true })).toBeVisible();
-  await expect(form.getByText('Como prefere continuar a conversa?', { exact: true })).toBeVisible();
+  for (const label of ['Nome', 'Empresa Opcional', 'O que está acontecendo?']) {
+    await expect(form.getByLabel(label, { exact: true })).toBeVisible();
+  }
+  await expect(form.getByRole('textbox', { name: 'E-mail', exact: true })).toBeVisible();
+  await expect(form.getByRole('textbox')).toHaveCount(4);
 
   await fillRequired(form);
   await form.getByRole('button', { name: 'Enviar contexto' }).click();
-  await expect(form.getByRole('status')).toContainText('proteção do formulário ainda não está configurada');
-});
-
-test('WhatsApp preference reveals and requires the visitor phone without publishing a company number', async ({ page }) => {
-  await page.goto(route);
-  const form = page.getByRole('form', { name: 'Solicitação de diagnóstico' });
-  const phone = form.getByLabel('Seu WhatsApp com DDD');
-  await expect(phone).toBeHidden();
-  await form.getByLabel('WhatsApp', { exact: true }).check();
-  await expect(phone).toBeVisible();
-  await expect(phone).toHaveAttribute('required', '');
-  await expect(page.locator('footer')).not.toContainText(/WhatsApp/i);
+  await expect(form.getByRole('status')).toContainText('O envio está temporariamente indisponível');
 });
 
 test('successful delivery shows confirmation and prevents a duplicate draft submission', async ({ page }) => {
@@ -65,6 +50,8 @@ test('successful delivery shows confirmation and prevents a duplicate draft subm
   await expect(form.getByRole('status')).toContainText('Contexto recebido');
   await expect(form.getByLabel('Nome')).toBeHidden();
   expect(payloads).toHaveLength(1);
+  expect(payloads[0]).toMatchObject({ name: 'Pessoa Teste', email: 'pessoa@example.com', company: '' });
+  expect(payloads[0]).not.toHaveProperty('desiredChange');
   expect(payloads[0]).not.toHaveProperty('cf-turnstile-response');
 });
 

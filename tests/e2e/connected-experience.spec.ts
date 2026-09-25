@@ -3,8 +3,8 @@ import { expect, test } from '@playwright/test';
 const capabilities = [
   ['Estratégia e Diagnóstico', 'Pesquisa.', 'Explorar Estratégia', '/estrategia'],
   ['Branding e Posicionamento', 'Estratégia de marca.', 'Explorar Branding', '/branding'],
-  ['Marketing e Conteúdo', 'Estratégia de marketing.', 'Explorar Marketing', '/marketing'],
-  ['Sites e Experiências Digitais', 'Estratégia digital.', 'Explorar Digital', '/digital'],
+  ['Marketing e Conteúdo', 'Arquitetura de mensagens.', 'Explorar Marketing', '/marketing'],
+  ['Sites e Experiências Digitais', 'Copy e UX.', 'Explorar Digital', '/digital'],
   ['Performance', 'Planejamento.', null, null],
   ['CRM, Automação e Inteligência Artificial', 'CRM.', 'Explorar Tecnologia', '/tecnologia'],
 ] as const;
@@ -75,6 +75,6 @@ test('marquee keeps every discipline readable and remains static under reduced m
   for (const word of ['Estratégia', 'Posicionamento', 'Branding', 'Aquisição', 'Digital', 'Conversão', 'Tecnologia']) {
     await expect(marquee.locator('.marquee-set:visible span').filter({ hasText: word })).toBeVisible();
   }
-  await expect(marquee.locator('.marquee-track')).toHaveCSS('animation-play-state', 'paused');
+  await expect(marquee.locator('.marquee-track')).toHaveCSS('animation-name', 'none');
   expect(await page.evaluate(() => document.documentElement.scrollWidth - innerWidth)).toBeLessThanOrEqual(1);
 });

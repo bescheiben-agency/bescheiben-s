@@ -5,7 +5,7 @@ const routes = [
   ['/estrategia/', 'Antes de decidir o que fazer, descubra o que realmente precisa mudar.'],
   ['/branding/', 'Antes de mudar a aparência da marca, decida o que ela precisa significar.'],
   ['/marketing/', 'Pare de produzir para preencher espaços. Comece a comunicar com uma função.'],
-  ['/digital/', 'Seu site deveria ajudar alguém a entender por que escolher sua empresa.'],
+  ['/digital/', 'Seu site precisa ajudar alguém a escolher sua empresa.'],
   ['/tecnologia/', 'Automatizar um processo ruim apenas acelera o problema.'],
   ['/insights/', 'Ideias para quem precisa tomar decisões melhores.'],
   ['/sobre/', 'Não queríamos construir apenas mais uma agência.'],

@@ -30,7 +30,7 @@ const continuation=home||supportingCopy.length<=3?[]:supportingCopy.slice(1);
   <div class="container hero-composition">
     <div class="page-hero__content">
       {eyebrow&&<p class="hero-eyebrow"><span aria-hidden="true"></span>{eyebrow}</p>}
-      <h1>{home?homeTitleParts.map((part,index)=>index===homeTitleParts.length-1?<em>{part}</em>:<span>{part}</span>):lines.map((line,index)=><>{index>0&&' '}<span>{line}</span></>)}</h1>
+      <h1>{home?homeTitleParts.map((part,index)=><>{index>0&&' '}{index===homeTitleParts.length-1?<em>{part}</em>:<span>{part}</span>}</>):lines.map((line,index)=><>{index>0&&' '}<span>{line}</span></>)}</h1>
       <div class="hero-support">{lead.map(paragraph=><p>{paragraph}</p>)}</div>
       {actions.length>0&&<div class="hero-actions">{actions.map((action,i)=><Button href={action.href} variant={i===0?'inverse':'text'}>{action.label}</Button>)}</div>}
       {home&&<a class="hero-scroll" href="#antes-da-solucao"><span aria-hidden="true">↓</span>Entender. Decidir. Construir.</a>}

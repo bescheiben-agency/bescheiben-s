@@ -50,13 +50,11 @@ Estratégia, branding, marketing, sites, performance, CRM, automação e intelig
 
 ESTRATÉGIA · MARCA · CRESCIMENTO
 
-# Marcas não precisam de mais ruído.
-
-# Precisam de direção.
+# Mais que marketing, um sistema.
 
 A Bescheiben é uma empresa brasileira de estratégia, branding, marketing e tecnologia.
 
-Investigamos negócio, mercado, cliente, concorrência, comunicação e dados para compreender o que realmente precisa mudar antes de definir posicionamento, marca, conteúdo, experiência digital, performance ou tecnologia.
+Investigamos o problema antes de decidir como atuar.
 
 ### CTA principal
 
@@ -76,33 +74,17 @@ Entender. Decidir. Construir.
 
 # Executar mais não corrige um problema mal diagnosticado.
 
-“Precisamos vender mais.”
-
 “O site não converte.”
 
 “Nossa marca ficou para trás.”
 
-“O conteúdo não funciona.”
+“Precisamos vender mais.”
 
-“O concorrente está crescendo.”
-
-“Precisamos de um rebrand.”
-
-Essas frases podem indicar que alguma coisa precisa mudar.
-
-Mas não explicam necessariamente o que está causando o problema.
+Esses sinais pedem investigação antes de virar um pedido de entrega.
 
 ## Sintoma não é diagnóstico.
 
-Uma nova identidade não corrige um posicionamento genérico.
-
-Mais conteúdo não corrige uma mensagem que ninguém entende.
-
-Mais mídia não corrige uma proposta de valor fraca.
-
-Um novo site não resolve uma jornada confusa.
-
-Automação não melhora um processo que ainda não foi compreendido.
+Mais mídia não corrige uma proposta confusa. Um novo site não resolve sozinho uma jornada sem direção.
 
 ### Destaque
 
@@ -118,27 +100,9 @@ Automação não melhora um processo que ainda não foi compreendido.
 
 # Estratégia é redução de incerteza.
 
-Não investigamos para produzir documentos maiores.
+Investigamos negócio, cliente, mercado e dados para separar suposições de evidências.
 
-Investigamos para tomar decisões melhores.
-
-O que o cliente realmente valoriza?
-
-Por que ele escolhe uma empresa e não outra?
-
-O que influencia sua decisão?
-
-Onde existem atritos na jornada?
-
-Como o mercado está mudando?
-
-Como os concorrentes constroem percepção?
-
-O que a empresa acredita ser verdade, mas ainda não conseguiu comprovar?
-
-Qual problema merece prioridade?
-
-Quanto mais claras essas respostas, menor a dependência de tentativa e erro.
+A pergunta central é qual problema merece prioridade — e por quê.
 
 ### Destaque
 
@@ -158,181 +122,57 @@ Quanto mais claras essas respostas, menor a dependência de tentativa e erro.
 
 ### Contexto
 
-Primeiro entendemos o negócio.
-
-Modelo de receita.
-
-Oferta.
-
-Cliente.
-
-Comercial.
-
-Marketing.
-
-Operação.
-
-Objetivos.
-
-Histórico.
-
-Mercado.
-
-Restrições.
-
-Antes de recomendar qualquer coisa, precisamos compreender o sistema em que aquela decisão será inserida.
+Entendemos negócio, oferta, cliente, operação e objetivos antes de recomendar uma direção.
 
 ## 02
 
 ### Investigação
 
-Buscamos informação além do briefing.
-
-Analisamos empresa, cliente, mercado, concorrentes, comunicação e dados para identificar aquilo que pode realmente alterar a direção estratégica.
+Buscamos informações além do briefing: mercado, concorrência, comunicação e dados.
 
 ## 03
 
 ### Evidências
 
-Nem toda informação possui o mesmo peso.
-
-Por isso distinguimos:
-
-Fatos.
-
-Hipóteses.
-
-Opiniões.
-
-Contradições.
-
-Lacunas.
-
-Uma percepção repetida dentro da empresa continua sendo uma percepção enquanto não existir evidência suficiente para tratá la como fato.
+Separamos fatos, hipóteses e lacunas. Uma percepção repetida ainda não é prova.
 
 ## 04
 
 ### Diagnóstico
 
-Organizamos sintomas, hipóteses e possíveis causas.
-
-A pergunta deixa de ser:
-
-“Quantas coisas podemos melhorar?”
-
-E passa a ser:
-
-**“Qual problema merece ser resolvido primeiro?”**
+Relacionamos sintomas e causas para identificar o problema que merece atenção primeiro.
 
 ## 05
 
 ### Direção
 
-O diagnóstico se transforma em uma prioridade estratégica.
-
-Não definimos apenas tarefas.
-
-Definimos a mudança que precisa acontecer.
-
-Na percepção.
-
-Na escolha.
-
-Na jornada.
-
-Na comunicação.
-
-Na experiência.
-
-Na operação.
+Transformamos o diagnóstico em prioridades para percepção, jornada, comunicação e operação.
 
 ## 06
 
 ### Posicionamento
 
-Definimos qual espaço a marca pretende ocupar na mente do mercado.
-
-Público prioritário.
-
-Território.
-
-Critério de escolha.
-
-Diferenciais.
-
-Razões para acreditar.
-
-Tese.
-
-Argumentos.
-
-Provas.
+Definimos público, território, critérios de escolha e razões para acreditar.
 
 ## 07
 
 ### Sistema
 
-A estratégia precisa conseguir sair do documento.
-
-Ela pode se transformar em:
-
-Branding.
-
-Narrativa.
-
-Conteúdo.
-
-Campanhas.
-
-Site.
-
-Experiência.
-
-Performance.
-
-CRM.
-
-Automação.
-
-Inteligência artificial.
-
-Cada elemento possui uma função dentro do sistema.
+Conectamos marca, conteúdo, site, aquisição e tecnologia à mesma decisão estratégica.
 
 ## 08
 
 ### Aprendizado
 
-Depois da implementação, observamos o que o mercado devolve.
-
-Novos sinais criam novas perguntas.
-
-Novas evidências melhoram decisões futuras.
-
-Estratégia não é um documento estático.
-
-É um sistema contínuo de decisão.
+Observamos os resultados da implementação e ajustamos decisões com novas evidências.
 
 # SEÇÃO 04
 
 ### POR QUE COMEÇAMOS PELO DIAGNÓSTICO
 
-# A solução pode ser branding.
+# A solução vem depois do diagnóstico.
 
-# Pode ser um site.
-
-# Pode ser marketing.
-
-# Pode ser tecnologia.
-
-# Mas não deveria ser uma conclusão antecipada.
-
-Uma empresa pode acreditar que precisa de uma nova marca quando o problema está na proposta de valor.
-
-Pode acreditar que precisa de tráfego quando a jornada não convence.
-
-Pode acreditar que precisa postar mais quando a comunicação ainda não possui uma tese clara.
-
-Pode acreditar que precisa de automação quando o processo ainda possui falhas estruturais.
+Pode ser branding, site, marketing ou tecnologia. A escolha depende do problema encontrado.
 
 ### Destaque
 
@@ -350,23 +190,13 @@ Pode acreditar que precisa de automação quando o processo ainda possui falhas 
 
 ## Estratégia e Diagnóstico
 
-Para empresas que sabem que algo precisa mudar, mas ainda não deveriam assumir qual é a solução.
+Investigamos o cenário e definimos prioridades antes de propor a solução.
 
 Pesquisa.
 
 Diagnóstico estratégico.
 
-Análise de mercado.
-
-Análise competitiva.
-
-Mapeamento de evidências.
-
-Definição de prioridades.
-
 Posicionamento.
-
-Arquitetura estratégica.
 
 ### CTA
 
@@ -374,23 +204,13 @@ Arquitetura estratégica.
 
 ## Branding e Posicionamento
 
-Para marcas que precisam construir uma posição mais clara, distinta e coerente.
+Construímos uma posição clara e uma marca capaz de expressá-la.
 
 Estratégia de marca.
-
-Posicionamento.
-
-Território de marca.
-
-Proposta de valor.
-
-Narrativa.
 
 Identidade verbal.
 
 Identidade visual.
-
-Sistema de marca.
 
 ### CTA
 
@@ -398,23 +218,13 @@ Sistema de marca.
 
 ## Marketing e Conteúdo
 
-Para transformar estratégia em percepção, presença, autoridade e demanda.
-
-Estratégia de marketing.
+Alinhamos mensagem, conteúdo e aquisição ao posicionamento da empresa.
 
 Arquitetura de mensagens.
 
 Sistema editorial.
 
-Conteúdo.
-
 Campanhas.
-
-Social media.
-
-Direção criativa.
-
-Distribuição.
 
 ### CTA
 
@@ -422,27 +232,13 @@ Distribuição.
 
 ## Sites e Experiências Digitais
 
-Para transformar estratégia, marca e comunicação em uma experiência digital coerente.
+Projetamos experiências que conectam estratégia, marca e jornada.
 
-Estratégia digital.
-
-Arquitetura da informação.
-
-Copy.
-
-Experiência do usuário.
-
-Interface.
+Copy e UX.
 
 Desenvolvimento.
 
-SEO.
-
-AEO.
-
-GEO.
-
-Analytics.
+SEO, AEO e GEO.
 
 ### CTA
 
@@ -450,37 +246,23 @@ Analytics.
 
 ## Performance
 
-Para conectar aquisição, mídia e conversão à lógica do negócio.
+Conectamos mídia e conversão à proposta de valor e à jornada.
 
 Planejamento.
 
 Mídia paga.
 
-Landing pages.
-
 Mensuração.
-
-Experimentação.
-
-Otimização.
 
 ## CRM, Automação e Inteligência Artificial
 
-Para organizar informação, reduzir atritos e tornar processos mais inteligentes.
+Organizamos informação e processos antes de escolher a tecnologia.
 
 CRM.
 
 Integrações.
 
-Automação.
-
-Fluxos.
-
 Aplicações de inteligência artificial.
-
-Organização de dados.
-
-Processos assistidos por IA.
 
 ### CTA
 
@@ -492,17 +274,7 @@ Processos assistidos por IA.
 
 # Sua marca, seu site, seu marketing e sua operação precisam contar a mesma história.
 
-Uma empresa pode ter uma identidade forte e uma mensagem fraca.
-
-Pode atrair oportunidades e perder contexto durante o atendimento.
-
-Pode investir em mídia e enviar pessoas para uma experiência que não sustenta sua proposta.
-
-Pode se posicionar como premium e comunicar preço o tempo inteiro.
-
-Pode implementar tecnologia sem compreender primeiro o processo.
-
-Quando cada ponto é construído isoladamente, surgem contradições.
+Quando cada ponto é construído isoladamente, a promessa se perde entre canais e etapas da jornada.
 
 ### Sistema Bescheiben
 
@@ -548,25 +320,7 @@ Quando cada ponto é construído isoladamente, surgem contradições.
 
 # Uma marca forte não começa no logo.
 
-Começa pela posição que deseja ocupar.
-
-Antes da forma, da cor ou da tipografia, existem perguntas mais importantes.
-
-Por que essa marca deveria ser escolhida?
-
-Que percepção pretende construir?
-
-Com quem realmente compete?
-
-Qual critério deseja fortalecer na decisão?
-
-O que consegue defender de forma distinta?
-
-Que evidências tornam essa posição crível?
-
-A identidade aparece depois.
-
-Para tornar essa estratégia reconhecível, coerente e memorável.
+Começa pela posição que deseja ocupar e pelas razões que a tornam relevante. A identidade torna essa escolha reconhecível.
 
 ### Destaque
 
@@ -582,45 +336,7 @@ Para tornar essa estratégia reconhecível, coerente e memorável.
 
 # Conteúdo não deveria existir para preencher calendário.
 
-Cada mensagem precisa cumprir uma função.
-
-Chamar atenção.
-
-Nomear um problema.
-
-Construir entendimento.
-
-Mudar uma percepção.
-
-Apresentar um argumento.
-
-Responder uma objeção.
-
-Demonstrar uma prova.
-
-Reduzir incerteza.
-
-Conduzir uma próxima decisão.
-
-É por isso que nosso calendário vem depois da estratégia.
-
-Antes dele existem:
-
-Posicionamento.
-
-Tese.
-
-Argumentos.
-
-Provas.
-
-Mensagens.
-
-Jornada.
-
-Temas editoriais.
-
-Prioridades.
+Cada mensagem precisa cumprir uma função na jornada: construir entendimento, responder objeções ou orientar uma decisão.
 
 ### Destaque
 
@@ -638,41 +354,7 @@ Prioridades.
 
 # Um site bonito ainda pode ser um site fraco.
 
-A estética não resolve sozinha:
-
-Posicionamento confuso.
-
-Proposta de valor genérica.
-
-Pouca clareza.
-
-Ausência de prova.
-
-Hierarquia ruim.
-
-Jornada quebrada.
-
-Dúvidas sem resposta.
-
-CTA fora de contexto.
-
-Um bom site ajuda alguém a compreender:
-
-Onde chegou.
-
-O que a empresa faz.
-
-Para quem faz.
-
-Qual problema resolve.
-
-Como pensa.
-
-Por que sua abordagem é diferente.
-
-Por que deveria continuar explorando.
-
-Qual próximo passo faz sentido.
+Um site precisa explicar a proposta, responder dúvidas e tornar claro o próximo passo. A interface expressa decisões anteriores de estratégia, copy e experiência.
 
 ### Destaque
 
@@ -690,31 +372,7 @@ Qual próximo passo faz sentido.
 
 # Não substitui critério.
 
-Utilizamos inteligência artificial onde ela aumenta velocidade, organização e capacidade analítica.
-
-Pesquisa.
-
-Estruturação de informação.
-
-Cruzamento de evidências.
-
-Análise assistida.
-
-Produção assistida.
-
-Automação.
-
-Operações.
-
-Mas uma resposta produzida por IA não se transforma automaticamente em decisão estratégica.
-
-Ela precisa ser questionada.
-
-Validada.
-
-Interpretada.
-
-Auditada.
+Usamos inteligência artificial para apoiar análise, organização e execução. Respostas precisam de contexto, validação e responsabilidade humana.
 
 ### Destaque
 
@@ -734,29 +392,7 @@ Auditada.
 
 # Publicamos para explicar como pensamos.
 
-Estratégia.
-
-Branding.
-
-Marketing.
-
-Comportamento.
-
-Negócios.
-
-Design.
-
-Tecnologia.
-
-Inteligência artificial.
-
-Mercado.
-
-Marcas.
-
-Não queremos apenas acompanhar o que está acontecendo.
-
-Queremos investigar o que existe por trás das decisões, movimentos e mudanças que aparecem no mercado.
+Analisamos estratégia, marca, marketing, tecnologia e comportamento para interpretar decisões, não apenas noticiar movimentos.
 
 ### CTA
 
@@ -770,19 +406,7 @@ Queremos investigar o que existe por trás das decisões, movimentos e mudanças
 
 # A Bescheiben trabalha nela.
 
-A Bescheiben integra estratégia, branding, marketing, experiências digitais e tecnologia.
-
-Partimos da compreensão do negócio para definir como marca, comunicação, experiência e operação devem trabalhar juntas.
-
-Não acreditamos que branding deva ser separado do negócio.
-
-Que conteúdo deva ser separado do posicionamento.
-
-Que site deva ser separado da jornada.
-
-Que mídia deva ser separada da proposta de valor.
-
-Ou que tecnologia deva ser implementada sem compreender o processo.
+Integramos estratégia, branding, marketing, digital e tecnologia a partir da compreensão do negócio.
 
 ### Destaque
 
@@ -800,35 +424,35 @@ Ou que tecnologia deva ser implementada sem compreender o processo.
 
 ## O que é a Bescheiben?
 
-A Bescheiben é uma empresa brasileira de estratégia, branding, marketing e tecnologia. O trabalho começa pela compreensão do negócio e pode avançar para posicionamento, identidade, comunicação, sites, performance, CRM, automação e inteligência artificial.
+A Bescheiben é uma empresa brasileira de estratégia, branding, marketing e tecnologia. Investiga problemas antes de definir soluções.
 
 ## A Bescheiben é uma agência de marketing?
 
-A Bescheiben executa atividades normalmente associadas a agências, mas sua abordagem começa antes da execução. Investigação, diagnóstico e estratégia orientam as decisões posteriores de marca, marketing, digital e tecnologia.
+Também executa marketing, mas começa por diagnóstico e estratégia para orientar marca, digital e tecnologia.
 
 ## A Bescheiben faz branding?
 
-Sim. A atuação pode incluir pesquisa, estratégia de marca, posicionamento, proposta de valor, narrativa, identidade verbal, identidade visual e sistema de marca.
+Sim. O trabalho pode incluir posicionamento, narrativa, identidade verbal e visual e sistema de marca.
 
 ## A Bescheiben faz rebranding?
 
-Sim. O processo começa pela compreensão das razões da mudança antes de decidir quais elementos estratégicos, verbais ou visuais precisam ser alterados.
+Sim. Primeiro investigamos por que a marca precisa mudar; depois definimos o que alterar.
 
 ## A Bescheiben cria sites?
 
-Sim. Os projetos podem envolver estratégia digital, arquitetura da informação, copy, UX, UI, desenvolvimento, SEO, AEO, GEO, analytics e integrações.
+Sim. Projetos podem incluir estratégia digital, copy, UX, UI, desenvolvimento, SEO, AEO, GEO e analytics.
 
 ## A Bescheiben faz social media?
 
-Sim, quando redes sociais fazem sentido dentro da estratégia. O trabalho não começa pelo calendário, mas pela definição do papel que a comunicação precisa cumprir.
+Sim, quando o canal tem uma função clara na estratégia de comunicação.
 
 ## A Bescheiben trabalha com inteligência artificial?
 
-Sim. Inteligência artificial pode ser utilizada em pesquisa, análise assistida, organização de informação, produção, automação e processos. Decisões críticas continuam sendo revisadas por pessoas.
+Sim. A IA pode apoiar pesquisa, análise e processos; decisões críticas continuam sob revisão humana.
 
 ## Como começa um projeto com a Bescheiben?
 
-O primeiro passo é compreender o contexto. A Bescheiben investiga o negócio, objetivo, cenário e dúvidas relevantes antes de recomendar um escopo.
+Começa pela compreensão do negócio e do problema, antes de recomendar um escopo.
 
 # CTA FINAL DA HOME
 
@@ -836,23 +460,7 @@ O primeiro passo é compreender o contexto. A Bescheiben investiga o negócio, o
 
 # Você não precisa chegar com a solução pronta.
 
-Talvez sua empresa precise de um novo posicionamento.
-
-Talvez precise de um novo site.
-
-Talvez o problema esteja na comunicação.
-
-Na jornada.
-
-Na oferta.
-
-Na aquisição.
-
-Na operação.
-
-Ou talvez ainda não saibamos.
-
-É exatamente por isso que o primeiro passo é entender.
+Conte o que está acontecendo. Começamos entendendo o problema.
 
 ### CTA principal
 
@@ -860,7 +468,7 @@ Ou talvez ainda não saibamos.
 
 ### CTA secundário
 
-**Conversar com a Bescheiben**
+**Conhecer nosso método**
 
 # PÁGINA ESTRATÉGIA
 
@@ -880,23 +488,7 @@ Diagnóstico estratégico, pesquisa, mercado, cliente e concorrência para ident
 
 # Antes de decidir o que fazer, descubra o que realmente precisa mudar.
 
-Empresas frequentemente chegam com uma solução na cabeça.
-
-“Precisamos de um novo site.”
-
-“Precisamos reposicionar.”
-
-“Precisamos investir em marketing.”
-
-“Precisamos de mais conteúdo.”
-
-“Precisamos automatizar.”
-
-Começamos uma pergunta antes.
-
-# Por quê?
-
-Investigamos o contexto para transformar sintomas em um problema estratégico claro.
+Investigamos negócio, mercado, cliente e comunicação para separar sintomas de causas e definir prioridades.
 
 ### CTA
 
@@ -904,105 +496,49 @@ Investigamos o contexto para transformar sintomas em um problema estratégico cl
 
 # O QUE É DIAGNÓSTICO ESTRATÉGICO?
 
-Diagnóstico estratégico é uma investigação estruturada do negócio, cliente, mercado, concorrência, comunicação e dados para identificar problemas, hipóteses, gargalos e prioridades antes da definição das ações.
+Diagnóstico estratégico analisa negócio, cliente, mercado e dados para localizar causas e definir prioridades.
 
 # SINTOMA NÃO É CAUSA
 
-Uma queda na procura pode ser um sintoma.
-
-Uma baixa conversão pode ser um sintoma.
-
-Perguntas constantes sobre preço podem ser um sintoma.
-
-Engajamento baixo pode ser um sintoma.
-
-Uma percepção de marca fraca pode ser um sintoma.
-
-O diagnóstico existe para investigar o que pode estar produzindo esses sinais.
+Baixa conversão ou marca confusa são sintomas. Investigamos a causa antes da resposta.
 
 # O QUE INVESTIGAMOS
 
-Negócio.
-
-Modelo de receita.
-
-Oferta.
-
-Cliente.
-
-Mercado.
-
-Concorrência.
-
-Marketing.
-
-Marca.
-
-Comercial.
-
-Jornada.
-
-Dados.
-
-Operação.
-
-Objetivos.
+Investigamos negócio, oferta, cliente, mercado, marca, jornada e dados.
 
 # O QUE BUSCAMOS
 
-Não procuramos apenas uma lista maior de problemas.
-
-Buscamos compreender:
-
-O que está acontecendo.
-
-O que pode estar causando isso.
-
-Que evidências sustentam cada hipótese.
-
-O que ainda não sabemos.
-
-Qual problema merece prioridade.
-
-Que mudança precisa acontecer.
+Buscamos causas, evidências e lacunas para definir prioridades.
 
 # COMO FUNCIONA
 
 ## Contexto
 
-Entendemos o cenário e as perguntas mais importantes.
+Entendemos o cenário.
 
 ## Pesquisa
 
-Buscamos informações que possam alterar decisões.
+Investigamos mercado e público.
 
 ## Evidências
 
-Separamos fatos, hipóteses, opiniões, contradições e lacunas.
+Separamos fatos de hipóteses.
 
 ## Diagnóstico
 
-Relacionamos sintomas e possíveis causas.
+Relacionamos sinais e causas.
 
 ## Priorização
 
-Identificamos o principal gargalo.
+Escolhemos o problema central.
 
 ## Direção
 
-Transformamos o diagnóstico em uma prioridade estratégica.
+Definimos a mudança necessária.
 
 # ESTRATÉGIA NÃO É UMA LISTA DE TAREFAS
 
-Criar um site é uma ação.
-
-Produzir conteúdo é uma ação.
-
-Fazer campanha é uma ação.
-
-Reposicionar uma marca é uma ação possível.
-
-Uma estratégia precisa explicar por que determinada ação merece acontecer e qual mudança ela pretende produzir.
+Estratégia explica por que agir e qual mudança produzir.
 
 ### Destaque
 
@@ -1014,19 +550,19 @@ Uma estratégia precisa explicar por que determinada ação merece acontecer e q
 
 ## O que é estratégia empresarial?
 
-Estratégia empresarial é o conjunto de escolhas que orienta prioridades, recursos e decisões para mover uma organização de seu estado atual para um estado desejado.
+É o conjunto de escolhas que orienta prioridades, recursos e decisões de uma organização.
 
 ## O que é diagnóstico de marketing?
 
-Diagnóstico de marketing é a análise estruturada do negócio, cliente, mercado, concorrência, comunicação, canais e dados para identificar problemas e oportunidades antes da definição das ações de marketing.
+É a análise de negócio, cliente, mercado, canais e dados para identificar problemas antes de definir ações.
 
 ## Quando uma empresa precisa de diagnóstico estratégico?
 
-O diagnóstico é especialmente útil quando existem sintomas claros, mas pouca certeza sobre suas causas, quando várias iniciativas competem por prioridade ou quando a empresa pretende realizar uma mudança relevante de marca, marketing, produto ou experiência.
+Quando há sintomas sem causa clara, iniciativas concorrendo por prioridade ou uma mudança importante pela frente.
 
 ## O diagnóstico já define quais serviços serão contratados?
 
-Não necessariamente. A função do diagnóstico é compreender o problema e indicar prioridades. A solução posterior depende daquilo que for identificado.
+Não. Primeiro identifica problemas e prioridades; o escopo depende do que a investigação encontrar.
 
 # CTA FINAL
 
@@ -1054,9 +590,7 @@ Estratégia de marca, posicionamento, rebranding, narrativa, identidade verbal e
 
 # Antes de mudar a aparência da marca, decida o que ela precisa significar.
 
-Branding não começa pela escolha de uma estética.
-
-Começa pela definição da posição que a empresa pretende ocupar e da percepção que deseja construir.
+Branding começa pela posição que a empresa quer ocupar e pela percepção que precisa construir.
 
 ### CTA
 
@@ -1064,123 +598,61 @@ Começa pela definição da posição que a empresa pretende ocupar e da percep�
 
 # O QUE É BRANDING?
 
-Branding é o processo estratégico de construir e administrar significados, percepções, associações e experiências relacionados a uma marca.
-
-Ele envolve decisões sobre posicionamento, proposta de valor, narrativa, identidade, comunicação e experiência.
+Branding é a construção estratégica da percepção da marca. Conecta posicionamento, proposta de valor, identidade, comunicação e experiência.
 
 # O QUE É POSICIONAMENTO DE MARCA?
 
-Posicionamento de marca é a definição do espaço que uma empresa pretende ocupar na percepção do público em relação às alternativas disponíveis no mercado.
-
-Um posicionamento claro ajuda a definir o que a marca representa, para quem é relevante, como pretende ser reconhecida e quais critérios deseja fortalecer na escolha.
+Posicionamento define o espaço que a marca quer ocupar diante das alternativas do mercado — e por que merece ser escolhida.
 
 # UMA MARCA NÃO COMPETE APENAS POR ATENÇÃO
 
-Ela compete por significado.
-
-Por memória.
-
-Por preferência.
-
-Por confiança.
-
-Por um espaço específico na mente do mercado.
-
-Quando esse espaço não está claro, a marca tende a depender mais de preço, frequência ou esforço comercial para ser escolhida.
+Sem posição clara, significado e preferência cedem lugar ao preço.
 
 # O QUE É REBRANDING?
 
-Rebranding é o processo de revisar elementos estratégicos, verbais ou visuais de uma marca para adequar sua percepção a um novo contexto, posicionamento ou direção de negócio.
-
-Nem todo rebranding exige mudar tudo.
-
-E nem toda mudança de identidade representa um verdadeiro rebranding.
+Rebranding revê estratégia, linguagem ou identidade quando o contexto da marca muda. Nem sempre exige trocar tudo.
 
 # REBRANDING NÃO COMEÇA NO LOGO
 
-Antes de alterar símbolo, tipografia ou paleta, existem perguntas anteriores.
-
-O posicionamento ainda faz sentido?
-
-A proposta de valor continua relevante?
-
-A percepção atual ajuda ou atrapalha a empresa?
-
-O mercado mudou?
-
-O público mudou?
-
-A empresa mudou?
-
-Existe uma distância entre o que a marca pretende representar e aquilo que realmente comunica?
-
-Só depois dessas respostas a identidade entra em discussão.
+Antes da identidade, avaliamos posicionamento, proposta de valor e percepção.
 
 # COMO TRABALHAMOS
 
 ## Contexto
 
-Entendemos negócio, objetivos e momento da marca.
+Entendemos o negócio e seu momento.
 
 ## Mercado
 
-Investigamos categoria, concorrentes e referências.
+Investigamos categoria e concorrentes.
 
 ## Público
 
-Compreendemos dores, desejos, objeções, linguagem e critérios de escolha.
+Identificamos critérios de escolha.
 
 ## Posicionamento
 
-Definimos público prioritário, território, diferenciais e razões para acreditar.
+Definimos território e diferença.
 
 ## Narrativa
 
-Construímos a lógica que a marca precisa defender.
+Organizamos a ideia central.
 
 ## Identidade verbal
 
-Transformamos posicionamento em linguagem.
+Traduzimos a posição em linguagem.
 
 ## Identidade visual
 
-Transformamos decisões estratégicas em expressão visual.
+Expressamos a estratégia visualmente.
 
 ## Sistema
 
-Criamos consistência entre aplicações e pontos de contato.
+Criamos coerência nos pontos de contato.
 
 # O QUE PODEMOS CONSTRUIR
 
-Estratégia de marca.
-
-Pesquisa.
-
-Posicionamento.
-
-Território mental.
-
-Proposta de valor.
-
-Tese estratégica.
-
-Arquitetura de argumentos.
-
-Narrativa.
-
-Arquitetura de mensagens.
-
-Identidade verbal.
-
-Tom de voz.
-
-Naming.
-
-Identidade visual.
-
-Sistema de marca.
-
-Diretrizes de aplicação.
+Estratégia de marca, pesquisa, posicionamento, proposta de valor, narrativa, identidade verbal e visual e sistema de marca.
 
 # NOSSA VISÃO
 
@@ -1188,27 +660,25 @@ Diretrizes de aplicação.
 
 # Torna posicionamento visível.
 
-Uma identidade forte não serve apenas para decorar uma empresa.
-
-Ela precisa ajudar o mercado a reconhecer e interpretar aquilo que a marca escolheu representar.
+Identidade visual ajuda o mercado a reconhecer a posição que a empresa escolheu construir.
 
 # FAQ
 
 ## Qual a diferença entre branding e identidade visual?
 
-Branding envolve a construção estratégica da marca e de sua percepção. Identidade visual é o sistema gráfico utilizado para expressar essa estratégia por meio de elementos como logo, tipografia, cores, composição e aplicações.
+Branding constrói a percepção da marca. A identidade visual expressa essa estratégia em elementos gráficos.
 
 ## Posicionamento vem antes da identidade visual?
 
-Na abordagem da Bescheiben, sim. A identidade deve tornar visíveis decisões de posicionamento, diferenciação, personalidade e percepção previamente definidas.
+Na abordagem da Bescheiben, sim. A identidade deve expressar uma posição previamente definida.
 
 ## Rebranding significa trocar o logo?
 
-Não necessariamente. Um rebranding pode envolver mudanças de posicionamento, proposta de valor, narrativa, identidade verbal, identidade visual e experiência. A necessidade de cada mudança depende do contexto da marca.
+Não. Pode envolver estratégia, narrativa, linguagem, visual e experiência, conforme o contexto.
 
 ## Quando uma empresa precisa de rebranding?
 
-Quando existe uma mudança relevante de negócio, público, mercado, posicionamento ou percepção que a identidade e a comunicação atuais já não conseguem representar adequadamente.
+Quando negócio, público, mercado ou percepção mudam e a marca atual já não representa essa direção.
 
 # CTA FINAL
 
@@ -1238,9 +708,7 @@ Estratégia de marketing, conteúdo, social media, campanhas e performance orien
 
 # Comece a comunicar com uma função.
 
-Frequência não substitui direção.
-
-Antes do calendário existem decisões sobre posicionamento, tese, argumentos, mensagens, jornada e prioridades.
+Frequência não substitui direção. Mensagens e canais precisam servir à estratégia.
 
 ### CTA
 
@@ -1248,23 +716,11 @@ Antes do calendário existem decisões sobre posicionamento, tese, argumentos, m
 
 # O QUE É MARKETING ESTRATÉGICO?
 
-Marketing estratégico é o processo de compreender mercado, público, concorrência, posicionamento e objetivos para decidir onde competir, para quem comunicar, quais mensagens priorizar e como organizar aquisição, comunicação e relacionamento.
+Marketing estratégico relaciona mercado, público, posicionamento e objetivos para decidir mensagens, canais, aquisição e relacionamento.
 
 # O PROBLEMA NÃO É FALTA DE CONTEÚDO
 
-Grande parte das empresas já produz.
-
-Publica.
-
-Impulsiona.
-
-Cria campanhas.
-
-Grava vídeos.
-
-Segue tendências.
-
-O problema aparece quando essas ações não estão conectadas a uma decisão maior.
+Publicar mais não resolve uma mensagem sem direção.
 
 ### Destaque
 
@@ -1274,179 +730,49 @@ O problema aparece quando essas ações não estão conectadas a uma decisão ma
 
 # CONTEÚDO É PARTE DE UM SISTEMA
 
-Um conteúdo pode ter a função de:
-
-Gerar descoberta.
-
-Nomear um problema.
-
-Ensinar.
-
-Mudar uma crença.
-
-Construir autoridade.
-
-Apresentar um argumento.
-
-Demonstrar uma prova.
-
-Responder uma objeção.
-
-Ajudar na comparação.
-
-Conduzir uma decisão.
-
-Manter relacionamento.
-
-Nem toda publicação precisa vender.
-
-Mas toda publicação precisa saber por que existe.
+Cada conteúdo deve ajudar a descobrir, entender ou escolher a empresa.
 
 # NOSSO FLUXO
 
-Estratégia.
-
-Posicionamento.
-
-Narrativa.
-
-Mensagens.
-
-Jornada.
-
-Sistema editorial.
-
-Formatos.
-
-Calendário.
-
-Produção.
-
-Distribuição.
-
-Análise.
+Estratégia, posicionamento, mensagens, jornada, sistema editorial, produção, distribuição e análise.
 
 # ARQUITETURA DE MENSAGENS
 
-Antes de criar peças, estruturamos aquilo que a empresa precisa conseguir dizer.
-
-Qual problema precisamos nomear?
-
-Que perspectiva queremos defender?
-
-Que objeções precisam ser respondidas?
-
-Quais argumentos sustentam a posição?
-
-Que evidências podem apoiar esses argumentos?
-
-Que mensagem pertence a cada momento da jornada?
-
-Isso transforma comunicação em sistema.
+Antes das peças, definimos a tese, os argumentos, as evidências e a mensagem adequada a cada momento da jornada.
 
 # SISTEMA EDITORIAL
 
-O calendário vem depois.
-
-Primeiro definimos:
-
-Temas.
-
-Funções.
-
-Mensagens.
-
-Argumentos.
-
-Formatos.
-
-Jornada.
-
-Prioridades.
-
-Canais.
-
-Depois organizamos a produção.
+Organizamos temas, funções, formatos e canais. O calendário vem depois dessas escolhas.
 
 # SOCIAL MEDIA
 
-Redes sociais são canais.
-
-Não são a estratégia inteira.
-
-A função pode ser gerar descoberta.
-
-Construir autoridade.
-
-Demonstrar pensamento.
-
-Criar relacionamento.
-
-Responder dúvidas.
-
-Aumentar familiaridade.
-
-Distribuir uma tese.
-
-A escolha depende do contexto.
+Redes sociais são canais. Sua função depende do público, da mensagem e do objetivo — não da obrigação de publicar.
 
 # PERFORMANCE
 
-Mídia amplia aquilo que já existe.
-
-Se a proposta está confusa, a mídia amplia confusão.
-
-Se a página não convence, a mídia apenas envia mais pessoas para uma experiência fraca.
-
-Se a oferta não está clara, aumentar alcance não resolve sozinho.
-
-Por isso aquisição precisa conversar com posicionamento, mensagem, oferta e jornada.
+Mídia amplia a mensagem. Se ela é confusa, amplia o ruído.
 
 # O QUE PODEMOS CONSTRUIR
 
-Estratégia de marketing.
-
-Pesquisa.
-
-Planejamento.
-
-Arquitetura de comunicação.
-
-Arquitetura de mensagens.
-
-Sistema editorial.
-
-Social media.
-
-Conteúdo.
-
-Campanhas.
-
-Direção criativa.
-
-Performance.
-
-Landing pages.
-
-Mensuração.
+Estratégia de marketing, arquitetura de mensagens, sistema editorial, conteúdo, social media, campanhas, performance e mensuração.
 
 # FAQ
 
 ## O que é estratégia de conteúdo?
 
-Estratégia de conteúdo é a definição de quais temas, mensagens, formatos e canais serão utilizados para cumprir objetivos específicos de comunicação ao longo da jornada do público.
+É a definição de temas, mensagens, formatos e canais para cumprir objetivos de comunicação ao longo da jornada.
 
 ## Qual a diferença entre calendário editorial e estratégia de conteúdo?
 
-O calendário organiza quando e onde os conteúdos serão publicados. A estratégia define por que eles existem, qual mensagem carregam, que função cumprem e como se conectam ao posicionamento e à jornada.
+O calendário organiza quando publicar. A estratégia define por que a mensagem existe e que função cumpre.
 
 ## A Bescheiben faz social media?
 
-Sim. Social media pode fazer parte da execução quando redes sociais forem relevantes para a estratégia definida.
+Sim, quando redes sociais são relevantes para a estratégia definida.
 
 ## A Bescheiben trabalha com tráfego pago?
 
-Sim. Mídia e performance podem fazer parte da estratégia de aquisição quando houver coerência entre oferta, mensagem, experiência e objetivo.
+Sim, quando mídia, oferta, mensagem, experiência e objetivo estão alinhados.
 
 # CTA
 
@@ -1472,9 +798,9 @@ Estratégia digital, copy, UX, UI, desenvolvimento de sites, SEO, AEO, GEO e ana
 
 ### SITES E EXPERIÊNCIAS DIGITAIS
 
-# Seu site deveria ajudar alguém a entender por que escolher sua empresa.
+# Seu site precisa ajudar alguém a escolher sua empresa.
 
-Construímos experiências digitais a partir da estratégia, não de uma coleção de referências visuais.
+Estratégia, copy, UX, interface e tecnologia devem responder às dúvidas de quem chega.
 
 ### CTA
 
@@ -1482,222 +808,71 @@ Construímos experiências digitais a partir da estratégia, não de uma coleç�
 
 # O QUE É UM SITE ESTRATÉGICO?
 
-Um site estratégico é uma experiência digital construída para comunicar posicionamento, organizar informação, responder dúvidas, apresentar evidências, reduzir incertezas e conduzir usuários a próximas ações coerentes com sua jornada.
+Um site estratégico comunica posição, apresenta evidências e orienta a próxima ação.
 
 # UM SITE É MAIS DO QUE INTERFACE
 
-O visitante chega com perguntas.
-
-Quem é essa empresa?
-
-O que ela faz?
-
-Isso é para mim?
-
-Por que deveria me importar?
-
-Como funciona?
-
-Por que confiar?
-
-Qual é o próximo passo?
-
-A arquitetura do site precisa responder essas perguntas na ordem certa.
+A aparência importa. Antes, o visitante precisa entender a proposta e confiar.
 
 # ANTES DA INTERFACE
 
-Precisamos responder:
-
-Quem vai chegar?
-
-O que precisa compreender?
-
-Que percepção queremos construir?
-
-Que perguntas precisam ser respondidas?
-
-Quais objeções podem aparecer?
-
-Que informações aumentam confiança?
-
-Qual próxima ação faz sentido?
-
-Depois dessas respostas começamos a desenhar a experiência.
+Definimos público, perguntas, objeções, informação necessária e próximo passo. Essas decisões dão forma à experiência.
 
 # COPY
 
-Texto não entra depois do layout.
-
-Copy faz parte da arquitetura.
-
-Ela organiza argumento.
-
-Explica proposta.
-
-Constrói entendimento.
-
-Reduz objeções.
-
-Cria hierarquia.
-
-Conduz leitura.
-
-Por isso estratégia, copy e experiência precisam ser desenhadas em conjunto.
+Texto organiza o argumento e a jornada. Por isso, copy e UX são pensadas juntas desde o início.
 
 # UX
 
-Experiência do usuário não significa apenas tornar um site fácil de usar.
-
-Significa estruturar caminhos coerentes para diferentes necessidades e níveis de consciência.
+UX estrutura caminhos claros para diferentes necessidades e momentos de decisão.
 
 # UI
 
-Interface transforma estrutura e identidade em experiência visual.
-
-Ela precisa representar a marca sem competir com a informação que o usuário precisa compreender.
+A interface torna a estratégia visível sem competir com a informação essencial.
 
 # DESENVOLVIMENTO
 
-A implementação precisa preservar aquilo que foi decidido na estratégia e no design.
-
-Performance.
-
-Responsividade.
-
-Acessibilidade.
-
-Estrutura semântica.
-
-Indexação.
-
-Mensuração.
-
-Escalabilidade.
-
-Integrações.
+A implementação preserva design e conteúdo com performance, responsividade, acessibilidade, semântica e integração.
 
 # SEO
 
-SEO organiza conteúdo, arquitetura e tecnologia para facilitar a compreensão e a descoberta das páginas por mecanismos de busca.
-
-Nosso trabalho considera:
-
-Intenção de busca.
-
-Arquitetura.
-
-Entidades.
-
-Conteúdo.
-
-Hierarquia semântica.
-
-Links internos.
-
-SEO técnico.
-
-Performance.
-
-Indexação.
+SEO conecta conteúdo, arquitetura e tecnologia para facilitar descoberta e compreensão pelos mecanismos de busca.
 
 # AEO
 
-AEO organiza partes do conteúdo para responder diretamente perguntas relevantes.
-
-Definições claras.
-
-Perguntas reais.
-
-Respostas objetivas.
-
-Contexto.
-
-Estrutura semântica.
-
-Isso melhora a capacidade de mecanismos de resposta compreenderem o conteúdo.
+AEO organiza respostas diretas a perguntas reais, com contexto e estrutura semântica.
 
 # GEO
 
-GEO busca tornar a empresa e seu conteúdo compreensíveis e úteis para sistemas generativos.
-
-Isso envolve:
-
-Entidades claras.
-
-Conteúdo original.
-
-Contexto.
-
-Autoria.
-
-Fontes.
-
-Estrutura.
-
-Consistência.
-
-Informações verificáveis.
-
-Especialização temática.
-
-A meta não é escrever para uma máquina.
-
-É produzir informação suficientemente clara e útil para que pessoas e sistemas consigam compreendê la.
+GEO ajuda sistemas generativos a compreender a empresa por meio de entidades claras, conteúdo original, autoria e informações consistentes.
 
 # O QUE PODEMOS CONSTRUIR
 
-Estratégia digital.
-
-Arquitetura da informação.
-
-Copy.
-
-UX.
-
-UI.
-
-Design responsivo.
-
-Desenvolvimento.
-
-SEO técnico.
-
-SEO de conteúdo.
-
-AEO.
-
-GEO.
-
-Analytics.
-
-Landing pages.
-
-Integrações.
+Estratégia digital, arquitetura da informação, copy, UX, UI, desenvolvimento, SEO, AEO, GEO, analytics e integrações.
 
 # FAQ
 
 ## Qual a diferença entre UX e UI?
 
-UX trata da experiência, fluxo, estrutura e facilidade de uso. UI trata da camada visual e interativa da interface.
+UX organiza a experiência e seus caminhos. UI define a interface visual e interativa.
 
 ## Todo site precisa de SEO?
 
-Qualquer site que pretenda ser encontrado por mecanismos de busca deve considerar fundamentos de SEO desde sua arquitetura, conteúdo e implementação técnica.
+Sites que desejam ser encontrados devem considerar SEO na arquitetura, no conteúdo e na implementação.
 
 ## O site pode ser preparado para mecanismos de inteligência artificial?
 
-Sim. Estrutura semântica clara, respostas objetivas, entidades bem definidas, conteúdo original, autoria e informações consistentes ajudam mecanismos generativos a compreender melhor uma empresa e seu conteúdo.
+Sim. Estrutura semântica, entidades claras, autoria e conteúdo original ajudam sistemas generativos a compreender o site.
 
 ## A Bescheiben desenvolve o site ou apenas cria o design?
 
-A atuação pode envolver estratégia, arquitetura, copy, UX, UI e desenvolvimento completo, dependendo do escopo definido.
+O trabalho pode incluir estratégia, copy, UX, UI e desenvolvimento, conforme o escopo.
 
 # CTA FINAL
 
 # O design começa depois das perguntas certas.
 
 **Conversar sobre Digital**
-
 # PÁGINA TECNOLOGIA
 
 ## SEO
@@ -1716,19 +891,7 @@ CRM, integrações, automação e aplicações de inteligência artificial orien
 
 # Automatizar um processo ruim apenas acelera o problema.
 
-Antes da ferramenta, entendemos o fluxo.
-
-Informação.
-
-Responsabilidades.
-
-Decisões.
-
-Atritos.
-
-Dependências.
-
-Só depois definimos qual tecnologia faz sentido.
+Primeiro entendemos o fluxo e seus atritos. Depois escolhemos a tecnologia.
 
 ### CTA
 
@@ -1736,99 +899,25 @@ Só depois definimos qual tecnologia faz sentido.
 
 # TECNOLOGIA NÃO DEVERIA COMEÇAR PELA FERRAMENTA
 
-Qual CRM usar?
-
-Qual IA usar?
-
-Qual automação criar?
-
-Qual plataforma contratar?
-
-São perguntas importantes.
-
-Mas existem perguntas anteriores.
-
-Que processo queremos melhorar?
-
-Onde existe trabalho manual?
-
-Onde informação se perde?
-
-Que tarefa consome tempo sem exigir julgamento?
-
-Que contexto alguém precisa antes de tomar uma decisão?
-
-Só depois a escolha tecnológica ganha sentido.
+Antes de escolher CRM, IA ou automação, localizamos perdas de informação e trabalho repetido.
 
 # O QUE É AUTOMAÇÃO EMPRESARIAL?
 
-Automação empresarial é o uso de tecnologia para executar ou apoiar processos repetitivos, integrações e fluxos de informação com menor dependência de intervenção manual.
-
-Uma boa automação começa pela compreensão do processo.
+Automação empresarial apoia tarefas repetitivas e fluxos de informação.
 
 # CRM
 
-CRM não deveria funcionar apenas como uma lista de contatos.
-
-Ele pode organizar:
-
-Histórico.
-
-Relacionamento.
-
-Contexto.
-
-Oportunidades.
-
-Interações.
-
-Origem.
-
-Próximos passos.
-
-Informações importantes para marketing e comercial.
+CRM organiza relacionamento e oportunidades para dar contexto a marketing e comercial.
 
 # INTELIGÊNCIA ARTIFICIAL
 
-IA pode aumentar capacidade.
-
-Mas capacidade sem contexto continua sendo capacidade mal direcionada.
-
-Utilizamos inteligência artificial onde ela pode apoiar:
-
-Pesquisa.
-
-Organização de informações.
-
-Classificação.
-
-Análise.
-
-Produção assistida.
-
-Atendimento de processos.
-
-Rotinas operacionais.
-
-Integrações.
-
-Fluxos inteligentes.
+IA apoia pesquisa, análise e operação quando há contexto e revisão humana.
 
 # NOSSA VISÃO SOBRE IA
 
 # Não pedimos para a IA adivinhar.
 
-Entregamos contexto.
-
-Fornecemos evidências.
-
-Definimos regras.
-
-Auditamos respostas.
-
-Separamos observação de interpretação.
-
-Mantemos pessoas responsáveis por decisões críticas.
+Definimos regras, validamos respostas e mantemos pessoas responsáveis por decisões críticas.
 
 ### Destaque
 
@@ -1838,41 +927,25 @@ Mantemos pessoas responsáveis por decisões críticas.
 
 # O QUE PODEMOS CONSTRUIR
 
-Mapeamento de processo.
-
-Arquitetura de CRM.
-
-Automações.
-
-Integrações.
-
-Fluxos.
-
-Aplicações de IA.
-
-Dashboards.
-
-Organização de dados.
-
-Operações digitais.
+Processos, CRM, automações, integrações, IA, dashboards e dados.
 
 # FAQ
 
 ## O que é CRM?
 
-CRM é uma abordagem e um conjunto de sistemas utilizados para organizar relacionamento, histórico, oportunidades e informações de clientes e potenciais clientes.
+CRM organiza relacionamento, histórico, oportunidades e informações de clientes e potenciais clientes.
 
 ## O que pode ser automatizado em uma empresa?
 
-Processos repetitivos, movimentação de dados, notificações, distribuição de informações, qualificação, atendimento inicial, relatórios e integrações são alguns exemplos. A viabilidade depende do processo e do contexto.
+Tarefas repetitivas, circulação de dados, notificações e integrações, quando o processo justifica a automação.
 
 ## IA pode substituir estratégia?
 
-IA pode apoiar pesquisa, organização, análise e execução. Decisões estratégicas continuam exigindo contexto, validação, julgamento e responsabilidade.
+Não. IA apoia análise e execução; estratégia exige contexto, validação e responsabilidade.
 
 ## Toda empresa precisa de IA?
 
-Não. Tecnologia deve responder a uma necessidade real. Em alguns cenários uma automação simples pode gerar mais valor do que uma aplicação complexa de inteligência artificial.
+Não. A tecnologia deve responder a uma necessidade real; às vezes uma automação simples basta.
 
 # CTA FINAL
 
@@ -2008,119 +1081,37 @@ Conheça a Bescheiben, empresa de estratégia, branding, marketing, experiência
 
 # Não queríamos construir apenas mais uma agência.
 
-Queríamos construir uma empresa capaz de conectar o que normalmente é tratado separadamente.
-
-Negócio.
-
-Estratégia.
-
-Marca.
-
-Marketing.
-
-Design.
-
-Experiência.
-
-Tecnologia.
-
-Execução.
-
-Porque o público não experimenta departamentos.
-
-Experimenta uma única empresa.
+Conectamos estratégia, marca, marketing, digital e tecnologia porque o público experimenta uma única empresa.
 
 # O QUE É A BESCHEIBEN?
 
-A Bescheiben é uma empresa brasileira de estratégia, branding, marketing e tecnologia.
-
-Investigamos problemas antes de definir soluções e trabalhamos para conectar posicionamento, comunicação, experiências digitais e tecnologia de forma coerente com o negócio.
+A Bescheiben é uma empresa brasileira de estratégia, branding, marketing e tecnologia. Investigamos problemas antes de definir soluções.
 
 # NOSSA CRENÇA
 
 # Entender antes de executar.
 
-Questionar antes de assumir.
-
-Evidência antes de opinião.
-
-Posição antes de estética.
-
-Mensagem antes de calendário.
-
-Processo antes de ferramenta.
-
-Clareza antes de volume.
-
-Estratégia antes de execução.
+Evidência antes de opinião. Posição antes de estética. Processo antes de ferramenta.
 
 # POR QUE EXISTIMOS
 
-Existe uma distância entre consultorias que pensam e fornecedores que executam.
-
-De um lado, estratégia sem capacidade de materialização.
-
-Do outro, execução sem investigação suficiente.
-
-A Bescheiben trabalha nesse espaço.
-
-Entender.
-
-Decidir.
-
-Construir.
+Entre consultoria que pensa e fornecedor que executa, trabalhamos para conectar direção e materialização.
 
 # COMO PENSAMOS
 
-Não acreditamos que branding deva ser separado do negócio.
-
-Que marketing deva ser separado do posicionamento.
-
-Que conteúdo deva ser separado da jornada.
-
-Que site deva ser separado da comunicação.
-
-Que mídia deva ser separada da oferta.
-
-Ou que tecnologia deva ser implementada sem compreender primeiro o processo.
+Marca, marketing, site e tecnologia não deveriam ser decididos isoladamente. Cada frente precisa responder ao mesmo contexto.
 
 # NOSSA POSIÇÃO
 
-A Bescheiben atua entre consultoria estratégica e capacidade de execução.
-
-Investigamos problemas.
-
-Definimos direções.
-
-Construímos sistemas.
-
-Transformamos decisões em marca, comunicação, experiências digitais e tecnologia.
+Atuamos entre estratégia e execução: investigamos problemas, definimos prioridades e construímos sistemas coerentes.
 
 # O QUE NOS INTERESSA
 
-Problemas complexos.
-
-Marcas em transformação.
-
-Empresas que precisam de clareza.
-
-Mercados em mudança.
-
-Processos que podem ser melhor estruturados.
-
-Decisões que exigem mais do que uma resposta automática.
+Marcas em transformação, decisões difíceis e empresas que precisam de clareza antes de investir em execução.
 
 # O QUE NÃO QUEREMOS SER
 
-Mais uma empresa vendendo entregáveis isolados.
-
-Mais um calendário sem tese.
-
-Mais uma identidade sem posicionamento.
-
-Mais um site construído sem entender a jornada.
-
-Mais uma automação criada porque a ferramenta estava disponível.
+Não vendemos entregáveis isolados sem entender o problema que deveriam resolver.
 
 ### Destaque
 
@@ -2152,63 +1143,29 @@ Conte o contexto da sua empresa. A Bescheiben analisa o cenário antes de defini
 
 # Você não precisa chegar com a solução pronta.
 
-Talvez já exista uma necessidade clara.
-
-Talvez exista apenas a percepção de que alguma coisa precisa mudar.
-
-Nos dois casos, começamos entendendo o contexto.
+Conte brevemente o cenário. Começamos entendendo o contexto antes de propor uma solução.
 
 # ANTES DO FORMULÁRIO
 
-Não precisamos que você descubra sozinho qual serviço contratar.
-
-Explique o cenário.
-
-O que está acontecendo.
-
-O que incomoda.
-
-O que gostaria que fosse diferente.
-
-A partir daí conseguimos começar a fazer as perguntas certas.
+Não é preciso escolher um serviço agora. Conte o que precisa mudar; começamos pelas perguntas certas.
 
 # FORMULÁRIO
 
 ### Nome
 
-Como podemos chamar você?
+Obrigatório.
+
+### E-mail
+
+Obrigatório. Usado para responder ao contato.
 
 ### Empresa
 
-Qual é a empresa?
-
-### Site ou perfil
-
-Onde podemos conhecer melhor o negócio?
-
-### Qual situação motivou este contato?
-
-Conte o que está acontecendo hoje.
-
-### O que você gostaria que fosse diferente?
-
-Não precisa descrever uma solução.
-
-Explique a mudança que gostaria de perceber.
-
-### O que já foi tentado?
-
-Se alguma iniciativa já foi realizada, conte brevemente.
-
-### Existe algum prazo relevante?
-
 Opcional.
 
-### Como prefere continuar a conversa?
+### O que está acontecendo?
 
-Email
-
-WhatsApp
+Conte brevemente o que precisa mudar.
 
 ### Botão
 
@@ -2218,10 +1175,7 @@ WhatsApp
 
 ## Contexto recebido.
 
-Vamos analisar as informações antes de continuar a conversa.
-
-Caso seja necessário compreender algum ponto adicional, entraremos em contato.
-
+Vamos analisar as informações e entrar em contato.
 # FOOTER
 
 ### Bescheiben

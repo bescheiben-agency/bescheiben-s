@@ -8,14 +8,8 @@ const now = 1_800_000_000_000;
 const valid = {
   name: 'Ana Silva',
   email: 'ana@example.com',
-  company: 'Empresa Exemplo',
-  website: 'https://example.com',
+  company: '',
   situation: 'A marca cresceu, mas a comunicação deixou de representar a empresa.',
-  desiredChange: 'Queremos construir uma direção clara para marca, site e marketing.',
-  attempted: 'Reorganizamos o calendário e revisamos algumas mensagens.',
-  deadline: 'Próximo trimestre.',
-  contactPreference: 'email',
-  phone: '',
   turnstileToken: 'test-token',
   websiteTrap: '',
   startedAt: String(now - 10_000),
@@ -29,22 +23,29 @@ const request = (body: unknown, init: RequestInit = {}) => new Request('https://
 });
 
 describe('diagnostic validation', () => {
-  it('accepts a complete email submission and normalizes fields', () => {
+  it('accepts the short form without company and normalizes email', () => {
     const result = validateDiagnosticSubmission(valid, now);
     expect(result.ok).toBe(true);
-    if (result.ok) expect(result.data.email).toBe('ana@example.com');
+    if (result.ok) {
+      expect(result.data.email).toBe('ana@example.com');
+      expect(result.data.company).toBe('');
+      expect(result.data.situation).toBe(valid.situation);
+    }
   });
 
   it('rejects unknown fields, honeypot, too-fast submission and oversized token', () => {
     expect(validateDiagnosticSubmission({ ...valid, admin: true }, now).ok).toBe(false);
+    expect(validateDiagnosticSubmission({ ...valid, desiredChange: 'old field' }, now).ok).toBe(false);
     expect(validateDiagnosticSubmission({ ...valid, websiteTrap: 'spam' }, now).ok).toBe(false);
     expect(validateDiagnosticSubmission({ ...valid, startedAt: String(now - 500) }, now).ok).toBe(false);
     expect(validateDiagnosticSubmission({ ...valid, turnstileToken: 'x'.repeat(2049) }, now).ok).toBe(false);
   });
 
-  it('requires a plausible phone only when WhatsApp is selected', () => {
-    expect(validateDiagnosticSubmission({ ...valid, contactPreference: 'whatsapp', phone: '' }, now).ok).toBe(false);
-    expect(validateDiagnosticSubmission({ ...valid, contactPreference: 'whatsapp', phone: '+55 11 99999-9999' }, now).ok).toBe(true);
+  it('requires a short context and validates optional company when present', () => {
+    expect(validateDiagnosticSubmission({ ...valid, situation: 'curto' }, now).ok).toBe(false);
+    expect(validateDiagnosticSubmission({ ...valid, situation: 'x'.repeat(1201) }, now).ok).toBe(false);
+    expect(validateDiagnosticSubmission({ ...valid, company: 'A' }, now).ok).toBe(false);
+    expect(validateDiagnosticSubmission({ ...valid, company: 'Empresa Exemplo' }, now).ok).toBe(true);
   });
 });
 
@@ -58,6 +59,16 @@ describe('diagnostic email', () => {
     expect(email.html).toContain('&lt;script&gt;');
     expect(email.text).toContain('<script>alert(1)</script> Ana');
     expect(email.replyTo).toBe('ana@example.com');
+    expect(email.subject).toContain('Ana');
+    expect(email.text).toContain('O que está acontecendo');
+    expect(email.text).not.toContain('Prazo relevante');
+  });
+
+  it('keeps an optional-company subject on one line', () => {
+    const parsed = validateDiagnosticSubmission({ ...valid, name: 'Ana\nSilva' }, now);
+    expect(parsed.ok).toBe(true);
+    if (!parsed.ok) return;
+    expect(buildDiagnosticEmail(parsed.data).subject).toBe('Novo contexto — Ana Silva');
   });
 });
 
